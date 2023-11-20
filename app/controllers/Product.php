@@ -12,14 +12,17 @@ class Product extends Controller
         $product = $this->model('ProductModel');
         $dataProduct = $product->getProductList();
         $tile = 'Danh sach sp';
-       $this->data['product_list'] = $dataProduct;
-       $this->data['page_tile'] = $tile;
+       $this->data['sub_content']['product_list'] = $dataProduct;
+       $this->data['sub_content']['page_tile'] = $tile;
         // render view 
-        $this->render('products/list', $this->data);
+        $this->data['content'] = 'products/list';
+        $this->render('layouts/admin_layout', $this->data);
     }
     public function detail($id=0){
         $product = $this->model('ProductModel');
-        $this->data['info'] =  $product->getDetail($id);
-        $this->render('products/detail', $this->data);
+        $this->data['sub_content']['info'] =  $product->getDetail($id);
+        $this->data['sub_content']['title'] =  'chi tiết sản phẩm';
+        $this->data['content'] = 'products/detail';
+        $this->render('layouts/admin_layout', $this->data);
     }
 }
