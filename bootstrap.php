@@ -11,7 +11,18 @@ $folder = str_replace(strtolower($_SERVER['DOCUMENT_ROOT']), '', strtolower(_DIR
 $web_root .= $folder;
 define('_WEB_ROOT', $web_root);
 
-require './configs/routes.php';
+// autoload config
+
+$configs_dir = scandir('configs');
+if(!empty($configs_dir)) {
+    foreach($configs_dir as $item) {
+        if($item != '.' && $item != '..' && file_exists('configs/' . $item)) {
+           require_once 'configs/'.$item;
+        }
+    }
+}
+
+// require './configs/routes.php';
 require './core/Route.php';
 require './app/App.php'; //load app
 require './core/Controller.php'; //load base controller
