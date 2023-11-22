@@ -18,6 +18,24 @@
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Hàm tạo CKEditor cho một trường cụ thể
+      function createCKEditor(elementId) {
+        ClassicEditor
+          .create(document.querySelector(`#${elementId}`))
+          .catch(error => {
+            console.error(`Error creating CKEditor for ${elementId}:`, error);
+          });
+      }
+
+      // Gọi hàm tạo CKEditor cho tiêu đề
+      createCKEditor('editor2');
+
+      // Gọi hàm tạo CKEditor cho nội dung bài viết
+      createCKEditor('editor');
+    });
+  </script>
 </body>
 
 </html>

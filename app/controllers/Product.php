@@ -6,6 +6,8 @@ class Product extends Controller
     public function index()
     {
        $this->render('products/index');
+       $this->render('layouts/admin_layout', $this->data);
+
     }
     public function list_product()
     {
