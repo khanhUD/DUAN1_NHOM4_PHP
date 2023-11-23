@@ -20,7 +20,7 @@ class Connection
             // Kiểm tra xem kết nối đã được thiết lập thành công không
             if ($con) {
                 self::$connect = $con;
-                
+                // echo 'kết nối database connection thành công';
             } else {
                 // Xử lý khi kết nối không thành công
             }
