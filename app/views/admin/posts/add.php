@@ -1,40 +1,36 @@
 <div class="mt-3">
-    <div class="row">
-        <!-- Nội dung của cột 3 -->
-        <h4>THÊM BÀI VIẾT</h4>
-        <div class="card p-3">
-            <form action="" method="POST">
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label for="title" class="form-label">Tiêu đề bài viết</label>
-                        <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
-                        <span class="error-message" id="title-error"></span>
-                    </div>
-
-                    <div class="mb-3 col-md-6">
-                        <label for="image" class="form-label">Hình ảnh</label>
-                        <input type="file" id="image" name="image" class="form-control" accept="image/*" />
-                        <span class="error-message" id="image-error"></span>
-                    </div>
+    <!-- Nội dung của cột 3 -->
+    <h4>THÊM BÀI VIẾT</h4>
+    <div class="card p-3">
+        <form action="" method="POST">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="title" class="form-label">Tiêu đề bài viết</label>
+                    <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
+                    <span class="error-message" id="title-error"></span>
                 </div>
 
-
-                <div class="mb-3">
-                    <label for="content" class="form-label">Nội dung bài viết</label>
-                    <div id="editor"></div>
-                    <span class="error-message" id="content-error"></span>
+                <div class="mb-3 col-md-6">
+                    <label for="image" class="form-label">Hình ảnh</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/*" />
+                    <span class="error-message" id="image-error"></span>
                 </div>
-
-                <!-- Thêm nhiều trường hoặc tùy chỉnh theo nhu cầu -->
-
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Thêm</button>
-                    <button type="reset" class="btn btn-secondary">Làm mới</button>
-                </div>
-            </form>
-        </div>
+            </div>
 
 
+            <div class="mb-3">
+                <label for="content" class="form-label">Nội dung bài viết</label>
+                <textarea name="content" id="editor" cols="30" rows="10"></textarea>
+                <span class="error-message" id="content-error"></span>
+            </div>
+
+            <!-- Thêm nhiều trường hoặc tùy chỉnh theo nhu cầu -->
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Thêm</button>
+                <button type="reset" class="btn btn-secondary">Làm mới</button>
+            </div>
+        </form>
     </div>
 </div>
 <div class="row mt-3">
@@ -48,11 +44,11 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th class="text-center">Mã bài viết</th>
-                                <th class="text-center">Tên bài viết</th>
-                                <th class="text-center">Hình</th>
-                                <th class="text-center">Trạng thái</th>
-                                <th class="text-center">Chức năng</th>
+                                <th >Mã bài viết</th>
+                                <th >Tên bài viết</th>
+                                <th >Hình</th>
+                                <th >Trạng thái</th>
+                                <th >Chức năng</th>
                             </tr>
 
                         </thead>
@@ -65,17 +61,18 @@
                                 <td>Trevor Baker</td>
                                 <td>hình</td>
 
-                                <td>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" />
-                                    </div>
-                                </td>
+                                <td><span class="badge bg-label-primary me-1">Active</span></td>
 
                                 <td>
-                                    <form class="d-flex justify-content-center" method="post" action="#">
-                                        <a href="index.php?act=suahanghoa&ma_hh=<?= $ma_hh ?>" class="btn btnsua">Sửa</a>
-                                        <a href="index.php?act=xoahanghoa&ma_hh=<?= $ma_hh ?>" class="btn btn-outline-danger mx-2">Xóa</a>
-                                    </form>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
+                                        </div>
+                                    </div>
                                 </td>
 
                             </tr>

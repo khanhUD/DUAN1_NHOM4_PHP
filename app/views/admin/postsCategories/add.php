@@ -6,7 +6,7 @@
                     <!-- Nội dung của cột 3 -->
                     <h4>THÊM LOẠI BÀI VIẾT</h4>
 
-                    <div class="card p-3">
+                    <div class="card p-3 mb-3">
                       <form action="">
                         <div class="mb-3 col-md-12">
                           <label for="name" class="form-label">Tên loại bài viết</label>
@@ -23,7 +23,7 @@
                 </div>
 
                 <!-- Cột chiều rộng 9 -->
-                <div class="col-md-8">
+                <div class="col-md-8 ">
                   <div class="main-content">
                     <!-- Nội dung của cột 9 -->
                     <h4>DANH SÁCH LOẠI BÀI VIẾT</h4>
@@ -47,17 +47,19 @@
                               <td>Trevor Baker</td>
 
 
-                              <td>
-                                <div class="form-check form-switch">
-                                  <input class="form-check-input float-end" type="checkbox" role="switch" />
-                                </div>
-                              </td>
-                              <td>
-                                <form class="d-flex justify-content-center" method="post" action="#">
-                                  <a href="index.php?act=suahanghoa&ma_hh=<?= $ma_hh ?>" class="btn btnsua">Sửa</a>
-                                  <a href="index.php?act=xoahanghoa&ma_hh= <?= $ma_hh ?>" class="btn btn-outline-danger mx-2">Xóa</a>
-                                </form>
-                              </td>
+                              <td><span class="badge bg-label-primary me-1">Active</span></td>
+
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
 
 

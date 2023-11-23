@@ -39,7 +39,7 @@
 
                     <div class="mb-3">
                       <label for="content" class="form-label">Nội dung bài viết</label>
-                      <div id="editor2"></div> 
+                      <textarea name="content" id="editor" cols="30" rows="10"></textarea>
                       <span class="error-message" id="content-error"></span>
                     </div>
 
@@ -90,11 +90,16 @@
                             </td>
 
                             <td>
-                              <form class="d-flex justify-content-center" method="post" action="#">
-                                <a href="index.php?act=suahanghoa&ma_hh=<?= $ma_hh ?>" class="btn btnsua">Sửa</a>
-                                <a href="index.php?act=xoahanghoa&ma_hh=<?= $ma_hh ?>" class="btn btn-outline-danger mx-2">Xóa</a>
-                              </form>
-                            </td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
+                                        </div>
+                                    </div>
+                                </td>
 
                           </tr>
 

@@ -34,6 +34,7 @@
 
       // Gọi hàm tạo CKEditor cho nội dung bài viết
       createCKEditor('editor');
+      
     });
   </script>
 </body>
