@@ -19,11 +19,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
-                        <a href="homeClient" class="nav-item nav-link ">Trang Chủ</a>
-                        <a href="aboutClient" class="nav-item nav-link">Giới Thiệu</a>
-                        <a href="menuClient" class="nav-item nav-link">Thực Đơn</a>
-                        <a href="blogsClient" class="nav-item nav-link">Bài Viết</a>
-                        <a href="contactClient" class="nav-item nav-link">Liên Hệ</a>
+                        <a href="<?= _WEB_ROOT . 'homeClient'; ?>" class="nav-item nav-link ">Trang Chủ</a>
+                        <a href="<?= _WEB_ROOT . 'aboutClient'; ?>" class="nav-item nav-link">Giới Thiệu</a>
+                        <a href="<?= _WEB_ROOT . 'menuClient'; ?>" class="nav-item nav-link">Thực Đơn</a>
+                        <a href="<?= _WEB_ROOT . 'blogsClient'; ?>" class="nav-item nav-link">Bài Viết</a>
+                        <a href="<?= _WEB_ROOT . 'contactClient'; ?>" class="nav-item nav-link">Liên Hệ</a>
+                      
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                     <li class="nav-item navbar-dropdown dropdown-user dropdown me-4">

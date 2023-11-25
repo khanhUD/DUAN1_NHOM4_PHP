@@ -94,27 +94,27 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="tableCategories" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'tableCategories'; ?>" class="menu-link">
               <div data-i18n="Basic Inputs">Loại bàn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="table" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'table'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bàn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="ProductCategories" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'productCategories'; ?>" class="menu-link">
               <div data-i18n="Input groups">Loại món ăn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="Products" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'products'; ?>" class="menu-link">
               <div data-i18n="Input groups">Món ăn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="oders" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'oders'; ?>" class="menu-link">
               <div data-i18n="Input groups">Đơn hàng</div>
             </a>
           </li>
@@ -148,7 +148,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . '#'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'productComments'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bình luận món ăn</div>
             </a>
           </li>

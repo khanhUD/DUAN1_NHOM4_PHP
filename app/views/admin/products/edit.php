@@ -25,27 +25,24 @@
                     <input type="file" id="image" name="image" class="form-control" accept="image/*" />
                     <span class="error-message" id="image-error"></span>
                 </div>
-                <div class="mb-3 col-md-6">
-                    <label class="form-label" for="status">Trạng Thái</label>
-                    <div class="input-group input-group-merge">
-                        <div class="form-check mx-3">
-                            <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
-                            <label class="form-check-label" for="radioOption1">
-                                Ẩn
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
-                            <label class="form-check-label" for="radioOption2">
-                                Hiện
-                            </label>
-                        </div>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label class="form-label" for="status">Trạng Thái</label>
+                <div class="input-group input-group-merge">
+                    <div class="form-check mx-3">
+                        <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
+                        <label class="form-check-label" for="radioOption1">
+                            Ẩn
+                        </label>
                     </div>
-
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
+                        <label class="form-check-label" for="radioOption2">
+                            Hiện
+                        </label>
+                    </div>
                 </div>
 
-                </span>
-              </div>
             </div>
 
             <div class="mb-3">
@@ -123,6 +120,5 @@
                 </div>
             </div>
         </div>
-      </div>
     </div>
 </div>
