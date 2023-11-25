@@ -31,9 +31,8 @@ if (!empty($config['database'])) {
         require_once 'core/Connection.php';
         require_once 'core/Database.php';
         $db = new Database() ;
+   
+        
     }
 }
-// echo '<pre>';
-// print_r($db_config);
-// echo '<pre>';
 require './core/Controller.php'; //load base controller

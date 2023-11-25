@@ -2,22 +2,41 @@
 <div class="row">
     <!-- Cột chiều rộng 3 -->
     <div class="col-md-4">
-        <h4 class="card-title">SỬA LOẠI MÓN</h4>
-        <div class="card p-4">
-            <form class="form-horizontal form_edit_loai" action="./index.php?btn_update" method="POST">
-                <div class="form-group mb-3">
-                    <label for="ten_loai" class="fw-bold control-label col-form-label">TÊN LOẠI MÓN ĂN</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" id="ten_loai" placeholder="Nhập tên loại món..." name="ten_loai" value="<?php if (isset($ten_loai) && ($ten_loai != "")) echo $ten_loai; ?>">
-                        <span class="text-danger text_message">
-                        </span>
+        <div class="sidebar">
+            <!-- Nội dung của cột 3 -->
+            <h4>SỬA BÀN</h4>
+            <div class="card p-3">
+                <form action="">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Tên bàn</label>
+                        <input type="email" class="form-control" id="name" name="name">
+                        <div id="mess_err" class="form-text"></div>
                     </div>
-                </div>
-                <div class="">
-                    <input type="submit" class="btn btn-primary" name="update_loai" value="Cập nhật">
-                </div>
-            </form>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label" for="status">Trạng Thái</label>
+                        <div class="input-group input-group-merge">
+                            <div class="form-check mx-3">
+                                <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
+                                <label class="form-check-label" for="radioOption1">
+                                    Ẩn
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
+                                <label class="form-check-label" for="radioOption2">
+                                    Hiện
+                                </label>
+                            </div>
+                        </div>
 
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    <button type="reset" class="btn btn-primary">Nhập lại</button>
+                    <a class="btn btn-primary" href="<?= _WEB_ROOT . 'table'; ?>">Nhập Thêm</a>
+                </form>
+            </div>
         </div>
     </div>
 
