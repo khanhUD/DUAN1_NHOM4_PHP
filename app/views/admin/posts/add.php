@@ -28,7 +28,7 @@
 
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Thêm</button>
-                <button type="reset" class="btn btn-secondary">Làm mới</button>
+                <button type="reset" class="btn btn-primary">Làm mới</button>
             </div>
         </form>
     </div>

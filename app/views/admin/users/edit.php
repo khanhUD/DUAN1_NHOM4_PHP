@@ -10,53 +10,68 @@
             <div class="row">
               <div class="mb-3 col-md-6">
                 <label for="full_name" class="form-label">Họ và tên</label>
-                <input class="form-control" type="text" id="full_name" name="full_name" value="" placeholder="Nguyễn Văn A" />
+                <input class="form-control" type="text" id="full_name" name="full_name" value="" placeholder="Nhập họ tên" />
                 <span class="error-message " id="full_name-error"></span>
               </div>
               <div class="mb-3 col-md-6">
                 <label for="email" class="form-label">Email</label>
-                <input class="form-control" type="text" id="email" name="email" value="" placeholder="Nguyễn Văn A" />
+                <input class="form-control" type="text" id="email" name="email" value="" placeholder="Nhập email" />
                 <span class="error-message " id="email-error"></span>
               </div>
-              <div class="mb-3 col-md-6">
-                <label for="phone" class="form-label">Số điện thoại</label>
-                <input class="form-control" type="text" id="phone" name="phone" value="" placeholder="Nguyễn Văn A" />
-                <span class="error-message " id="phone-error"></span>
-              </div>
+              
               <div class="mb-3 col-md-6">
                 <label for="password" class="form-label">Mật khẩu</label>
-                <input class="form-control" type="text" id="password" name="password" value="" placeholder="Nguyễn Văn A" />
+                <input class="form-control" type="text" id="password" name="password" value="" placeholder="Nhập mật khẩu" />
                 <span class="error-message " id="password-error"></span>
               </div>
               <div class="mb-3 col-md-6">
                 <label for="hinh" class="form-label">Hình ảnh</label>
-                <input type="file" class="form-control" id="hinh" name="hinh" onblur="validatehinh()">
+                <input type="file" class="form-control" id="hinh" name="hinh">
                 <span class="error-message " id="hinh-error"></span>
               </div>
 
               <div class="mb-3 col-md-6">
-                <label class="form-label" for="phone">Vai trò</label>
+                <label class="form-label" for="status">vai trò</label>
                 <div class="input-group input-group-merge">
                   <div class="form-check mx-3">
-                    <input class="form-check-input" type="radio" name="role" value="Khách hàng">
+                    <input class="form-check-input" type="radio" name="status" id="radioOption1" value="admin">
                     <label class="form-check-label" for="radioOption1">
-                      Khách hàng
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="role" value="nhân viên" checked>
-                    <label class="form-check-label" for="radioOption2">
                       Nhân viên
                     </label>
                   </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="radioOption2" value="user" checked>
+                    <label class="form-check-label" for="radioOption2">
+                      Khách hàng
+                    </label>
+                  </div>
                 </div>
-                <span class="error-message" id="role-error">Lỗi vai trò</span>
+
+              </div>
+              <div class="mb-3 col-md-6">
+                <label class="form-label" for="status">trạng thái</label>
+                <div class="input-group input-group-merge">
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
+                    <label class="form-check-label" for="radioOption1">
+                      Khóa
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
+                    <label class="form-check-label" for="radioOption2">
+                      Mở
+                    </label>
+                  </div>
+                </div>
+
               </div>
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Thêm</button>
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
             <button type="reset" class="btn btn-primary">Nhập lại</button>
+            <a class="btn btn-primary" href="<?= _WEB_ROOT . 'users'; ?>">Nhập Thêm</a>
           </form>
         </div>
       </div>

@@ -18,27 +18,28 @@
                             <input class="form-control" type="text" id="number_limit" name="number_limit" value="" placeholder="30 người" />
                             <span class="error-message " id="number_limit-error"></span>
                         </div>
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-6">
                             <label class="form-label" for="status">Trạng Thái</label>
                             <div class="input-group input-group-merge">
                                 <div class="form-check mx-3">
-                                    <input class="form-check-input" type="radio" name="status" id="radioOption1" value="Đã kích hoạt">
+                                    <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
                                     <label class="form-check-label" for="radioOption1">
-                                        Đã kích hoạt
+                                        Ẩn
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="status" id="radioOption2" value="Chưa kích hoạt" checked>
+                                    <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
                                     <label class="form-check-label" for="radioOption2">
-                                        Chưa kích hoạt
+                                        Hiện
                                     </label>
                                 </div>
                             </div>
-                            <span class="error-message" id="status-error">Lỗi trạng thái</span>
+
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Thêm</button>
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
                         <button type="reset" class="btn btn-primary">Nhập lại</button>
+                        <a class="btn btn-primary" href="<?= _WEB_ROOT . 'vouchers'; ?>">Nhập Thêm</a>
 
                     </form>
                 </div>

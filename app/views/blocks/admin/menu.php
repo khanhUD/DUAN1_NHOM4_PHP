@@ -67,12 +67,12 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . '#'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'banner'; ?>" class="menu-link">
               <div data-i18n="Basic Inputs">Banners</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'postsCategories'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'PostsCategories'; ?>" class="menu-link">
               <div data-i18n="Input groups">Loại bài viết</div>
             </a>
           </li>
@@ -94,27 +94,27 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="tableCategories" class="menu-link">
               <div data-i18n="Basic Inputs">Loại bàn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="table" class="menu-link">
               <div data-i18n="Input groups">Bàn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="ProductCategories" class="menu-link">
               <div data-i18n="Input groups">Loại món ăn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="Products" class="menu-link">
               <div data-i18n="Input groups">Món ăn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="#" class="menu-link">
+            <a href="oders" class="menu-link">
               <div data-i18n="Input groups">Đơn hàng</div>
             </a>
           </li>
@@ -143,7 +143,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . '#'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'postComments'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bình luận bài viết</div>
             </a>
           </li>
@@ -153,7 +153,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . '#'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'contact'; ?>" class="menu-link">
               <div data-i18n="Input groups">Liên hệ</div>
             </a>
           </li>

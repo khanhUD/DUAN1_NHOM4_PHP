@@ -27,7 +27,6 @@ class Connection
         } catch (Exception $ex) {
             $mess = $ex->getMessage();
             $data['message'] = $mess;
-         
             die();
         }
     }
@@ -36,7 +35,6 @@ class Connection
     {
         if (self::$instance == null) {
             $connection = new Connection($config);
-
             // Kiểm tra và gán giá trị cho $connect
             if (self::$connect) {
                 self::$instance = self::$connect;
