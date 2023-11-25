@@ -1,3 +1,4 @@
+<!-- Vĩnh -->
 <div class="row">
     <!-- Cột chiều rộng 3 -->
     <div class="col-md-4">
@@ -30,7 +31,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <!-- <th>Id</th> -->
                                 <th>Tên</th>
 
                                 <th>Trạng Thái</th>
@@ -39,10 +40,10 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                             <tr>
-                                <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
+                                <!-- <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
                                     <strong>VueJs
                                         Project</strong>
-                                </td>
+                                </td> -->
                                 <td>Trevor Baker</td>
                                 <td><span class="badge bg-label-info me-1">Scheduled</span>
                                 </td>

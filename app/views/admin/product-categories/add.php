@@ -1,21 +1,11 @@
+<!-- Vĩnh -->
 <div class="row">
-    <!-- Cột chiều rộng 3 -->
+    <!-- Cột chiều rộng 4 -->
     <div class="col-md-4">
         <div class="sidebar">
-            <!-- Nội dung của cột 3 -->
             <h4 class="card-title">THÊM LOẠI MÓN</h4>
             <div class="card p-3">
-                <!-- <form action="">
-                          <div class="mb-3">
-                            <label for="name" class="form-label">Tên Loại bàn</label>
-                            <input type="email" class="form-control" id="name" name="name">
-                            <div id="mess_err" class="form-text"></div>
-                          </div>
-
-                          <button type="submit" class="btn btn-primary">Thêm</button>
-                        </form> -->
                 <form class="form-horizontal form_add_loai" action="index.php?btn_add" method="post">
-
                     <div class="form-group">
                         <label for="ten_loai" class="fw-bold control-label col-form-label">TÊN LOẠI MÓN ĂN</label>
                         <div class="mb-3">
@@ -33,7 +23,7 @@
         </div>
     </div>
 
-    <!-- Cột chiều rộng 9 -->
+    <!-- Cột chiều rộng 8 -->
     <div class="col-md-8">
         <div class="main-content">
             <!-- Nội dung của cột 9 -->
@@ -43,7 +33,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <!-- <th>Id</th> -->
                                 <th>Tên</th>
 
                                 <th>Trạng Thái</th>
@@ -52,10 +42,6 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                             <tr>
-                                <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-                                    <strong>VueJs
-                                        Project</strong>
-                                </td>
                                 <td>Trevor Baker</td>
                                 <td><span class="badge bg-label-info me-1">Scheduled</span>
                                 </td>

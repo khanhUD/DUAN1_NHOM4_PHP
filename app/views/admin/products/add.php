@@ -1,3 +1,4 @@
+<!-- Vĩnh -->
 <div class="mt-5">
   <div class="row">
     <div class="col-md-12">
@@ -5,7 +6,7 @@
       <div class="card p-4">
         <form class="form-horizontal form_edit_loai" action="./index.php?btn_update" method="POST">
           <div class="row">
-            <div class="form-group mb-3 col-md-6">
+            <div class="form-group col-md-6">
               <label for="ten_loai" class="fw-bold control-label col-form-label">Tên món</label>
               <div class="col-sm-12">
                 <input type="text" class="form-control" id="ten_loai" placeholder="Nhập tên món..." name="ten_loai" value="<?php if (isset($ten_loai) && ($ten_loai != "")) echo $ten_loai; ?>">
@@ -14,7 +15,7 @@
                 </span>
               </div>
             </div>
-            <div class="form-group mb-3 col-md-6">
+            <div class="form-group col-md-6">
               <label for="ten_loai" class="fw-bold control-label col-form-label">Giá</label>
               <div class="col-sm-12">
                 <input type="text" class="form-control" id="ten_loai" placeholder="Nhập giá..." name="ten_loai" value="<?php if (isset($ten_loai) && ($ten_loai != "")) echo $ten_loai; ?>">
@@ -24,53 +25,44 @@
               </div>
             </div>
           </div>
-          <div class="form-group mb-3">
-            <div class="button-wrapper">
-              <label for="upload" class="fw-bold control-label col-form-label">HÌNH</label>
-              <div class="input-img">
-                <label for="upload" class="btn btn-primary me-2" tabindex="0">
-                  <span class="d-none d-sm-block">Tải ảnh mới lên</span>
-                  <i class="bx bx-upload d-block d-sm-none"></i>
-                  <input type="file" id="upload" class="account-file-input"  accept="image/png, image/jpeg" />
-                </label>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="ten_loai" class="fw-bold control-label col-form-label">TIÊU ĐỀ</label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" id="ten_loai" placeholder="Nhập tiêu đề cho món..." name="ten_loai" value="">
+                <span class="text-danger text_message">
+
+                </span>
               </div>
-              <p class="text-muted mb-0">Được phép JPG,JPEG hoặc PNG.</p>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="upload" class="fw-bold control-label col-form-label">HÌNH</label>
+              <div class="col-sm-12">
+
+                <input type="file" id="upload" class="form-control" accept="image/png, image/jpeg" />
+                <span></span>
+              </div>
             </div>
           </div>
-          <div class="form-group mb-3">
-            <label for="ten_loai" class="fw-bold control-label col-form-label">TIÊU ĐỀ</label>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" id="ten_loai" placeholder="Nhập tiêu đề cho món..." name="ten_loai" value="">
-              <span class="text-danger text_message">
 
-              </span>
+          <div class="row mb-3">
+            <div class="form-group mb-3 col-md-12">
+              <label for="ten_loai" class="fw-bold control-label col-form-label">MÔ TẢ NGẮN</label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" id="ten_loai" placeholder="Mô tả ngắn gọn cho món..." name="ten_loai" value="">
+                <span class="text-danger text_message">
+
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="form-group mb-3">
-            <label for="ten_loai" class="fw-bold control-label col-form-label">MÔ TẢ</label>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" id="ten_loai" placeholder="Hãy mô tả cho món..." name="ten_loai" value="">
-              <span class="text-danger text_message">
+            <div class="form-group col-md-12">
+              <label for="editor" class="fw-bold control-label col-form-label">MÔ TẢ</label>
+              <div class="col-sm-12">
+                <textarea type="text" class="form-control" id="editor" placeholder="Hãy mô tả cho món..." name="ten_loai" value=""></textarea>
+                <span class="text-danger text_message">
 
-              </span>
-            </div>
-          </div>
-          <div class="form-group mb-3">
-            <label for="ten_loai" class="fw-bold control-label col-form-label">MÔ TẢ NGẮN</label>
-            <div class="col-sm-12">
-              <input type="text" class="form-control" id="ten_loai" placeholder="Mô tả ngắn gọn cho món..." name="ten_loai" value="">
-              <span class="text-danger text_message">
-
-              </span>
-            </div>
-          </div>
-          <div class="form-group mb-3">
-            <label for="ten_loai" class="fw-bold control-label col-form-label">NGÀY TẠO</label>
-            <div class="col-sm-12">
-              <input type="date" class="form-control" id="ten_loai" name="ten_loai" value="">
-              <span class="text-danger text_message">
-
-              </span>
+                </span>
+              </div>
             </div>
           </div>
           <div class="">
@@ -82,7 +74,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-12">
       <div class="main-content">
         <!-- Nội dung của cột 9 -->
@@ -92,7 +84,7 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Id</th>
+                  <!-- <th>Id</th> -->
                   <th>Tên</th>
                   <th>Giá</th>
                   <th>Hình</th>
@@ -103,10 +95,10 @@
               </thead>
               <tbody class="table-border-bottom-0">
                 <tr>
-                  <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
+                  <!-- <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
                     <strong>id</strong>
 
-                  </td>
+                  </td> -->
                   <td>tên</td>
                   <td>giá</td>
                   <td>
