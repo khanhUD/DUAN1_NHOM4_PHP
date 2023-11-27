@@ -1,8 +1,5 @@
-<?php 
-// controller mac dinh   
+<?php
 $routes['default_controller'] = 'home';
-$routes['san-pham'] = 'products/index';
-$routes['trang-chu'] = 'home';
-$routes['tin-tuc/.+-(\d+).html'] = 'posts/category/$1';
-
-
+$routes['admin'] = 'home';
+$routes['banner'] = 'banner/add';
+$routes['banner/edit'] = 'banner/edit';

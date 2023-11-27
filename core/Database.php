@@ -3,7 +3,7 @@
 class Database
 {
     private $_conn, $db_config;
-   
+    use QueryBuilder;
 
     public function __construct()
     {
@@ -25,7 +25,6 @@ class Database
             $fielStr = rtrim($fielStr, ',');
             $valueStr = rtrim($valueStr, ',');
             $sql = "INSERT INTO  $table($fielStr) VALUES ($valueStr)";
-        
             $status = $this->query($sql);
             if (!$status) return false;
         }

@@ -4,37 +4,46 @@
         <div class="col-md-12">
             <div class="sidebar">
                 <!-- Nội dung của cột 3 -->
-                <h4>THÊM BANNER</h4>
+                <h4>SỬA BANNER</h4>
                 <div class="card p-3">
-                    <form action="">
+                    <form id="form-edit-banner" action="{{_WEB_ROOT}}/banner/edit_post" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="mb-3 col-md-6">
+                            <input type="hidden" name="id" value="{{$banner_detail['id']}}">
+                            <div class="mb-3 col-md-6 form-group">
                                 <label for="name" class="form-label">Tiêu Đề</label>
-                                <input type="email" class="form-control" id="name" name="name">
-                                <div id="mess_err" class="form-text"></div>
+                                <input type="text" class="form-control" id="name" name="title" value="{{$banner_detail['title']}}">
+                                  <div class='form-message'></div>
                             </div>
-                            <div class="mb-3 col-md-6">
+                            <div class="mb-3 col-md-6 form-group">
                                 <label for="name" class="form-label">Link</label>
-                                <input type="email" class="form-control" id="name" name="name">
-                                <div id="mess_err" class="form-text"></div>
+                                <input type="text" class="form-control" id="name" name="link" value="{{$banner_detail['link']}}">
+                                  <div class='form-message'></div>
                             </div>
 
-                            <div class="mb-3 col-md-6">
+                            <div class="mb-3 col-md-6 form-group">
                                 <label for="image" class="form-label">Ảnh</label>
                                 <input type="file" class="form-control" id="image" name="image">
-                                <div id="mess_err" class="form-text"></div>
+                                  <div class='form-message'></div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="status">Trạng thái</label>
                                 <div class="input-group form-control input-group-merge">
                                     <div class="form-check mx-3">
-                                        <input class="form-check-input" type="radio" name="role" value="off">
+                                        <input 
+                                        @if($banner_detail['status'] === 'off')
+                                        checked
+                                        @endif
+                                        class="form-check-input" type="radio" name="status" value="off">
                                         <label class="form-check-label" for="radioOption1">
                                             Ẩn
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="role" value="on" checked>
+                                        <input 
+                                        @if($banner_detail['status'] === 'on')
+                                        checked
+                                        @endif
+                                        class="form-check-input" type="radio" name="status" value="on">
                                         <label class="form-check-label" for="radioOption2">
                                             Hiện
                                         </label>
@@ -54,58 +63,6 @@
     </div>
     <div class="row mt-3">
         <!-- Cột chiều rộng 9 -->
-        <div class="col-md-12">
-            <div class="main-content">
-                <!-- Nội dung của cột 9 -->
-                <H4>QUẢN LÝ BANNER</H4>
-                <div class="card">
-                    <div class="table-responsive text-nowrap">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Tiêu Đề</th>
-                                    <th>Link</th>
-                                    <th>Ảnh</th>
-                                    <th>Trạng thái</th>
-                                    <th>chức năng/th>
-
-                                </tr>
-                            </thead>
-                            <tbody class="table-border-bottom-0">
-                                <tr>
-                                    <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-                                        <strong>VueJs
-                                            Project</strong>
-                                    </td>
-                                    <td>Trevor Baker</td>
-                                    <td>
-                                        link:
-                                    </td>
-                                    <td>
-                                        ảnh
-                                    </td>
-                                    <td><span class="badge bg-label-info me-1">Scheduled</span>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                                    Edit</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+     
     </div>
 </div>
