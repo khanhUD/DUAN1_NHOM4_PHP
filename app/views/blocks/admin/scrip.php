@@ -24,7 +24,7 @@
       errorSelector: '.form-message',
 
       rules: [
-        Validator.isEmail('input[name="title"]', '* Vui long nhap email !'),
+        Validator.isRequired('input[name="title"]', '* Vui long nhap !'),
         Validator.isRequired('input[name="link"]', '* Vui long nhap !'),
         Validator.isRequired('input[name="image"]', '* Vui long nhap !'),
       ]
@@ -38,7 +38,7 @@
       errorSelector: '.form-message',
 
       rules: [
-        Validator.isEmail('input[name="title"]', '* Vui long nhap email !'),
+        Validator.isRequired('input[name="title"]', '* Vui long nhap !'),
         Validator.isRequired('input[name="link"]', '* Vui long nhap !'),
         Validator.isRequired('input[name="image"]', '* Vui long nhap !'),
       ]

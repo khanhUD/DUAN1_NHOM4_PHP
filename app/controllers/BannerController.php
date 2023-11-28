@@ -68,4 +68,13 @@ class BannerController extends Controller
             $response->redirect('banner/add');
         }
     }
+    public function delete()
+    {  
+        $request = new Request();
+        $id = $request->getFields(); //lấy id
+        $product = $this->model('ProductModel');
+        $product->deleteBanner($id['id']);
+        $response  = new Response();
+        $response->redirect('banner/add');
+    }
 }

@@ -2,7 +2,7 @@
 
   <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-      <a href="trang-chu" class="app-brand-link">
+      <a href="admin" class="app-brand-link">
         <span class="app-brand-logo demo">
           <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
@@ -50,7 +50,7 @@
     <ul class="menu-inner py-1">
       <!-- Bảng điều khiển -->
       <li class="menu-item">
-        <a href="trang-chu" class="menu-link">
+        <a href="admin" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">THỐNG KÊ / BÁO CÁO</div>
         </a>
@@ -92,19 +92,9 @@
           <i class="menu-icon tf-icons bx bx-detail"></i>
           <div data-i18n="Form Elements">Nhà hàng</div>
         </a>
-        <ul class="menu-sub">
+        <ul class="menu-sub">        
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'tableCategories'; ?>" class="menu-link">
-              <div data-i18n="Basic Inputs">Loại bàn</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'table'; ?>" class="menu-link">
-              <div data-i18n="Input groups">Bàn</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'productCategories'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'productsCategories'; ?>" class="menu-link">
               <div data-i18n="Input groups">Loại món ăn</div>
             </a>
           </li>
@@ -143,17 +133,17 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'postComments'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'postsComments'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bình luận bài viết</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'productComments'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'productsComments'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bình luận món ăn</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'contact'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'contacts'; ?>" class="menu-link">
               <div data-i18n="Input groups">Liên hệ</div>
             </a>
           </li>

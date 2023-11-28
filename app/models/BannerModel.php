@@ -39,5 +39,10 @@ class BannerModel extends Model {
         $data = $this->db->table($this->_table)->insert($data);
         return $data;
     }
+    public function deleteBanner($id)
+    {
+        $this->db->table($this->_table)->where('id', '=', $id)->delete();
+
+    }
 
 }
