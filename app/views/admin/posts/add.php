@@ -3,10 +3,11 @@
     <h4>THÊM BÀI VIẾT</h4>
     <div class="card p-3">
         <form action="" method="POST">
+
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label for="title" class="form-label">Tiêu đề bài viết</label>
-                    <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
+                    <label for="title" class="form-label"></label>
+                    <input class="form-control" type="text" id="title" name="title" value="Tiêu đề bài viết" placeholder="Nhập tiêu đề bài viết" />
                     <span class="error-message" id="title-error"></span>
                 </div>
 
@@ -23,6 +24,7 @@
                 <textarea name="content" id="editor" cols="30" rows="10"></textarea>
                 <span class="error-message" id="content-error"></span>
             </div>
+
 
             <!-- Thêm nhiều trường hoặc tùy chỉnh theo nhu cầu -->
 
@@ -44,40 +46,39 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th >Mã bài viết</th>
-                                <th >Tên bài viết</th>
-                                <th >Hình</th>
-                                <th >Trạng thái</th>
-                                <th >Chức năng</th>
+                                <th>Mã bài viết</th>
+                                <th>Tên bài viết</th>
+                                <th>Hình</th>
+                                <th>Trạng thái</th>
+                                <th>Chức năng</th>
                             </tr>
 
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-                                    <strong>VueJs
-                                        Project</strong>
-                                </td>
-                                <td>Trevor Baker</td>
-                                <td>hình</td>
+                            <?php foreach ($posts as $items) : ?>
+                                <tr>
+                                    <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
+                                        <?= $items['id'] ?>
+                                    </td>
+                                    <td> <?= $items['title'] ?></td>
+                                    <td> <?= $items['image'] ?></td>
 
-                                <td><span class="badge bg-label-primary me-1">Active</span></td>
+                                    <td><span class="badge bg-label-primary me-1"> <?= $items['status'] ?></span></td>
 
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
 
-                            </tr>
-
-
+                                </tr>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
