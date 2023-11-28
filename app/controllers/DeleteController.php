@@ -18,4 +18,5 @@ class DeleteController extends Controller {
             $response->redirect('banner');
         }
     }
+   
 }

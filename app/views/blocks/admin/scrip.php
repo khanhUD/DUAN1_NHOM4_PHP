@@ -19,9 +19,6 @@
 <!-- Page JS -->
 
 <script>
-  
-
-
   if (document.querySelector('#form-add-banner')) {
     Validator({
       form: '#form-add-banner',
@@ -58,6 +55,30 @@
       ]
     })
   }
+  if (document.querySelector('#form-add-postCategories')) {
+    Validator({
+      form: '#form-add-postCategories',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="name"]', '* Vui long nhap !'),
+
+      ]
+    })
+  }
+  if (document.querySelector('#form-edit-postCategories')) {
+    Validator({
+      form: '#form-add-postCategories',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="name"]', '* Vui long nhap !'),
+
+      ]
+    })
+  }
 </script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
@@ -66,21 +87,21 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
 
-    if(document.getElementById('editor2')) {
+    if (document.getElementById('editor2')) {
       createCKEditor('editor2');
     }
 
-    if(document.getElementById('editor')) {
+    if (document.getElementById('editor')) {
       let editor;
 
       ClassicEditor.create(document.getElementById('editor'))
-      .then(newEditor => {
-        editor = newEditor;
-      })
+        .then(newEditor => {
+          editor = newEditor;
+        })
     }
 
-    
-    
+
+
 
   });
 </script>
