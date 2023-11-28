@@ -26,13 +26,13 @@
                         <div class="mb-3 col-md-6">
                           <label for="name" class="form-label">Họ và tên</label>
                           <input class="form-control" type="text" id="name" name="name" value="" placeholder="Nguyễn Văn A" />
-                          <span class="error-message " id="name-error"> Lỗi</span>
+                          <span class="error-message " id="name-error"> </span>
                         </div>
 
                         <div class="mb-3 col-md-6">
                           <label for="email" class="form-label">E-mail</label>
                           <input class="form-control" type="text" id="email" name="email" placeholder="hongbietlamgi@gmail.com" />
-                          <span class="error-message" id="email-error"> Lỗi</span>
+                          <span class="error-message" id="email-error"> </span>
                         </div>
                         <div class="mb-3 col-md-6">
                           <label class="form-label" for="phone">Số điện thoại</label>
@@ -40,7 +40,7 @@
                             <span class="input-group-text">VN (+84)</span>
                             <input type="text" id="phone" name="phone" class="form-control" placeholder="0342582305" />
                           </div>
-                          <span class="error-message" id="phone-error">lỗi phone</span>
+                          <span class="error-message" id="phone-error"></span>
                         </div>
                         <div class="row">
                           <div class="mb-3 col-md-6">
@@ -59,7 +59,7 @@
                                 </label>
                               </div>
                             </div>
-                            <span class="error-message" id="status-error">Lỗi trạng thái</span>
+                      
                           </div>
                           <div class="mb-3 col-md-6">
                             <label class="form-label" for="phone">Vai trò</label>
@@ -77,7 +77,7 @@
                                 </label>
                               </div>
                             </div>
-                            <span class="error-message" id="role-error">Lỗi vai trò</span>
+                         
                           </div>
                         </div>
 

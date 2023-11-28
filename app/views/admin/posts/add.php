@@ -6,8 +6,19 @@
 
             <div class="row">
                 <div class="mb-3 col-md-6">
-                    <label for="title" class="form-label"></label>
-                    <input class="form-control" type="text" id="title" name="title" value="Tiêu đề bài viết" placeholder="Nhập tiêu đề bài viết" />
+                    <label for="post_category_id" class="form-label">Loại bài viết</label>
+
+                    <select class="form-control" name="post_category_id" id="post_category_id">
+                        <?php foreach ($listloai as $items) : ?>
+                            <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+
+                    <span class="error-message" id="post_category_id-error"></span>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="title" class="form-label">Tiêu đề bài viết</label>
+                    <input class="form-control" type="text" id="title" name="title" placeholder="Nhập tiêu đề bài viết" />
                     <span class="error-message" id="title-error"></span>
                 </div>
 
@@ -21,7 +32,7 @@
 
             <div class="mb-3">
                 <label for="content" class="form-label">Nội dung bài viết</label>
-                <textarea name="content" id="editor" cols="30" rows="10"></textarea>
+                <div id="editor"></div>
                 <span class="error-message" id="content-error"></span>
             </div>
 

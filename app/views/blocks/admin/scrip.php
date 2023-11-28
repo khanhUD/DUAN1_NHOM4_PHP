@@ -1,9 +1,11 @@
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->
-<script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/libs/jquery/jquery.js"></script>
-<script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/libs/popper/popper.js"></script>
+<!-- <script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/libs/jquery/jquery.js"></script>
+<script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/libs/popper/popper.js"></script> -->
 <script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/js/bootstrap.js"></script>
 <script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+
 
 <script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/js/menu.js"></script>
 <!-- endbuild -->
@@ -17,6 +19,9 @@
 <!-- Page JS -->
 
 <script>
+  
+
+
   if (document.querySelector('#form-add-banner')) {
     Validator({
       form: '#form-add-banner',
@@ -26,12 +31,22 @@
       rules: [
         Validator.isRequired('input[name="title"]', '* Vui long nhap !'),
         Validator.isRequired('input[name="link"]', '* Vui long nhap !'),
-        Validator.isRequired('input[name="image"]', '* Vui long nhap !'),
-      ]
+      ],
+
+      onSubmit: function(data) {
+        // call API
+        console.log(data);
+
+        // Quang du lieu vao input truoc khi submit
+
+        //Submit =====>
+
+        document.querySelector(this.form).submit();
+      }
     })
   }
 
-  if(document.querySelector('#form-edit-banner')) {
+  if (document.querySelector('#form-edit-banner')) {
     Validator({
       form: '#form-edit-banner',
       formGroupSelector: '.form-group',
@@ -40,7 +55,6 @@
       rules: [
         Validator.isRequired('input[name="title"]', '* Vui long nhap !'),
         Validator.isRequired('input[name="link"]', '* Vui long nhap !'),
-        Validator.isRequired('input[name="image"]', '* Vui long nhap !'),
       ]
     })
   }
@@ -51,20 +65,22 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Hàm tạo CKEditor cho một trường cụ thể
-    function createCKEditor(elementId) {
-      ClassicEditor
-        .create(document.querySelector(`#${elementId}`))
-        .catch(error => {
-          console.error(`Error creating CKEditor for ${elementId}:`, error);
-        });
+
+    if(document.getElementById('editor2')) {
+      createCKEditor('editor2');
     }
 
-    // Gọi hàm tạo CKEditor cho tiêu đề
-    createCKEditor('editor2');
+    if(document.getElementById('editor')) {
+      let editor;
 
-    // Gọi hàm tạo CKEditor cho nội dung bài viết
-    createCKEditor('editor');
+      ClassicEditor.create(document.getElementById('editor'))
+      .then(newEditor => {
+        editor = newEditor;
+      })
+    }
+
+    
+    
 
   });
 </script>

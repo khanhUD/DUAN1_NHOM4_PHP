@@ -57,10 +57,30 @@ class BannerController extends Controller
     public function edit_post()
     {
         $request = new Request;
-        $postValues = $request->getFields();
+        $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
+        $data = [];
+        if ($postValues['imageOld'] !== '') {
+            $data = [
+                'image' => $postValues['imageOld'],
+                'title' => $postValues['title'],
+                'link' => $postValues['link'],
+            ];
+        } else {
+            $image = $postValues['image'];
+            $targetDir = "public/uploads/";
+            $targetFile = $targetDir . basename($image["name"]);
+            if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+                echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
+                $data = [
+                    'image' => $postValues['image']['name'],
+                    'title' => $postValues['title'],
+                    'link' => $postValues['link'],
+                ];
+            }
+        }
 
-        $result = $this->banners->updateBanner($postValues, $id);
+        $result = $this->banners->updateBanner($data, $id);
 
         if ($result) {
             // Nếu thành công chuyển hướng đến danh sách danh mục
@@ -69,12 +89,9 @@ class BannerController extends Controller
         }
     }
     public function delete()
-    {  
+    {
         $request = new Request();
-        $id = $request->getFields(); //lấy id
-        $product = $this->model('ProductModel');
-        $product->deleteBanner($id['id']);
-        $response  = new Response();
-        $response->redirect('banner/add');
+        if ($request->isPost()) {
+        }
     }
 }

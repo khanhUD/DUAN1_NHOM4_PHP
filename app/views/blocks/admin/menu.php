@@ -72,7 +72,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'PostsCategories'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'PostCategories'; ?>" class="menu-link">
               <div data-i18n="Input groups">Loại bài viết</div>
             </a>
           </li>
@@ -94,7 +94,7 @@
         </a>
         <ul class="menu-sub">        
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'productsCategories'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'productCategories'; ?>" class="menu-link">
               <div data-i18n="Input groups">Loại món ăn</div>
             </a>
           </li>
@@ -133,12 +133,12 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'postsComments'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'postComments'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bình luận bài viết</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'productsComments'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'productComments'; ?>" class="menu-link">
               <div data-i18n="Input groups">Bình luận món ăn</div>
             </a>
           </li>
