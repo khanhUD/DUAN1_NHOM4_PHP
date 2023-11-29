@@ -49,7 +49,8 @@
                                     <th>Link</th>
                                     <th>Ảnh</th>
                                     <th>Trạng thái</th>
-                                    <th>chức năng/th>
+                                    <th>chức năng</th>
+
                                 </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
