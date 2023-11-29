@@ -9,11 +9,8 @@
                         <thead>
                             <tr>
                                 <th>Ngày đăng</th>
-                                <th class="pe-0" style="max-width: 400px;">Bình luận</th> <!--ghi chú là màu đỏ khi ch duyệt-->
-                                <!-- <th>Món ăn</th> -->
-
+                                <th class="pe-0" style="max-width: 400px;">Bình luận</th>
                                 <th>Trạng Thái</th>
-                                <!-- <th>Ngày đăng</th> -->
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
@@ -22,8 +19,6 @@
                             <tr>
                                 <td>
                                     <?=$items['create_at'] ?>
-                                    
-
                                 </td>
                                 <td>
                                     <div class="mb-1"><?=$items['full_name'] ?>[ <span class="text-primary fw-italic"><?=$items['email'] ?></span> ]:</div>
@@ -40,14 +35,8 @@
                                     </div>
 
                                 </td>
-                                <!-- <td>tên món hoặc dể hình <img width="100px" src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" /></td> -->
-
                                 <td><span class="badge bg-label-info me-1"><?=$items['status'] ?></span>
                                 </td>
-                                <!-- <td>
-                                    yy/mm/dd
-                                    ngày
-                                </td> -->
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

@@ -79,4 +79,8 @@ class Database
     {
         return  $this->_conn->lastInsertId();
     }
+
+    public function test(){
+        
+    }
 }
