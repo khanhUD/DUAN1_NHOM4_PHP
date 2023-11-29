@@ -7,7 +7,7 @@
         <div class="mb-3 col-md-6">
           <label for="product_categories_id" class="form-label">Loại Món ăn</label>
           <select class="form-control" name="product_categories_id" id="product_categories_id">
-            <?php foreach ($getListCategories as $items) : ?>
+            <?php foreach ($productCategories as $items) : ?>
               <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
             <?php endforeach; ?>
           </select>
