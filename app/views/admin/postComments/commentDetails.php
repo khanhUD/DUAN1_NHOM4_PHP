@@ -27,9 +27,9 @@
                                             <p class="m-0 p-1 ms-1 pe-3"><?= $items['note'] ?> </p>
                                         </div>
                                         <div class=" align-items-center">
-                                            <div class="me-1" style="max-width: 300px; overflow: hidden; white-space: normal;"><a href="" class="text-primary text-decoration-none"><?= $items['products_name'] ?></a></div>
+                                            <div class="me-1" style="max-width: 300px; overflow: hidden; white-space: normal;"><a href="" class="text-primary text-decoration-none"><?= $items['posts_title'] ?></a></div>
 
-                                            <a class="position-relative text-decoration-none ms-1" href="<?= _WEB_ROOT ?>/productComments/commentDetailS?id=<?= $items['products_id'] ?>">
+                                            <a class="position-relative text-decoration-none ms-1" href="<?= _WEB_ROOT ?>/postComments/commentDetails?id=<?= $items['posts_id'] ?>">
                                                 <i class="bi bi-chat-square-fill text-dark " style="font-size: 1.5rem;"></i>
                                                 <span style="font-size: 0.7rem;" class=" position-absolute top-50 left-100 translate-middle badge rounded-pill bg-light text-dark"><?=$items['quantity']?></span>
                                             </a>
