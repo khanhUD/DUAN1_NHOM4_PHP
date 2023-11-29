@@ -17,11 +17,11 @@ class PostCategoriesController extends Controller
         $this->data['sub_content']['title'] = 'Thêm Loại bài viết';
         $this->data['content'] = 'admin/postCategories/add';
         $this->render('layouts/admin_layout', $this->data);
-       
     }
-    public function add() {
+    public function add()
+    {
         $this->data['sub_content']['postCategories'] = $this->postCategories->getList();  //lay danh sach postCategories
-       
+
         $request = new Request;
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
@@ -43,7 +43,6 @@ class PostCategoriesController extends Controller
         $this->data['sub_content']['postCategories_detail'] = $this->postCategories->getDetail($id);
         $this->data['content'] = 'admin/postCategories/edit';
         $this->render('layouts/admin_layout', $this->data);
-       
     }
     // update postCategories 
     public function edit_post()
@@ -66,11 +65,12 @@ class PostCategoriesController extends Controller
     public function delete()
     {
         $request = new Request;
-        if($request->isPost()) {
+        if ($request->isPost()) {
             $id = $request->getFields()['id'];
             $this->postCategories->deletepostCategories($id);
             $response = new Response;
             $response->redirect('postCategories');
         }
     }
+   
 }

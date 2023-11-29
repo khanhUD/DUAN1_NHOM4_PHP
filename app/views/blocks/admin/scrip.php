@@ -69,7 +69,7 @@
   }
   if (document.querySelector('#form-edit-postCategories')) {
     Validator({
-      form: '#form-add-postCategories',
+      form: '#form-edit-postCategories',
       formGroupSelector: '.form-group',
       errorSelector: '.form-message',
 
@@ -86,25 +86,27 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    // Hàm tạo CKEditor cho một trường cụ thể
+    function createCKEditor(elementId) {
+      ClassicEditor
+        .create(document.querySelector(`#${elementId}`))
+        .catch(error => {
+          console.error(`Error creating CKEditor for ${elementId}:`, error);
+        });
+    }
 
+    // Gọi hàm tạo CKEditor cho phần tử có id là 'editor'
+    if (document.getElementById('editor')) {
+      createCKEditor('editor');
+    }
+
+    // Gọi hàm tạo CKEditor cho phần tử có id là 'editor2'
     if (document.getElementById('editor2')) {
       createCKEditor('editor2');
     }
-
-    if (document.getElementById('editor')) {
-      let editor;
-
-      ClassicEditor.create(document.getElementById('editor'))
-        .then(newEditor => {
-          editor = newEditor;
-        })
-    }
-
-
-
-
   });
 </script>
+
 </body>
 
 </html>

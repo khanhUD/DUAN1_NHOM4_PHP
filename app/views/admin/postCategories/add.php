@@ -14,7 +14,7 @@
               <input class="form-control" type="text" id="name" name="name" value="" placeholder="Nhập tên loại bài viết..." />
               <span class="form-message "></span>
             </div>
-         
+
 
             <button type="submit" class="btn btn-primary">Thêm</button>
             <button type="reset" class="btn btn-primary">Nhập lại</button>
@@ -49,7 +49,11 @@
                     <td> <?= $items['name'] ?></td>
 
 
-                    <td><span class="badge bg-label-primary me-1"> <?= $items['status'] ?></span></td>
+                    <td>
+                      <span class="badge bg-label-primary me-1" id="status_<?= $items['id'] ?>" onclick="toggleStatus(<?= $items['id'] ?>, '<?= $items['status'] ?>')">
+                        <?= $items['status'] ?>
+                      </span>
+                    </td>
 
                     <td>
                       <div class="dropdown">
@@ -79,3 +83,32 @@
     </div>
   </div>
 </div>
+<script>
+    function toggleStatus(id, currentStatus) {
+        // Lấy phần tử span có id là 'status_' và id của dòng tương ứng
+        var statusSpan = document.getElementById('status_' + id);
+
+        // Gửi yêu cầu cập nhật trạng thái qua Ajax
+        // Sử dụng XMLHttpRequest hoặc Fetch API để thực hiện yêu cầu
+        // Ở đây, mình sử dụng fetch để gửi POST request
+
+        fetch('<?= _WEB_ROOT ?>/postCategories/toggleStatus', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: id,
+                currentStatus: currentStatus,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Cập nhật trạng thái trên giao diện
+            statusSpan.innerText = data.newStatus;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>

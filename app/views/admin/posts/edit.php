@@ -6,6 +6,17 @@
       <form action="" method="POST">
         <div class="row">
           <div class="mb-3 col-md-6">
+            <label for="post_category_id" class="form-label">Loại bài viết</label>
+
+            <select class="form-control" name="post_category_id" id="post_category_id">
+              <?php foreach ($listloai as $items) : ?>
+                <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
+              <?php endforeach; ?>
+            </select>
+
+            <span class="error-message" id="post_category_id-error"></span>
+          </div>
+          <div class="mb-3 col-md-6">
             <label for="title" class="form-label">Tiêu đề bài viết</label>
             <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
             <span class="error-message" id="title-error"></span>

@@ -5,6 +5,15 @@
     <form action="" method="POST">
       <div class="row">
         <div class="mb-3 col-md-6">
+          <label for="product_categories_id" class="form-label">Loại Món ăn</label>
+          <select class="form-control" name="product_categories_id" id="product_categories_id">
+            <?php foreach ($getListCategories as $items) : ?>
+              <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
+            <?php endforeach; ?>
+          </select>
+          <span class="error-message" id="post_category_id-error"></span>
+        </div>
+        <div class="mb-3 col-md-6">
           <label for="title" class="form-label">TÊN MÓN ĂN</label>
           <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
           <span class="error-message" id="title-error"></span>
@@ -43,7 +52,7 @@
       <div class="mb-3">
         <button type="submit" class="btn btn-primary">Cập nhật</button>
         <button type="reset" class="btn btn-primary">Nhập lại</button>
-        
+
       </div>
     </form>
   </div>
