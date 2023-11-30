@@ -15,19 +15,43 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td>nguyễn quốc khanh</td>
-                                <td>0123456789</td>
-                                <td>
-                                    <div class="mb-1">[ <span class="text-primary fw-italic">vinhlh@gmail.com</span> ]:</div>
-                                    <div class="mb-1" style="border-left: 2px solid #72757e; background-color: #eff0f3; max-width: 400px; overflow: hidden; white-space: normal; text-align: justify;">
-                                        <p class="m-0 p-1 ms-1 pe-3">bai viet nay hay qua bai viet nay hay qua bai viet nay hay qua bai viet nay hay qua bai viet nay hay qua bai viet nay hay qua bai viet nay hay qua </p>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-label-info me-1">Đã phản hồi</span>
-                                </td>
-                                <td> <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a></td>
-                            </tr>
+                            <?php foreach ($contacts as $items) : ?>
+                                <tr>
+                                    <td><?= $items['full_name'] ?></td>
+                                    <td><?= $items['phone'] ?></td>
+                                    <td>
+                                        <div class="mb-1">[ <span class="text-primary fw-italic"><?= $items['email'] ?></span> ]:</div>
+                                        <div class="mb-1" style="border-left: 2px solid #72757e; background-color: #eff0f3; max-width: 400px; overflow: hidden; white-space: normal; text-align: justify;">
+                                            <p class="m-0 p-1 ms-1 pe-3"><?= $items['note'] ?> </p>
+                                        </div>
+                                        <div><?= $items['create_at'] ?></div>
+                                    </td>
+                                    <td>
+
+                                        <?php if ($items['status'] === 'not_responded') : ?>
+                                            <form method="post" action="<?= _WEB_ROOT ?>/contacts/edit_status">
+                                                <input type="hidden" name="id" value="<?= $items['id'] ?>">
+                                                <button class=" badge bg-label-danger me-1" type="submit">
+                                                   Chưa phản hồi</button>
+                                            </form>
+                                           
+                                        <?php else : ?>
+                                            <span class="badge bg-label-primary me-1">
+                                                Đã phản hồi
+                                            </span>
+                                        <?php endif; ?>
+
+                                    </td>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="<?= _WEB_ROOT ?>/contacts/delete">
+                                            <input type="hidden" name="id" value="<?= $items['id'] ?>">
+                                            <button class="dropdown-item" type="submit">
+                                                <i class="bx bx-trash me-1"></i>Xoa</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>

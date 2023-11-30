@@ -50,9 +50,11 @@
 
 
                     <td>
-                      <span class="badge bg-label-primary me-1" id="status_<?= $items['id'] ?>" onclick="toggleStatus(<?= $items['id'] ?>, '<?= $items['status'] ?>')">
-                        <?= $items['status'] ?>
+                    <td>
+                      <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">
+                        <?= $items['status'] === 'on' ? 'Hiện' : 'Ẩn' ?>
                       </span>
+                    </td>
                     </td>
 
                     <td>

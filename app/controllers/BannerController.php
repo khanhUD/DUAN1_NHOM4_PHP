@@ -59,25 +59,23 @@ class BannerController extends Controller
         $request = new Request;
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
-        $data = [];
-        if ($postValues['imageOld'] !== '') {
-            $data = [
-                'image' => $postValues['imageOld'],
-                'title' => $postValues['title'],
-                'link' => $postValues['link'],
-            ];
+        $data = [
+            'image' => $postValues['imageOld'],
+            'title' => $postValues['title'],
+            'link' => $postValues['link'],
+            'status' => $postValues['status'],
+        ];
+        $image = $postValues['image'];
+        $targetDir = "public/uploads/";
+        $targetFile = $targetDir . basename($image["name"]);
+
+        if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+            echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
+            $data['image'] = $postValues['image']['name'];
         } else {
-            $image = $postValues['image'];
-            $targetDir = "public/uploads/";
-            $targetFile = $targetDir . basename($image["name"]);
-            if (move_uploaded_file($image["tmp_name"], $targetFile)) {
-                echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
-                $data = [
-                    'image' => $postValues['image']['name'],
-                    'title' => $postValues['title'],
-                    'link' => $postValues['link'],
-                ];
-            }
+            // Ảnh cũ đã tồn tại, sử dụng ảnh cũ
+            $data['image'] = $postValues['imageOld'];
+            echo "Có lỗi xảy ra khi tải lên tệp.";
         }
 
         $result = $this->banners->updateBanner($data, $id);
@@ -88,10 +86,5 @@ class BannerController extends Controller
             $response->redirect('banner/add');
         }
     }
-    public function delete()
-    {
-        $request = new Request();
-        if ($request->isPost()) {
-        }
-    }
+    
 }

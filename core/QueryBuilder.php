@@ -7,6 +7,8 @@ trait QueryBuilder
     public $selectField = '*';
     public $limit = '';
     public $orderBy = '';
+    public $groupBy = '';
+    public $having = '';
     public $innerJoin = '';
     public $insert = '';
 
@@ -23,6 +25,26 @@ trait QueryBuilder
             $this->operator = " AND ";
         }
         $this->where .= "$this->operator $field $compare '$value'";
+        return $this;
+    }
+
+    public function having($field, $compare, $value)
+    {
+        $this->operator = " HAVING";
+        if (!empty($this->having)) {
+            $this->operator = " AND ";
+        }
+        $this->having .= "$this->operator $field $compare '$value'";
+        return $this;
+    }
+
+    public function groupBy($fields)
+    {
+        if (is_array($fields)) {
+            $this->groupBy = " GROUP BY " . implode(', ', $fields);
+        } else {
+            $this->groupBy = " GROUP BY $fields";
+        }
         return $this;
     }
 
@@ -93,7 +115,7 @@ trait QueryBuilder
     public function update($data)
     {
         $whereUpdate = str_replace('WHERE', '', $this->where);
-        $whereUpdate = trim($whereUpdate);
+$whereUpdate = trim($whereUpdate);
         $tableName = $this->tableName;
         $updateStatus = $this->updateData($tableName, $data, $whereUpdate);
         return $updateStatus;
@@ -126,7 +148,7 @@ trait QueryBuilder
     public function get()
     {
         // echo $this->innerJoin;
-        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->innerJoin $this->where  $this->orderBy $this->limit";
+        $sqlQuery = "SELECT $this->selectField FROM $this->tableName $this->innerJoin $this->where $this->groupBy $this->having $this->orderBy $this->limit";
         $query = $this->query($sqlQuery);
         $this->resetQuery();
         if (!empty($query)) return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -142,7 +164,11 @@ trait QueryBuilder
         $this->selectField = '*';
         $this->limit = '';
         $this->orderBy = '';
+        $this->groupBy = '';
+        $this->having = '';
         $this->innerJoin = '';
         $this->insert = '';
     }
+
+    
 }

@@ -7,4 +7,9 @@ class OdersController extends Controller {
         $this->data['content'] = 'admin/oders/list';
         $this->render('layouts/admin_layout', $this->data);
     }
+    public function detail() {
+        $this->data['sub_content']['title'] = '';
+        $this->data['content'] = 'admin/oders/detail';
+        $this->render('layouts/admin_layout', $this->data);
+    }
 }
