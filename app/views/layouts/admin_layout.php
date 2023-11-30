@@ -19,6 +19,7 @@ $this->render('blocks/admin/header')
                     <!-- / Content -->  
                     <?php
                     $this->render($content, $sub_content);
+                    
                     ?>
                     <!-- / Content -->
                 </div>
