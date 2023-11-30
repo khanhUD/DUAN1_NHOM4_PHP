@@ -2,13 +2,12 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-content">
-            <div class="d-flex justify-content-between">
-                <h4 class="card-title">HÓA ĐƠN </h4>
-                <a href="<?= _WEB_ROOT . 'oders/list_hidden'; ?>">
-                    <h5><i class="bi bi-eye-slash-fill me-1"></i>  ẨN</h5>
-                    
-                    
+            <div class="d-flex align-items-center ">
+                <a href="<?= _WEB_ROOT . 'orders'; ?>">
+                    <h4 class="card-title">HÓA ĐƠN </h4>
                 </a>
+                <p> -- </p>
+                <h6> HÓA ĐƠN ẨN</h6>
             </div>
             <div class="card">
                 <div class="table-responsive text-nowrap">
@@ -34,7 +33,7 @@
                                     <div class=" align-items-center">
                                         <div class="me-1" style="max-width: 300px; overflow: hidden; white-space: normal;">Số điện thoại: 0342585406</div>
 
-                                      
+
                                     </div>
 
                                 </td>
@@ -49,7 +48,7 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?= _WEB_ROOT . 'oders/detail'; ?>"><i class="bi bi-eye-fill me-1"></i>
+                                            <a class="dropdown-item" href="<?= _WEB_ROOT . 'orders/detail'; ?>"><i class="bi bi-eye-fill me-1"></i>
                                                 Xem chi tiết</a>
                                             <a class="dropdown-item" href="#"><i class="bi bi-eye-slash-fill me-1"></i> Ẩn</a>
                                         </div>
