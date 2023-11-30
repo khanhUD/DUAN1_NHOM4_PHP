@@ -4,43 +4,43 @@
     <div class="col-md-4">
         <div class="sidebar">
             <!-- Nội dung của cột 3 -->
-            <h4>SỬA BÀN</h4>
+            <h4>SỬA LOẠI MÓN ĂN</h4>
             <div class="card p-3">
-                <form action="">
+                <form action="<?= _WEB_ROOT ?>/productCategories/edit_post">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Tên bàn</label>
-                        <input type="email" class="form-control" id="name" name="name">
+                        <label for="name" class="form-label">TÊN LOẠI MÓN</label>
+                        <input type="text" class="form-control" id="name" name="name" value="<?=$productCategories_detail['name']?>">
+                        <input type="hidden" name="id" value="<?=$productCategories_detail['id']?>">
+
                         <div id="mess_err" class="form-text"></div>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label class="form-label" for="status">Trạng Thái</label>
                         <div class="input-group input-group-merge">
                             <div class="form-check mx-3">
-                                <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
+                                <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off" <?=($productCategories_detail['status'] == 'off') ? 'checked': ''?>>
                                 <label class="form-check-label" for="radioOption1">
                                     Ẩn
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
+                                <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" <?=($productCategories_detail['status'] == 'on') ? 'checked': ''?>>
                                 <label class="form-check-label" for="radioOption2">
                                     Hiện
                                 </label>
                             </div>
                         </div>
-
                     </div>
 
-
-                    <button type="submit" class="btn btn-primary">Cập nhật</button>
-                    <button type="reset" class="btn btn-primary">Nhập lại</button>
-                    <a class="btn btn-primary" href="<?= _WEB_ROOT . 'table'; ?>">Nhập Thêm</a>
+                    <button type="submit" class="btn btn-primary me-1">Cập nhật</button>
+                    <!-- <button type="reset" class="btn btn-primary">Nhập lại</button> -->
+                    <a class="btn btn-primary" href="<?= _WEB_ROOT . 'productCategories'; ?>">Nhập Thêm</a>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Cột chiều rộng 9 -->
+    <!-- Cột chiều rộng 9 -->   
     <div class="col-md-8">
         <div class="main-content">
             <!-- Nội dung của cột 9 -->
