@@ -1,7 +1,7 @@
 <!-- Vĩnh -->
 <div class="row">
     <!-- Cột chiều rộng 3 -->
-    <div class="col-md-4">
+    <div class="col-md-12">
         <div class="sidebar">
             <!-- Nội dung của cột 3 -->
             <h4>SỬA LOẠI MÓN ĂN</h4>
@@ -32,57 +32,10 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary me-1">Cập nhật</button>
+                    <button type="submit" class="btn btn-primary me-3">Cập nhật</button>
                     <!-- <button type="reset" class="btn btn-primary">Nhập lại</button> -->
                     <a class="btn btn-primary" href="<?= _WEB_ROOT . 'productCategories'; ?>">Nhập Thêm</a>
                 </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cột chiều rộng 9 -->   
-    <div class="col-md-8">
-        <div class="main-content">
-            <!-- Nội dung của cột 9 -->
-            <h4 class="card-title">DANH SÁCH LOẠI MÓN</h4>
-            <div class="card">
-                <div class="table-responsive text-nowrap">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <!-- <th>Id</th> -->
-                                <th>Tên</th>
-
-                                <th>Trạng Thái</th>
-                                <th>Chức năng</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-border-bottom-0">
-                            <tr>
-                                <!-- <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-                                    <strong>VueJs
-                                        Project</strong>
-                                </td> -->
-                                <td>Trevor Baker</td>
-                                <td><span class="badge bg-label-info me-1">Scheduled</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                                Edit</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

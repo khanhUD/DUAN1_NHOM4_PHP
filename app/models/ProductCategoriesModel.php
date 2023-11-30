@@ -30,16 +30,16 @@ class ProductCategoriesModel extends Model {
         return $data;
     }
 
-    public function updatePorductCategories($data, $id) {
+    public function updateProductCategories($data, $id) {
         $data = $this->db->table($this->_table)->where('id', '=', $id)->update($data);
         return $data;
     }
     
-    public function addPorductCategories($data) {
+    public function addProductCategories($data) {
         $data = $this->db->table($this->_table)->insert($data);
         return $data;
     }
-    public function deletePorductCategories($id)
+    public function deleteProductCategories($id)
     {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
 
