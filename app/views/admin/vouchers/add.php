@@ -39,22 +39,24 @@
                             <tr>
                               <th>Mã </th>
                               <th>MÃ GIẢM GIÁ</th>
+                              <th>GIỚI HẠN SỬ DỤNG</th>
                               <th>LƯỢT SỬ DỤNG</th>
                               <th>Trạng thái</th>
                               <th>Chức năng</th>
                             </tr>
                           </thead>
                           <tbody class="table-border-bottom-0">
+                            <?php foreach ($vouchers as $items) : ?>
                             <tr>
-                              <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-                                <strong>VueJs
-                                  Project</strong>
+                              <td>
+                                <?= $items['id']?>
                               </td>
-                              <td>Trevor Baker</td>
-                              <td>12/30</td>
+                              <td> <?= $items['code']?></td>
+                              <td><?= $items['number_limit']?></td>
+                              <td><?= $items['used_count']?> / <?= $items['number_limit']?></td>
 
 
-                              <td><span class="badge bg-label-primary me-1">Active</span></td>
+                              <td><span class="badge bg-label-primary me-1"></span><?= $items['status']?></td>
 
                                 <td>
                                     <div class="dropdown">
@@ -68,6 +70,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            <?php endforeach ?>
 
 
                           </tbody>
