@@ -5,7 +5,7 @@
         <div class="sidebar">
             <h4 class="card-title">THÊM LOẠI MÓN</h4>
             <div class="card p-3">
-                <form class="form-horizontal form_add_loai" action="index.php?btn_add" method="post">
+                <form class="form-horizontal form_add_loai" action="productCategories/add" method="post">
                     <div class="form-group">
                         <label for="ten_loai" class="fw-bold control-label col-form-label">TÊN LOẠI MÓN ĂN</label>
                         <div class="mb-3">

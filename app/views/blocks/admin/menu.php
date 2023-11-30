@@ -104,7 +104,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="<?= _WEB_ROOT . 'oders'; ?>" class="menu-link">
+            <a href="<?= _WEB_ROOT . 'orders'; ?>" class="menu-link">
               <div data-i18n="Input groups">Đơn hàng</div>
             </a>
           </li>
