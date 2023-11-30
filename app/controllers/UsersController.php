@@ -31,7 +31,8 @@ class UsersController extends Controller
                 'email' => $postValues['email'],
                 'password' => $postValues['password'],
                 'role' => $postValues['role'],
-
+                'phone' =>  $postValues['phone'],
+             
             ];
 
             $result = $this->users->addUsers($data);

@@ -8,7 +8,7 @@
         <div class="card p-3">
           <form action="<?= _WEB_ROOT ?>/users" method="post" enctype="multipart/form-data">
             <div class="row">
-              <input type="hidden" name="id" value="<?= $users_detail['id'] ?>">
+        
               <div class="mb-3 col-md-6">
                 <label for="full_name" class="form-label">Họ và tên</label>
                 <input class="form-control" type="text" id="full_name" name="full_name" value="" placeholder="Nhập họ và tên..." />
@@ -18,6 +18,11 @@
                 <label for="email" class="form-label">Email</label>
                 <input class="form-control" type="text" id="email" name="email" value="" placeholder="Nhập email..." />
                 <span class="error-message " id="email-error"></span>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input class="form-control" type="text" id="phone" name="phone" value="" placeholder="Nhập ..." />
+                <span class="error-message " id="phone-error"></span>
               </div>
 
               <div class="mb-3 col-md-6">
