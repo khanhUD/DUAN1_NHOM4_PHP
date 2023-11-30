@@ -56,7 +56,6 @@ class ProductCategoriesController extends Controller
         $id = $postValues['id'];
         $name = $postValues['name'];
 
-
         $data = [
             'name' => $postValues['name'],
             'status' => $postValues['status'],
