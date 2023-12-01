@@ -1,11 +1,14 @@
 <?php
 
 class DeleteController extends Controller {
-    public $banner;
+    public $banner, $orderTables;
 
     public function __construct()
     {
         $this->banner = $this->model('BannerModel');
+
+        $this->orderTables = $this->model('OrderTablesModel');
+
     }
 
     public function banner() {
@@ -18,5 +21,5 @@ class DeleteController extends Controller {
             $response->redirect('banner');
         }
     }
-   
+
 }

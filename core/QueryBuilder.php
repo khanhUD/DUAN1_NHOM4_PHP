@@ -115,7 +115,7 @@ trait QueryBuilder
     public function update($data)
     {
         $whereUpdate = str_replace('WHERE', '', $this->where);
-$whereUpdate = trim($whereUpdate);
+        $whereUpdate = trim($whereUpdate);
         $tableName = $this->tableName;
         $updateStatus = $this->updateData($tableName, $data, $whereUpdate);
         return $updateStatus;
@@ -169,6 +169,4 @@ $whereUpdate = trim($whereUpdate);
         $this->innerJoin = '';
         $this->insert = '';
     }
-
-    
 }

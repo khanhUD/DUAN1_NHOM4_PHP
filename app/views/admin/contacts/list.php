@@ -31,7 +31,7 @@
                                         <?php if ($items['status'] === 'not_responded') : ?>
                                             <form method="post" action="<?= _WEB_ROOT ?>/contacts/edit_status">
                                                 <input type="hidden" name="id" value="<?= $items['id'] ?>">
-                                                <button class=" badge bg-label-danger me-1" type="submit">
+                                                <button class="btn badge bg-label-danger me-1" type="submit">
                                                    Chưa phản hồi</button>
                                             </form>
                                            
