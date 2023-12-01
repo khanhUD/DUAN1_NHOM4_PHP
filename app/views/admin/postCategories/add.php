@@ -52,7 +52,7 @@
                     <td>
                     <td>
                       <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">
-                        <?= $items['status'] === 'on' ? 'Hiện' : 'Ẩn' ?>
+                        <?= $items['status'] === 'on' ? 'Hiển thị' : 'Ẩn' ?>
                       </span>
                     </td>
                     </td>
@@ -91,7 +91,7 @@
         var statusSpan = document.getElementById('status_' + id);
 
         // Gửi yêu cầu cập nhật trạng thái qua Ajax
-        // Sử dụng XMLHttpRequest hoặc Fetch API để thực hiện yêu cầu
+        // Sử dụng XMLHttpRequest hoặc Fetch API để thực Hiển thị yêu cầu
         // Ở đây, mình sử dụng fetch để gửi POST request
 
         fetch('<?= _WEB_ROOT ?>/postCategories/toggleStatus', {

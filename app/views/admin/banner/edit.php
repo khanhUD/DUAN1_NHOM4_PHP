@@ -39,7 +39,7 @@
                                     <div class="form-check">
                                         <input @if($banner_detail['status']==='on' ) checked @endif class="form-check-input" type="radio" name="status" value="on">
                                         <label class="form-check-label" for="radioOption2">
-                                            Hiện
+                                            Hiển thị
                                         </label>
                                     </div>
                                 </div>

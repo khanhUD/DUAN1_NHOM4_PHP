@@ -31,20 +31,35 @@ class PostCommentsModel extends Model
             ->get();
 
         return $data;
-
     }
 
     public function getComments()
     {
-        $data = $this->db->select('post_comments.id, posts.id AS posts_id, posts.title AS posts_title, posts.image AS posts_img, COUNT(*) AS quantity')
-            ->table($this->_table)
-            ->join('posts', 'post_comments.post_id = posts.id')
-            ->groupBy('post_comments.id, posts_id, posts_title, posts_img')
+
+        $data = $this->db->select('posts.id AS posts_id,
+        posts.title AS title,
+        posts.image AS image,
+        posts.status AS status,
+        COUNT(post_comments.id) AS quantity')
+            ->table('posts')
+            ->join('post_comments', 'posts.id = post_comments.post_id')
+            ->groupBy('posts.id, posts.title, posts.image, posts.status')
             ->having('quantity', '>', 0)
+            ->where('post_comments.status', '!=', 'delete')
+            ->orderBy('posts.id', 'DESC')
             ->get();
+
 
         return $data;
     }
+    public function updateStatusComment($data, $id)
+    {
+        $data = $this->db->table($this->_table)->where('id', '=', $id)->update($data);
+        return $data;
+    }
+    public function delateCommentDetails($id)
+    {
+        $this->db->table($this->_table)->where('id', '=', $id)->delete();
 
-
+    }
 }

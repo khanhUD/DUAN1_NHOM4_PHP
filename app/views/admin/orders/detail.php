@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="main-content">
             <div class="d-flex align-items-center ">
-                <a href="<?= _WEB_ROOT . 'oders'; ?>">
+                <a href="<?=_WEB_ROOT.'orders'; ?>">
                     <h4 class="card-title">HÓA ĐƠN </h4>
                 </a>
                 <P>--</P>

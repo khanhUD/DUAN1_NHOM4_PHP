@@ -4,10 +4,10 @@
         <div class="main-content">
             <div class="d-flex align-items-center ">
                 <a href="<?= _WEB_ROOT . 'orders'; ?>">
-                    <h4 class="card-title">HÓA ĐƠN </h4>
+                    <h4 class="card-title">HÓA ĐƠN ĐẶT MÓN </h4>
                 </a>
-                <p> -- </p>
-                <h6> HÓA ĐƠN ẨN</h6>
+                <p> - </p>
+                <h6>  ẨN</h6>
             </div>
             <div class="card">
                 <div class="table-responsive text-nowrap">

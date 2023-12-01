@@ -19,7 +19,7 @@ class ContactsController extends Controller
         $postValues = $request->getFields(); 
         $id = $postValues['id'];//layid
         $data = [
-            'status' => 'responded'
+            'status' => $postValues['status'],
         ];
         $result = $this->contacts->updateStatus($data, $id);
 

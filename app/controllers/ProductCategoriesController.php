@@ -20,20 +20,14 @@ class ProductCategoriesController extends Controller
         $request = new Request;
         if ($request->isPost()) {
             $postValues = $request->getFields();
-            $name = $postValues['name'];
-            if ($this->productCategories->checkName($name)) {
-            } else {
-                $data = [
-                    'name' => $postValues['name'],
-                ];
 
-                $result = $this->productCategories->addProductCategories($data);
-
-                if ($result) {
-                    // Nếu thành công, lưu thông báo và chuyển hướng đến danh sách danh mục
-                    $response = new Response();
-                    $response->redirect('productCategories');
-                }
+            $data = [
+                'name' => $postValues['name'],
+            ];
+            $result = $this->productCategories->addProductCategories($data);
+            if ($result) {
+                $response = new Response();
+                $response->redirect('productCategories');
             }
         }
     }

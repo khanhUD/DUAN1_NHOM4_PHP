@@ -11,6 +11,7 @@
                                 <th>số điện thoại</th>
                                 <th class="pe-0" style="max-width: 400px;">NỘI DUNG LIÊN HỆ</th>
                                 <th>Trạng Thái</th>
+                                <th>Sửa trạng thái</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
@@ -34,7 +35,7 @@
                                                 <button class="btn badge bg-label-danger me-1" type="submit">
                                                    Chưa phản hồi</button>
                                             </form>
-                                           
+
                                         <?php else : ?>
                                             <span class="badge bg-label-primary me-1">
                                                 Đã phản hồi
@@ -42,6 +43,20 @@
                                         <?php endif; ?>
 
                                     </td>
+                                    <td>
+                                        <form action="<?= _WEB_ROOT ?>/contacts/edit_status" method="post" onsubmit="return confirm('Bạn chắc chắn muốn cập nhật trạng thái?')">
+                                            <input type="hidden" name="id" value="<?= $items['id'] ?>">
+                                            <div class="mb-2">
+                                                <select class="form-select" name="status">
+                                                    <option value="responded" <?= ($items['status'] == 'responded') ? 'selected' : '' ?>>Đã phản hồi</option>
+                                                    <option value="not_responded" <?= ($items['status'] == 'not_responded') ? 'selected' : '' ?>>Chưa phản hồi</option>
+
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">
+                                                Chọn
+                                            </button>
+                                        </form>
                                     </td>
                                     <td>
                                         <form method="post" action="<?= _WEB_ROOT ?>/contacts/delete">

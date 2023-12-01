@@ -92,7 +92,7 @@
           <i class="menu-icon tf-icons bx bx-detail"></i>
           <div data-i18n="Form Elements">Nhà hàng</div>
         </a>
-        <ul class="menu-sub">        
+        <ul class="menu-sub">
           <li class="menu-item">
             <a href="<?= _WEB_ROOT . 'productCategories'; ?>" class="menu-link">
               <div data-i18n="Input groups">Loại món ăn</div>
@@ -105,7 +105,12 @@
           </li>
           <li class="menu-item">
             <a href="<?= _WEB_ROOT . 'orders'; ?>" class="menu-link">
-              <div data-i18n="Input groups">Đơn hàng</div>
+              <div data-i18n="Input groups">Hóa đơn đặt món</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="<?= _WEB_ROOT . 'orderTables'; ?>" class="menu-link">
+              <div data-i18n="Input groups">Hóa đơn đặt bàn</div>
             </a>
           </li>
           <li class="menu-item">
@@ -124,9 +129,9 @@
           <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
           <div data-i18n="Authentications">Khách hàng</div>
         </a>
-        
+
         <ul class="menu-sub">
-          
+
           <li class="menu-item">
             <a href="<?= _WEB_ROOT . 'users'; ?>" class="menu-link">
               <div data-i18n="Input groups">Tài khoản</div>
@@ -147,8 +152,8 @@
               <div data-i18n="Input groups">Liên hệ</div>
             </a>
           </li>
-         
-          
+
+
 
         </ul>
       </li>

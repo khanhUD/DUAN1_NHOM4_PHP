@@ -3,7 +3,7 @@
 class PostCommentsController extends Controller
 {
 
-    public $data = [], $postComments, $err;
+    public $data = [], $postComments;
 
     public function __construct()
     {
@@ -32,4 +32,6 @@ class PostCommentsController extends Controller
         $this->render('layouts/admin_layout', $this->data);
     
     }
+  
+    
 }

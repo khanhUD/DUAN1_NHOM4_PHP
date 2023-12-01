@@ -26,7 +26,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" <?=($productCategories_detail['status'] == 'on') ? 'checked': ''?>>
                                 <label class="form-check-label" for="radioOption2">
-                                    Hiện
+                                Hiển thị
                                 </label>
                             </div>
                         </div>

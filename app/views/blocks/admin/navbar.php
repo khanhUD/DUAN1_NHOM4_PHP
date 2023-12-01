@@ -51,9 +51,9 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="<?= _WEB_ROOT . 'admin/change_password' ?>">
                 <i class="bx bx-cog me-2"></i>
-                <span class="align-middle">Cài đặt</span>
+                <span class="align-middle">Đổi mật khẩu</span>
               </a>
             </li>
 

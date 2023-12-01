@@ -11,7 +11,7 @@
                         <div class="mb-3">
                             <input type="text" class="form-control" id="ten_loai" placeholder="Nhập tên loại món..." name="name">
                             <span class="text-danger text_message">
-                                
+
                             </span>
                         </div>
                     </div>
@@ -28,6 +28,13 @@
         <div class="main-content">
             <!-- Nội dung của cột 9 -->
             <h4 class="card-title">DANH SÁCH LOẠI MÓN</h4>
+            <?php
+            if (isset($this->err) && !empty($this->err)) {
+                echo '<div class="alert alert-danger" role="alert">' . $this->err . '</div>';
+            } else {
+                // Hiển thị nội dung xóa thành công nếu cần
+            }
+            ?>
             <div class="card">
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
@@ -40,24 +47,28 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                        <?php foreach ($productCategories as $items) : ?>
-                            <tr>
-                                <td><?=$items['name']?></td>
-                                <td><span class="badge me-1 <?=($items['status'] ==="on") ? 'bg-label-info' : 'bg-label-danger'?>"><?=($items['status'] ==="on") ? 'Hiện' : 'Ẩn'?></span>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="<?= _WEB_ROOT ?>/productCategories/edit?id=<?=$items['id']?>"><i class="bx bx-edit-alt me-1"></i>Sửa</a>
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                            <?php foreach ($productCategories as $items) : ?>
+                                <tr>
+                                    <td><?= $items['name'] ?></td>
+                                    <td><span class="badge me-1 <?= ($items['status'] === "on") ? 'bg-label-info' : 'bg-label-danger' ?>"><?= ($items['status'] === "on") ? 'Hiển thị' : 'Ẩn' ?></span>
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?= _WEB_ROOT ?>/productCategories/edit?id=<?= $items['id'] ?>"><i class="bx bx-edit-alt me-1"></i>Sửa</a>
+                                                <form method="post" action="<?= _WEB_ROOT ?>/delete/productCategories">
+                                                    <input type="hidden" name="id" value="<?= $items['id'] ?>">
+                                                    <button class="dropdown-item" type="submit">
+                                                        <i class="bx bx-trash me-1"></i>Xoa</button>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php endforeach;?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>

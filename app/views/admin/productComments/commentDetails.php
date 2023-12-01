@@ -3,7 +3,13 @@
     <div class="col-md-12">
         <div class="main-content">
             <!-- Nội dung của cột 9 -->
-            <h4 class="card-title">BÌNH LUẬN - CHI TIẾT</h4>
+            <div class="d-flex align-items-center ">
+                <a href="<?= _WEB_ROOT . 'productComments'; ?>">
+                    <h4 class="card-title">BÌNH LUẬN </h4>
+                </a>
+                <p> - </p>
+                <h6> CHI TIẾT</h6>
+            </div>
             <div class="card">
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
@@ -12,6 +18,7 @@
                                 <th>Ngày đăng</th>
                                 <th class="pe-0" style="max-width: 400px;">Bình luận</th>
                                 <th>Trạng Thái</th>
+                                <th>Sửa trạng thái</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
@@ -27,29 +34,38 @@
                                             <p class="m-0 p-1 ms-1 pe-3"><?= $items['note'] ?> </p>
                                         </div>
                                         <div class=" align-items-center">
-                                            <div class="me-1" style="max-width: 300px; overflow: hidden; white-space: normal;"><a href="" class="text-primary text-decoration-none"><?= $items['products_name'] ?></a></div>
-
-                                            <a class="position-relative text-decoration-none ms-1" href="<?= _WEB_ROOT ?>/productComments/commentDetailS?id=<?= $items['products_id'] ?>">
-                                                <i class="bi bi-chat-square-fill text-dark " style="font-size: 1.5rem;"></i>
-                                                <span style="font-size: 0.7rem;" class=" position-absolute top-50 left-100 translate-middle badge rounded-pill bg-light text-dark"><?=$items['quantity']?></span>
-                                            </a>
                                         </div>
 
                                     </td>
                                     <td>
-                                        <span class="badge <?= ($items['status']) == "on" ? 'bg-label-info' : 'bg-danger-info' ?> me-1"><?= ($items['status']) == "on" ? 'Đã duyệt' : 'Chờ duyệt' ?></span>
+                                        <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">
+                                            <?= $items['status'] === 'on' ? 'Hiển thị' : 'Ẩn' ?>
+                                        </span>
                                     </td>
                                     <td>
-                                        <div class="dropdown">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
-                                                    không chấp thuận</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bi bi-reply-fill me-1"></i> Trả lời hay j đó</a>
+                                        <form action="<?= _WEB_ROOT ?>/updateStatus/productComments?id=<?= $items['comment_id'] ?>" method="post" onsubmit="return confirm('Bạn chắc chắn muốn cập nhật trạng thái?')">
+                                            <input type="hidden" name="comment_id" value="<?= $items['comment_id'] ?>">
+                                            <div class="mb-2">
+                                                <select class="form-select" name="status">
+                                                    <option value="on" <?= ($items['status'] == 'on') ? 'selected' : '' ?>>Hiển thị</option>
+                                                    <option value="off" <?= ($items['status'] == 'off') ? 'selected' : '' ?>>Ẩn</option>
+
+                                                </select>
                                             </div>
+                                            <button type="submit" class="btn btn-primary">
+                                                Chọn
+                                            </button>
+                                        </form>
+                                    </td>
+
+
+                                    <td>
+                                        <div class="dropdown">                                           
+                                            <form method="post" action="<?= _WEB_ROOT ?>/productComments/deleteComments">
+                                                <input type="hidden" name="id" value="<?= $items['comment_id'] ?>">
+                                                <button class="dropdown-item" type="submit">
+                                                    <i class="bx bx-trash me-1"></i>Xóa</button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

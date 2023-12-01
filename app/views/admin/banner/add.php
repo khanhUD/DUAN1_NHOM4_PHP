@@ -72,7 +72,7 @@
                                         </td>
                                         <td>
                                             <span class="badge <?= $banner['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">
-                                                <?= $banner['status'] === 'on' ? 'Hiện' : 'Ẩn' ?>
+                                                <?= $banner['status'] === 'on' ? 'Hiển thị' : 'Ẩn' ?>
                                             </span>
                                         </td>
                                         <td>
