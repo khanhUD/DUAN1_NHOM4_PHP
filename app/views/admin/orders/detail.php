@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="main-content">
             <div class="d-flex align-items-center ">
-                <a href="<?=_WEB_ROOT.'orders'; ?>">
+                <a href="<?= _WEB_ROOT . 'orders'; ?>">
                     <h4 class="card-title">HÓA ĐƠN </h4>
                 </a>
                 <P>--</P>
@@ -13,29 +13,27 @@
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
                         <thead>
-                            <tr>
-                                <th>ID món ăn</th>
+                            <tr>       
                                 <th>Tên món ăn</th>
                                 <th>hình</th>
                                 <th>số lượng</th>
-                                <th>giá</th>
-                            
-                                
+                                <th>giá</th>                     
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td>1</td>
+                            <?php foreach ($orders_details as $items): ?>
+                            <tr>                            
                                 <td>
-                                    món ăn ngon
+                                <?=$items['name'] ?>
                                 </td>
-                                <td>hình 1 </td>
-                                <td>2</td>
+                                <td><?=$items['image'] ?> </td>
+                                <td><?=$items['quantity'] ?></td>
                                 <td>
-                                    2000
+                                <?=$items['price'] ?>
                                 </td>
                              
                             </tr>
+                            <?php endforeach  ?>
 
                         </tbody>
                     </table>
