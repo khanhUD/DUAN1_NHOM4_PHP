@@ -79,7 +79,7 @@
                                                     <option value="pending" <?= ($items['status'] == 'pending') ? 'selected' : '' ?>>Chờ xác nhận</option>
                                                     <option value="accepted" <?= ($items['status'] == 'accepted') ? 'selected' : '' ?>>Đã xác nhận</option>
                                                     <option value="cancel" <?= ($items['status'] == 'cancel') ? 'selected' : '' ?>>Đã Hủy</option>
-                                                    <option value="delate" <?= ($items['status'] == 'delate') ? 'selected' : '' ?>>Đang ẩn</option>
+                                                    <option value="delate" <?= ($items['status'] == 'delate') ? 'selected' : '' ?>>Ẩn</option>
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-primary">
