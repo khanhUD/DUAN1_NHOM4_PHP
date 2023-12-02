@@ -1,7 +1,14 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-content">
-            <h4 class="card-title">ĐẶT BÀN</h4>
+            <div class="d-flex justify-content-between">
+                <h4 class="card-title">HÓA ĐƠN ĐẶT BÀN </h4>
+                <a href="<?= _WEB_ROOT . 'orderTables/list_hidden'; ?>">
+                    <h5><i class="bi bi-eye-slash-fill me-1"></i> Danh sách xóa tạm</h5>
+
+
+                </a>
+            </div>
             <div class="card">
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
@@ -13,7 +20,8 @@
                                 <th>Ngày đến</th>
                                 <th>Giờ đến</th>
                                 <th>Trạng Thái</th>
-                                <th>Chức năng</th>
+                                <th>Sửa Trạng Thái</th>
+                            
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -22,42 +30,60 @@
                                     <td><?= $items['full_name'] ?></td>
                                     <td><?= $items['phone'] ?></td>
                                     <td>
-                                        <div class="mb-1">[ <span class="text-primary fw-italic"><?= $items['email'] ?></span> ]:</div>
+                                        <div class="mb-1">[ <span class="text-primary fw-italic"><?= $items['users_email'] ?></span> ]:</div>
                                     </td>
                                     <td><?= $items['arrival_date'] ?></td>
                                     <td><?= $items['arrival_time'] ?></td>
                                     <td>
+                                        <?php
+                                        $badgeClass = '';
+                                        $statusText = '';
 
-                                        <?php if ($items['status_orderTables'] == 'pending') : ?>
-                                            <form method="post" action="<?= _WEB_ROOT ?>/contacts/edit_status">
-                                                <input type="hidden" name="id" value="<?= $items['id'] ?>">
-                                                <button class=" badge bg-label-danger me-1" type="submit">
-                                                    Chưa phản hồi</button>
-                                            </form>
+                                        switch ($items['status']) {
+                                            case 'pending':
+                                                $badgeClass = 'bg-label-warning'; // Màu vàng cho trạng thái chờ duyệt
+                                                $statusText = 'Chờ xác nhận';
+                                                break;
+                                            case 'accepted':
+                                                $badgeClass = 'bg-label-primary'; // Màu xanh cho trạng thái đã duyệt
+                                                $statusText = 'Đã xác nhận';
+                                                break;
+                                            case 'cancel':
+                                                $badgeClass = 'bg-label-danger'; // Màu đỏ cho trạng thái đã hủy
+                                                $statusText = 'Đã hủy';
+                                                break;
+                                            default:
+                                                // Mặc định cho trường hợp khác nếu cần
+                                                break;
+                                        }
+                                        ?>
 
-                                        <?php else : ?>
-                                            <span class="badge bg-label-primary me-1">
-                                                Đã phản hồi
-                                            </span>
-                                        <?php endif; ?>
-                                    </td>
+                                        <span class="badge <?= $badgeClass ?> me-1">
+                                            <?= $statusText ?>
+                                        </span>
                                     </td>
                                     <td>
-                                        <form method="post" action="<?= _WEB_ROOT ?>/delete/deleteById?id=<?= $items['id'] ?>">
-                                            <input type="hidden" name="id" value="<?= $items['id'] ?>">
-                                            <button class=" badge bg-label-danger me-1" type="submit"><i class="bx bx-trash me-1"></i>
-                                                Xoa</button>
+                                        <form action="<?= _WEB_ROOT ?>/updateStatus/orderTables" method="post" onsubmit="return confirm('Bạn chắc chắn muốn cập nhật trạng thái?')">
+                                            <input type="hidden" name="id" value="<?= $items['table_id'] ?>">
+                                            <div class="mb-2">
+                                                <select class="form-select" name="status">
+                                                    <option value="pending" <?= ($items['status'] == 'pending') ? 'selected' : '' ?>>Chờ xác nhận</option>
+                                                    <option value="accepted" <?= ($items['status'] == 'accepted') ? 'selected' : '' ?>>Đã xác nhận</option>
+                                                    <option value="cancel" <?= ($items['status'] == 'cancel') ? 'selected' : '' ?>>Hủy</option>
+                                                    <option value="delate" <?= ($items['status'] == 'delate') ? 'selected' : '' ?>>Xóa tạm</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">
+                                                Chọn
+                                            </button>
                                         </form>
-                                        <!-- <a href="<?= _WEB_ROOT ?>/delete/deleteById?id=<?= $items['id'] ?>"><i class="bx bx-trash me-1"></i>Xoa</a> -->
                                     </td>
+                                    </td>
+                                  
                                 </tr>
                             <?php endforeach ?>
                         </tbody>
                     </table>
-                    <?php
-                    echo "<pre>";
-                    print_r($orderTables);
-                    ?>
                 </div>
             </div>
         </div>
