@@ -29,4 +29,9 @@ class OrdersModel extends Model
         ->get();
         return $data;
     }
+    public function updateStatus($data, $id)
+    {
+        $data = $this->db->table($this->_table)->where('id', '=', $id)->update($data);
+        return $data;
+    }
 }
