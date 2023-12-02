@@ -1,6 +1,3 @@
-
-
-
 <!-- Hero Start -->
 <div class="container-fluid bg-light py-6 my-6 mt-0">
     <div class="container text-center animated bounceInDown">
@@ -20,29 +17,28 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s">
-                <img src ="<?= _WEB_ROOT; ?>/public/assets/clients/img/about.jpg" class="img-fluid rounded" alt="">
+                <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/about.jpg" class="img-fluid rounded" alt="">
             </div>
             <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s">
-                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">About Us</small>
-                <h1 class="display-5 mb-4">Trusted By 200 + satisfied clients</h1>
-                <p class="mb-4">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore eit esdioilore magna aliqua. Ut enim ad minim veniam, 
-                    quis nostrud exercitation ullaemco laboeeiris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                    dolor iesdein reprehendeerit in voluptate velit esse cillum dolore.</p>
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Về Chúng Tôi</small>
+                <h1 class="display-5 mb-4">
+                    Được tin cậy bởi hơn 200 khách hàng hài lòng</h1>
+                <p class="mb-4">Nhà hàng Ninh Kiều - Nhà hàng ẩm thực hiện đại kết hợp với truyền thống, tạo nên tính mới lạ cho thực khách. Được ra đời vào năm 2021 với tiêu chí "Khách hàng là trên hết" nên chúng tôi luôn tự hào về cách phục vụ cũng như các món ăn mà chúng tôi làm ra. Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận tâm phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt với nhất. Các món ăn với công thức độc quyền sẽ mang lại hương vị mới mẻ cho thực khách. Nhà hàng Ninh Kiều xin chân thành cảm ơn.</p>
                 <div class="row g-4 text-dark mb-5">
                     <div class="col-sm-6">
-                        <i class="fas fa-share text-primary me-2"></i>Fresh and Fast food Delivery
+                        <i class="fas fa-share text-primary me-2"></i>Giao Thức Ăn Nhanh và Tươi Mát
                     </div>
                     <div class="col-sm-6">
-                        <i class="fas fa-share text-primary me-2"></i>24/7 Customer Support
+                        <i class="fas fa-share text-primary me-2"></i>Hỗ trợ Khách hàng 24/7
                     </div>
                     <div class="col-sm-6">
-                        <i class="fas fa-share text-primary me-2"></i>Easy Customization Options
+                        <i class="fas fa-share text-primary me-2"></i>Lựa Chọn Tùy Chỉnh Đơn Giản
                     </div>
                     <div class="col-sm-6">
-                        <i class="fas fa-share text-primary me-2"></i>Delicious Deals for Delicious Meals
+                        <i class="fas fa-share text-primary me-2"></i>Ưu Đãi Hấp Dẫn
                     </div>
                 </div>
-                <a href="" class="btn btn-primary py-3 px-5 rounded-pill">About Us<i class="fas fa-arrow-right ps-2"></i></a>
+                <!-- <a href="" class="btn btn-primary py-3 px-5 rounded-pill">About Us<i class="fas fa-arrow-right ps-2"></i></a> -->
             </div>
         </div>
     </div>
@@ -55,7 +51,7 @@
     <div class="container">
         <div class="row g-4 align-items-center">
             <div class="col-lg-7">
-               <div class="row g-4">
+                <div class="row g-4">
                     <div class="col-sm-4 wow bounceInUp" data-wow-delay="0.3s">
                         <div class="faqt-item bg-primary rounded p-4 text-center">
                             <i class="fas fa-users fa-4x mb-4 text-white"></i>
@@ -100,8 +96,7 @@
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                        allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
@@ -114,13 +109,13 @@
 <div class="container-fluid team py-6">
     <div class="container">
         <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Team</small>
-            <h1 class="display-5 mb-5">We have experienced chef Team</h1>
+            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Đầu Bếp</small>
+            <h1 class="display-5 mb-5">Chúng tôi có đội ngũ đầu bếp giàu kinh nghiệm</h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="team-item rounded">
-                    <img class="img-fluid rounded-top " src ="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-1.jpg" alt="">
+                    <img class="img-fluid rounded-top " src="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-1.jpg" alt="">
                     <div class="team-content text-center py-3 bg-dark rounded-bottom">
                         <h4 class="text-primary">Henry</h4>
                         <p class="text-white mb-0">Decoration Chef</p>
@@ -135,7 +130,7 @@
             </div>
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.3s">
                 <div class="team-item rounded">
-                    <img class="img-fluid rounded-top " src ="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-2.jpg" alt="">
+                    <img class="img-fluid rounded-top " src="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-2.jpg" alt="">
                     <div class="team-content text-center py-3 bg-dark rounded-bottom">
                         <h4 class="text-primary">Jemes Born</h4>
                         <p class="text-white mb-0">Executive Chef</p>
@@ -150,7 +145,7 @@
             </div>
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.5s">
                 <div class="team-item rounded">
-                    <img class="img-fluid rounded-top " src ="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-3.jpg" alt="">
+                    <img class="img-fluid rounded-top " src="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-3.jpg" alt="">
                     <div class="team-content text-center py-3 bg-dark rounded-bottom">
                         <h4 class="text-primary">Martin Hill</h4>
                         <p class="text-white mb-0">Kitchen Porter</p>
@@ -165,7 +160,7 @@
             </div>
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.7s">
                 <div class="team-item rounded">
-                    <img class="img-fluid rounded-top " src ="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-4.jpg" alt="">
+                    <img class="img-fluid rounded-top " src="<?= _WEB_ROOT; ?>/public/assets/clients/img/team-4.jpg" alt="">
                     <div class="team-content text-center py-3 bg-dark rounded-bottom">
                         <h4 class="text-primary">Adam Smith</h4>
                         <p class="text-white mb-0">Head Chef</p>
@@ -182,4 +177,3 @@
     </div>
 </div>
 <!-- Team End -->
-
