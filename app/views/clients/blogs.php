@@ -19,6 +19,20 @@
                  <h1 class="display-5 mb-5">Be First Who Read News</h1>
              </div>
              <div class="row">
+                 <aside class="col-md-3 wow bounceInRight" data-wow-delay="0.7s">
+                     <div class="card">
+                         <div class="card-body">
+                             <h2 class="card-title">Danh mục bài viết</h2>
+                             <ul class="list-group list-group-flush">
+                                 <li class="list-group-item"><a href="#" class="category-link">Tất cả</a></li>
+                                 <li class="list-group-item"><a href="#" class="category-link">Bài viết 2</a></li>
+                                 <li class="list-group-item"><a href="#" class="category-link">Bài viết 3</a></li>
+                                 <!-- Thêm các mục khác tùy vào số lượng bài viết bạn muốn hiển thị -->
+                             </ul>
+                         </div>
+                     </div>
+                 </aside>
+
                  <div class="row gx-4 justify-content-center col-md-9">
                      <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                          <div class="blog-item">
@@ -87,19 +101,7 @@
 
                  </div>
                  <!-- Phần nav bên phải -->
-                 <aside class="col-md-3 wow bounceInRight" data-wow-delay="0.7s">
-                     <div class="card">
-                         <div class="card-body">
-                             <h2 class="card-title">Danh mục bài viết</h2>
-                             <ul class="list-group list-group-flush">
-                                 <li class="list-group-item"><a href="#" class="category-link">Tất cả</a></li>
-                                 <li class="list-group-item"><a href="#" class="category-link">Bài viết 2</a></li>
-                                 <li class="list-group-item"><a href="#" class="category-link">Bài viết 3</a></li>
-                                 <!-- Thêm các mục khác tùy vào số lượng bài viết bạn muốn hiển thị -->
-                             </ul>
-                         </div>
-                     </div>
-                 </aside>
+
                  <!-- Kết thúc phần nav -->
 
              </div>

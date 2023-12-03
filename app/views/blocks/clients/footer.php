@@ -21,39 +21,40 @@
                         <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i> Bánh Burger Panner</a>
                         <a class="text-body mb-3" href=""><i class="fa fa-check text-primary me-2"></i> Đặc Sản Ngọt</a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-item">
-                    <h4 class="mb-4">Liên Hệ</h4>
-                    <div class="d-flex flex-column align-items-start">
-                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 2/95, Mạc Thiên Tích, Xuân Khánh, Ninh Kiều, Cần Thơ</p>
-                        <p><i class="fa fa-phone-alt text-primary me-2"></i> 0909 1509 09</p>
-                        <p><i class="fas fa-envelope text-primary me-2"></i> ninhkieurestaurant@gmail.com</p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="mb-4">Contact Us</h4>
+                            <div class="d-flex flex-column align-items-start">
+                                <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 02 Đường Hai Bà Trưng, Tân An, Ninh Kiều, Cần Thơ</p>
+                                <p><i class="fa fa-phone-alt text-primary me-2"></i> 1900 6789</p>
+                                <p><i class="fas fa-envelope text-primary me-2"></i> info@ninhkieu.com</p>
+                                <p><i class="fa fa-clock text-primary me-2"></i> Hỗ trợ 24/7</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-item">
-                    <h4 class="mb-4">Món ăn nổi bật</h4>
-                    <div class="row g-2">
-                        <div class="col-4">
-                            <a href=""> <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-03.jpg" class="img-fluid rounded-circle border border-primary p-2" alt=""></a>   
-                        </div>
-                        <div class="col-4">
-                            <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-03.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-03.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-04.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-05.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
-                        </div>
-                        <div class="col-4">
-                            <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-06.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="mb-4">Social Gallery</h4>
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-01.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-02.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-03.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-04.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-05.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/menu-06.jpg" class="img-fluid rounded-circle border border-primary p-2" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

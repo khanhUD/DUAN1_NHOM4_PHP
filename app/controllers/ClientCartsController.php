@@ -1,9 +1,9 @@
 <?php
 
-class ClientAboutUsController extends Controller
+class ClientCartsController extends Controller
 {
 
-    public $aboutUs, $data = [];
+    public $carts, $data = [];
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class ClientAboutUsController extends Controller
     {
         
         $this->data['sub_content']['title'] = '';
-        $this->data['content'] = 'clients/about';
+        $this->data['content'] = 'clients/carts';
         $this->data['sub_content']['action'] = '';
         $this->render('layouts/client_layout', $this->data);
     }

@@ -468,6 +468,88 @@ h4, h5, h6, .h4, .h5, .h6 {
 }
 /*** Footer End ***/
 
+.card.product-wap .card .product-overlay {
+    background: rgba(0,0,0,.2);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+  }
+  .card.product-wap:hover .card .product-overlay {
+    visibility: visible;
+    opacity: 1;
+  }
 
+  .btn-minus{
+    height: 30px;
+    padding: 3px;
+    margin-right: 2px;
+    width: 30px;
+}
+.btn-plus{
+    height: 30px;
+    padding: 3px;
+    margin-left: 2px;
+    width: 30px;
+}
+.btn-quantity{
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 50px;
+    height: 30px;
 
+    border: 2px solid #d4a762;;
+    border-radius: 5px;
+    outline: none;
+    
+}
+.input-voucher{
+    width: 70%;
+}
+
+.btn-voucher{
+    width: 25%;
+}
+
+.product-pay td{
+    padding: 0;
+    padding-top: 10px;
+}
+
+.product-img{
+    width: 50px;
+}
+
+.product-name{
+    width: 300px;
+}
+.product-quantity{
+    width: 50px;
+}
+.voucher{
+    border-top: 1px solid rgba(175,175,175,.34);
+}
+
+.div td{
+    padding: 0;
+    padding-top: 20px;
+}
+
+.div{
+    border-top: 1px solid rgba(175,175,175,.34);
+}
+
+.btn-order{
+    width: 150px;
+    height: 50px;
+}
+
+.quantity-product {
+    flex-wrap: nowrap; 
+  }
+
+  @media (max-width: 767px) {
+    .quantity-product {
+      flex-wrap: wrap; 
+    }
+  }
 
