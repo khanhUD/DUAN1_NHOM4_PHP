@@ -32,13 +32,12 @@ class ClientContactsController extends Controller
                 'phone' => $postValues['phone'],
                 'email' => $postValues['email'],
                 'note' => $postValues['note'],
-                'create_at' => '2023-12-04 02:26:21'
+                
             ];
 
             $result = $this->contacts->insertContacts($data);
 
             if($result){
-                $this->data['sub_content']['title'] = 'Bạn đã gửi tin nhắn thành côngs';
                 $response = new Response();
                 $response->redirect('ClientContacts');
             }
