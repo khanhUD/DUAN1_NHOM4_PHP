@@ -2,13 +2,15 @@
 
 class DeleteController extends Controller
 {
-    public $banner, $postComments, $productCategories, $err;
+    public $banner, $postComments, $productCategories,$posts, $err;
 
     public function __construct()
     {
         $this->banner = $this->model('BannerModel');
         $this->postComments = $this->model('PostCommentsModel');
         $this->productCategories = $this->model('ProductCategoriesModel');
+        $this->posts = $this->model('PostsModel');
+
     }
 
     public function banner()
@@ -24,7 +26,7 @@ class DeleteController extends Controller
     }
     public function postComments()
     {
-       
+
         $request = new Request;
         if ($request->isPost()) {
             $id = $request->getFields()['id'];
@@ -52,4 +54,5 @@ class DeleteController extends Controller
             }
         }
     }
+  
 }

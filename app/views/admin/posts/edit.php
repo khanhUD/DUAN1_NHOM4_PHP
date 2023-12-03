@@ -1,59 +1,72 @@
 <div class="mt-3">
+  <!-- Message -->
+  <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
+    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+    <span class="alert-text"><strong>', '</strong></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>') ?>
+  <!-- Message -->
   <div class="row">
     <!-- Nội dung của cột 3 -->
     <h4>SỬA BÀI VIẾT</h4>
     <div class="card p-3">
-      <form action="" method="POST">
+      <form action="<?= _WEB_ROOT ?>/posts/edit_post" method="POST" enctype="multipart/form-data">
         <div class="row">
+          <input type="hidden" name="id" value="<?= $posts['id'] ?>">
           <div class="mb-3 col-md-6">
-            <label for="post_category_id" class="form-label">Loại bài viết</label>
-
+            <label for="post_category_id" class="form-label">Loại Món ăn</label>
             <select class="form-control" name="post_category_id" id="post_category_id">
-              <?php foreach ($listloai as $items) : ?>
-                <option value="<?= $items['id'] ?>"><?= $items['name'] ?></option>
+              <?php foreach ($postCategories as $category) : ?>
+                <?php
+                $selected = ($category['id'] == $products['post_category_id']) ? 'selected' : '';
+                ?>
+                <option value="<?= $category['id'] ?>" <?= $selected ?>><?= $category['name'] ?></option>
               <?php endforeach; ?>
             </select>
-
             <span class="error-message" id="post_category_id-error"></span>
           </div>
           <div class="mb-3 col-md-6">
             <label for="title" class="form-label">Tiêu đề bài viết</label>
-            <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
+            <input class="form-control" type="text" id="title" name="title" value="<?= $posts['title'] ?>" placeholder="Nhập tiêu đề bài viết" />
             <span class="error-message" id="title-error"></span>
           </div>
 
-          <div class="mb-3 col-md-6">
+          <div class="mb-3 col-md-6 ">
             <label for="image" class="form-label">Hình ảnh</label>
-            <input type="file" id="image" name="image" class="form-control" accept="image/*" />
-            <span class="error-message" id="image-error"></span>
+            <input type="file" class="form-control" id="image" name="image">
+            <input type="hidden" value="<?= $posts['image'] ?>" name="imageOld">
+            <div class='form-message'></div>
           </div>
-        </div>
-        <div class="mb-3 col-md-6">
-          <label class="form-label" for="status">Trạng Thái</label>
-          <div class="input-group input-group-merge">
-            <div class="form-check mx-3">
-              <input class="form-check-input" type="radio" name="status" id="radioOption1" value="off">
-              <label class="form-check-label" for="radioOption1">
+          <div class="mb-3 col-md-6">
+            <label class="form-label" for="status">Trạng thái</label>
+            <div class="input-group form-control input-group-merge">
+              <div class="form-check mx-3 form-group">
+                <input <?= ($posts['status'] === 'off') ? 'checked' : '' ?> class="form-check-input" type="radio" name="status" value="off">
                 Ẩn
-              </label>
+                </label>
+              </div>
+              <div class="form-check">
+                <input <?= ($posts['status'] === 'on') ? 'checked' : '' ?> class="form-check-input" type="radio" name="status" value="on">
+                <label class="form-check-label" for="radioOption2">
+                  Hiển thị
+                </label>
+              </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="status" id="radioOption2" value="on" checked>
-              <label class="form-check-label" for="radioOption2">
-                Hiện
-              </label>
-            </div>
-          </div>
 
+          </div>
         </div>
+
 
 
 
         <div class="mb-3">
           <label for="content" class="form-label">Nội dung bài viết</label>
-          <textarea name="content" id="editor" cols="30" rows="10"></textarea>
+          <textarea name="content" id="editor" cols="30" rows="10"><?= $posts['content'] ?></textarea>
           <span class="error-message" id="content-error"></span>
         </div>
+
 
         <!-- Thêm nhiều trường hoặc tùy chỉnh theo nhu cầu -->
 
@@ -66,61 +79,5 @@
     </div>
 
 
-  </div>
-</div>
-<div class="row mt-3">
-  <!-- Cột chiều rộng 9 -->
-  <div class="col-md-12">
-    <div class="main-content">
-      <!-- Nội dung của cột 9 -->
-      <h4>DANH SÁCH BÀI VIẾT</h4>
-      <div class="card">
-        <div class="table-responsive text-nowrap">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th class="text-center">Mã bài viết</th>
-                <th class="text-center">Tên bài viết</th>
-                <th class="text-center">Hình</th>
-                <th class="text-center">Trạng thái</th>
-                <th class="text-center">Chức năng</th>
-              </tr>
-
-            </thead>
-            <tbody class="table-border-bottom-0">
-              <tr>
-                <td><i class="fab fa-vuejs fa-lg text-success me-3"></i>
-                  <strong>VueJs
-                    Project</strong>
-                </td>
-                <td>Trevor Baker</td>
-                <td>hình</td>
-
-                <td>
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" />
-                  </div>
-                </td>
-
-                <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
-                    </div>
-                  </div>
-                </td>
-
-              </tr>
-
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
   </div>
 </div>

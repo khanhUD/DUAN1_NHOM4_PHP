@@ -1,13 +1,13 @@
 <div class="mt-3">
-      <!-- Message -->
-  <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
+    <!-- Message -->
+    <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-text"><strong>', '</strong></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>') ?>
-  <!-- Message -->
+    <!-- Message -->
     <!-- Nội dung của cột 3 -->
     <h4>SỬA MÓN ĂN</h4>
     <div class="card p-3">

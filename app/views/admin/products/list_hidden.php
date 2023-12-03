@@ -3,7 +3,8 @@
   <div class="col-md-12">
     <div class="main-content">
       <!-- Nội dung của cột 9 -->
-      <h4>DANH SÁCH MÓN ĂN</h4>
+      <a href="<?php _WEB_ROOT?>/products"> <h4>DANH SÁCH MÓN ĂN</h4></a>
+     
       <div class="card">
         <div class="table-responsive text-nowrap">
           <table class="table table-hover">

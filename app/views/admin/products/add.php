@@ -1,4 +1,10 @@
 <div class="mt-3">
+  <div class="d-flex justify-content-between">
+    <h4 class="card-title"> </h4>
+    <a href="<?= _WEB_ROOT . 'products/list_hidden'; ?>">
+      <h5><i class="bi bi-eye-slash-fill me-1"></i> Danh xách xóa tạm</h5>
+    </a>
+  </div>
   <!-- Message -->
   <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
@@ -9,8 +15,9 @@
 </div>') ?>
   <!-- Message -->
   <!-- Nội dung của cột 3 -->
-  <h4>THÊM MÓN ĂN</h4>
+
   <div class="card p-3">
+  <h4>THÊM MÓN ĂN</h4>
     <form action="<?= _WEB_ROOT ?>/products/add" method="POST" enctype="multipart/form-data">
       <div class="row">
         <div class="mb-3 col-md-6">
@@ -76,7 +83,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
-               
+
                 <th>Tên </th>
                 <th>giá </th>
                 <th>Hình</th>
@@ -90,15 +97,15 @@
             <tbody class="table-border-bottom-0">
               <?php foreach ($products as $items) : ?>
                 <tr>
-                 
-              
+
+
                   </td>
                   <td><?= $items['name'] ?></td>
                   <td><?= $items['price'] ?></td>
                   <td><?= $items['image'] ?></td>
-                  
+
                   <td><?= $items['title'] ?></td>
-              
+
 
                   <td>
                     <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">
