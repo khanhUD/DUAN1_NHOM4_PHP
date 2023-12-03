@@ -18,29 +18,50 @@ class BannerController extends Controller
         $this->render('layouts/admin_layout', $this->data);
         $request = new Request;
         if ($request->isPost()) {
-            $postValues = $request->getFields();
+            if ($request->isPost()) {
 
-            $image = $postValues['image'];
-            $targetDir = "public/uploads/";
-            $targetFile = $targetDir . basename($image["name"]);
-            if (move_uploaded_file($image["tmp_name"], $targetFile)) {
-                echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
-            } else {
-                // echo "Có lỗi xảy ra khi tải lên tệp.";
-            }
+                $request->rules([
+                    'title' => 'unique:banner:title'
+                ]);
 
-            $data = [
-                'title' => $postValues['title'],
-                'link' => $postValues['link'],
-                'image' => $postValues['image']['name']
-            ];
+                $request->messages([
+                    'title.unique' => 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới'
+                ]);
 
-            $result = $this->banners->addBanner($data);
+                $validate = $request->validate();
 
-            if ($result) {
-                // Nếu thành công, lưu thông báo và chuyển hướng đến danh sách danh mục
-                $response = new Response();
-                $response->redirect('banner');
+                if (!$validate) {
+                    Session::flash('msg', 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới');
+                    Session::flash('errors', $request->errors());
+                    Session::flash('old', $request->getFields());
+
+                    $response  = new Response();
+                    $response->redirect('users');
+                }
+                $postValues = $request->getFields();
+
+                $image = $postValues['image'];
+                $targetDir = "public/uploads/";
+                $targetFile = $targetDir . basename($image["name"]);
+                if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+                    echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
+                } else {
+                    // echo "Có lỗi xảy ra khi tải lên tệp.";
+                }
+
+                $data = [
+                    'title' => $postValues['title'],
+                    'link' => $postValues['link'],
+                    'image' => $postValues['image']['name']
+                ];
+
+                $result = $this->banners->addBanner($data);
+
+                if ($result) {
+                    Session::flash('msg', 'Thêm thành công !');
+                    $response = new Response();
+                    $response->redirect('banner');
+                }
             }
         }
     }
@@ -59,6 +80,24 @@ class BannerController extends Controller
         $request = new Request;
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
+        $request->rules([
+            'title' => 'unique:banner:title'
+        ]);
+
+        $request->messages([
+            'title.unique' => 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới'
+        ]);
+
+        $validate = $request->validate();
+
+        if (!$validate) {
+            Session::flash('msg', 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới');
+            Session::flash('errors', $request->errors());
+            Session::flash('old', $request->getFields());
+
+            $response  = new Response();
+            $response->redirect('banner/edit?id='.$id);
+        }
         $data = [
             'image' => $postValues['imageOld'],
             'title' => $postValues['title'],
@@ -81,10 +120,9 @@ class BannerController extends Controller
         $result = $this->banners->updateBanner($data, $id);
 
         if ($result) {
-            // Nếu thành công chuyển hướng đến danh sách danh mục
+            Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
             $response->redirect('banner/add');
         }
     }
-    
 }

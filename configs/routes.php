@@ -1,6 +1,9 @@
 <?php
 $routes['default_controller'] = 'home';
+// Admin
 $routes['admin'] = 'home';
+$routes['login'] = 'admin/login';
+$routes['users/register'] = 'admin/register';
 
 $routes['banner'] = 'banner/add';
 $routes['banner/edit'] = 'banner/edit';

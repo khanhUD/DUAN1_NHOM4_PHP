@@ -106,4 +106,8 @@
   margin-top: 1rem;
 }
 
-
+.alert-custom {
+  /* Custom */
+  background-color: red;
+  color: black;
+}

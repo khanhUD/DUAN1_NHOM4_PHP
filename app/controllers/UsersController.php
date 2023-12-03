@@ -15,6 +15,26 @@ class UsersController extends Controller
         $this->render('layouts/admin_layout', $this->data);
         $request = new Request;
         if ($request->isPost()) {
+
+            $request->rules([
+                'email' => 'unique:users:email'
+            ]);
+
+            $request->messages([
+                'email.unique' => 'đã ton taio'
+            ]);
+
+            $validate = $request->validate();
+
+            if (!$validate) {
+                Session::flash('msg', 'Email đã tồn tại, vui lòng nhập email mới');
+                Session::flash('errors', $request->errors());
+                Session::flash('old', $request->getFields());
+
+                $response  = new Response();
+                $response->redirect('users');
+            }
+
             $postValues = $request->getFields();
             $image = $postValues['image'];
             $targetDir = "public/uploads/";
@@ -32,13 +52,13 @@ class UsersController extends Controller
                 'password' => $postValues['password'],
                 'role' => $postValues['role'],
                 'phone' =>  $postValues['phone'],
-             
+
             ];
 
             $result = $this->users->addUsers($data);
 
             if ($result) {
-                // Nếu thành công, lưu thông báo và chuyển hướng đến danh sách danh mục
+                Session::flash('msg', 'Thêm thành công !');
                 $response = new Response();
                 $response->redirect('users');
             }
@@ -57,35 +77,37 @@ class UsersController extends Controller
     public function edit_post()
     {
         $request = new Request;
-        $postValues = $request->getFields(); //layid
-        $id = $postValues['id'];
-        $data = [
-            'full_name' => $postValues['full_name'],
-            'email' => $postValues['email'],
-            'password' => $postValues['password'],
-            'role' => $postValues['role'],
-            'status' => $postValues['status'],
-        ];
-        $image = $postValues['image'];
-        $targetDir = "public/uploads/";
-        $targetFile = $targetDir . basename($image["name"]);
+        if ($request->isPost()) {
+            $postValues = $request->getFields(); //layid
+            $id = $postValues['id'];
+            $data = [
+                'full_name' => $postValues['full_name'],
+                'email' => $postValues['email'],
+                'password' => $postValues['password'],
+                'role' => $postValues['role'],
+                'status' => $postValues['status'],
+            ];
+            $image = $postValues['image'];
+            $targetDir = "public/uploads/";
+            $targetFile = $targetDir . basename($image["name"]);
 
-        if (move_uploaded_file($image["tmp_name"], $targetFile)) {
-            echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
-            $data['image'] = $postValues['image']['name'];
-        } else {
-            // Ảnh cũ đã tồn tại, sử dụng ảnh cũ
-            $data['image'] = $postValues['imageOld'];
-            echo "Có lỗi xảy ra khi tải lên tệp.";
-        }
-        
+            if (move_uploaded_file($image["tmp_name"], $targetFile)) {
+                echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
+                $data['image'] = $postValues['image']['name'];
+            } else {
+                // Ảnh cũ đã tồn tại, sử dụng ảnh cũ
+                $data['image'] = $postValues['imageOld'];
+                echo "Có lỗi xảy ra khi tải lên tệp.";
+            }
 
-        $result = $this->users->updateUsers($data, $id);
 
-        if ($result) {
-            // Nếu thành công chuyển hướng đến danh sách danh mục
-            $response = new Response();
-            $response->redirect('users');
+            $result = $this->users->updateUsers($data, $id);
+
+            if ($result) {
+                Session::flash('msg', 'Sửa thành công !');
+                $response = new Response();
+                $response->redirect('users');
+            }
         }
     }
     public function delete()

@@ -16,7 +16,7 @@
               </div>
               <div class="mb-3 col-md-6">
                 <label for="email" class="form-label">Email</label>
-                <input class="form-control" type="text" id="email" name="email" value="<?= $users_detail['email'] ?>" placeholder="Nhập email..." />
+                <input class="form-control" type="text" id="email" name="email" value="<?= $users_detail['email'] ?>" placeholder="Nhập email..."readonly />
                 <span class="error-message " id="email-error"></span>
               </div>
 

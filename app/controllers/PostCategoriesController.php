@@ -23,6 +23,24 @@ class PostCategoriesController extends Controller
         $this->data['sub_content']['postCategories'] = $this->postCategories->getList();  //lay danh sach postCategories
 
         $request = new Request;
+        $request->rules([
+            'name' => 'unique:post_categories:name'
+        ]);
+
+        $request->messages([
+            'name.unique' => 'đã ton taio'
+        ]);
+
+        $validate = $request->validate();
+
+        if (!$validate) {
+            Session::flash('msg', 'Tên loại đã tồn tại, vui lòng nhập tên loại mới');
+            Session::flash('errors', $request->errors());
+            Session::flash('old', $request->getFields());
+
+            $response  = new Response();
+            $response->redirect('postCategories');
+        }
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
         $data = [
@@ -31,7 +49,7 @@ class PostCategoriesController extends Controller
         $result = $this->postCategories->addPostCategories($data, $id);
 
         if ($result) {
-            // Nếu thành công chuyển hướng đến danh sách danh mục
+            Session::flash('msg', 'Thêm thành công !');
             $response = new Response();
             $response->redirect('postCategories');
         }
@@ -48,8 +66,26 @@ class PostCategoriesController extends Controller
     public function edit_post()
     {
         $request = new Request;
+
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
+        $request->rules([
+            'name' => 'unique:post_categories:name'
+        ]);
+
+        $request->messages([
+            'name.unique' => 'đã ton taio'
+        ]);
+
+        $validate = $request->validate();
+
+        if (!$validate) {
+            Session::flash('msg', 'Tên loại đã tồn tại, vui lòng nhập tên loại mới');
+            Session::flash('errors', $request->errors());
+            Session::flash('old', $request->getFields());
+            $response  = new Response();
+            $response->redirect('postCategories/edit?id=' . $id);
+        }
         $data = [
             'name' => $postValues['name'],
             'status' => $postValues['status'],
@@ -57,7 +93,7 @@ class PostCategoriesController extends Controller
         $result = $this->postCategories->updatePostCategories($data, $id);
 
         if ($result) {
-            // Nếu thành công chuyển hướng đến danh sách danh mục
+            Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
             $response->redirect('postCategories');
         }
@@ -72,5 +108,4 @@ class PostCategoriesController extends Controller
             $response->redirect('postCategories');
         }
     }
-   
 }

@@ -138,7 +138,7 @@
               <h4 class="mb-2">Cuộc phiêu lưu bắt đầu từ đây 🚀</h4>
               <p class="mb-4">Làm cho việc quản lý ứng dụng của bạn trở nên dễ dàng và thú vị!</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="<?= _WEB_ROOT ?>/users/register" method="post">
                 <div class="mb-3">
                   <label for="full_name" class="form-label">Họ và tên</label>
                   <input
@@ -161,6 +161,18 @@
                   <div class="input-group input-group-merge">
                     <input
                       type="password"id="password"class="form-control"name="password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                    >
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
+
+                <div class="mb-3 form-password-toggle">
+                  <label class="form-label" for="password">Xác nhận mật khẩu</label>
+                  <div class="input-group input-group-merge">
+                    <input
+                      type="password"id="password"class="form-control"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     >
@@ -190,6 +202,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    <script src="<?= _WEB_ROOT ?>/public/assets/admin/js/Validation.js"></script>
     <script src="../../../public/assets/admin/vendor/libs/jquery/jquery.js"></script>
     <script src="../../../public/assets/admin/vendor/libs/popper/popper.js"></script>
     <script src="../../../public/assets/admin/vendor/js/bootstrap.js"></script>
@@ -204,6 +217,20 @@
     <script src="../../../public/assets/admin/js/main.js"></script>
 
     <!-- Page JS -->
+
+    <script>
+      if(document.querySelector('#formAuthentication')) {
+        Validator({
+          // form: '#formAuthentication',
+          // formGroupSelector: '.form-group',
+          // errorSelector: '.form-message',
+
+          // rules: [
+
+          // ]
+        })
+      }
+    </script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

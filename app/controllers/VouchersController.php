@@ -19,19 +19,40 @@ class VouchersController extends Controller
     public function add()
     {
         $request = new Request;
-        $postValues = $request->getFields();
+        if ($request->isPost()) {
+            $request->rules([
+                'code' => 'unique:vouchers:code'
+            ]);
 
-        $data = [
-            'code' => $postValues['code'],
-            'discount_percentage' => $postValues['discount_percentage'],
-            'number_limit' => $postValues['number_limit'],
+            $request->messages([
+                'code.unique' => 'Code đã tồn tại, vui lòng nhập Code mới'
+            ]);
 
-        ];
+            $validate = $request->validate();
 
-        $result = $this->vouchers->addVouchers($data);
-        if ($result) {
-            $response = new Response();
-            $response->redirect('vouchers');
+            if (!$validate) {
+                Session::flash('msg', 'Code đã tồn tại, vui lòng nhập Code mới');
+                Session::flash('errors', $request->errors());
+                Session::flash('old', $request->getFields());
+
+                $response  = new Response();
+                $response->redirect('vouchers');
+            }
+            $postValues = $request->getFields();
+
+            $data = [
+                'code' => $postValues['code'],
+                'discount_percentage' => $postValues['discount_percentage'],
+                'number_limit' => $postValues['number_limit'],
+
+            ];
+
+            $result = $this->vouchers->addVouchers($data);
+            if ($result) {
+                $response = new Response();
+                Session::flash('msg', 'Thêm thành công !');
+                $response->redirect('vouchers');
+            }
         }
     }
     public function edit()
@@ -47,6 +68,24 @@ class VouchersController extends Controller
         $request = new Request;
         $postValues = $request->getFields();
         $id = $postValues['id'];
+        $request->rules([
+            'code' => 'unique:vouchers:code'
+        ]);
+
+        $request->messages([
+            'code.unique' => 'Mã giảm giá đã tồn tại, vui lòng nhập Mã giảm giá mới'
+        ]);
+
+        $validate = $request->validate();
+
+        if (!$validate) {
+            Session::flash('msg', 'Mã giảm giá đã tồn tại, vui lòng nhập Mã giảm giá mới');
+            Session::flash('errors', $request->errors());
+            Session::flash('old', $request->getFields());
+
+            $response  = new Response();
+            $response->redirect('vouchers/edit?id=' . $id);
+        }
         $data = [
             'code' => $postValues['code'],
             'discount_percentage' => $postValues['discount_percentage'],
@@ -57,22 +96,22 @@ class VouchersController extends Controller
         $result = $this->vouchers->updateVouchers($data, $id);
         if ($result) {
             $response = new Response();
+            Session::flash('msg', 'Sửa thành công !');
             $response->redirect('vouchers');
         }
     }
-    public function updateStatus(){
-            $request = new Request;
-            $postValues = $request->getFields();
-            $id = $postValues['id'];
-            $data = [
-                'status' => $postValues['status'],
-            ];
-            $result = $this->vouchers->updateVouchers($data, $id);
-            if ($result) {
-                $response = new Response();
-                $response->redirect('vouchers');
-            }
-        
+    public function updateStatus()
+    {
+        $request = new Request;
+        $postValues = $request->getFields();
+        $id = $postValues['id'];
+        $data = [
+            'status' => $postValues['status'],
+        ];
+        $result = $this->vouchers->updateVouchers($data, $id);
+        if ($result) {
+            $response = new Response();
+            $response->redirect('vouchers');
+        }
     }
-
 }

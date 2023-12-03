@@ -19,6 +19,24 @@ class ProductCategoriesController extends Controller
         $this->render('layouts/admin_layout', $this->data);
         $request = new Request;
         if ($request->isPost()) {
+            $request->rules([
+                'name' => 'unique:product_categories:name'
+            ]);
+
+            $request->messages([
+                'name.unique' => 'đã ton taio'
+            ]);
+
+            $validate = $request->validate();
+
+            if (!$validate) {
+                Session::flash('msg', 'Tên loại đã tồn tại, vui lòng nhập tên loại mới');
+                Session::flash('errors', $request->errors());
+                Session::flash('old', $request->getFields());
+
+                $response  = new Response();
+                $response->redirect('productCategories');
+            }
             $postValues = $request->getFields();
 
             $data = [
@@ -26,6 +44,7 @@ class ProductCategoriesController extends Controller
             ];
             $result = $this->productCategories->addProductCategories($data);
             if ($result) {
+                Session::flash('msg', 'Thêm thành công !');
                 $response = new Response();
                 $response->redirect('productCategories');
             }
@@ -46,10 +65,27 @@ class ProductCategoriesController extends Controller
     public function edit_post()
     {
         $request = new Request;
+        
         $postValues = $request->getFields();
         $id = $postValues['id'];
-        $name = $postValues['name'];
+        $request->rules([
+            'name' => 'unique:product_categories:name'
+        ]);
 
+        $request->messages([
+            'name.unique' => 'đã ton taio'
+        ]);
+
+        $validate = $request->validate();
+
+        if (!$validate) {
+            Session::flash('msg', 'Tên loại đã tồn tại, vui lòng nhập tên loại mới');
+            Session::flash('errors', $request->errors());
+            Session::flash('old', $request->getFields());
+
+            $response  = new Response();
+            $response->redirect('productCategories/edit?id='.$id);
+        }
         $data = [
             'name' => $postValues['name'],
             'status' => $postValues['status'],
@@ -58,7 +94,7 @@ class ProductCategoriesController extends Controller
         $result = $this->productCategories->updateProductCategories($data, $id);
 
         if ($result) {
-            // Nếu thành công chuyển hướng đến danh sách danh mục
+            Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
             $response->redirect('ProductCategories/add');
         }
