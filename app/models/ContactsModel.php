@@ -27,7 +27,9 @@ class ContactsModel extends Model
     {
         $data = $this->db->select('*')->table($this->_table)->where('id', '=', $id)->first();
         return $data;
-    } public function updateStatus($data, $id) {
+    }
+    public function updateStatus($data, $id)
+    {
         $data = $this->db->table($this->_table)->where('id', '=', $id)->update($data);
         return $data;
     }
@@ -35,5 +37,11 @@ class ContactsModel extends Model
     public function deleteContacts($id)
     {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
+    }
+
+    public function insertContacts($data)
+    {
+        $data = $this->db->table($this->_table)->insert($data);
+        return $data;
     }
 }

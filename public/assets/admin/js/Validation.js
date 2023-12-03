@@ -76,7 +76,7 @@ function Validator(options) {
                         errorTab = inputElement.closest('.tab-pane');
                     }
                 });
-// Remove 'show' and 'active' classes from all tabs
+                // Remove 'show' and 'active' classes from all tabs
                 var allTabs = formElement.querySelectorAll('.tab-pane');
                 allTabs.forEach(function (tab) {
                     tab.classList.remove('show', 'active');
@@ -145,7 +145,7 @@ function Validator(options) {
                 } else {
                     formElement.submit();
                 }
-}
+            }
         }
 
         options.rules.forEach(function (rule) {
@@ -245,15 +245,15 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
 Validator.isNumber = function (selector, message) {
     return {
         selector: selector,
-        test: function (value) {          
+        test: function (value) {
             if (value.length === 0) {
-return message || 'Không được bỏ trống';
+                return message || 'Không được bỏ trống';
             }
 
             if (isNaN(value)) {
                 return message || '* Vui lòng nhập số !';
             }
-        }   
+        }
     }
 }
 
@@ -280,10 +280,25 @@ Validator.isEmail = function (selector, message) {
         test: function (value) {
 
             let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            if(!regex.test(value)) {
+            if (!regex.test(value)) {
                 return message || "* Vui lòng nhập email !";
             }
 
         }
     }
-}   
+}
+
+Validator.isPhone = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+
+            let regex = /^(0|\+84)(\s|\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\d)(\s|\.)?(\d{3})(\s|\.)?(\d{3})$/;
+            if (!regex.test(value)) {
+                return message || "* Số điện thoại không hợp lệ !";
+            }
+
+        }
+    }
+}
+
