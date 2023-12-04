@@ -44,5 +44,9 @@ class UsersModel extends Model {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
 
     }
+    public function checkUsers($email,$password){
+        $data = $this->db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 
 }
