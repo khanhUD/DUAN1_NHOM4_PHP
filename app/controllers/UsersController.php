@@ -86,6 +86,7 @@ class UsersController extends Controller
                 'password' => $postValues['password'],
                 'role' => $postValues['role'],
                 'status' => $postValues['status'],
+                'phone' => $postValues['phone'],
             ];
             $image = $postValues['image'];
             $targetDir = "public/uploads/";
@@ -120,4 +121,7 @@ class UsersController extends Controller
             $response->redirect('users');
         }
     }
+
+    // client 
+
 }

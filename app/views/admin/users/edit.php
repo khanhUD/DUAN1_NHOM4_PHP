@@ -36,7 +36,6 @@
                 <input type="file" class="form-control" id="image" name="image">
                 <input type="hidden" value="<?= $users_detail['image'] ?>" name="imageOld">
                 <div class='form-message'></div>
-
               </div>
 
               <div class="mb-3 col-md-6 ">

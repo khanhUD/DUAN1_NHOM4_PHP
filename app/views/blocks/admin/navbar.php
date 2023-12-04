@@ -9,7 +9,7 @@
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
       <div>
-        <a href="#">
+        <a href="<?php _WEB_ROOT?>/clientHome">
           <h4> Đến Trang Chủ</h4>
         </a>
       </div>

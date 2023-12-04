@@ -7,6 +7,8 @@ $routes['chekLogin'] = 'admin/checkLogin';
 $routes['register'] = 'admin/register';
 $routes['forgot_password'] = 'admin/forgot_password';
 $routes['change_password'] = 'admin/change_password';
+$routes['logOut'] = 'admin/logOut';
+
 
 
 

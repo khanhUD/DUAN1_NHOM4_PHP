@@ -73,11 +73,7 @@
                                             <?= $banner['link'] ?>
                                         </td>
                                         <td>
-                                            <?php if (!empty($banner['image'])) : ?>
-                                                <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $banner['image'] ?>" alt="">
-                                            <?php else : ?>
-                                                <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
-                                            <?php endif; ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . (!empty($banner['image']) ? $banner['image'] : 'no-image-news.png'); ?>" alt="">
                                         </td>
                                         <td>
                                             <span class="badge <?= $banner['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">

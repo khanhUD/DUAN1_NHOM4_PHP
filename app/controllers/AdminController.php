@@ -27,10 +27,10 @@ class AdminController extends Controller
             $result = $this->users->checkUsers($email, $password);
             // Nếu đăng nhập thành công
             if ($result) {
-                Session::data('users', $result);
+                $_SESSION["users"] = $result;
                 $response = new Response;
                 $response->redirect(_WEB_ROOT . '/ClientHome');
-                exit();          
+                exit();
             } else {
                 $response = new Response;
                 Session::flash('msg', 'Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password !');
@@ -61,5 +61,11 @@ class AdminController extends Controller
     public function change_password()
     {
         $this->render('login/change_password');
+    }
+    public function logOut()
+    {
+        session_destroy();
+        $response = new Response;
+        $response->redirect('clientHome');
     }
 }

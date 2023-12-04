@@ -45,7 +45,7 @@ class UsersModel extends Model {
 
     }
     public function checkUsers($email,$password){
-        $data = $this->db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->query("SELECT * FROM users WHERE email = '$email' AND password = '$password'")->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
 

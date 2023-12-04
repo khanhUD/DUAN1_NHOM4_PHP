@@ -24,78 +24,84 @@
                         <a href="<?= _WEB_ROOT . 'menuClient'; ?>" class="nav-item nav-link">Thực Đơn</a>
                         <a href="<?= _WEB_ROOT . 'blogsClient'; ?>" class="nav-item nav-link">Bài Viết</a>
                         <a href="<?= _WEB_ROOT . 'contactClient'; ?>" class="nav-item nav-link">Liên Hệ</a>
-                      
+
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <li class="nav-item navbar-dropdown dropdown-user dropdown me-4">
-                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                            <div class="avatar avatar-online">
-                                <img src="<?= _WEB_ROOT; ?>/public/assets/admin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" style="max-width: 40px;" />
+                    <li class="nav-item navbar-dropdown dropdown-user dropdown me-4" style="list-style-type: none;">
+                        <div class="nav-link  hide-arrow " style="cursor: pointer;">
+                            <div class="avatar avatar-online" style="width: 40px; height: 40px; overflow: hidden;">
+                                <div class="avatar avatar-online" style="width: 40px; height: 40px; overflow: hidden;">
+                                    <img src="<?= _WEB_ROOT . '/public/uploads/' . (!empty($_SESSION['users']) && ($_SESSION['users']['image'] !== '') ? $_SESSION['users']['image'] : 'imagenull.jpg'); ?>" alt class="w-100 h-100 rounded-circle" style="object-fit: cover;">
+                                </div>
                             </div>
-                        </a>
+                        </div>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="d-flex">
-                                        <div class="flex-shrink-0 me-3">
-                                            <div class="avatar avatar-online">
-                                                <img src="<?= _WEB_ROOT; ?>/public/assets/admin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" style="max-width: 40px;" />
+                            <?php if (isset($_SESSION['users'])) : ?>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar avatar-online" style="width: 40px; height: 40px; overflow: hidden;">
+                                                    <img src="<?= _WEB_ROOT . '/public/uploads/' . (!empty($_SESSION['users']) && ($_SESSION['users']['image'] !== '') ? $_SESSION['users']['image'] : 'imagenull.jpg'); ?>" alt class="w-100 h-100 rounded-circle" style="object-fit: cover;">
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <span class="fw-semibold d-block"><?= $_SESSION['users']['full_name'] ?></span>
+                                                <small class="text-muted"><?= $_SESSION['users']['role'] === 'admin' ? 'Quản trị viên' : 'Khách hàng'; ?></small>
                                             </div>
                                         </div>
-                                        <div class="flex-grow-1">
-                                            <span class="fw-semibold d-block">John Doe</span>
-                                            <small class="text-muted">Quản trị viên</small>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="dropdown-divider"></div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?= _WEB_ROOT . 'profile'; ?>">
-                                    <i class="bx bx-user me-2"></i>
-                                    <span class="align-middle">Hồ sơ của tôi</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="bx bx-cog me-2"></i>
-                                    <span class="align-middle">Đổi mật khẩu</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="bx bx-cog me-2"></i>
-                                    <span class="align-middle">Trang quảng trị</span>
-                                </a>
-                            </li> <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="bx bx-cog me-2"></i>
-                                    <span class="align-middle">Webstie</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <div class="dropdown-divider"></div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="auth-login-basic.php">
-                                    <i class="bx bx-power-off me-2"></i>
-                                    <span class="align-middle">Đăng nhập</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="auth-login-basic.php">
-                                    <i class="bx bx-power-off me-2"></i>
-                                    <span class="align-middle">Đăng xuất</span>
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT . 'clientProfile'; ?>">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">Hồ sơ của tôi</span>
+                                    </a>
+                                </li>
+                                <?php if (isset($_SESSION['users']['role']) && $_SESSION['users']['role'] === 'admin') : ?>
+                                    <li>
+                                        <a class="dropdown-item" href="<?= _WEB_ROOT ?>/admin">
+                                            <i class="bx bx-cog me-2"></i>
+                                            <span class="align-middle">Trang quảng trị</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bx bx-cog me-2"></i>
+                                        <span class="align-middle">Đổi mật khẩu</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="logOut">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Đăng xuất</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if (!isset($_SESSION['users'])) : ?>
+                                <li>
+                                    <a class="dropdown-item" href="login">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Đăng nhập</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="auth-login-basic.php">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Đăng ký</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
                         </ul>
                     </li>
+
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button>
 
-                  
+
 
 
                 </div>
