@@ -3,9 +3,9 @@
          <div class="container text-center animated bounceInDown">
              <h1 class="display-1 mb-4">Bài viết</h1>
              <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                 <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                 <li class="breadcrumb-item"><a href="#">Bài viết</a></li>
-                 <li class="breadcrumb-item text-dark" aria-current="page">Bài viết chi tiết</li>
+                 <li class="breadcrumb-item"><a href="<?=_WEB_ROOT?>/ClientHome/">Trang chủ</a></li>
+                 <li class="breadcrumb-item"><a href="<?=_WEB_ROOT?>/ClientPosts/">Bài viết</a></li>
+                 <li class="breadcrumb-item text-dark" aria-current="page"></??></li>
              </ol>
          </div>
      </div>
@@ -76,9 +76,9 @@
 
                  <!-- Phần nav bên phải -->
                  <aside class="col-md-3 wow bounceInRight" data-wow-delay="0.7s">
-                     <div class="card">
+                     <div class="card border-primary">
+                         <h6 class="card-title bg-primary p-3 rounded-top">DANH MỤC BÀI VIẾT</h6>
                          <div class="card-body">
-                             <h6 class="card-title">DANH MỤC BÀI VIẾT</h6>
                              <ul class="list-group list-group-flush">
                                  <li class="list-group-item"><a href="#" class="category-link">Tất cả</a></li>
                                  <li class="list-group-item"><a href="#" class="category-link">Bài viết 2</a></li>
@@ -86,9 +86,13 @@
                                  <!-- Thêm các mục khác tùy vào số lượng bài viết bạn muốn hiển thị -->
                              </ul>
 
-                             <h6 class="card-title mt-4">BÀI VIẾT MỚI NHẤT</h6>
-                             <div class=" mt-3">
-                                 <div class="blog-content mx-4 d-flex rounded bg-light">
+                         </div>
+                     </div>
+                     <div class="card mt-4 border-primary">
+                         <h6 class="card-title bg-primary p-3 rounded-top">BÀI VIẾT MỚI NHẤT</h6>
+                         <div class="card-body">
+                             <div class="">
+                                 <div class="blog-content  d-flex rounded bg-light">
                                      <div class="text-dark bg-primary rounded-start">
                                          <div class="  d-flex flex-column justify-content-center text-center">
                                              <p class="fw-bold mb-0">16</p>
@@ -99,7 +103,7 @@
                                  </div>
                              </div>
                              <div class=" mt-3">
-                                 <div class="blog-content mx-4 d-flex rounded bg-light">
+                                 <div class="blog-content  d-flex rounded bg-light">
                                      <div class="text-dark bg-primary rounded-start">
                                          <div class="  d-flex flex-column justify-content-center text-center">
                                              <p class="fw-bold mb-0">16</p>

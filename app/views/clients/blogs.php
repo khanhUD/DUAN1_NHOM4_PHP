@@ -1,11 +1,11 @@
      <!-- Hero Start -->
      <div class="container-fluid bg-light py-6 my-6 mt-0">
          <div class="container text-center animated bounceInDown">
-             <h1 class="display-1 mb-4">Our Blog</h1>
+             <h1 class="display-1 mb-4">Bài Viét</h1>
              <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                 <li class="breadcrumb-item text-dark" aria-current="page">Our Blog</li>
+                 <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>/ClientHome/">Trang chủ</a></li>
+                 <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
+                 <li class="breadcrumb-item text-dark" aria-current="page">Bài viết</li>
              </ol>
          </div>
      </div>
@@ -15,93 +15,70 @@
      <div class="container-fluid blog py-6">
          <div class="container">
              <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
-                 <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Blog</small>
-                 <h1 class="display-5 mb-5">Be First Who Read News</h1>
+                 <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Bài viết</small>
+                 <h1 class="display-5 mb-5">
+                     Hãy là người đầu tiên đọc tin tức</h1>
              </div>
              <div class="row">
+                 <div class="row gx-4 justify-content-center col-md-9">
+                     <?php
+                    //  print_r($posts);
+                        foreach ($posts as $items) :
+
+                            $timestamp = strtotime($items['create_at']);
+
+                            // Lấy ngày, tháng, năm từ timestamp
+                            $day = date('d', $timestamp);
+                            $month = date('m', $timestamp);
+                            $year = date('Y', $timestamp);
+                        ?>
+                         <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
+                             <div class="blog-item shadow">
+                                 <div class="overflow-hidden rounded-top img-post">
+                                     <?php
+                                        if ($items['image'] === '') :
+                                        ?>
+                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/no-img.png" class="img-fluid w-100" alt="">
+                                     <?php else :
+
+                                        ?>
+                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/<?= $items['image'] ?>" class="img-fluid w-100" alt="">
+                                     <?php endif; ?>
+
+                                 </div>
+                                 <div class="rounded-bottom bg-dark bg-gradient p-3">
+                                     <h6 class="title-blog pb-3"><a href="<?= _WEB_ROOT ?>/ClientPosts/postDetails?id=<?= $items['id'] ?>" class="lh-base my-auto"><?= $items['title'] ?></a></h6>
+                                     <p class="blog-content m-0 mt-3"><?= $items['content'] ?></p>
+
+                                     <div class="blog-date text-white rounded mt-3 bg-primary">
+                                         <span><?= $day ?>/<?= $month ?>/<?= $year ?></span>
+                                     </div>
+
+                                     <div class="border-top pt-3">
+                                         <a class="pb-3 fw-bold" href="<?= _WEB_ROOT ?>/ClientPosts/postDetails?id=<?= $items['id'] ?>">Xem thêm </a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     <?php endforeach; ?>
+
+                 </div>
+                 <!-- Phần nav bên phải -->
                  <aside class="col-md-3 wow bounceInRight" data-wow-delay="0.7s">
                      <div class="card">
                          <div class="card-body">
                              <h2 class="card-title">Danh mục bài viết</h2>
                              <ul class="list-group list-group-flush">
-                                 <li class="list-group-item"><a href="#" class="category-link">Tất cả</a></li>
-                                 <li class="list-group-item"><a href="#" class="category-link">Bài viết 2</a></li>
-                                 <li class="list-group-item"><a href="#" class="category-link">Bài viết 3</a></li>
+                                 <li class="list-group-item"><a href="<?=_WEB_ROOT?>/ClientPosts" class="category-link">Tất cả</a></li>
+                                 <?php foreach($postCategories as $postCategoryItems):?>
+                                 <li class="list-group-item"><a href="<?=_WEB_ROOT?>/ClientPosts/posts?id=<?=$postCategoryItems['id']?>" class="category-link"><?=$postCategoryItems['name']?></a></li>
+                                 <?endforeach;?>
+                                 <!-- <li class="list-group-item"><a href="<?=_WEB_ROOT?>/ClientPosts/" class="category-link">Bài viết 3</a></li> -->
                                  <!-- Thêm các mục khác tùy vào số lượng bài viết bạn muốn hiển thị -->
                              </ul>
                          </div>
                      </div>
                  </aside>
-
-                 <div class="row gx-4 justify-content-center col-md-9">
-                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
-                         <div class="blog-item">
-                             <div class="overflow-hidden rounded">
-                                 <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/blog-1.jpg" class="img-fluid w-100" alt="">
-                             </div>
-                             <div class="blog-content mx-4 d-flex rounded bg-light">
-                                 <div class="text-dark bg-primary rounded-start">
-                                     <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                         <p class="fw-bold mb-0">16</p>
-                                         <p class="fw-bold mb-0">Sep</p>
-                                     </div>
-                                 </div>
-                                 <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
-                         <div class="blog-item">
-                             <div class="overflow-hidden rounded">
-                                 <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/blog-2.jpg" class="img-fluid w-100" alt="">
-                             </div>
-                             <div class="blog-content mx-4 d-flex rounded bg-light">
-                                 <div class="text-dark bg-primary rounded-start">
-                                     <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                         <p class="fw-bold mb-0">16</p>
-                                         <p class="fw-bold mb-0">Sep</p>
-                                     </div>
-                                 </div>
-                                 <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
-                         <div class="blog-item">
-                             <div class="overflow-hidden rounded">
-                                 <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/blog-3.jpg" class="img-fluid w-100" alt="">
-                             </div>
-                             <div class="blog-content mx-4 d-flex rounded bg-light">
-                                 <div class="text-dark bg-primary rounded-start">
-                                     <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                         <p class="fw-bold mb-0">16</p>
-                                         <p class="fw-bold mb-0">Sep</p>
-                                     </div>
-                                 </div>
-                                 <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
-                             </div>
-                         </div>
-                     </div>
-                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
-                         <div class="blog-item">
-                             <div class="overflow-hidden rounded">
-                                 <img src="<?= _WEB_ROOT; ?>/public/assets/clients/img/blog-3.jpg" class="img-fluid w-100" alt="">
-                             </div>
-                             <div class="blog-content mx-4 d-flex rounded bg-light">
-                                 <div class="text-dark bg-primary rounded-start">
-                                     <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                         <p class="fw-bold mb-0">16</p>
-                                         <p class="fw-bold mb-0">Sep</p>
-                                     </div>
-                                 </div>
-                                 <a href="#" class="h5 lh-base my-auto h-100 p-3">How to get more test in your food from</a>
-                             </div>
-                         </div>
-                     </div>
-
-                 </div>
-                 <!-- Phần nav bên phải -->
-
                  <!-- Kết thúc phần nav -->
 
              </div>

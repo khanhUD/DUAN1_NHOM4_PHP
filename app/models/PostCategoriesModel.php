@@ -26,8 +26,13 @@ class PostCategoriesModel extends Model
         return $data;
     }
 
-    public function getDetail($id)
+    public function getListPostCategoriesClient()
     {
+        $data= $this->db->select($this->_field)->table($this->_table)->where('status', '=' , 'on')->get();
+        return $data;
+    }
+
+    public function getDetail($id) {
         $data = $this->db->select('*')->table($this->_table)->where('id', '=', $id)->first();
         return $data;
     }
@@ -56,4 +61,17 @@ class PostCategoriesModel extends Model
     {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
     }
+
+    // public function getPostByCategories(){
+
+    //     $data = $this->db->select($this->_field)
+    //         ->table('posts')
+    //         ->join('post_categories', 'posts.id = post_categories.post_category_id')
+    //         ->groupBy('posts.id, posts.title, posts.image, posts.status')
+    //         ->where('post_categories.post_category_id', '=', 'delete')
+    //         ->orderBy('post_category_id', 'DESC')
+    //         ->get();
+
+    // }
+
 }
