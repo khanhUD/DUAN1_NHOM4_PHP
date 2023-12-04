@@ -73,29 +73,30 @@
           <!-- Register Card -->
           <div class="card">
             <div class="card-body">
-            <a href="<?php _WEB_ROOT?>/clientHome"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
+            <a href="<?php _WEB_ROOT ?>/Trang-Chu"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
               
               <p class="mb-4 text-center">Đăng ký ngay để nhận nhiều ưu đãi</p>
 
-              <form id="formAuthentication" class="mb-3" action="<?= _WEB_ROOT ?>/users/register" method="post">
-                <div class="mb-3">
+              <form id="formSingUp" class="mb-3" action="<?= _WEB_ROOT ?>users/register" method="post">
+                <div class="mb-3 form-group">
                   <label for="full_name" class="form-label">Họ và tên</label>
                   <input
-                    type="text" class="form-control" id="full_name" name="full_name" placeholder="Nhập tên của bạn...." autofocus
-                  >
+                    type="text" class="form-control" id="full_name" name="full_name" placeholder="Nhập tên của bạn...." autofocus>
+                   <div class='form-message'></div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 form-group">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email của bạn..." >
+                  <div class='form-message'></div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 form-group">
                   <label for="phone" class="form-label">Số điện thoại</label>
                   <input
-                    type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn...."autofocus
-                  >  
+                    type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn...."autofocus>  
+                  <div class='form-message'></div>
                 </div>
                
-                <div class="mb-3 form-password-toggle">
+                <div class="mb-3 form-group form-password-toggle">
                   <label class="form-label" for="password">Mật khẩu</label>
                   <div class="input-group input-group-merge">
                     <input
@@ -105,26 +106,17 @@
                     >
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
+                  <div class='form-message'></div>
                 </div>
 
-                <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Xác nhận mật khẩu</label>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"id="password"class="form-control"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    >
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
+              
                
                 <button class="btn btn-primary d-grid w-100">Đăng ký</button>
               </form>
 
               <p class="text-center">
                 <span>Bạn co săn san để tạo một tai khoản?</span>
-                <a href="<?php _WEB_ROOT?>/login">
+                <a href="<?php _WEB_ROOT ?>Dang-Nhap">
                   <span>Đăng nhập ngay</span>
                 </a>
               </p>
@@ -157,19 +149,25 @@
 
     <!-- Page JS -->
 
-    <script>
-      if(document.querySelector('#formAuthentication')) {
-        Validator({
-          // form: '#formAuthentication',
-          // formGroupSelector: '.form-group',
-          // errorSelector: '.form-message',
+    <!-- Validate -->
+    <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
 
-          // rules: [
+<script>
+  if (document.querySelector('#formSingUp')) {
+    Validator({
+      form: '#formSingUp',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+      rules: [
+        Validator.isRequired('input[name="full_name"]', '* Vui lòng nhập họ và tên '),
+        Validator.isEmail('input[name="email"]', '* Vui lòng nhập đúng định dạng email '),
+        Validator.isPhoneNumber('input[name="phone"]', ''),
+        Validator.minLength('input[name="password"]', '8', ''),
+      ]
+    });
+  }
 
-          // ]
-        })
-      }
-    </script>
+</script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

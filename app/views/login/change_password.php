@@ -7,10 +7,10 @@
 
     <title>Đổi mật khẩu Ninh Kiều Restaurant</title>
 
-<meta name="description" content="" />
+    <meta name="description" content="" />
 
-<!-- Favicon -->
-<!-- <link rel="icon" type="image/x-icon" href="../../../public/assets/admin/img/favicon/favicon.ico" /> -->
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/x-icon" href="../../../public/assets/admin/img/favicon/favicon.ico" /> -->
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,49 +58,54 @@
                         <!-- Logo -->
 
                         <!-- /Logo -->
-                        <a href="<?php _WEB_ROOT?>Trang-Chu"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
-                        
+                        <a href="<?php _WEB_ROOT ?>Trang-Chu">
+                            <h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4>
+                        </a>
+
                         <p class="mb-4 text-center">Thay đổi mật khẩu</p>
 
                         <form id="formAuthentication" class="mb-3" action="index.php" method="POST">
 
-                            <div class="mb-3 form-password-toggle">
+                            <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Mật khẩu cũ</label>
-                                   
+
                                 </div>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                <div class='form-message'></div>
                             </div>
-                            <div class="mb-3 form-password-toggle">
+                            <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Mật khẩu mới</label>
-                                  
+
                                 </div>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                <div class='form-message'></div>
                             </div>
-                            <div class="mb-3 form-password-toggle">
+                            <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Xác nhận mật khẩu mới </label>
-                                
+
                                 </div>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                <div class='form-message'></div>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Đổi mật khẩu</button>
                             </div>
                         </form>
 
-                        
+
                     </div>
                 </div>
                 <!-- /Register -->
@@ -125,6 +130,23 @@
 
     <!-- Main JS -->
     <script src="../../../public/assets/admin/js/main.js"></script>
+
+    <!-- Validate -->
+    <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
+
+    <script>
+        if (document.querySelector('#formAuthentication')) {
+            Validator({
+                form: '#formAuthentication',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+            
+                    Validator.minLength('input[name="password"]', '8', ''),
+                ]
+            });
+        }
+    </script>
 
     <!-- Page JS -->
 

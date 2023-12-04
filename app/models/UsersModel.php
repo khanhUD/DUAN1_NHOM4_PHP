@@ -57,4 +57,8 @@ class UsersModel extends Model
         $data = $this->db->query("SELECT COUNT(id) as total_customers FROM users;")->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
+    public function register($data) {
+        $result = $this->db->table($this->tableName)->insert($data);
+        return $result;
+    }
 }

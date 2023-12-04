@@ -123,5 +123,48 @@ class UsersController extends Controller
     }
 
     // client 
+    public function register()
+    {
+        $request = new Request;
 
+        if ($request->isPost()) {
+            $request->rules([
+                'email' => 'unique:users:email'
+            ]);
+
+            $request->messages([
+                'email.unique' => 'Email đã tồn tại, vui lòng nhập email mới'
+            ]);
+
+            $validate = $request->validate();
+
+            if (!$validate) {
+                Session::flash('msg', 'Đã có lỗi xảy ra, vui lòng kiểm tra và sửa lại.');
+                Session::flash('errors', $request->errors());
+                Session::flash('old', $request->getFields());
+
+                $response = new Response();
+                $response->redirect('users'); // hoặc chuyển hướng đến trang khác tùy ý
+                return; // dừng thực thi
+            }
+
+            $postValues = $request->getFields();
+            $data = [
+                'full_name' => $postValues['full_name'],
+                'email' => $postValues['email'],
+                'password' => $postValues['password'],
+                'phone' =>  $postValues['phone'],
+            ];
+
+            $result = $this->users->addUsers($data);
+
+            if ($result) {
+                Session::flash('msg', 'Đăng ký thành công !');
+                $response = new Response();
+                $response->redirect(_WEB_ROOT.'Dang-Nhap');
+                return; // dừng thực thi
+            }
+        }
+    
+    }
 }

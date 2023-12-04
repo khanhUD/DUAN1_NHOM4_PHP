@@ -18,8 +18,5 @@ class AdminModel extends Model {
         return '';
     }
 
-    public function register($data) {
-        $result = $this->db->table($this->tableName)->insert($data);
-        return $result;
-    }
+  
 }

@@ -37,23 +37,10 @@ class AdminController extends Controller
                 $response->redirect('Dang-Nhap');
             }
         }
-    }
-
-    public function register()
+    } public function register()
     {
-        $request = new Request;
-        $this->render('login/sing_up');
-        if ($request->isPost()) {
-            $postDatas = $request->getFields();
-            $result = $this->admin->register($postDatas);
-            if ($result) {
-                $response = new Response;
-                Session::flash('msg', 'dang nhap thanh cong !');
-                $response->redirect('Dang-Nhap');
-            }
-        }
+        $this->render('login/sing_up'); 
     }
-
     public function forgot_password()
     {
         $this->render('login/forgot_password');

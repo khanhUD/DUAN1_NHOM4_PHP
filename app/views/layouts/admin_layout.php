@@ -1,4 +1,8 @@
 <?php
+if (!isset($_SESSION['users'])) {
+    $response = new Response;
+    $response->redirect(_WEB_ROOT.'Dang-Nhap');
+}
 $this->render('blocks/admin/header')
 ?>
 <!-- Layout wrapper -->
@@ -16,10 +20,10 @@ $this->render('blocks/admin/header')
             <!-- Content wrapper -->
             <div class="content-wrapper">
                 <div class="container-xxl flex-grow-1 container-p-y">
-                    <!-- / Content -->  
+                    <!-- / Content -->
                     <?php
                     $this->render($content, $sub_content);
-                    
+
                     ?>
                     <!-- / Content -->
                 </div>

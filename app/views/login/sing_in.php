@@ -41,15 +41,16 @@
 
 <body>
   <!-- Content -->
-<!-- message  -->
-  <?= show_message('<div id="alert" class="alert alert-dismissible text-sm text-white fade show" role="alert" style="background-color: #dc3545; color: #ffffff;">
+  <!-- message  -->
+  <?= show_message('<div id="alert" class="alert alert-dismissible text-sm text-white fade show" role="alert" style="background-color: #28a745; color: #ffffff;">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-text"><strong>', '</strong></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>') ?>
-<!-- message  -->
+
+  <!-- message  -->
 
   <div class="authentication-wrapper authentication-basic container-p-y">
     <div class="authentication-inner">
@@ -59,34 +60,31 @@
           <!-- Logo -->
 
           <!-- /Logo -->
-          <a href="<?php _WEB_ROOT ?>/clientHome">
+          <a href="<?php _WEB_ROOT ?>/Trang-Chu">
             <h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4>
           </a>
           <p class="mb-4 text-center">Đăng nhập ngay để trải nghiệm cùng chúng tôi</p>
 
           <form id="formLogin" class="mb-3" action="chekLogin" method="POST">
-            <div class="mb-3">
+            <div class="mb-3 form-group">
               <label for="email" class="form-label">Email </label>
               <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email..." autofocus />
+              <div class='form-message'></div>
             </div>
-            <div class="mb-3 form-password-toggle">
+            <div class="mb-3 form-password-toggle form-group">
               <div class="d-flex justify-content-between">
                 <label class="form-label" for="password">Mật khẩu</label>
-                <a href="<?php _WEB_ROOT ?>/forgot_password">
+                <a href="<?php _WEB_ROOT ?>Quen-Mat-Khau">
                   <small>Quên mật khẩu?</small>
                 </a>
               </div>
-              <div class="input-group input-group-merge">
+              <div class="input-group input-group-merge ">
                 <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
               </div>
+              <div class='form-message'></div>
             </div>
-            <div class="mb-3">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="remember-me" />
-                <label class="form-check-label" for="remember-me"> Nhớ mật khẩu </label>
-              </div>
-            </div>
+
             <div class="mb-3">
               <button class="btn btn-primary d-grid w-100" type="submit">Đăng nhập</button>
             </div>
@@ -94,7 +92,7 @@
 
           <p class="text-center">
             <span>Bạn chưa có tài khoản?</span>
-            <a href="<?php _WEB_ROOT ?>/register">
+            <a href="<?php _WEB_ROOT ?>Dang-Ky">
               <span>Tạo một tài khoản</span>
             </a>
           </p>
@@ -122,6 +120,22 @@
 
   <!-- Main JS -->
   <script src="../../../public/assets/admin/js/main.js"></script>
+  <!-- Validate -->
+  <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
+
+  <script>
+    if (document.querySelector('#formLogin')) {
+      Validator({
+        form: '#formLogin',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+          Validator.isEmail('input[name="email"]', '* Vui lòng nhập đúng định dạng email '),
+          Validator.minLength('input[name="password"]', '8', ''),
+        ]
+      });
+    }
+  </script>
 
   <!-- Page JS -->
 

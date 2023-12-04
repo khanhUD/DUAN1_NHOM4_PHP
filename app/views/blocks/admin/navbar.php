@@ -38,7 +38,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= _WEB_ROOT . 'Tai-Khoan'; ?>">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT . 'Ho-So'; ?>">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle">Hồ sơ của tôi</span>
                                     </a>

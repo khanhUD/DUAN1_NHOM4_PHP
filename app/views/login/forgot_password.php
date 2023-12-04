@@ -77,8 +77,8 @@
               <a href="<?php _WEB_ROOT ?>/clientHome"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
               <h4 class="mb-2">Quên mật khẩu? 🔒</h4>
               <p class="mb-4">Nhập email của bạn và chúng tôi sẽ gửi cho bạn hướng dẫn để đặt lại mật khẩu của bạn</p>
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                <div class="mb-3">
+              <form id="forgot_password" class="mb-3" action="#" method="POST">
+                <div class="mb-3 form-group">
                   <label for="email" class="form-label">Email</label>
                   <input
                     type="text"
@@ -88,11 +88,12 @@
                     placeholder="Nhập email của bạn"
                     autofocus
                   />
+                  <div class='form-message'></div>
                 </div>
                 <button name="send" class="btn btn-primary d-grid w-100">Gửi liên kết đặt lại</button>
               </form>
               <div class="text-center">
-                <a href="<?php _WEB_ROOT ?>/login" class="d-flex align-items-center justify-content-center">
+                <a href="<?php _WEB_ROOT ?>Dang-Nhap" class="d-flex align-items-center justify-content-center">
                   <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
                   Quay lại đăng nhập
                 </a>
@@ -153,7 +154,21 @@
 
     <!-- Main JS -->
     <script src="../../../public/assets/admin/js/main.js"></script>
+  <!-- Validate -->
+  <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
 
+  <script>
+    if (document.querySelector('#forgot_password')) {
+      Validator({
+        form: '#forgot_password',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+          Validator.isEmail('input[name="email"]', '* Vui lòng nhập đúng định dạng email '),
+        ]
+      });
+    }
+  </script>
     <!-- Page JS -->
 
     <!-- Place this tag in your head or just before your close body tag. -->

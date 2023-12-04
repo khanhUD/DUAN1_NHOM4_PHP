@@ -8,6 +8,9 @@ $routes['Dang-Ky'] = 'admin/register';
 $routes['Quen-Mat-Khau'] = 'admin/forgot_password';
 $routes['Doi-Mat-Khau'] = 'admin/change_password';
 $routes['Dang-xuat'] = 'admin/logOut';
+$routes['Ho-So'] = 'profile/index';
+
+
 
 
 
