@@ -44,5 +44,10 @@ class BannerModel extends Model {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
 
     }
+    public function getListClient()
+    {
+        $data = $this->db->query("SELECT $this->_field FROM $this->_table Where status = 'on'")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
 
 }

@@ -11,7 +11,7 @@
     <div class="container-fluid nav-bar">
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-lg py-4">
-                <a href="homeClient" class="navbar-brand">
+                <a href="Trang-Chu" class="navbar-brand">
                     <h1 class="text-primary fw-bold mb-0">Ninh<span class="text-dark">Kiều</span> </h1>
                 </a>
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -19,11 +19,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
-                        <a href="<?= _WEB_ROOT . 'homeClient'; ?>" class="nav-item nav-link ">Trang Chủ</a>
-                        <a href="<?= _WEB_ROOT . 'aboutClient'; ?>" class="nav-item nav-link">Giới Thiệu</a>
-                        <a href="<?= _WEB_ROOT . 'menuClient'; ?>" class="nav-item nav-link">Thực Đơn</a>
-                        <a href="<?= _WEB_ROOT . 'blogsClient'; ?>" class="nav-item nav-link">Bài Viết</a>
-                        <a href="<?= _WEB_ROOT . 'contactClient'; ?>" class="nav-item nav-link">Liên Hệ</a>
+                        <a href="<?= _WEB_ROOT . 'Trang-Chu'; ?>" class="nav-item nav-link ">Trang Chủ</a>
+                        <a href="<?= _WEB_ROOT . 'Gioi-Thieu'; ?>" class="nav-item nav-link">Giới Thiệu</a>
+                        <a href="<?= _WEB_ROOT . 'Thuc-Don'; ?>" class="nav-item nav-link">Thực Đơn</a>
+                        <a href="<?= _WEB_ROOT . 'Bai-Viet'; ?>" class="nav-item nav-link">Bài Viết</a>
+                        <a href="<?= _WEB_ROOT . 'Lien-He'; ?>" class="nav-item nav-link">Liên Hệ</a>
 
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
@@ -53,14 +53,14 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= _WEB_ROOT . 'clientProfile'; ?>">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT . 'Tai-Khoan'; ?>">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle">Hồ sơ của tôi</span>
                                     </a>
                                 </li>
                                 <?php if (isset($_SESSION['users']['role']) && $_SESSION['users']['role'] === 'admin') : ?>
                                     <li>
-                                        <a class="dropdown-item" href="<?= _WEB_ROOT ?>/admin">
+                                        <a class="dropdown-item" href="<?= _WEB_ROOT ?>Admin">
                                             <i class="bx bx-cog me-2"></i>
                                             <span class="align-middle">Trang quảng trị</span>
                                         </a>
@@ -70,13 +70,13 @@
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Doi-Mat-Khau">
                                         <i class="bx bx-cog me-2"></i>
                                         <span class="align-middle">Đổi mật khẩu</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="logOut">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Dang-Xuat">
                                         <i class="bx bx-power-off me-2"></i>
                                         <span class="align-middle">Đăng xuất</span>
                                     </a>
@@ -84,13 +84,13 @@
                             <?php endif; ?>
                             <?php if (!isset($_SESSION['users'])) : ?>
                                 <li>
-                                    <a class="dropdown-item" href="login">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Dang-Nhap">
                                         <i class="bx bx-power-off me-2"></i>
                                         <span class="align-middle">Đăng nhập</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="auth-login-basic.php">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Dang-Ky">
                                         <i class="bx bx-power-off me-2"></i>
                                         <span class="align-middle">Đăng ký</span>
                                     </a>
@@ -99,8 +99,8 @@
                         </ul>
                     </li>
 
-                    <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button>
 
+                    <a href="<?=_WEB_ROOT?>Gio-Hang"><button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button></a>
 
 
 

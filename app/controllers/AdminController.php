@@ -29,12 +29,12 @@ class AdminController extends Controller
             if ($result) {
                 $_SESSION["users"] = $result;
                 $response = new Response;
-                $response->redirect(_WEB_ROOT . '/ClientHome');
+                $response->redirect(_WEB_ROOT . 'Trang-Chu');
                 exit();
             } else {
                 $response = new Response;
                 Session::flash('msg', 'Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password !');
-                $response->redirect('login');
+                $response->redirect('Dang-Nhap');
             }
         }
     }
@@ -49,7 +49,7 @@ class AdminController extends Controller
             if ($result) {
                 $response = new Response;
                 Session::flash('msg', 'dang nhap thanh cong !');
-                $response->redirect('login');
+                $response->redirect('Dang-Nhap');
             }
         }
     }
@@ -66,6 +66,6 @@ class AdminController extends Controller
     {
         session_destroy();
         $response = new Response;
-        $response->redirect('clientHome');
+        $response->redirect('Trang-Chu');
     }
 }

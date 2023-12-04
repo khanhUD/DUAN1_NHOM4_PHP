@@ -7,13 +7,6 @@
     </div>
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-
-      <div>
-        <a href="<?php _WEB_ROOT?>/clientHome">
-          <h4> Đến Trang Chủ</h4>
-        </a>
-      </div>
-
       <ul class="navbar-nav flex-row align-items-center ms-auto">
 
         </li>
@@ -21,59 +14,74 @@
         <!-- User -->
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
           <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-            <div class="avatar avatar-online">
-              <img src="<?= _WEB_ROOT; ?>/public/assets/admin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-            </div>
+          <div class="avatar avatar-online" style="width: 40px; height: 40px; overflow: hidden;">
+                                <div class="avatar avatar-online" style="width: 40px; height: 40px; overflow: hidden;">
+                                    <img src="<?= _WEB_ROOT . '/public/uploads/' . (!empty($_SESSION['users']) && ($_SESSION['users']['image'] !== '') ? $_SESSION['users']['image'] : 'imagenull.jpg'); ?>" alt class="w-100 h-100 rounded-circle" style="object-fit: cover;">
+                                </div>
+                            </div>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-              <a class="dropdown-item" href="#">
-                <div class="d-flex">
-                  <div class="flex-shrink-0 me-3">
-                    <div class="avatar avatar-online">
-                      <img src="<?= _WEB_ROOT; ?>/public/assets/admin/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                    </div>
-                  </div>
-                  <div class="flex-grow-1">
-                    <span class="fw-semibold d-block">John Doe</span>
-                    <small class="text-muted">Quản trị viên</small>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li>
-              <a class="dropdown-item" href="<?= _WEB_ROOT . 'profile'; ?>">
-                <i class="bx bx-user me-2"></i>
-                <span class="align-middle">Hồ sơ của tôi</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="<?= _WEB_ROOT . 'change_password' ?>">
-                <i class="bx bx-cog me-2"></i>
-                <span class="align-middle">Đổi mật khẩu</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="<?= _WEB_ROOT . 'forgot_password' ?>">
-                <i class="bx bx-cog me-2"></i>
-                <span class="align-middle">Quên mật khẩu</span>
-              </a>
-            </li>
-
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li>
-              <a class="dropdown-item" href="auth-login-basic.php">
-                <i class="bx bx-power-off me-2"></i>
-                <span class="align-middle">Đăng xuất</span>
-              </a>
-            </li>
-          </ul>
-        </li>
+                            <?php if (isset($_SESSION['users'])) : ?>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar avatar-online" style="width: 40px; height: 40px; overflow: hidden;">
+                                                    <img src="<?= _WEB_ROOT . '/public/uploads/' . (!empty($_SESSION['users']) && ($_SESSION['users']['image'] !== '') ? $_SESSION['users']['image'] : 'imagenull.jpg'); ?>" alt class="w-100 h-100 rounded-circle" style="object-fit: cover;">
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <span class="fw-semibold d-block"><?= $_SESSION['users']['full_name'] ?></span>
+                                                <small class="text-muted"><?= $_SESSION['users']['role'] === 'admin' ? 'Quản trị viên' : 'Khách hàng'; ?></small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT . 'Tai-Khoan'; ?>">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle">Hồ sơ của tôi</span>
+                                    </a>
+                                </li>
+                                <?php if (isset($_SESSION['users']['role']) && $_SESSION['users']['role'] === 'admin') : ?>
+                                    <li>
+                                        <a class="dropdown-item" href="<?= _WEB_ROOT ?>Trang-Chu">
+                                            <span class="align-middle">Trang chủ Website</span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+                                <li>
+                                    <div class="dropdown-divider"></div>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Doi-Mat-Khau">
+                                        <i class="bx bx-cog me-2"></i>
+                                        <span class="align-middle">Đổi mật khẩu</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Dang-Xuat">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Đăng xuất</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                            <?php if (!isset($_SESSION['users'])) : ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Dang-Nhap">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Đăng nhập</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Dang-Ky">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Đăng ký</span>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+                    </li>
         <!--/ User -->
       </ul>
     </div>

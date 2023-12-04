@@ -1,13 +1,13 @@
 <?php
-$routes['default_controller'] = 'home';
+$routes['default_controller'] = 'ClientHome';
 // Admin
-$routes['admin'] = 'home';
-$routes['login'] = 'admin/login';
+$routes['Admin'] = 'home/index';
+$routes['Dang-Nhap'] = 'admin/login';
 $routes['chekLogin'] = 'admin/checkLogin';
-$routes['register'] = 'admin/register';
-$routes['forgot_password'] = 'admin/forgot_password';
-$routes['change_password'] = 'admin/change_password';
-$routes['logOut'] = 'admin/logOut';
+$routes['Dang-Ky'] = 'admin/register';
+$routes['Quen-Mat-Khau'] = 'admin/forgot_password';
+$routes['Doi-Mat-Khau'] = 'admin/change_password';
+$routes['Dang-xuat'] = 'admin/logOut';
 
 
 
@@ -26,7 +26,20 @@ $routes['postComments'] = 'postComments/listComments';
 $routes['postComments/commentDetails'] = 'postComments/commentDetails';
 $routes['postComments/list'] = 'postComments/listComments';
 
-// $routes['orderTables'] = 'orderTables';
+
+// client 
+$routes['Trang-Chu'] = 'ClientHome';
+$routes['Gioi-Thieu'] = 'ClientAboutUs';
+$routes['Thuc-Don'] = 'ClientProducts';
+$routes['Bai-Viet'] = 'ClientPosts';
+$routes['Lien-He'] = 'ClientContacts';
+$routes['Gio-Hang'] = 'ClientCarts';
+$routes['Hoa-Don'] = 'ClientOrders';
+$routes['Thanh-Toan'] = 'ClientPays';
+$routes['Tai-Khoan'] = 'ClientProfile';
+
+
+
 
 
 

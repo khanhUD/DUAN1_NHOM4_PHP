@@ -58,7 +58,7 @@
                         <!-- Logo -->
 
                         <!-- /Logo -->
-                        <a href="<?php _WEB_ROOT?>/clientHome"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
+                        <a href="<?php _WEB_ROOT?>Trang-Chu"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
                         
                         <p class="mb-4 text-center">Thay đổi mật khẩu</p>
 
