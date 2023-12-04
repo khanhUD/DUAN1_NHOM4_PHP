@@ -57,4 +57,27 @@ class ProductsModel extends Model
         $data = $this->db->table($this->_table)->where('id', '=', $id)->update($data);
         return $data;
     }
+
+    public function getListProductClient()
+    {
+        $data = $this->db->select($this->_field)
+            ->table($this->_table)
+            ->where('products.status', '=', 'on')
+            ->orderBy('products.create_at', 'Desc')
+            ->get();
+        return $data;
+    }
+
+    public function getListClientByCategory($id)
+    {
+        $data = $this->db->select($this->_field)->table($this->_table)->where('products.status', '=', 'on')->andWhere('products.product_categories_id', '=', $id)->get();
+        return $data;
+    }
+
+    public function getProductDetailById($id)
+    {
+        $data = $this->db->select($this->_field)->table($this->_table)->join('product_categories', 'products.product_categories_id = product_categories.id')->where('products.status', '=', 'on')->andWhere('products.product_categories_id', '=', $id)->first();
+        return $data;
+    }
+
 }

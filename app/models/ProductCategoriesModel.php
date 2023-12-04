@@ -57,4 +57,10 @@ class ProductCategoriesModel extends Model
 
         return $data['count'] ;
     }
+
+    public function getListCategoriesClient()
+    {
+        $data= $this->db->select($this->_field)->table($this->_table)->where('status', '=' , 'on')->get();
+        return $data;
+    }
 }
