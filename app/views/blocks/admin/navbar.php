@@ -51,9 +51,15 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="<?= _WEB_ROOT . 'admin/change_password' ?>">
+              <a class="dropdown-item" href="<?= _WEB_ROOT . 'change_password' ?>">
                 <i class="bx bx-cog me-2"></i>
                 <span class="align-middle">Đổi mật khẩu</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="<?= _WEB_ROOT . 'forgot_password' ?>">
+                <i class="bx bx-cog me-2"></i>
+                <span class="align-middle">Quên mật khẩu</span>
               </a>
             </li>
 
