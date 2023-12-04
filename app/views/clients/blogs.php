@@ -1,7 +1,7 @@
      <!-- Hero Start -->
      <div class="container-fluid bg-light py-6 my-6 mt-0">
          <div class="container text-center animated bounceInDown">
-             <h1 class="display-1 mb-4">Bài Viét</h1>
+             <h1 class="display-1 mb-4">Bài Viết</h1>
              <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
                  <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>/ClientHome/">Trang chủ</a></li>
                  <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
@@ -22,7 +22,7 @@
              <div class="row">
                  <div class="row gx-4 justify-content-center col-md-9">
                      <?php
-                    //  print_r($posts);
+                        //  print_r($posts);
                         foreach ($posts as $items) :
 
                             $timestamp = strtotime($items['create_at']);
@@ -32,17 +32,22 @@
                             $month = date('m', $timestamp);
                             $year = date('Y', $timestamp);
                         ?>
-                         <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
+                         <div class="col-md-6 col-lg-4 wow bounceInUp mb-3" data-wow-delay="0.1s">
                              <div class="blog-item shadow">
                                  <div class="overflow-hidden rounded-top img-post">
                                      <?php
                                         if ($items['image'] === '') :
                                         ?>
-                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/no-img.png" class="img-fluid w-100" alt="">
+                                         <a href="<?= _WEB_ROOT ?>/ClientPosts/postDetails?id=<?= $items['id'] ?>">
+                                             <img src="<?= _WEB_ROOT; ?>/public/uploads/no-img.png" class="img-fluid w-100" alt="">
+                                         </a>
+
                                      <?php else :
 
                                         ?>
-                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/<?= $items['image'] ?>" class="img-fluid w-100" alt="">
+                                         <a href="<?= _WEB_ROOT ?>/ClientPosts/postDetails?id=<?= $items['id'] ?>">
+                                             <img src="<?= _WEB_ROOT; ?>/public/uploads/<?= $items['image'] ?>" class="img-fluid w-100" alt="">
+                                         </a>
                                      <?php endif; ?>
 
                                  </div>
@@ -66,15 +71,15 @@
                  <!-- Phần nav bên phải -->
                  <aside class="col-md-3 wow bounceInRight" data-wow-delay="0.7s">
                      <div class="card">
+                         <h6 class="card-title bg-primary p-3 rounded-top">DANH MỤC BÀI VIẾT</h6>
                          <div class="card-body">
-                             <h2 class="card-title">Danh mục bài viết</h2>
+
                              <ul class="list-group list-group-flush">
-                                 <li class="list-group-item"><a href="<?=_WEB_ROOT?>/ClientPosts" class="category-link">Tất cả</a></li>
-                                 <?php foreach($postCategories as $postCategoryItems):?>
-                                 <li class="list-group-item"><a href="<?=_WEB_ROOT?>/ClientPosts/posts?id=<?=$postCategoryItems['id']?>" class="category-link"><?=$postCategoryItems['name']?></a></li>
-                                 <?endforeach;?>
-                                 <!-- <li class="list-group-item"><a href="<?=_WEB_ROOT?>/ClientPosts/" class="category-link">Bài viết 3</a></li> -->
-                                 <!-- Thêm các mục khác tùy vào số lượng bài viết bạn muốn hiển thị -->
+                                 <li class="list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts" class="category-link">Tất cả</a></li>
+                                 <?php foreach ($postCategories as $postCategoryItems) : ?>
+                                     <li class="list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts/posts?id=<?= $postCategoryItems['id'] ?>" class="category-link"><?= $postCategoryItems['name'] ?></a></li>
+                                 <? endforeach; ?>
+
                              </ul>
                          </div>
                      </div>

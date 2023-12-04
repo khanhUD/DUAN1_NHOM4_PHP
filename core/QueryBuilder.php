@@ -28,6 +28,14 @@ trait QueryBuilder
         return $this;
     }
 
+    public function andWhere($field, $compare, $value)
+    {
+        $this->operator = " AND";
+        $this->where .= "$this->operator $field $compare '$value'";
+        return $this;
+    }
+
+
     public function having($field, $compare, $value)
     {
         $this->operator = " HAVING";

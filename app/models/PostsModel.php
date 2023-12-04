@@ -48,12 +48,11 @@ class PostsModel extends Model
             ->where('posts.status', '=', 'delete')
             ->orderBy('posts.create_at', 'Desc')
             ->get();
+    } // hiện tất cả bài viết client có trạng thái on 
 
-    }// hiện tất cả bài viết client có trạng thái on 
-    
     public function getListClient()
     {
-        $data= $this->db->select($this->_field)->table($this->_table)->where('status', '=' , 'on')->get();
+        $data = $this->db->select($this->_field)->table($this->_table)->where('status', '=', 'on')->get();
         return $data;
     }
 
@@ -61,6 +60,18 @@ class PostsModel extends Model
     public function getListClientByCategory($id)
     {
         $data = $this->db->query("SELECT * FROM posts WHERE post_category_id = '$id' AND status = 'on' ")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getPostDetailById($id)
+    {
+        $data = $this->db->query("SELECT * FROM posts INNER JOIN post_categories ON posts.post_category_id = post_categories.id WHERE posts.id = '$id' AND posts.status = 'on' ")->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function getPostTop5()
+    {
+        $data = $this->db->select($this->_field)->table($this->_table)->where('status', '=', 'on')->orderBy('create_at','DESC')->limit(5)->get();
         return $data;
     }
 }

@@ -60,6 +60,20 @@ class PostCommentsModel extends Model
     public function delateCommentDetails($id)
     {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
+    }
 
+    public function getPostComment($id)
+    {
+        $data = $this->db->select("post_comments.id AS comment_id, post_comments.user_id, post_comments.note, post_comments.status, post_comments.create_at, users.full_name, users.image, posts.id AS posts_id, posts.title AS posts_title, COUNT(*) AS quantity")
+            ->table($this->_table)
+            ->join('users', 'post_comments.user_id = users.id')
+            ->join('posts', 'post_comments.post_id = posts.id')
+            ->groupBy('post_comments.id, posts_id, posts_title, users.id')
+            ->having('quantity', '>', 0)
+            ->where('post_comments.status', '=', 'on')
+            ->andWhere('posts.id', '=', $id)
+            ->get();
+
+        return $data;
     }
 }
