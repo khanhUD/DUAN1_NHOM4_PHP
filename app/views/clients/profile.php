@@ -1,13 +1,13 @@
 <div class="container mt-5">
- <!-- Message -->
-<?= show_message('<div id="alert" class="alert alert-custom bg-primary alert-dismissible text-sm text-white fade show" role="alert">
+  <!-- Message -->
+  <?= show_message('<div id="alert" class="alert alert-custom bg-primary alert-dismissible text-sm text-white fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-text"><strong>', '</strong></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>') ?>
-<!-- Message -->
+  <!-- Message -->
 
 
 
@@ -15,7 +15,7 @@
     <div class="card mb-4">
       <form id="form-edit-profile" action="<?= _WEB_ROOT ?>/clientProfile/updateProfile" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $_SESSION['users']['id'] ?>">
-   
+
         <!-- Account -->
         <div class="card-body">
           <h5>Chi tiết hồ sơ</h5>
@@ -69,4 +69,5 @@
     <!-- /Account -->
   </div>
 
+</div>
 </div>
