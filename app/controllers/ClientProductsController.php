@@ -43,4 +43,24 @@ class ClientProductsController extends Controller
             $this->render('layouts/client_layout', $this->data);
         }
     }
+
+    public function search(){
+
+        $request = new Request;
+        if ($request->isGet()) {
+            $postValues = $request->getFields();
+
+            $keyword = $postValues['keyword'];
+
+            // Bài viết theo loại 
+            $this->data['sub_content']['products'] = $this->products->getListClientByKey($keyword);
+
+            // Show phần nav phải 
+            $this->data['sub_content']['productCategories'] = $this->productCategories->getListCategoriesClient();
+            // Session::data('key', "Kết quả tìm kiếm cho $keyword");
+            $this->data['content'] = 'clients/products';
+            $this->data['sub_content']['action'] = '';
+            $this->render('layouts/client_layout', $this->data);
+        }
+    }
 }

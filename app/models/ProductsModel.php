@@ -80,4 +80,25 @@ class ProductsModel extends Model
         return $data;
     }
 
+    public function getListClientByKey($key)
+    {
+        $data = $this->db->query("
+            SELECT 
+                products.name AS product_name, 
+                products.image, 
+                products.status, 
+                products.price, 
+                product_categories.name, 
+                products.product_categories_id, 
+                product_categories.id  
+            FROM products
+            JOIN product_categories ON product_categories.id = products.product_categories_id
+            WHERE 
+                (products.name LIKE '%$key%' OR product_categories.name LIKE '%$key%')
+                AND products.status = 'on'
+                ")->fetchAll(PDO::FETCH_ASSOC);
+
+        // $data = $this->db->select($this->_field)->table($this->_table)->join('product_categories', 'products.product_categories_id = product_categories.id')->where('products.status', '=', 'on')->andWhere('products.product_categories_id', '=', $id)->get();
+        return $data;
+    }
 }

@@ -100,7 +100,7 @@
                     </li>
 
 
-                    <a href="<?=_WEB_ROOT?>Gio-Hang"><button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button></a>
+                    <a href="<?= _WEB_ROOT ?>Gio-Hang"><button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button></a>
 
 
 
@@ -120,10 +120,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body d-flex align-items-center">
-                    <div class="input-group w-75 mx-auto d-flex">
-                        <input type="search" class="form-control bg-transparent p-3" placeholder="Nhập tìm kiếm..." aria-describedby="search-icon-1">
-                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                    </div>
+                    <form action="<?=_WEB_ROOT?>/ClientProducts/search" class="w-75 mx-auto" method="get">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input name="keyword" type="search" class="form-control bg-transparent p-3" placeholder="Nhập tìm kiếm..." aria-describedby="search-icon-1">
+                            <button type="submit" id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

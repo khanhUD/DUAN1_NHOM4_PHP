@@ -75,9 +75,9 @@
                          <div class="card-body">
 
                              <ul class="list-group list-group-flush">
-                                 <li class="list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts" class="category-link">Tất cả</a></li>
+                                 <li class="ps-0 list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts" class="category-link">Tất cả</a></li>
                                  <?php foreach ($postCategories as $postCategoryItems) : ?>
-                                     <li class="list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts/posts?id=<?= $postCategoryItems['id'] ?>" class="category-link"><?= $postCategoryItems['name'] ?></a></li>
+                                     <li class="ps-0 list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts/posts?id=<?= $postCategoryItems['id'] ?>" class="category-link"><?= $postCategoryItems['name'] ?></a></li>
                                  <? endforeach; ?>
 
                              </ul>
