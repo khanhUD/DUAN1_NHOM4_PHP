@@ -26,20 +26,9 @@
       errorSelector: '.form-message',
 
       rules: [
-        Validator.isRequired('input[name="title"]', '* Vui long nhap !'),
-        Validator.isRequired('input[name="link"]', '* Vui long nhap !'),
-      ],
-
-      onSubmit: function(data) {
-        // call API
-        console.log(data);
-
-        // Quang du lieu vao input truoc khi submit
-
-        //Submit =====>
-
-        document.querySelector(this.form).submit();
-      }
+        Validator.isRequired('input[name="title"]', 'Vui lòng nhập!'),
+        Validator.isRequired('input[name="link"]', 'Vui lòng nhập!'),
+      ]
     })
   }
 
@@ -50,8 +39,8 @@
       errorSelector: '.form-message',
 
       rules: [
-        Validator.isRequired('input[name="title"]', '* Vui long nhap !'),
-        Validator.isRequired('input[name="link"]', '* Vui long nhap !'),
+        Validator.isRequired('input[name="title"]', 'Vui lòng nhập!'),
+        Validator.isRequired('input[name="link"]', 'Vui lòng nhập!'),
       ]
     })
   }
@@ -62,7 +51,7 @@
       errorSelector: '.form-message',
 
       rules: [
-        Validator.isRequired('input[name="name"]', '* Vui long nhap !'),
+        Validator.isRequired('input[name="name"]', 'Vui lòng nhập!'),
 
       ]
     })
@@ -74,10 +63,138 @@
       errorSelector: '.form-message',
 
       rules: [
-        Validator.isRequired('input[name="name"]', '* Vui long nhap !'),
+        Validator.isRequired('input[name="name"]', 'Vui lòng nhập !'),
 
       ]
     })
+  }
+  if (document.querySelector('#form-add-posts')) {
+    Validator({
+      form: '#form-add-posts',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="title"]', '* Vui lòng nhập tiêu đề bài viết'),
+        Validator.isRequired('textarea[name="content"]', '* Vui lòng nhập nội dung bài viết'),
+      ]
+    });
+  }
+  if (document.querySelector('#form-edit-posts')) {
+    Validator({
+      form: '#form-edit-posts',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="title"]', '* Vui lòng nhập tiêu đề bài viết'),
+        Validator.isRequired('textarea[name="content"]', '* Vui lòng nhập nội dung bài viết'),
+      ]
+    });
+  }
+  if (document.querySelector('#form-add-productCategories')) {
+    Validator({
+      form: '#form-add-productCategories',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="name"]', '* Vui lòng nhập tên loại'),
+
+      ]
+    });
+  }
+  if (document.querySelector('#form-edit-productCategories')) {
+    Validator({
+      form: '#form-edit-productCategories',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="name"]', '* Vui lòng nhập tên loại'),
+
+      ]
+    });
+  }
+  if (document.querySelector('#form-add-products')) {
+    Validator({
+      form: '#form-add-products',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="name"]', '* Vui lòng nhập tên '),
+        Validator.isGreaterThanZero('input[name="price"]', '* Giá phải lớn hơn 0'),
+        Validator.isRequired('input[name="title"]', '* Vui lòng nhập tiêu đề bài viết'),
+        Validator.isRequired('textarea[name="short_description"]', '* Vui lòng nhập mô tả ngắn'),
+        Validator.isRequired('textarea[name="description"]', '* Vui lòng nhập mô tả dài'),
+
+
+      ]
+    });
+  }
+  if (document.querySelector('#form-edit-products')) {
+    Validator({
+      form: '#form-edit-products',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="name"]', '* Vui lòng nhập tên '),
+        Validator.isGreaterThanZero('input[name="price"]', '* Giá phải lớn hơn 0'),
+        Validator.isRequired('input[name="title"]', '* Vui lòng nhập tiêu đề bài viết'),
+        Validator.isRequired('textarea[name="short_description"]', '* Vui lòng nhập mô tả ngắn'),
+        Validator.isRequired('textarea[name="description"]', '* Vui lòng nhập mô tả dài'),
+
+
+      ]
+    });
+  }
+  if (document.querySelector('#form-add-vouchers')) {
+    Validator({
+      form: '#form-add-vouchers',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="code"]', '* Vui lòng nhập mã giảm giá '),
+        Validator.isGreaterThanZero('input[name="number_limit"]', '* Giới hạn phải lớn hơn 0'),
+        Validator.isDiscountPercentage('input[name="discount_percentage"]', '* Giảm giá phải > 0 và < 100'),
+
+
+
+      ]
+    });
+  }
+  if (document.querySelector('#form-add-users')) {
+    Validator({
+      form: '#form-add-users',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="full_name"]', '* Vui lòng nhập họ và tên '),
+        Validator.isEmail('input[name="email"]', '* Vui lòng nhập đúng định dạng email '),
+        Validator.isPhoneNumber('input[name="phone"]', ''),
+        Validator.minLength('input[name="password"]', '8', ''),
+      ]
+    });
+  }
+  if (document.querySelector('#form-edit-users')) {
+    Validator({
+      form: '#form-edit-users',
+      formGroupSelector: '.form-group',
+      errorSelector: '.form-message',
+
+      rules: [
+        Validator.isRequired('input[name="full_name"]', '* Vui lòng nhập họ và tên '),
+        Validator.isEmail('input[name="email"]', '* Vui lòng nhập đúng định dạng email '),
+        Validator.isPhoneNumber('input[name="phone"]', ''),
+        Validator.minLength('input[name="password"]', '8', ''),
+
+
+      ]
+    });
   }
 </script>
 

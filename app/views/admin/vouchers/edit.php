@@ -16,22 +16,22 @@
                 <h4>SỬA MÃ GIẢM GIÁ</h4>
 
                 <div class="card p-3">
-                    <form action="<?= _WEB_ROOT ?>/vouchers/post_edit" method="post">
+                    <form id="form-add-vouchers" action="<?= _WEB_ROOT ?>/vouchers/post_edit" method="post">
                     <input type="hidden" name="id" value="<?=$vouchers['id']?>">
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-12 form-group">
                             <label for="code" class="form-label">Mã giảm giá</label>
                             <input class="form-control" type="text" id="code" name="code" value="<?= $vouchers['code'] ?>" placeholder="giam30" />
-                            <span class="error-message " id="code-error"></span>
+                            <span class="form-message" id="code-error"></span>
                         </div>
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-12 form-group">
                             <label for="discount_percentage" class="form-label">Phần trăm giảm giá</label>
                             <input class="form-control" type="number" id="discount_percentage" name="discount_percentage" value="<?= $vouchers['discount_percentage'] ?>" placeholder="Nhập phần trăm giảm giá" />
-                            <span class="error-message " id="discount_percentage-error"></span>
+                            <span class="form-message" id="discount_percentage-error"></span>
                         </div>
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-12 form-group">
                             <label for="number_limit" class="form-label">Giới hạn tối đa</label>
                             <input class="form-control" type="text" id="number_limit" name="number_limit" value="<?= $vouchers['number_limit'] ?>" placeholder="30 người" />
-                            <span class="error-message " id="number_limit-error"></span>
+                            <span class="form-message" id="number_limit-error"></span>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label" for="status">Trạng Thái</label>

@@ -13,26 +13,32 @@
                 <div class="table-responsive text-nowrap">
                     <table class="table table-hover">
                         <thead>
-                            <tr>       
+                            <tr>
                                 <th>Tên món ăn</th>
                                 <th>hình</th>
                                 <th>số lượng</th>
-                                <th>giá</th>                     
+                                <th>giá</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            <?php foreach ($orders_details as $items): ?>
-                            <tr>                            
-                                <td>
-                                <?=$items['name'] ?>
-                                </td>
-                                <td><?=$items['image'] ?> </td>
-                                <td><?=$items['quantity'] ?></td>
-                                <td>
-                                <?=$items['price'] ?>
-                                </td>
-                             
-                            </tr>
+                            <?php foreach ($orders_details as $items) : ?>
+                                <tr>
+                                    <td>
+                                        <?= $items['name'] ?>
+                                    </td>
+                                    <td>
+                                        <?php if (!empty($items['image'])) : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $items['image'] ?>" alt="">
+                                        <?php else : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?= $items['quantity'] ?></td>
+                                    <td>
+                                        <?= $items['price'] ?>
+                                    </td>
+
+                                </tr>
                             <?php endforeach  ?>
 
                         </tbody>

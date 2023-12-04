@@ -18,32 +18,33 @@
 
     <div class="card p-3">
         <h4>THÊM BÀI VIẾT</h4>
-        <form id="" action="<?= _WEB_ROOT ?>/posts/add" method="post" enctype="multipart/form-data">
+        <form id="form-add-posts" action="<?= _WEB_ROOT ?>/posts/add" method="post" enctype="multipart/form-data">
             <div class="row">
-                <div class="mb-3 col-md-6">
+                <div class="mb-3 col-md-6 form-group ">
                     <label for="post_category_id" class="form-label">Loại Món ăn</label>
                     <select class="form-control" name="post_category_id" id="post_category_id">
                         <?php foreach ($postCategories as $postCategories) : ?>
                             <option value="<?= $postCategories['id'] ?>"><?= $postCategories['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
+                    <span class="form-message"></span>
                 </div>
-                <div class="mb-3 col-md-6">
+                <div class="mb-3 col-md-6 form-group">
                     <label for="title" class="form-label">Tiêu đề bài viết</label>
                     <input class="form-control" type="text" id="title" name="title" placeholder="Nhập tiêu đề bài viết" />
-                    <span class="error-message" id="title-error"></span>
+                    <span class="form-message"></span>
                 </div>
-                <div class="mb-3 col-md-6">
+                <div class="mb-3 col-md-6 form-group">
                     <label for="image" class="form-label">Hình ảnh</label>
                     <input type="file" id="image" name="image" class="form-control" accept="image/*" />
-                    <span class="error-message" id="image-error"></span>
+                    <span class="form-message"></span>
                 </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 form-group">
                 <label for="content" class="form-label">Nội dung bài viết</label>
                 <textarea name="content" id="editor" cols="30" rows="10"></textarea>
-                <span class="error-message" id="content-error"></span>
+                <span class="form-message"></span>
             </div>
 
 
@@ -85,7 +86,13 @@
                                         <?= $items['id'] ?>
                                     </td>
                                     <td> <?= $items['title'] ?></td>
-                                    <td> <?= $items['image'] ?></td>
+                                    <td>
+                                        <?php if (!empty($items['image'])) : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $items['image'] ?>" alt="">
+                                        <?php else : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                                        <?php endif; ?>
+                                    </td>
 
                                     <td>
                                         <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">

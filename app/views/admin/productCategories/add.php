@@ -14,14 +14,12 @@
         <div class="sidebar">
             <h4 class="card-title">THÊM LOẠI MÓN</h4>
             <div class="card p-3">
-                <form class="form-horizontal form_add_loai" action="<?= _WEB_ROOT ?>/productCategories/add" method="post">
+                <form id="form-add-productCategories" class="form-horizontal form_add_loai" action="<?= _WEB_ROOT ?>/productCategories/add" method="post">
                     <div class="form-group">
                         <label for="ten_loai" class="fw-bold control-label col-form-label">TÊN LOẠI MÓN ĂN</label>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="ten_loai" placeholder="Nhập tên loại món..." name="name">
-                            <span class="text-danger text_message">
-
-                            </span>
+                            <span class="form-message" ></span>
                         </div>
                     </div>
                     <div class="">

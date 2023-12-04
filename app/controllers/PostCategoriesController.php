@@ -101,11 +101,18 @@ class PostCategoriesController extends Controller
     public function delete()
     {
         $request = new Request;
-        if ($request->isPost()) {
-            $id = $request->getFields()['id'];
-            $this->postCategories->deletepostCategories($id);
-            $response = new Response;
+        $id = $request->getFields()['id'];
+        $productCount = $this->postCategories->getPostCountByCategoryId($id);
+        if ($productCount > 0) {
+            Session::flash('msg', 'Loại bài viết có chứa bài viết, không thể xóa !');
+            $response = new Response();
             $response->redirect('postCategories');
+        } else {
+            $result = $this->postCategories->deletePostCategories($id);
+            if ($result) {
+                $response = new Response();
+                $response->redirect('postCategories/add');
+            }
         }
     }
 }

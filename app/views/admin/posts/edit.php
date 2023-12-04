@@ -12,10 +12,10 @@
     <!-- Nội dung của cột 3 -->
     <h4>SỬA BÀI VIẾT</h4>
     <div class="card p-3">
-      <form action="<?= _WEB_ROOT ?>/posts/edit_post" method="POST" enctype="multipart/form-data">
+      <form id="form-edit-posts" action="<?= _WEB_ROOT ?>/posts/edit_post" method="POST" enctype="multipart/form-data">
         <div class="row">
           <input type="hidden" name="id" value="<?= $posts['id'] ?>">
-          <div class="mb-3 col-md-6">
+          <div class="mb-3 col-md-6 form-group">
             <label for="post_category_id" class="form-label">Loại Món ăn</label>
             <select class="form-control" name="post_category_id" id="post_category_id">
               <?php foreach ($postCategories as $category) : ?>
@@ -25,21 +25,21 @@
                 <option value="<?= $category['id'] ?>" <?= $selected ?>><?= $category['name'] ?></option>
               <?php endforeach; ?>
             </select>
-            <span class="error-message" id="post_category_id-error"></span>
+            <span class="form-message" id="post_category_id-error"></span>
           </div>
-          <div class="mb-3 col-md-6">
+          <div class="mb-3 col-md-6 form-group">
             <label for="title" class="form-label">Tiêu đề bài viết</label>
             <input class="form-control" type="text" id="title" name="title" value="<?= $posts['title'] ?>" placeholder="Nhập tiêu đề bài viết" />
-            <span class="error-message" id="title-error"></span>
+            <span class="form-message" id="title-error"></span>
           </div>
 
-          <div class="mb-3 col-md-6 ">
+          <div class="mb-3 col-md-6 form-group ">
             <label for="image" class="form-label">Hình ảnh</label>
             <input type="file" class="form-control" id="image" name="image">
             <input type="hidden" value="<?= $posts['image'] ?>" name="imageOld">
             <div class='form-message'></div>
           </div>
-          <div class="mb-3 col-md-6">
+          <div class="mb-3 col-md-6 form-group">
             <label class="form-label" for="status">Trạng thái</label>
             <div class="input-group form-control input-group-merge">
               <div class="form-check mx-3 form-group">
@@ -61,10 +61,10 @@
 
 
 
-        <div class="mb-3">
+        <div class="mb-3 form-group">
           <label for="content" class="form-label">Nội dung bài viết</label>
           <textarea name="content" id="editor" cols="30" rows="10"><?= $posts['content'] ?></textarea>
-          <span class="error-message" id="content-error"></span>
+          <span class="form-message" id="content-error"></span>
         </div>
 
 

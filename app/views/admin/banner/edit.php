@@ -1,6 +1,6 @@
 <div class="mt-3">
-        <!-- Message -->
-        <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
+    <!-- Message -->
+    <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-text"><strong>', '</strong></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
@@ -17,15 +17,15 @@
                 <div class="card p-3">
                     <form id="form-edit-banner" action="<?= _WEB_ROOT ?>/banner/edit_post" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <input type="hidden" name="id" value="{{$banner_detail['id']}}">
+                            <input type="hidden" name="id" value="<?= $banner_detail['id'] ?>">
                             <div class="mb-3 col-md-6 form-group">
                                 <label for="title" class="form-label">Tiêu Đề</label>
-                                <input type="text" class="form-control" id="title" name="title" value="{{$banner_detail['title']}}">
+                                <input type="text" class="form-control" id="title" name="title" value="<?= $banner_detail['title'] ?>">
                                 <div class='form-message'></div>
                             </div>
                             <div class="mb-3 col-md-6 form-group">
                                 <label for="link" class="form-label">Link</label>
-                                <input type="text" class="form-control" id="link" name="link" value="{{$banner_detail['link']}}">
+                                <input type="text" class="form-control" id="link" name="link" value="<?= $banner_detail['link'] ?>">
                                 <div class='form-message'></div>
                             </div>
 
@@ -40,19 +40,18 @@
                                 <label class="form-label" for="status">Trạng thái</label>
                                 <div class="input-group form-control input-group-merge">
                                     <div class="form-check mx-3">
-                                        <input @if($banner_detail['status']==='off' ) checked @endif class="form-check-input" type="radio" name="status" value="off">
+                                        <input <?php if ($banner_detail['status'] === 'off') echo 'checked'; ?> class="form-check-input" type="radio" name="status" value="off">
                                         <label class="form-check-label" for="radioOption1">
                                             Ẩn
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input @if($banner_detail['status']==='on' ) checked @endif class="form-check-input" type="radio" name="status" value="on">
+                                        <input <?php if ($banner_detail['status'] === 'on') echo 'checked'; ?> class="form-check-input" type="radio" name="status" value="on">
                                         <label class="form-check-label" for="radioOption2">
                                             Hiển thị
                                         </label>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 

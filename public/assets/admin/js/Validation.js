@@ -301,4 +301,64 @@ Validator.isPhone = function (selector, message) {
         }
     }
 }
+Validator.isPhoneNumber = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Kiểm tra xem giá trị có phải là số và có đúng 10 chữ số không
+            if (!/^\d{10}$/.test(value)) {
+                return message || 'Số điện thoại phải đủ 10 số';
+            }
+
+            // Kiểm tra xem số đầu tiên có phải là 0 không
+            if (value.charAt(0) !== '0') {
+                return message || 'Số điện thoại phải bắt đầu bằng số 0';
+            }
+
+            // Nếu giá trị hợp lệ, trả về undefined (không có lỗi)
+            return undefined;
+        }
+    };
+};
+
+//  kiểm tra giá tiền
+// kiểm tra giá tiền phải lớn hơn 0
+Validator.isGreaterThanZero = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Kiểm tra xem giá trị có phải là số và lớn hơn 0 không
+            if (value.trim() === '' || isNaN(value) || parseFloat(value) <= 0) {
+                return message || 'Giá tiền không hợp lệ';
+            }
+
+            // Nếu giá trị hợp lệ, trả về undefined (không có lỗi)
+            return undefined;
+        }
+    };
+}
+Validator.isDiscountPercentage = function (selector, getCost, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Kiểm tra xem giá trị có phải là số và lớn hơn 0 không
+            if (value.trim() === '' || isNaN(value) || parseFloat(value) <= 0) {
+                return message || 'Giảm giá phải > 0 và < 100';
+            }
+
+            // Kiểm tra giảm giá có nằm trong khoảng 0 - 100 không
+            if (parseFloat(value) >= 100) {
+                return message || 'Giảm giá phải > 0 và < 100';
+            }
+
+            // Nếu giá trị hợp lệ, trả về undefined (không có lỗi)
+            return undefined;
+        }
+    };
+};
+
+
+
+
+
 

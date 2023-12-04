@@ -1,6 +1,7 @@
 <?php
 
-class PostCategoriesModel extends Model {
+class PostCategoriesModel extends Model
+{
 
     private $_table = 'post_categories';
     private $_field = '*';
@@ -25,24 +26,34 @@ class PostCategoriesModel extends Model {
         return $data;
     }
 
-    public function getDetail($id) {
+    public function getDetail($id)
+    {
         $data = $this->db->select('*')->table($this->_table)->where('id', '=', $id)->first();
         return $data;
     }
 
-    public function updatePostCategories($data, $id) {
+    public function updatePostCategories($data, $id)
+    {
         $data = $this->db->table($this->_table)->where('id', '=', $id)->update($data);
         return $data;
     }
-    
-    public function addPostCategories($data) {
+
+    public function addPostCategories($data)
+    {
         $data = $this->db->table($this->_table)->insert($data);
         return $data;
+    }
+    public function getPostCountByCategoryId($categoryId)
+    {
+        $data = $this->db->select('COUNT(*) as count')
+            ->table('posts')
+            ->where('post_category_id', '=', $categoryId)
+            ->first();
+
+        return $data['count'];
     }
     public function deletePostCategories($id)
     {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
-
     }
-
 }

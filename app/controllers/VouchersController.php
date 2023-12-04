@@ -114,4 +114,11 @@ class VouchersController extends Controller
             $response->redirect('vouchers');
         }
     }
+    public function list_hidden()
+    {
+        $this->data['sub_content']['list_hidden'] = $this->vouchers->getListHidden();
+        $this->data['sub_content']['title'] = '';
+        $this->data['content'] = 'admin/vouchers/list_hidden';
+        $this->render('layouts/admin_layout', $this->data);
+    }
 }

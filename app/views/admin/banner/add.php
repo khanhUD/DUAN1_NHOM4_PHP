@@ -1,6 +1,6 @@
 <div class="mt-3">
-        <!-- Message -->
-        <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
+    <!-- Message -->
+    <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-text"><strong>', '</strong></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
@@ -17,7 +17,7 @@
                 <div class="card p-3">
                     <form id="form-add-banner" action="<?= _WEB_ROOT ?>/banner/add" method="post" enctype="multipart/form-data">
                         <div class="row">
-                            <input type="hidden" name="id" value="{{$banner_detail['id']}}">
+                            <input type="hidden" name="id" value=" <?= $banner_detail['id'] ?>">
                             <div class="mb-3 col-md-6 form-group">
                                 <label for="name" class="form-label">Tiêu Đề</label>
                                 <input type="text" class="form-control" id="name" name="title">
@@ -73,11 +73,11 @@
                                             <?= $banner['link'] ?>
                                         </td>
                                         <td>
-                                            <?php if ($banner['image'] !== null) {
-                                            ?>
-                                                <img style="height: 50px;" src="<?= _WEB_ROOT ?>/public/uploads/<?= $banner['image'] ?>" alt="">
-                                            <?php
-                                            } ?>
+                                            <?php if (!empty($banner['image'])) : ?>
+                                                <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $banner['image'] ?>" alt="">
+                                            <?php else : ?>
+                                                <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                                            <?php endif; ?>
                                         </td>
                                         <td>
                                             <span class="badge <?= $banner['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">

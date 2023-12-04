@@ -17,49 +17,50 @@
   <!-- Nội dung của cột 3 -->
 
   <div class="card p-3">
-  <h4>THÊM MÓN ĂN</h4>
-    <form action="<?= _WEB_ROOT ?>/products/add" method="POST" enctype="multipart/form-data">
+    <h4>THÊM MÓN ĂN</h4>
+    <form id="form-add-products" action="<?= _WEB_ROOT ?>/products/add" method="POST" enctype="multipart/form-data">
       <div class="row">
-        <div class="mb-3 col-md-6">
+        <div class="mb-3 col-md-6 form-group">
           <label for="product_categories_id" class="form-label">Loại Món ăn</label>
           <select class="form-control" name="product_categories_id" id="product_categories_id">
             <?php foreach ($productCategories as $productCategories) : ?>
               <option value="<?= $productCategories['id'] ?>"><?= $productCategories['name'] ?></option>
             <?php endforeach; ?>
           </select>
+          <span class="form-message"></span>
         </div>
-        <div class="mb-3 col-md-6">
+        <div class="mb-3 col-md-6 form-group">
           <label for="name" class="form-label">TÊN MÓN ĂN</label>
           <input class="form-control" type="text" id="name" name="name" value="" placeholder="Nhập tiêu đề bài viết" />
-          <span class="error-message" id="name-error"></span>
+          <span class="form-message" id="name-error"></span>
         </div>
-        <div class="mb-3 col-md-6">
+        <div class="mb-3 col-md-6 form-group">
           <label for="price" class="form-label">GIÁ</label>
           <input class="form-control" type="number" id="price" name="price" value="" placeholder="Nhập giá" />
-          <span class="error-message" id="price-error"></span>
+          <span class="form-message" id="price-error"></span>
         </div>
-        <div class="mb-3 col-md-6">
+        <div class="mb-3 col-md-6 form-group">
           <label for="title" class="form-label">Tiêu đề</label>
           <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
-          <span class="error-message" id="title-error"></span>
+          <span class="form-message" id="title-error"></span>
         </div>
 
-        <div class="mb-3 col-md-6">
+        <div class="mb-3 col-md-6 form-group">
           <label for="image" class="form-label">Hình ảnh</label>
           <input type="file" id="image" name="image" class="form-control" accept="image/*" />
-          <span class="error-message" id="image-error"></span>
+          <span class="form-message" id="image-error"></span>
         </div>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-3 form-group">
         <label for="content" class="form-label">Mô tả ngắn</label>
         <textarea name="short_description" id="editor2" cols="30" rows="10"></textarea>
-        <span class="error-message" id="content-error"></span>
+        <span class="form-message" id="content-error"></span>
       </div>
-      <div class="mb-3">
+      <div class="mb-3 form-group">
         <label for="content" class="form-label">Mô tả dài</label>
         <textarea name="description" id="editor" cols="30" rows="10"></textarea>
-        <span class="error-message" id="content-error"></span>
+        <span class="form-message" id="content-error"></span>
       </div>
 
       <!-- Thêm nhiều trường hoặc tùy chỉnh theo nhu cầu -->
@@ -102,7 +103,16 @@
                   </td>
                   <td><?= $items['name'] ?></td>
                   <td><?= $items['price'] ?></td>
-                  <td><?= $items['image'] ?></td>
+                 
+                  <td>
+                    <?php if (!empty($items['image'])) : ?>
+                      <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $items['image'] ?>" alt="">
+                    <?php else : ?>
+                      <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                    <?php endif; ?>
+                  </td>
+
+
 
                   <td><?= $items['title'] ?></td>
 
@@ -127,18 +137,13 @@
                       </button>
                     </form>
                   <td>
-
-                  <td>
                     <div class="dropdown">
-                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                        <i class="bx bx-dots-vertical-rounded"></i>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?= _WEB_ROOT ?>/products/edit?id=<?= $items['id'] ?>"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
-                        <a class="dropdown-item" href="<?= _WEB_ROOT ?>/products/hidden?id=<?= $items['id'] ?>"><i class="bx bx-trash me-1"></i> Ẩn</a>
-                      </div>
+                      <a class="dropdown-item" href="<?= _WEB_ROOT ?>/products/edit?id=<?= $items['id'] ?>"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
                     </div>
                   </td>
+                  <td>
+
+
 
                 </tr>
               <?php endforeach ?>

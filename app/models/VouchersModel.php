@@ -20,7 +20,8 @@ class VouchersModel extends Model
     }
     public function getList()
     {
-        $data = $this->db->select($this->_field)->table($this->_table)->where('id', '!=', 'delate')->get();
+        
+        $data = $this->db->select($this->_field)->table($this->_table)->where('vouchers.status', '!=', 'delete')->orderBy('vouchers.id', 'Desc')->get();
         return $data;
     }
     public function addVouchers($data)
@@ -41,5 +42,14 @@ class VouchersModel extends Model
     public function delateVouchers($id)
     {
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
+    }
+    public function getListHidden()
+    {
+        $data = $this->db->select($this->_field)
+            ->table($this->_table)
+            ->where('vouchers.status', '=', 'delete')
+            ->orderBy('vouchers.id', 'Desc')
+            ->get();
+        return $data;
     }
 }

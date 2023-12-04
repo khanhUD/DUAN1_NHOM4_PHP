@@ -13,38 +13,38 @@
         <!-- Nội dung của cột 3 -->
         <h4>THÊM TÀI KHOẢN </h4>
         <div class="card p-3">
-          <form action="<?= _WEB_ROOT ?>/users" method="post" enctype="multipart/form-data">
+          <form id="form-add-users" action="<?= _WEB_ROOT ?>/users" method="post" enctype="multipart/form-data">
             <div class="row">
         
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6 form-group">
                 <label for="full_name" class="form-label">Họ và tên</label>
                 <input class="form-control" type="text" id="full_name" name="full_name" value="" placeholder="Nhập họ và tên..." />
-                <span class="error-message " id="full_name-error"></span>
+                <span class="form-message" id="full_name-error"></span>
               </div>
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6 form-group">
                 <label for="email" class="form-label">Email</label>
                 <input class="form-control" type="text" id="email" name="email" value="" placeholder="Nhập email..." />
-                <span class="error-message " id="email-error"></span>
+                <span class="form-message" id="email-error"></span>
               </div>
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6 form-group">
                 <label for="phone" class="form-label">Số điện thoại</label>
-                <input class="form-control" type="text" id="phone" name="phone" value="" placeholder="Nhập ..." />
-                <span class="error-message " id="phone-error"></span>
+                <input class="form-control" type="text" id="phone" name="phone" value="" placeholder="0*** *** ***" />
+                <span class="form-message" id="phone-error"></span>
               </div>
 
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6 form-group">
                 <label for="password" class="form-label">Mật khẩu</label>
-                <input class="form-control" type="password" id="password" name="password" value="" placeholder="Nhập mật khẩu..." />
-                <span class="error-message " id="password-error"></span>
+                <input class="form-control" type="password" id="password" name="password" value="" placeholder="Tối thiểu 8 ký tự..." />
+                <span class="form-message" id="password-error"></span>
               </div>
 
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6 form-group">
                 <label for="image" class="form-label">Hình ảnh</label>
                 <input type="file" class="form-control" id="image" name="image">
-                <span class="error-message " id="image-error"></span>
+                <span class="form-message" id="image-error"></span>
               </div>
 
-              <div class="mb-3 col-md-6">
+              <div class="mb-3 col-md-6 ">
                 <label class="form-label" for="role">vai trò</label>
                 <div class="input-group input-group-merge">
                   <div class="form-check mx-3">
@@ -62,7 +62,7 @@
                 </div>
 
               </div>
-              <div class="mb-3 col-md-6" hidden>
+              <div class="mb-3 col-md-6 " hidden>
                 <label class="form-label" for="status">trạng thái</label>
                 <div class="input-group input-group-merge">
                   <div class="form-check mx-3">
@@ -121,12 +121,12 @@
                       <?= $items['email'] ?>
                     </td>
                     <td>
-                      <?php if ($items['image'] !== null) {
-                      ?>
-                        <img style="height: 50px;" src="<?= _WEB_ROOT ?>/public/uploads/<?= $items['image'] ?>" alt="">
-                      <?php
-                      } ?>
-                    </td>
+                    <?php if (!empty($items['image'])) : ?>
+                      <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $items['image'] ?>" alt="">
+                    <?php else : ?>
+                      <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                    <?php endif; ?>
+                  </td>
                     <td>
                       <?= $items['role'] === 'admin' ? 'Nhân viên' : 'Khách hàng' ?>
 
