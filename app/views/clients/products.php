@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="card-body text-center">
-                                <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>" class="h5 text-decoration-none product-name"><?= $items['product_name'] ?></a>
+                                <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>" class="h5 text-decoration-none product-name"><?= $items['name'] ?></a>
                                 <p class="text-center mb-0"><?= number_format($items['price']) ?>đ</p>
                             </div>
                         </div>

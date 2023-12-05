@@ -84,7 +84,7 @@ class ProductsModel extends Model
     {
         $data = $this->db->query("
             SELECT 
-                products.name AS product_name, 
+                products.name AS name, 
                 products.image, 
                 products.status, 
                 products.price, 
