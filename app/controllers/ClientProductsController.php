@@ -33,7 +33,7 @@ class ClientProductsController extends Controller
 
             $id = $postValues['id'];
 
-            // Bài viết theo loại 
+            // Bài theo loại 
             $this->data['sub_content']['products'] = $this->products->getListClientByCategory($id);
 
             // Show phần nav phải 

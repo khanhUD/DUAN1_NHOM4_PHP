@@ -56,6 +56,12 @@ class PostsModel extends Model
         return $data;
     }
 
+    public function getListHomeClient()
+    {
+        $data = $this->db->select($this->_field)->table($this->_table)->where('status', '=', 'on')->orderBy('create_at','DESC')->limit(3)->get();
+        return $data;
+    }
+
     // hiện tất cả bài viết client theo danh mục
     public function getListClientByCategory($id)
     {

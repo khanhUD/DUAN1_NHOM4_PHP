@@ -68,6 +68,17 @@ class ProductsModel extends Model
         return $data;
     }
 
+    public function getListProductHomeClient()
+    {
+        $data = $this->db->select($this->_field)
+            ->table($this->_table)
+            ->where('products.status', '=', 'on')
+            ->orderBy('products.create_at', 'Desc')
+            ->limit(8)
+            ->get();
+        return $data;
+    }
+
     public function getListClientByCategory($id)
     {
         $data = $this->db->select($this->_field)->table($this->_table)->where('products.status', '=', 'on')->andWhere('products.product_categories_id', '=', $id)->get();
