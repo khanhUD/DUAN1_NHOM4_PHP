@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-  
+
 
   <!-- Icons. Uncomment required icon fonts -->
   <link rel="stylesheet" href="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/fonts/boxicons.css" />
@@ -30,7 +30,7 @@
 
   <!-- Vendors CSS -->
 
-  
+
 
   <!-- Page CSS -->
 
@@ -38,4 +38,6 @@
   <script src="<?= _WEB_ROOT; ?>/public/assets/admin/vendor/js/helpers.js"></script>
   <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/config.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
