@@ -35,7 +35,7 @@ class ProductCategoriesController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect('productCategories');
+                $response->redirect(_WEB_ROOT .'productCategories');
             }
             $postValues = $request->getFields();
 
@@ -46,7 +46,7 @@ class ProductCategoriesController extends Controller
             if ($result) {
                 Session::flash('msg', 'Thêm thành công !');
                 $response = new Response();
-                $response->redirect('productCategories');
+                $response->redirect(_WEB_ROOT .'productCategories');
             }
         }
     }
@@ -84,7 +84,7 @@ class ProductCategoriesController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect('productCategories/edit?id='.$id);
+            $response->redirect(_WEB_ROOT .'productCategories/edit?id='.$id);
         }
         $data = [
             'name' => $postValues['name'],
@@ -96,7 +96,7 @@ class ProductCategoriesController extends Controller
         if ($result) {
             Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
-            $response->redirect('ProductCategories/add');
+            $response->redirect(_WEB_ROOT .'ProductCategories/add');
         }
     }
 }

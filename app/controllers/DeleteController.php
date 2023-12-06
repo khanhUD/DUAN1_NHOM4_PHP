@@ -32,7 +32,7 @@ class DeleteController extends Controller
             $id = $request->getFields()['id'];
             $this->postComments->delateCommentDetails($id);
             $response = new Response;
-            $response->redirect('postComments');
+            $response->redirect(_WEB_ROOT .'postComments');
         }
     }
     public function productCategories()
@@ -44,12 +44,12 @@ class DeleteController extends Controller
         if ($productCount > 0) {
             Session::flash('msg', 'Loại sản phẩm có chứa sản phẩm, không thể xóa !');
             $response = new Response();
-            $response->redirect('productCategories');
+            $response->redirect(_WEB_ROOT .'productCategories');
         } else {
             $result = $this->productCategories->deleteProductCategories($id);
             if ($result) {
                 $response = new Response();
-                $response->redirect('productCategories');
+                $response->redirect(_WEB_ROOT .'productCategories');
             }
         }
     }

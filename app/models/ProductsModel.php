@@ -85,9 +85,27 @@ class ProductsModel extends Model
         return $data;
     }
 
-    public function getProductDetailById($id)
+    public function getProductClientById($id)
     {
-        $data = $this->db->select($this->_field)->table($this->_table)->join('product_categories', 'products.product_categories_id = product_categories.id')->where('products.status', '=', 'on')->andWhere('products.product_categories_id', '=', $id)->first();
+        $data = $this->db->select('
+        products.name AS name, 
+        products.id AS id,
+        products.image, 
+        products.status, 
+        products.price,
+        products.title,
+        products.description,
+        products.count_view,
+        products.create_at,
+        products.short_description,
+        product_categories.name as product_categories_name, 
+        products.product_categories_id, 
+        product_categories.id AS product_categories_id')
+        ->table($this->_table)
+        ->join('product_categories', 'products.product_categories_id = product_categories.id')
+        ->where('products.status', '=', 'on')
+        ->where('products.id', '=', $id)
+        ->first();
         return $data;
     }
 
@@ -113,4 +131,5 @@ class ProductsModel extends Model
         // $data = $this->db->select($this->_field)->table($this->_table)->join('product_categories', 'products.product_categories_id = product_categories.id')->where('products.status', '=', 'on')->andWhere('products.product_categories_id', '=', $id)->get();
         return $data;
     }
+
 }

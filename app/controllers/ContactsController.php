@@ -26,7 +26,7 @@ class ContactsController extends Controller
         if ($result) {
             // Nếu thành công chuyển hướng đến danh sách danh mục
             $response = new Response();
-            $response->redirect('Contacts');
+            $response->redirect(_WEB_ROOT .'Contacts');
         }
     }
     public function delete()

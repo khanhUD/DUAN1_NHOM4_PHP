@@ -36,7 +36,7 @@ class ProductCommentsController extends Controller
             $id = $request->getFields()['id'];
             $this->productComments->deleteCommentDetails($id);
             $response = new Response;
-            $response->redirect('postComments');
+            $response->redirect(_WEB_ROOT .'postComments');
         }
     }
 }

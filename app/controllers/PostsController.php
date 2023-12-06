@@ -37,7 +37,7 @@ class PostsController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect('posts');
+                $response->redirect(_WEB_ROOT .'posts');
             }
             $postValues = $request->getFields();
 
@@ -62,7 +62,7 @@ class PostsController extends Controller
             if ($result) {
                 Session::flash('msg', 'Thêm sản phẩm thành công !');
                 $response = new Response();
-                $response->redirect('posts');
+                $response->redirect(_WEB_ROOT .'posts');
             }
         }
     }
@@ -96,7 +96,7 @@ class PostsController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect('posts/edit?id=' . $id);
+            $response->redirect(_WEB_ROOT .'posts/edit?id=' . $id);
         }
         $data = [
             'image' => $postValues['imageOld'],
@@ -122,7 +122,7 @@ class PostsController extends Controller
         if ($result) {
             Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
-            $response->redirect('posts');
+            $response->redirect(_WEB_ROOT .'posts');
         }
     }
     public function updatePosts()
@@ -136,7 +136,7 @@ class PostsController extends Controller
         $result = $this->posts->updatePosts($data, $id);
         if ($result) {
             $response = new Response();
-            $response->redirect('posts');
+            $response->redirect(_WEB_ROOT .'posts');
         }
     }
     public function list_hidden()

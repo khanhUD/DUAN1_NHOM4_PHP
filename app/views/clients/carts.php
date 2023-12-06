@@ -10,7 +10,7 @@
             </ol>
         </div>
     </div>
-
+<form action="">
     <div class="container-fluid">
         <div class="container">
             <div class="row">
@@ -38,12 +38,13 @@
                                     30
                                 </td>
                                 <td width="200px">
-                                    <div class="d-flex align-items-center quantity-product">
-                                        <button class="btn bg-primary mr-2 btn-minus"><b
-                                                class="text-dark">-</b></button>
-                                        <input type="text" class="btn-quantity quantity" value="1">
-                                        <button class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
-                                    </div>
+                                    <!-- <form action=""> -->
+                                        <div class="d-flex align-items-center quantity-product">
+                                            <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
+                                            <input type="text" class="btn-quantity quantity" value="1">
+                                            <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
+                                        </div>
+                                    <!-- </form> -->
                                 </td>
                                 <td>30</td>
                             </tr>
@@ -60,8 +61,7 @@
                                 </td>
                                 <td width="200px">
                                     <div class="d-flex align-items-center quantity-product">
-                                        <button class="btn bg-primary mr-2 btn-minus"><b
-                                                class="text-dark">-</b></button>
+                                        <button class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
                                         <input type="text" class="btn-quantity quantity" value="1">
                                         <button class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
                                     </div>
@@ -73,7 +73,7 @@
 
                             <!-- </tr> -->
                         </tbody>
-                        
+
                         <tfoot>
                             <tr>
                                 <td></td>
@@ -147,25 +147,24 @@
             </div>
         </div>
     </div>
-
+    </form>
 
     <script>
-
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Lặp qua tất cả các sản phẩm để gắn sự kiện cho nút tăng và giảm
             var products = document.querySelectorAll('.quantity-product');
-            products.forEach(function (product) {
+            products.forEach(function(product) {
                 var quantityInput = product.querySelector('.quantity');
                 var increaseBtn = product.querySelector('.btn-plus');
                 var decreaseBtn = product.querySelector('.btn-minus');
 
-                increaseBtn.addEventListener('click', function () {
+                increaseBtn.addEventListener('click', function() {
                     var currentQuantity = parseInt(quantityInput.value);
                     quantityInput.value = currentQuantity + 1;
                     // Nếu muốn lưu trạng thái này, có thể gửi dữ liệu về máy chủ tại đây.
                 });
 
-                decreaseBtn.addEventListener('click', function () {
+                decreaseBtn.addEventListener('click', function() {
                     var currentQuantity = parseInt(quantityInput.value);
                     if (currentQuantity > 0) {
                         quantityInput.value = currentQuantity - 1;
@@ -174,8 +173,6 @@
                 });
             });
         });
-
-
     </script>
     <script>
         function copyToClipboard() {

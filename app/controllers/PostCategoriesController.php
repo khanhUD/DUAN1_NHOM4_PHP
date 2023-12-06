@@ -39,7 +39,7 @@ class PostCategoriesController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect('postCategories');
+            $response->redirect(_WEB_ROOT .'postCategories');
         }
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
@@ -51,7 +51,7 @@ class PostCategoriesController extends Controller
         if ($result) {
             Session::flash('msg', 'Thêm thành công !');
             $response = new Response();
-            $response->redirect('postCategories');
+            $response->redirect(_WEB_ROOT .'postCategories');
         }
     }
     public function edit()
@@ -84,7 +84,7 @@ class PostCategoriesController extends Controller
             Session::flash('errors', $request->errors());
             Session::flash('old', $request->getFields());
             $response  = new Response();
-            $response->redirect('postCategories/edit?id=' . $id);
+            $response->redirect(_WEB_ROOT .'postCategories/edit?id=' . $id);
         }
         $data = [
             'name' => $postValues['name'],
@@ -95,7 +95,7 @@ class PostCategoriesController extends Controller
         if ($result) {
             Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
-            $response->redirect('postCategories');
+            $response->redirect(_WEB_ROOT .'postCategories');
         }
     }
     public function delete()
@@ -106,12 +106,12 @@ class PostCategoriesController extends Controller
         if ($productCount > 0) {
             Session::flash('msg', 'Loại bài viết có chứa bài viết, không thể xóa !');
             $response = new Response();
-            $response->redirect('postCategories');
+            $response->redirect(_WEB_ROOT .'postCategories');
         } else {
             $result = $this->postCategories->deletePostCategories($id);
             if ($result) {
                 $response = new Response();
-                $response->redirect('postCategories/add');
+                $response->redirect(_WEB_ROOT .'postCategories/add');
             }
         }
     }

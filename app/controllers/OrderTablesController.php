@@ -33,7 +33,7 @@ class OrderTablesController extends Controller
 
         if ($result) {
             $response = new Response();
-            $response->redirect('orderTables');
+            $response->redirect(_WEB_ROOT .'orderTables');
         }
     }
 }

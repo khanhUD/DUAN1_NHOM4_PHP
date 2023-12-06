@@ -115,8 +115,8 @@
               </form>
 
               <p class="text-center">
-                <span>Bạn co săn san để tạo một tai khoản?</span>
-                <a href="<?php _WEB_ROOT ?>Dang-Nhap">
+                <span>Bạn đã có tài khoản?</span>
+                <a href="<?php _WEB_ROOT?>/Dang-Nhap">
                   <span>Đăng nhập ngay</span>
                 </a>
               </p>

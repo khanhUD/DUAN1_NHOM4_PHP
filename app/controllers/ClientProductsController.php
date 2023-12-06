@@ -44,7 +44,8 @@ class ClientProductsController extends Controller
         }
     }
 
-    public function search(){
+    public function search()
+    {
 
         $request = new Request;
         if ($request->isGet()) {
@@ -61,6 +62,32 @@ class ClientProductsController extends Controller
             $this->data['content'] = 'clients/search';
             $this->data['sub_content']['action'] = '';
             $this->render('layouts/client_layout', $this->data);
+        }
+    }
+
+    public function productDetails()
+    {
+        $request = new Request;
+        if ($request->isGet()) {
+            $postValues = $request->getFields();
+
+            $id = $postValues['id'];
+            $categories_id = $postValues['categories_id'];
+            if ($id == '') {
+                $response = new Response();
+                $response->redirect(_WEB_ROOT . 'ClientProducts');
+            } else {
+
+                $this->data['sub_content']['productRelated'] = $this->products->getListClientByCategory($categories_id);
+
+                $this->data['sub_content']['productDetails'] = $this->products->getProductClientById($id);
+
+                $this->data['sub_content']['productComments'] = $this->productComments->getProductComment($id);
+
+                $this->data['content'] = 'clients/productDetails';
+                $this->data['sub_content']['action'] = '';
+                $this->render('layouts/client_layout', $this->data);
+            }
         }
     }
 }

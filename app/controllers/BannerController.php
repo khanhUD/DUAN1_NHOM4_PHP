@@ -36,7 +36,7 @@ class BannerController extends Controller
                     Session::flash('old', $request->getFields());
 
                     $response  = new Response();
-                    $response->redirect('users');
+                    $response->redirect(_WEB_ROOT .'users');
                 }
                 $postValues = $request->getFields();
 
@@ -60,7 +60,7 @@ class BannerController extends Controller
                 if ($result) {
                     Session::flash('msg', 'Thêm thành công !');
                     $response = new Response();
-                    $response->redirect('banner');
+                    $response->redirect(_WEB_ROOT .'banner');
                 }
             }
         }
@@ -96,7 +96,7 @@ class BannerController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect('banner/edit?id='.$id);
+            $response->redirect(_WEB_ROOT .'banner/edit?id='.$id);
         }
         $data = [
             'image' => $postValues['imageOld'],
@@ -122,7 +122,7 @@ class BannerController extends Controller
         if ($result) {
             Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
-            $response->redirect('banner/add');
+            $response->redirect(_WEB_ROOT .'banner/add');
         }
     }
 }

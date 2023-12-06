@@ -38,7 +38,7 @@ class ProductsController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect('products');
+                $response->redirect(_WEB_ROOT .'products');
             }
             $postValues = $request->getFields();
 
@@ -65,7 +65,7 @@ class ProductsController extends Controller
             if ($result) {
                 Session::flash('msg', 'Thêm sản phẩm thành công !');
                 $response = new Response();
-                $response->redirect('products');
+                $response->redirect(_WEB_ROOT .'products');
             }
         }
     }
@@ -87,7 +87,7 @@ class ProductsController extends Controller
         $result = $this->products->updateProducts($data, $id);
         if ($result) {
             $response = new Response();
-            $response->redirect('products');
+            $response->redirect(_WEB_ROOT .'products');
         }
     }
     public function hidden()
@@ -102,7 +102,7 @@ class ProductsController extends Controller
 
         if ($result) {
             $response = new Response();
-            $response->redirect('products');
+            $response->redirect(_WEB_ROOT .'products');
         }
     }
     public function edit()
@@ -136,7 +136,7 @@ class ProductsController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect('products/edit?id=' . $id);
+            $response->redirect(_WEB_ROOT .'products/edit?id=' . $id);
         }
         $data = [
             'image' => $postValues['imageOld'],
@@ -165,7 +165,7 @@ class ProductsController extends Controller
         if ($result) {
             Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
-            $response->redirect('products');
+            $response->redirect(_WEB_ROOT .'products');
         }
     }
 }

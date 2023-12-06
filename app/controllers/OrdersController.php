@@ -44,7 +44,7 @@ class OrdersController extends Controller
 
         if ($result) {
             $response = new Response();
-            $response->redirect('orders');
+            $response->redirect(_WEB_ROOT .'orders');
         }
     }
 
@@ -60,7 +60,7 @@ class OrdersController extends Controller
 
         if ($result) {
             $response = new Response();
-            $response->redirect('orders/list_hidden');
+            $response->redirect(_WEB_ROOT .'orders/list_hidden');
         }
     }
 }

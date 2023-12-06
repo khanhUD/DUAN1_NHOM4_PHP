@@ -39,7 +39,7 @@ class ClientContactsController extends Controller
 
             if($result){
                 $response = new Response();
-                $response->redirect('ClientContacts');
+                $response->redirect(_WEB_ROOT .'ClientContacts');
             }
         }
     }

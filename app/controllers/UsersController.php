@@ -32,7 +32,7 @@ class UsersController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect('users');
+                $response->redirect(_WEB_ROOT .'users');
             }
 
             $postValues = $request->getFields();
@@ -60,7 +60,7 @@ class UsersController extends Controller
             if ($result) {
                 Session::flash('msg', 'Thêm thành công !');
                 $response = new Response();
-                $response->redirect('users');
+                $response->redirect(_WEB_ROOT .'users');
             }
         }
     }
@@ -107,7 +107,7 @@ class UsersController extends Controller
             if ($result) {
                 Session::flash('msg', 'Sửa thành công !');
                 $response = new Response();
-                $response->redirect('users');
+                $response->redirect(_WEB_ROOT .'users');
             }
         }
     }
@@ -118,7 +118,7 @@ class UsersController extends Controller
             $id = $request->getFields()['id'];
             $this->users->deleteUsers($id);
             $response = new Response;
-            $response->redirect('users');
+            $response->redirect(_WEB_ROOT .'users');
         }
     }
 
@@ -144,7 +144,7 @@ class UsersController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response = new Response();
-                $response->redirect('users'); // hoặc chuyển hướng đến trang khác tùy ý
+                $response->redirect(_WEB_ROOT .'users'); // hoặc chuyển hướng đến trang khác tùy ý
                 return; // dừng thực thi
             }
 

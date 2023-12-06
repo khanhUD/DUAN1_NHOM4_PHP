@@ -92,7 +92,7 @@
 
           <p class="text-center">
             <span>Bạn chưa có tài khoản?</span>
-            <a href="<?php _WEB_ROOT ?>Dang-Ky">
+            <a href="<?php _WEB_ROOT ?>/Dang-Ky">
               <span>Tạo một tài khoản</span>
             </a>
           </p>

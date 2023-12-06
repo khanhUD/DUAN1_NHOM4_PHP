@@ -24,7 +24,7 @@ class updateStatusController extends Controller
         $result = $this->postComments->updateStatusComment($data, $commentId);
         if ($result) {
             $response = new Response();
-            $response->redirect('postComments');
+            $response->redirect(_WEB_ROOT .'postComments');
         }
     }
     public function productComments()
@@ -56,7 +56,7 @@ class updateStatusController extends Controller
 
         if ($result) {
             $response = new Response();
-            $response->redirect('orders');
+            $response->redirect(_WEB_ROOT .'orders');
         }
     }
     public function orderTables()
@@ -75,7 +75,7 @@ class updateStatusController extends Controller
 
         if ($result) {
             $response = new Response();
-            $response->redirect('orderTables');
+            $response->redirect(_WEB_ROOT .'orderTables');
         }
     }
 }

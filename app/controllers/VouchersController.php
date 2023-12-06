@@ -36,7 +36,7 @@ class VouchersController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect('vouchers');
+                $response->redirect(_WEB_ROOT .'vouchers');
             }
             $postValues = $request->getFields();
 
@@ -51,7 +51,7 @@ class VouchersController extends Controller
             if ($result) {
                 $response = new Response();
                 Session::flash('msg', 'Thêm thành công !');
-                $response->redirect('vouchers');
+                $response->redirect(_WEB_ROOT .'vouchers');
             }
         }
     }
@@ -84,7 +84,7 @@ class VouchersController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect('vouchers/edit?id=' . $id);
+            $response->redirect(_WEB_ROOT .'vouchers/edit?id=' . $id);
         }
         $data = [
             'code' => $postValues['code'],
@@ -97,7 +97,7 @@ class VouchersController extends Controller
         if ($result) {
             $response = new Response();
             Session::flash('msg', 'Sửa thành công !');
-            $response->redirect('vouchers');
+            $response->redirect(_WEB_ROOT .'vouchers');
         }
     }
     public function updateStatus()
@@ -111,7 +111,7 @@ class VouchersController extends Controller
         $result = $this->vouchers->updateVouchers($data, $id);
         if ($result) {
             $response = new Response();
-            $response->redirect('vouchers');
+            $response->redirect(_WEB_ROOT .'vouchers');
         }
     }
     public function list_hidden()

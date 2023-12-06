@@ -41,26 +41,26 @@
                                 <?php
                                 if ($items['image'] === '') :
                                 ?>
-                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>">
+                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>">
                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/no-img.png" class="card-img rounded img-fluid" alt="">
                                     </a>
 
                                 <?php else :
 
                                 ?>
-                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>">
+                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>">
                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/<?= $items['image'] ?>" class="card-img rounded img-fluid" alt="">
                                     </a>
                                 <?php endif; ?>
                                 <div class="card-img-overlay rounded product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>"><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="card-body text-center">
-                                <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>" class="h5 text-decoration-none product-name"><?= $items['name'] ?></a>
+                                <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>" class="h5 text-decoration-none product-name"><?= $items['name'] ?></a>
                                 <p class="text-center mb-0"><?= number_format($items['price']) ?>đ</p>
                             </div>
                         </div>

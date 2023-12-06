@@ -32,13 +32,22 @@ $routes['postComments/list'] = 'postComments/listComments';
 
 // client 
 $routes['Trang-Chu'] = 'ClientHome';
+
 $routes['Gioi-Thieu'] = 'ClientAboutUs';
+
 $routes['Thuc-Don'] = 'ClientProducts';
+
 $routes['Bai-Viet'] = 'ClientPosts';
+// $routes['Bai-Viet/'] = 'ClientPosts';
+
 $routes['Lien-He'] = 'ClientContacts';
+
 $routes['Gio-Hang'] = 'ClientCarts';
+
 $routes['Hoa-Don'] = 'ClientOrders';
+
 $routes['Thanh-Toan'] = 'ClientPays';
+
 $routes['Tai-Khoan'] = 'ClientProfile';
 
 

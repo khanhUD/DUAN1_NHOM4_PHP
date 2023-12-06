@@ -34,7 +34,7 @@ class AdminController extends Controller
             } else {
                 $response = new Response;
                 Session::flash('msg', 'Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password !');
-                $response->redirect('Dang-Nhap');
+                $response->redirect(_WEB_ROOT .'Dang-Nhap');
             }
         }
     } public function register()
@@ -53,6 +53,6 @@ class AdminController extends Controller
     {
         session_destroy();
         $response = new Response;
-        $response->redirect('Trang-Chu');
+        $response->redirect(_WEB_ROOT .'Trang-Chu');
     }
 }
