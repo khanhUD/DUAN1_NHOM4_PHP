@@ -190,4 +190,5 @@ class UsersController extends Controller
         Session::flash('msg', 'Sai thông tin !');
         $response->redirect('Doi-Mat-Khau');
     }
+ 
 }

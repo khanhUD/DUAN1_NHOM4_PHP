@@ -81,7 +81,7 @@ if (!empty($allHelpers)) {
 // load template
 require_once 'core/Template.php';
 
-// require_once 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 require_once 'app/App.php'; // load app
 require_once 'core/Model.php'; // load base model

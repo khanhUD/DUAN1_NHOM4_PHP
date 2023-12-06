@@ -66,4 +66,19 @@ class UsersModel extends Model
         $data = $this->db->query("SELECT * FROM users WHERE id = '$id' ")->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
+    public function checkMail($email)
+    {
+        $data = $this->db->query("SELECT COUNT(*) FROM users WHERE email = '$email' ")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function mailExisted($email) : bool{
+        $result = $this->db->select('email')->table('users')->where('email', '=', $email)->first();
+        return ($result > 1) ? true : false;
+    }
+
+    public function updatePassword($email, $password) {
+        $result = $this->db->query("update users set password = '$password' where email='$email'");
+        return $result;
+    }
 }

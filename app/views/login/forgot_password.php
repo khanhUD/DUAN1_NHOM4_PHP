@@ -77,7 +77,7 @@
               <a href="<?php _WEB_ROOT ?>/clientHome"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
               <h4 class="mb-2">Quên mật khẩu? 🔒</h4>
               <p class="mb-4">Nhập email của bạn và chúng tôi sẽ gửi cho bạn hướng dẫn để đặt lại mật khẩu của bạn</p>
-              <form id="forgot_password" class="mb-3" action="#" method="POST">
+              <form id="forgot_password" class="mb-3" action="<?php _WEB_ROOT?>/email/send_Mail" method="POST">
                 <div class="mb-3 form-group">
                   <label for="email" class="form-label">Email</label>
                   <input
@@ -105,36 +105,6 @@
       </div>
     </div>
    
-    <?php
-    require(_WEB_ROOT . "/PHPMailer-master/src/PHPMailer.php");
-    require(_WEB_ROOT . "/PHPMailer-master/src/SMTP.php");
-    require(_WEB_ROOT . "/PHPMailer-master/src/Exception.php");
-
-
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->IsSMTP(); // enable SMTP
-
-    $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-    $mail->SMTPAuth = true; // authentication enabled
-    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-    $mail->Host = "smtp.gmail.com";
-    $mail->Port = 465; // or 587
-    $mail->IsHTML(true);
-    $mail->Username = "khanhnqpc06731@fpt.edu.vn";
-    $mail->Password = "xxxx";
-    $mail->SetFrom("xxxxxx@xxxxx.com");
-    $mail->Subject = "Test";
-    $mail->Body = "hello";
-    $mail->AddAddress("xxxxxx@xxxxx.com");
-
-    if (!$mail->Send()) {
-      echo "Mailer Error: " . $mail->ErrorInfo;
-    } else {
-      echo "Message has been sent";
-    }
-    ?>
-
 
     <!-- / Content -->
 

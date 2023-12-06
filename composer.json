@@ -1,0 +1,11 @@
+{
+    "name": "admin/duan1_nhom4_php",
+    "autoload": {
+        "psr-4": {
+            "Admin\\Duan1Nhom4Php\\": "src/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
