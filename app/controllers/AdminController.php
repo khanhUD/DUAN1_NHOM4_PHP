@@ -8,6 +8,7 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->users = $this->model('UsersModel');
+        $this->admin = $this->model('AdminModel');
     }
     public function index()
     {
@@ -37,17 +38,20 @@ class AdminController extends Controller
                 $response->redirect(_WEB_ROOT .'Dang-Nhap');
             }
         }
-    } public function register()
+    }
+    public function register()
     {
-        $this->render('login/sing_up'); 
+        $this->render('login/sing_up');
     }
     public function forgot_password()
     {
+
         $this->render('login/forgot_password');
     }
     public function change_password()
     {
         $this->render('login/change_password');
+     
     }
     public function logOut()
     {

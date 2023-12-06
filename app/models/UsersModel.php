@@ -61,4 +61,9 @@ class UsersModel extends Model
         $result = $this->db->table($this->tableName)->insert($data);
         return $result;
     }
+    public function checkPassword($id)
+    {
+        $data = $this->db->query("SELECT * FROM users WHERE id = '$id' ")->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }

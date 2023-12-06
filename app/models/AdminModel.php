@@ -1,21 +1,20 @@
 <?php
 
 class AdminModel extends Model {
-    public $tableName = 'users';
+    private $_table = 'users';
+    private $_field = '*';
 
-    public function primaryKey()
+    function tableFill()
     {
-        return '';
+        return 'users';
     }
-
-    public function fieldFill()
+    function fieldFill()
     {
-        return '';
+        return '*';
     }
-
-    public function tableFill()
+    function primaryKey()
     {
-        return '';
+        return 'id';
     }
 
   

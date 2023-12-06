@@ -64,16 +64,16 @@
 
                         <p class="mb-4 text-center">Thay đổi mật khẩu</p>
 
-                        <form id="formAuthentication" class="mb-3" action="index.php" method="POST">
-
+                        <form id="formAuthentication" class="mb-3" action="<?php _WEB_ROOT ?>/users/change_password" method="POST">
+                            <input type="hidden" value="<?= $_SESSION['users']['id'] ?>" name="id">;
                             <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Mật khẩu cũ</label>
 
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    <input type="password" id="password" class="form-control" name="password_old" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                                    <span class="form-group input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                                 <div class='form-message'></div>
                             </div>
@@ -84,18 +84,18 @@
                                 </div>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    <span class="form-group input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                                 <div class='form-message'></div>
                             </div>
                             <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Xác nhận mật khẩu mới </label>
+                                    <label class="form-label" for="confirm_password">Xác nhận mật khẩu mới </label>
 
                                 </div>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-                                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                                    <input type="password" id="confirm_password" class="form-control" name="confirm_password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                                    <span class="form-group input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
                                 <div class='form-message'></div>
                             </div>
@@ -141,10 +141,15 @@
                 formGroupSelector: '.form-group',
                 errorSelector: '.form-message',
                 rules: [
-            
-                    Validator.minLength('input[name="password"]', '8', ''),
+                    Validator.isRequired('.input-group input[name="password"]','Vui lòng nhập mật khẩu mới'),
+                    Validator.isRequired('.input-group input[name="password_old"]','Vui lòng nhập mật khẩu'),
+                    Validator.isConfirmed('.input-group input[name="confirm_password"]', function() {
+                        return document.querySelector('.input-group input[name="password"]').value;
+                    }, 'Mật khẩu xác nhận không chính xác'),
+                    Validator.minLength('.input-group input[name="password"]', '8', ''),
                 ]
             });
+
         }
     </script>
 
