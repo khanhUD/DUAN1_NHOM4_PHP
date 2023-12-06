@@ -56,9 +56,9 @@ class ClientProductsController extends Controller
             $this->data['sub_content']['products'] = $this->products->getListClientByKey($keyword);
 
             // Show phần nav phải 
-            $this->data['sub_content']['productCategories'] = $this->productCategories->getListCategoriesClient();
+            // $this->data['sub_content']['productCategories'] = $this->productCategories->getListCategoriesClient();
             // Session::data('key', "Kết quả tìm kiếm cho $keyword");
-            $this->data['content'] = 'clients/products';
+            $this->data['content'] = 'clients/search';
             $this->data['sub_content']['action'] = '';
             $this->render('layouts/client_layout', $this->data);
         }

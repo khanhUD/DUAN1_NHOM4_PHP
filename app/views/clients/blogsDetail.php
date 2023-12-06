@@ -37,7 +37,7 @@
 
                          <!-- Nội dung bài viết -->
                          <p>
-                             <?= $postDetails['content'] ?>
+                             <?= html_entity_decode($postDetails['content']) ?>
                          </p>
 
                          <!-- Ảnh chi tiết bài viết -->

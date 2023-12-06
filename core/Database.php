@@ -64,6 +64,7 @@ class Database
     {
         try {
             // $this->_conn =  Connection::getInstance(($this->db_config));
+  
             $statement =  $this->_conn->prepare($sql);
             $statement->execute();
             return $statement;

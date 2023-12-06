@@ -50,7 +50,7 @@ class ClientPostsController extends Controller
             $id = $postValues['id'];
             if ($id == '') {
                 $response = new Response();
-                $response->redirect('ClientPosts');
+                $response->redirect(_WEB_ROOT.'ClientPosts');
             } else {
 
                 // Bài viết chi tiết 

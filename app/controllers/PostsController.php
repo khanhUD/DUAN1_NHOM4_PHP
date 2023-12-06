@@ -102,7 +102,7 @@ class PostsController extends Controller
             'image' => $postValues['imageOld'],
             'post_category_id' => $postValues['post_category_id'], // Sửa đổi tên trường này
             'title' => $postValues['title'],
-            'content' => $postValues['content'],
+            'content' =>$postValues['content']
         ];
         $image = $postValues['image'];
         $targetDir = "public/uploads/";

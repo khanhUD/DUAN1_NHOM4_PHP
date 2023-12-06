@@ -85,12 +85,13 @@ class ProductsModel extends Model
         $data = $this->db->query("
             SELECT 
                 products.name AS name, 
+                products.id AS id,
                 products.image, 
                 products.status, 
                 products.price, 
-                product_categories.name, 
+                product_categories.name as product_categories_name, 
                 products.product_categories_id, 
-                product_categories.id  
+                product_categories.id AS product_categories_id   
             FROM products
             JOIN product_categories ON product_categories.id = products.product_categories_id
             WHERE 
