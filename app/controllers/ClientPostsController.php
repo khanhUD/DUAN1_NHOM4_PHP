@@ -50,7 +50,7 @@ class ClientPostsController extends Controller
             $id = $postValues['id'];
             if ($id == '') {
                 $response = new Response();
-                $response->redirect(_WEB_ROOT.'ClientPosts');
+                $response->redirect(_WEB_ROOT . 'ClientPosts');
             } else {
 
                 // Bài viết chi tiết 
@@ -67,7 +67,7 @@ class ClientPostsController extends Controller
                 $this->data['sub_content']['action'] = '';
                 $this->render('layouts/client_layout', $this->data);
             }
-        } 
+        }
     }
 
     public function submitPostComments()
@@ -76,7 +76,23 @@ class ClientPostsController extends Controller
         if ($request->isPost()) {
             $postValues = $request->getFields();
 
-            $id = $postValues['id'];
+            $note = $postValues['note'];
+            $posts_id = $postValues['posts_id'];
+            $users_id = $postValues['users_id'];
+            $status = $postValues['status'];
+            $data = [
+                'post_id' => $posts_id,
+                'user_id' => $users_id,
+                'note' => $note,
+                'status' => $status
+            ];
+
+            $result = $this->postComments->submitPostComment($data);
+
+            if ($result) {
+                $response = new Response();
+                $response->redirect(_WEB_ROOT . 'Bai-Viet/postDetails?id='.$posts_id);
+            }
         }
     }
 }

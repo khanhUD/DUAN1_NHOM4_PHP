@@ -16,10 +16,10 @@
                         <p class="h4 py-2"><b>Giá: </b><?= number_format($productDetails['price']) ?>đ</p>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <h6>Thương hiệu:</h6>
+                                <h6>Danh mục:</h6>
                             </li>
                             <li class="list-inline-item">
-                                <p class="text-muted"><strong><?= $productDetails['name'] ?></strong></p>
+                                <p class="text-muted"><strong><?= $productDetails['product_categories_name'] ?></strong></p>
                             </li>
                         </ul>
 
@@ -95,30 +95,37 @@
                     <!-- Thêm các mục khác tùy vào số lượng bình luận -->
 
                     <!-- Form nhập bình luận -->
-                    <form class="form-comment" action="<?= _WEB_ROOT ?>/Clientproducts/submitproductComments" method="product">
+                    <form class="form-comment" action="<?= _WEB_ROOT ?>/ClientProducts/submitProductComments" method="post">
                         <h5>Để lại bình luận</h5>
 
                         <div class="mb-3">
                             <label for="commentContent" class="form-label">Nội dung bình luận</label>
-                            <textarea class="form-control" id="commentContent" name="note" rows="3"></textarea>
+                            <input type="text" name="product_id" hidden value="<?= $productDetails['id'] ?>">
+                            <input type="text" name="categories_id" hidden value="<?= $productDetails['product_categories_id'] ?>">
+                            <input type="text" name="users_id" hidden value="<?= $_SESSION["users"]['id'] ?>">
+                            <input type="text" name="status" hidden value="<?= ($_SESSION["users"]['role'] == 'admin') ? 'on' : 'off' ?>">
+                            <textarea class="form-control commentContent" id="commentContentP" name="note" rows="3"></textarea>
+                            <div class="text-danger errorNote">
+
+                            </div>
                         </div>
                         <?php
-                        // if (!empty($_SESSION['users'])) {
+                        if (!empty($_SESSION['users'])) {
                         ?>
-                        <button type="submit" class="btn btn-primary">Gửi bình luận</button>
+                            <button type="submit" class="btn btn-primary">Gửi bình luận</button>
                         <?php
-                        // }
+                        }
                         ?>
 
                     </form>
                     <?php
-                    // if (!isset($_SESSION['users'])) {
+                    if (!isset($_SESSION['users'])) {
                     ?>
-                    <div class="mb-3">
-                        <p class="tex-success">Bạn phải đăng nhập mới có thể bình luận bài viết này này!</p> <a class="text-decoration-none text-success fw-bold" href="<?=_WEB_ROOT?>/Dang-Nhap/">Đăng nhập</a>
-                    </div>
+                        <div class="mb-3">
+                            <p class="tex-success">Bạn phải đăng nhập mới có thể bình luận bài viết này này!</p> <a class="text-decoration-none text-success fw-bold" href="<?= _WEB_ROOT ?>/Dang-Nhap/">Đăng nhập</a>
+                        </div>
                     <?php
-                    // }
+                    }
                     ?>
                 </div>
             </div>
@@ -138,6 +145,7 @@
             </div>
 
             <?php
+
             foreach ($productRelated as $items) {
 
             ?>
@@ -179,6 +187,34 @@
     </div>
 </div>
 <!-- </section> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('.form-comment');
+
+        form.addEventListener('submit', function(event) {
+            // Ngăn chặn form được submit
+            var note = form.querySelector(".commentContent").value;
+            var errorNote = form.querySelector(".errorNote");
+
+            // Kiểm tra xem nội dung bình luận có được nhập hay không
+            if (note.trim() === "") {
+                errorNote.innerText = "Vui lòng nhập nội dung bình luận.";
+                event.preventDefault();
+            } else {
+                errorNote.innerText = "";
+                // Hiển thị thông báo "Bình luận của bạn đang chờ kiểm duyệt"
+                <?php
+                if ($_SESSION["users"]['role'] == 'user') :
+                ?>
+                    alert("Bình luận của bạn đang chờ duyệt.");
+
+                <?php
+                endif;
+                ?>
+            }
+        });
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

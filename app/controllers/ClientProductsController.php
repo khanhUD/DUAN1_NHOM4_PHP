@@ -90,4 +90,31 @@ class ClientProductsController extends Controller
             }
         }
     }
+
+    public function submitProductComments()
+    {
+        $request = new Request;
+        if ($request->isPost()) {
+            $postValues = $request->getFields();
+
+            $note = $postValues['note'];
+            $categories_id = $postValues['categories_id'];
+            $product_id = $postValues['product_id'];
+            $users_id = $postValues['users_id'];
+            $status = $postValues['status'];
+            $data = [
+                'user_id' => $users_id,
+                'product_id' => $product_id,
+                'note' => $note,
+                'status' => $status
+            ];
+
+            $result = $this->productComments->submitProductComment($data);
+
+            if ($result) {
+                $response = new Response();
+                $response->redirect(_WEB_ROOT . 'ClientProducts/productDetails?id='.$product_id.'&categories_id='.$categories_id);
+            }
+        }
+    }
 }

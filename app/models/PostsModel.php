@@ -71,7 +71,7 @@ class PostsModel extends Model
 
     public function getPostDetailById($id)
     {
-        $data = $this->db->query("SELECT * FROM posts INNER JOIN post_categories ON posts.post_category_id = post_categories.id WHERE posts.id = '$id' AND posts.status = 'on' ")->fetch(PDO::FETCH_ASSOC);
+        $data = $this->db->query("SELECT posts.id as posts_id, posts.title, posts.image, posts.content, posts.create_at, posts.post_category_id, posts.status, post_categories.id, post_categories.name FROM posts INNER JOIN post_categories ON posts.post_category_id = post_categories.id WHERE posts.id = '$id' AND posts.status = 'on' ")->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
 

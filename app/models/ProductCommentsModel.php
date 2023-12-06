@@ -81,4 +81,10 @@ class ProductCommentsModel extends Model
 
         return $data;
     }
+
+    public function submitProductComment($data)
+    {
+        $data = $this->db->table($this->_table)->insert($data);
+        return $data;
+    }
 }

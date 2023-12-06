@@ -6,7 +6,7 @@
                  <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>/ClientHome/">Trang chủ</a></li>
                  <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>/ClientPosts/">Bài viết</a></li>
                  <li class="breadcrumb-item text-dark" aria-current="page">
-                     <?=$postDetails['title']?>
+                     <?= $postDetails['title'] ?>
                  </li>
              </ol>
          </div>
@@ -83,30 +83,37 @@
                              <!-- Thêm các mục khác tùy vào số lượng bình luận -->
 
                              <!-- Form nhập bình luận -->
-                             <form class="form-comment" action="<?= _WEB_ROOT ?>/ClientPosts/submitPostComments" method="post">
+                             <form class="form-comment" action="<?= _WEB_ROOT ?>/ClientPosts/submitPostComments" method="post" onsubmit="return validateForm()">
                                  <h4>Để lại bình luận</h4>
 
                                  <div class="mb-3">
                                      <label for="commentContent" class="form-label">Nội dung bình luận</label>
+                                     <input type="text" name="posts_id" hidden value="<?= $postDetails['posts_id'] ?>">
+                                     <input type="text" name="users_id" hidden value="<?= $_SESSION["users"]['id'] ?>">
+                                     <input type="text" name="status" hidden value="<?= ($_SESSION["users"]['role'] == 'admin') ? 'on' : 'off'?>">
                                      <textarea class="form-control" id="commentContent" name="note" rows="3"></textarea>
+
+                                     <div id="errorNote" class="text-danger">
+
+                                     </div>
                                  </div>
                                  <?php
-                                    // if (!empty($_SESSION['users'])) {
+                                    if (!empty($_SESSION['users'])) {
                                     ?>
                                      <button type="submit" class="btn btn-primary">Gửi bình luận</button>
                                  <?php
-                                    // }
+                                    }
                                     ?>
 
                              </form>
                              <?php
-                                // if (!isset($_SESSION['users'])) {
+                                if (!isset($_SESSION['users'])) {
                                 ?>
                                  <div class="mb-3">
                                      <p class="tex-success">Bạn phải đăng nhập mới có thể bình luận bài viết này này!</p> <a class="text-decoration-none text-success fw-bold" href="<?= _WEB_ROOT ?>/Dang-Nhap">Đăng nhập</a>
                                  </div>
                              <?php
-                                // }
+                                }
                                 ?>
                          </div>
                          <!-- Kết thúc phần hiển thị bình luận -->
@@ -168,3 +175,25 @@
          </div>
      </div>
      <!-- blogs End -->
+     <script>
+         function validateForm() {
+             var note = document.getElementById("commentContent").value;
+             var errorNote = document.getElementById("errorNote");
+             // Kiểm tra xem nội dung bình luận có được nhập hay không
+             if (note.trim() === "") {
+                 errorNote.innerText = "Vui lòng nhập nội dung bình luận.";
+                 return false;
+             } else {
+                 errorNote.innerText = "";
+                 <?php
+                    if ($_SESSION["users"]['role'] == 'user') :
+                    ?>
+                        alert("Bình luận của bạn đang chờ duyệt.");
+                        
+                 <?php
+                    endif;
+                    ?>
+                    return true;
+             }
+         }
+     </script>

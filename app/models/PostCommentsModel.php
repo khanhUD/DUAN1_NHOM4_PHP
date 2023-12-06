@@ -76,4 +76,10 @@ class PostCommentsModel extends Model
 
         return $data;
     }
+
+    public function submitPostComment($data)
+    {
+        $data = $this->db->table($this->_table)->insert($data);
+        return $data;
+    }
 }
