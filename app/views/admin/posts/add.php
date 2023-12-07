@@ -39,6 +39,11 @@
                     <input type="file" id="image" name="image" class="form-control" accept="image/*" />
                     <span class="form-message"></span>
                 </div>
+                <div class="mb-3 col-md-6 form-group">
+                    <label for="short_description" class="form-label">Mô tả ngắn</label>
+                    <textarea id="short_description" name="short_description" class="form-control"></textarea>
+                    <span class="form-message"></span>
+                </div>
             </div>
 
             <div class="mb-3 form-group">

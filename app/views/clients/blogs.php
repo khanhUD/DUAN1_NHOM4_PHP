@@ -53,7 +53,7 @@
                                  </div>
                                  <div class="rounded-bottom bg-dark bg-gradient p-3">
                                      <h6 class="title-blog pb-3"><a href="<?= _WEB_ROOT ?>/ClientPosts/postDetails?id=<?= $items['id'] ?>" class="lh-base my-auto"><?= $items['title'] ?></a></h6>
-                                     <p class="blog-content m-0 mt-3"><?= html_entity_decode($items['content']) ?></p>
+                                     <p class="blog-content m-0 mt-3"><?= html_entity_decode($items['short_description']) ?></p>
 
                                      <div class="blog-date text-white rounded mt-3 bg-primary">
                                          <span><?= $day ?>/<?= $month ?>/<?= $year ?></span>

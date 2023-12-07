@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="contact text-center">
+                        <div class="contact t">
                             <p>Mọi chi tiết xin liên hệ: <b class="text-primary"> 0909 1509 09</b></p>
                         </div>
                         <input type="text" name="user_id" class="w-100 p-2 form-control border-primary bg-light" value="<?= isset(($_SESSION['users']['id'])) ? $_SESSION['users']['id'] : '' ?>" hidden>

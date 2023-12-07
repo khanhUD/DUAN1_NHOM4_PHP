@@ -11,7 +11,7 @@
     <div class="container-fluid nav-bar">
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-lg py-4">
-                <a href="Trang-Chu" class="navbar-brand">
+                <a href="<?= _WEB_ROOT . 'Trang-Chu'; ?>" class="navbar-brand">
                     <h1 class="text-primary fw-bold mb-0">Ninh<span class="text-dark">Kiều</span> </h1>
                 </a>
                 <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

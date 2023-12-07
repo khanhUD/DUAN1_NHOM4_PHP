@@ -56,6 +56,11 @@
             </div>
 
           </div>
+          <div class="mb-3 col-md-12 form-group">
+            <label for="short_description" class="form-label">Mô tả ngắn</label>
+            <textarea id="short_description" name="short_description" class="form-control"><?= $posts['short_description'] ?></textarea>
+            <span class="form-message"></span>
+          </div>
         </div>
 
 
