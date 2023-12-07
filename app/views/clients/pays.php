@@ -62,31 +62,31 @@
                                     <tr>
                                         <td class="product-img">
                                             <div class="position-relative">
-                                                <img class="" src="./img/menu-06.jpg" width="100%" alt="ảnh product">
-                                                <span style="font-size: 0.7rem;" class=" position-absolute top-0 left-100 translate-middle badge rounded-pill bg-primary text-dark">7</span>
+                                                <img class="" src="<?_WEB_ROOT?>/public/uploads/2-2.png" width="100%" alt="ảnh product">
+                                                <span style="font-size: 0.7rem;" class=" position-absolute top-0 left-100 translate-middle badge rounded-pill bg-primary text-dark">1</span>
                                             </div>
 
                                         </td>
                                         <td class="product-name ps-3">
-                                            pizza
+                                        Gà cuốn lá dứa
                                         </td>
                                         <td class="product-price text-end pe-1">
-                                            60.000đ
+                                        168,000đ
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="product-img">
                                             <div class="position-relative">
-                                                <img class="" src="./img/menu-06.jpg" width="100%" alt="ảnh product">
-                                                <span style="font-size: 0.7rem;" class=" position-absolute top-0 left-100 translate-middle badge rounded-pill bg-primary text-dark">7</span>
+                                                <img class="" src="<?_WEB_ROOT?>/public/uploads/untitled114148eed72724d16a9d2c.png" width="100%" alt="ảnh product">
+                                                <span style="font-size: 0.7rem;" class=" position-absolute top-0 left-100 translate-middle badge rounded-pill bg-primary text-dark">1</span>
                                             </div>
 
                                         </td>
                                         <td class="product-name ps-3">
-                                            pizza
+                                        Gỏi tai heo hoa chuối
                                         </td>
                                         <td class="product-price text-end pe-1">
-                                            60.000đ
+                                        125,000đ
                                         </td>
                                     </tr>
 
@@ -105,11 +105,11 @@
                             <table class="table table-borderless">
                                 <tr>
                                     <td>Tạm tính</td>
-                                    <td class="text-end">3</td>
+                                    <td class="text-end">293,000đ</td>
                                 </tr>
                                 <tr>
                                     <td>Phí Vận chuyển</td>
-                                    <td class="text-end">3</td>
+                                    <td class="text-end">30,000đ</td>
                                 </tr>
                             </table>
                         </div>
@@ -119,7 +119,7 @@
                                     <td>
                                         <h5>Tổng</h5>
                                     </td>
-                                    <td class="text-end">3</td>
+                                    <td class="text-end">323,000đ</td>
                                 </tr>
                                 <tr>
                                     <td>Quay về giỏ hàng</td>

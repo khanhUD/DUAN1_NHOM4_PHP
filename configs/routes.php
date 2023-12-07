@@ -49,6 +49,8 @@ $routes['Hoa-Don'] = 'ClientOrders';
 $routes['Thanh-Toan'] = 'ClientPays';
 
 $routes['Tai-Khoan'] = 'ClientProfile';
+$routes['dat-ban'] = 'ClientBooking';
+
 
 
 

@@ -24,6 +24,7 @@
                         <a href="<?= _WEB_ROOT . 'Thuc-Don'; ?>" class="nav-item nav-link">Thực Đơn</a>
                         <a href="<?= _WEB_ROOT . 'Bai-Viet'; ?>" class="nav-item nav-link">Bài Viết</a>
                         <a href="<?= _WEB_ROOT . 'Lien-He'; ?>" class="nav-item nav-link">Liên Hệ</a>
+                        <a href="<?= _WEB_ROOT . 'dat-ban'; ?>" class="nav-item nav-link">Đặt Bàn</a>
 
                     </div>
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>

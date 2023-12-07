@@ -122,7 +122,7 @@
                     if (!isset($_SESSION['users'])) {
                     ?>
                         <div class="mb-3">
-                            <p class="tex-success">Bạn phải đăng nhập mới có thể bình luận bài viết này này!</p> <a class="text-decoration-none text-success fw-bold" href="<?= _WEB_ROOT ?>/Dang-Nhap/">Đăng nhập</a>
+                            <p class="tex-success">Bạn phải đăng nhập mới có thể bình luận món ăn này!</p> <a class="text-decoration-none text-success fw-bold" href="<?= _WEB_ROOT ?>/Dang-Nhap/">Đăng nhập</a>
                         </div>
                     <?php
                     }

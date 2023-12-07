@@ -253,6 +253,10 @@ Validator.isNumber = function (selector, message) {
             if (isNaN(value)) {
                 return message || '* Vui lòng nhập số !';
             }
+
+            if (value < 1) {
+                return message || '* Số lớn hơn 0 !';
+            }
         }
     }
 }
@@ -357,6 +361,42 @@ Validator.isDiscountPercentage = function (selector, getCost, message) {
     };
 };
 
+Validator.isDateBeforeNow = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Chuyển đổi giá trị ngày thành đối tượng Date
+            var selectedDate = new Date(value);
+            // Lấy ngày hiện tại
+            var currentDate = new Date();
+
+            // Kiểm tra xem ngày đã chọn có phải là ngày trong quá khứ không
+            if (selectedDate < currentDate) {
+                return message || 'Ngày phải là ngày trong tương lai';
+            }
+
+            // Nếu giá trị hợp lệ, trả về undefined (không có lỗi)
+            return undefined;
+        }
+    };
+};
+
+Validator.isTimeWithinRange = function (selector, message) {
+    return {
+        selector: selector,
+        test: function (value) {
+            // Chuyển đổi giá trị giờ thành số
+            var selectedTime = parseFloat(value);
+
+            // Kiểm tra xem giờ đã chọn có nằm trong khoảng từ 8h sáng đến 10h tối không
+            if (selectedTime >= 8 && selectedTime <= 22) {
+                return undefined; // Nếu giá trị hợp lệ, trả về undefined (không có lỗi)
+            } else {
+                return message || 'Giờ phải nằm trong khoảng từ 8h sáng đến 10h tối';
+            }
+        }
+    };
+};
 
 
 
