@@ -36,6 +36,16 @@ if (!function_exists('show_message')) {
         return false;
     }
 }
+if (!function_exists('show_err')) {
+    function show_err($before = "", $after = "")
+    {
+        global $err;
+        if (!empty($err)) {
+            return $before . $err . $after;
+        }
+        return false;
+    }
+}
 
 if (!function_exists('mgs')) {
     function msg()

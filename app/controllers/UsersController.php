@@ -166,17 +166,19 @@ class UsersController extends Controller
             }
         }
     }
+
     public function change_password()
     {
         $request = new Request;
         $postValues = $request->getFields();
         $id = $postValues['id'];
         $check = $this->users->checkPassword($id);
-
-        if ($check['password'] === $postValues['password'] && $postValues['password'] === $postValues['confirm_password']) {
+    
+        if ($check['password'] === $postValues['password_old']) {
             $data = [
                 'password' => $postValues['password'],
             ];
+   
             $result = $this->users->updateUsers($data, $id);
 
             if ($result) {
@@ -189,6 +191,9 @@ class UsersController extends Controller
         $response = new Response();
         Session::flash('msg', 'Sai thông tin !');
         $response->redirect('Doi-Mat-Khau');
+    }
+    public function changePass(){
+        echo ' xin chào';
     }
  
 }

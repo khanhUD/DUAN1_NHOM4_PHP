@@ -48,6 +48,7 @@ class PostsModel extends Model
             ->where('posts.status', '=', 'delete')
             ->orderBy('posts.create_at', 'Desc')
             ->get();
+            return $data;
     } // hiện tất cả bài viết client có trạng thái on 
 
     public function getListClient()

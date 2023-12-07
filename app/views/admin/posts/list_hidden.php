@@ -26,7 +26,13 @@
                                         <?= $items['id'] ?>
                                     </td>
                                     <td> <?= $items['title'] ?></td>
-                                    <td> <?= $items['image'] ?></td>
+                                    <td>
+                                        <?php if (!empty($items['image'])) : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $items['image'] ?>" alt="">
+                                        <?php else : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                                        <?php endif; ?>
+                                    </td>
 
                                     <td>
                                         <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">

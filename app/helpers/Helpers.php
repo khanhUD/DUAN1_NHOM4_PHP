@@ -17,3 +17,15 @@ class Helpers
         return $password;
     }
 }
+spl_autoload_register(function ($class) {
+    // Xử lý autoload cho các class trong controllers, models, helpers, ...
+    $directories = ['controllers', 'models', 'helpers'];
+
+    foreach ($directories as $directory) {
+        $file = __DIR__ . '/' . $directory . '/' . $class . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+        }
+    }
+});

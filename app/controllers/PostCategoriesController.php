@@ -20,8 +20,7 @@ class PostCategoriesController extends Controller
     }
     public function add()
     {
-        $this->data['sub_content']['postCategories'] = $this->postCategories->getList();  //lay danh sach postCategories
-
+        $this->data['sub_content']['postCategories'] = $this->postCategories->getList(); 
         $request = new Request;
         $request->rules([
             'name' => 'unique:post_categories:name'
