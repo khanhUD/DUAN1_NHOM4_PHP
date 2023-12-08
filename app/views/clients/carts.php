@@ -10,143 +10,132 @@
             </ol>
         </div>
     </div>
-<form action="">
-    <div class="container-fluid">
-        <div class="container">
-            <div class="row">
-                <h4 class="mb-3">Giỏ hàng của bạn</h4>
-                <div class="col-lg-8">
-                    <table class="table text-dark" style="border: 1px solid #d4a762;">
-                        <thead>
-                            <tr>
-                                <th>Thông tin sản phẩm</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="align-middle">
-                                <td class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="./img/menu-10.jpg" alt="">
-                                    <div class="card-name d-lg-grid ms-3">
-                                        <a href="">Tên sản phẩm</a>
-                                        <a href="">Xóa</a>
-                                    </div>
-                                </td>
-                                <td>
-                                    30
-                                </td>
-                                <td width="200px">
-                                    <!-- <form action=""> -->
-                                        <div class="d-flex align-items-center quantity-product">
-                                            <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
-                                            <input type="text" class="btn-quantity quantity" value="1">
-                                            <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
-                                        </div>
-                                    <!-- </form> -->
-                                </td>
-                                <td>30</td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="d-flex align-items-center">
-                                    <img src="./img/menu-10.jpg" alt="">
-                                    <div class="card-name d-lg-grid ms-3">
-                                        <a href="">Tên sản phẩm</a>
-                                        <a href="">Xóa</a>
-                                    </div>
-                                </td>
-                                <td>
-                                    30
-                                </td>
-                                <td width="200px">
-                                    <div class="d-flex align-items-center quantity-product">
-                                        <button class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
-                                        <input type="text" class="btn-quantity quantity" value="1">
-                                        <button class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
-                                    </div>
-                                </td>
-                                <td>30</td>
+    <form action="">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <h4 class="mb-3">Giỏ hàng của bạn</h4>
+                    <div class="col-lg-9">
+                        <table class="table text-dark" style="border: 1px solid #d4a762;">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Hình</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
 
-                            </tr>
-                            <!-- <tr> -->
+                            <tbody>
+                                <?php if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
+                                    <?php
+                                    // Tính tổng tiền
+                                    $totalAmount = 0;
+                                    foreach ($_SESSION['cart'] as $product) {
+                                        $totalAmount += $product[4]; // $product[4] chứa thành tiền của mỗi sản phẩm
+                                    }
+                                    ?>
+                                    <?php foreach ($_SESSION['cart'] as $index => $product) : ?>
+                                        <tr class="align-middle" data-index="<?= $index ?>">
+                                            <td><?= $index + 1 ?></td>
+                                            <td>
+                                                <a href=""><?= $product[0] ?></a>
+                                            </td>
+                                            <td>
+                                                <img style="width: 100px; height: 100px; object-fit: cover;" class="rounded-circle" src="<?= _WEB_ROOT ?>/public/uploads/<?= $product[1] ?>" alt="">
+                                            </td>
+                                            <td><?= number_format($product[2], 0, ',', '.'); ?> VNĐ </td>
+                                            <td>
+                                                <div class="d-flex align-items-center quantity-product">
+                                                    <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
+                                                    <input type="text" class="btn-quantity quantity" value="<?= $product[3] ?>">
+                                                    <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
+                                                </div>
+                                            </td>
+                                            <td><?= number_format($product[4], 0, ',', '.'); ?> VNĐ </td>
+                                            <td> <a href="<?php _WEB_ROOT ?>/ClientCarts/delateCartItem?index=<?= $index ?>">Xóa</a></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else : ?>
+                                    <tr>
+                                        <!-- Nội dung bạn muốn hiển thị khi không có sản phẩm trong giỏ hàng -->
+                                    </tr>
+                                <?php endif; ?>
+                            </tbody>
 
-                            <!-- </tr> -->
-                        </tbody>
 
-                        <tfoot>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <div class="row-pay">
-                                        <div class="total d-flex justify-content-lg-between mb-3">
-                                            <span>Tổng:</span>
-                                            <b>33</b>
-                                        </div>
-                                        <div class="btn-pay">
-                                            <a href="" class="btn btn-primary">Thanh toán</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <div class="col-lg-4 ps-3">
-                    <div class="" style="border: 1px dashed #d4a762">
-                        <div class="d-flex justify-content-center">
-                            <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
+                        </table>
+
+                        <div class="total d-flex justify-content-end mb-3">
+                            <span>Tổng: <?= isset($totalAmount) ?  number_format($totalAmount, 0, ',', '.') . 'VNĐ'  : 0 ?></span>
                         </div>
-                        <div>
-                            <ul>
-                                <li class="p-1 mb-3">
-                                    <div class="voucher-text mb-1">
-                                        <b>Còn 10.000đ</b>
-                                        để nhận mã freeship
-                                    </div>
+                        <div class="d-flex justify-content-end">
+                            <div class="btn-pay ms-auto">
+                                <a href="" class="btn btn-primary me-3">Thanh toán</a>
+                            </div>
+                            <div>
+                                <a href="<?php _WEB_ROOT ?>/ClientCarts/delateCart" class="btn btn-primary">Xóa tất cả</a>
+                            </div>
+                        </div>
 
-                                    <input type="text" class="copyText" value="HEllo" hidden>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                            chép</button>
-                                    </div>
 
-                                </li>
-                                <li class="p-1 mb-3">
-                                    <div class="voucher-text mb-1">
-                                        <b>Còn 10.000đ</b>
-                                        để nhận mã freeship
-                                    </div>
+                    </div>
+                    <div class="col-lg-3 ps-3">
+                        <div class="" style="border: 1px dashed #d4a762">
+                            <div class="d-flex justify-content-center">
+                                <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li class="p-1 mb-3">
+                                        <div class="voucher-text mb-1">
+                                            <b>Còn 10.000đ</b>
+                                            để nhận mã freeship
+                                        </div>
 
-                                    <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                            chép</button>
-                                    </div>
+                                        <input type="text" class="copyText" value="HEllo" hidden>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" onclick="copyToClipboard()">Sao
+                                                chép</button>
+                                        </div>
 
-                                </li>
-                                <li class="p-1">
-                                    <div class="voucher-text mb-1">
-                                        <b>Còn 10.000đ</b>
-                                        để nhận mã freeship
-                                    </div>
+                                    </li>
+                                    <li class="p-1 mb-3">
+                                        <div class="voucher-text mb-1">
+                                            <b>Còn 10.000đ</b>
+                                            để nhận mã freeship
+                                        </div>
 
-                                    <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                            chép</button>
-                                    </div>
+                                        <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" onclick="copyToClipboard()">Sao
+                                                chép</button>
+                                        </div>
 
-                                </li>
-                            </ul>
+                                    </li>
+                                    <li class="p-1">
+                                        <div class="voucher-text mb-1">
+                                            <b>Còn 10.000đ</b>
+                                            để nhận mã freeship
+                                        </div>
+
+                                        <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" onclick="copyToClipboard()">Sao
+                                                chép</button>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </form>
 
     <script>
@@ -166,7 +155,7 @@
 
                 decreaseBtn.addEventListener('click', function() {
                     var currentQuantity = parseInt(quantityInput.value);
-                    if (currentQuantity > 0) {
+                    if (currentQuantity > 1) {
                         quantityInput.value = currentQuantity - 1;
                         // Nếu muốn lưu trạng thái này, có thể gửi dữ liệu về máy chủ tại đây.
                     }

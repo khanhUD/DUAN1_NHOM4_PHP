@@ -32,7 +32,7 @@
         <div class="col-lg-9">
             <div class="row">
                 <?php
-                // print_r($products);
+                // print_r($products)
                 foreach ($products as $items) :
                 ?>
                     <div class="col-md-3">
@@ -56,7 +56,7 @@
                                 <div class="card-img-overlay rounded product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
