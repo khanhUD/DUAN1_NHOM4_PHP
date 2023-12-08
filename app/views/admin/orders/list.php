@@ -41,7 +41,8 @@
 
                                     </td>
                                     <td><?= $items['created_at'] ?></td>
-                                    <td><?= $items['total_money'] ?></td>
+                                    <td><?= number_format($items['total_money'], 0, ',', '.'); ?> VNĐ</td>
+
 
                                     <td>
                                         <?php

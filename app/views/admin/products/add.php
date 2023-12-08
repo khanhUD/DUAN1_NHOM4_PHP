@@ -102,7 +102,7 @@
 
                   </td>
                   <td><?= $items['name'] ?></td>
-                  <td><?= $items['price'] ?></td>
+                  <td><?= number_format($items['price'], 0, ',', '.'); ?> VNĐ</td>
                  
                   <td>
                     <?php if (!empty($items['image'])) : ?>

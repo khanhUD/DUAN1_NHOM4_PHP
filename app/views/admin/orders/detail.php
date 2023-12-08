@@ -34,10 +34,7 @@
                                         <?php endif; ?>
                                     </td>
                                     <td><?= $items['quantity'] ?></td>
-                                    <td>
-                                        <?= $items['price'] ?>
-                                    </td>
-
+                                    <td><?= number_format($items['price'], 0, ',', '.'); ?> VNĐ</td>
                                 </tr>
                             <?php endforeach  ?>
 

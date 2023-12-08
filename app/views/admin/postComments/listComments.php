@@ -16,8 +16,12 @@
                         <tbody class="table-border-bottom-0">
                             <?php foreach ($postComments as $items) : ?>
                                 <tr>
-                                    <td style="width: 200px;">
-                                        <img width="50%" class=" img" src="<? _WEB_ROOT ?>/public/uploads/<?= $items['image'] ?>" alt="">
+                                    <td>
+                                        <?php if (!empty($items['image'])) : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/' . $items['image'] ?>" alt="">
+                                        <?php else : ?>
+                                            <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
+                                        <?php endif; ?>
                                     </td>
                                     <td>
                                         <div class="mb-3" style="border-left: 2px solid #72757e; background-color: #eff0f3; max-width: 500px; overflow: hidden; white-space: normal; text-align: justify;">

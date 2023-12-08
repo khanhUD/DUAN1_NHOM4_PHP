@@ -79,7 +79,7 @@
                   </td>
                   <td> <?= $items['code'] ?></td>
                   <td><?= $items['number_limit'] ?></td>
-                  <td><?= $items['discount_percentage'] ?></td>
+                  <td><?= $items['discount_percentage'] ?>%</td>
                   <td><?= $items['used_count'] ?> / <?= $items['number_limit'] ?></td>
 
 

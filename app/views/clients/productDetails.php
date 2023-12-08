@@ -13,7 +13,7 @@
                         <h1 class=""><?= $productDetails['name'] ?>
 
                         </h1>
-                        <p class="h4 py-2"><b>Giá: </b><?= number_format($productDetails['price']) ?>đ</p>
+                        <p class="h4 py-2"><b>Giá: </b><?= number_format($productDetails['price'], 0, ',', '.'); ?> VNĐ</p>
                         <ul class="list-inline">
                             <li class="list-inline-item">
                                 <h6>Danh mục:</h6>

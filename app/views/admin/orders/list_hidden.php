@@ -39,7 +39,7 @@
 
                                     </td>
                                     <td><?= $items['created_at'] ?></td>
-                                    <td><?= $items['total_money'] ?></td>
+                                    <td><?= number_format($items['total_money'], 0, ',', '.'); ?> VNĐ</td>
                                     <td>
                                         <span class="badge <?= $items['status'] === 'delate' ?  'bg-label-danger' : 'bg-label-primary'  ?> me-1">
                                             <?= $items['status'] === 'delate' ? 'Đang ẩn' : 'Chờ giao' ?>
