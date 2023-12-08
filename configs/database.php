@@ -3,6 +3,6 @@
     'host' => 'localhost',
     'user' => 'root',
     'pass' => 'mysql',
-    'db' => 'database_vinh'
+    'db' => 'duan1_nhom4'
  ];
 ?>

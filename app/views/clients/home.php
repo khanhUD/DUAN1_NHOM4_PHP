@@ -78,7 +78,7 @@
                                             <h4><?= $productItems['name'] ?></h4>
                                             <h4 class="text-primary"><?= number_format($productItems['price']) ?></h4>
                                         </div>
-                                        <p class="mb-0"><?= $productItems['short_description'] ?></p>
+                                        <p class="mb-0"><?= html_entity_decode($productItems['short_description']) ?></p>
                                     </div>
                                 </div>
                             </div>

@@ -66,5 +66,14 @@ class OrdersModel extends Model
     
         return $data;
     }
+
+    public function insertOrders($data){
+        $data = $this->db->table($this->_table)->insert($data);
+        return $data;   
+    }
     
+    public function getLastInsertID(){
+        $data = $this->db->table($this->_table)->lastId();
+        return $data;
+    }
 }

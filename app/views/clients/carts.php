@@ -14,23 +14,24 @@
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
-                    <h4 class="mb-3">Giỏ hàng của bạn</h4>
-                    <div class="col-lg-9">
-                        <table class="table text-dark" style="border: 1px solid #d4a762;">
-                            <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Hình</th>
-                                    <th>Đơn giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                    <th>Chức năng</th>
-                                </tr>
-                            </thead>
+                    <?php if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
+                        <h4 class="mb-3">Giỏ hàng của bạn</h4>
+                        <div class="col-lg-9">
+                            <table class="table text-dark" style="border: 1px solid #d4a762;">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Hình</th>
+                                        <th>Đơn giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <?php if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
+                                <tbody>
+
                                     <?php
                                     // Tính tổng tiền
                                     $totalAmount = 0;
@@ -56,83 +57,85 @@
                                                 </div>
                                             </td>
                                             <td><?= number_format($product[4], 0, ',', '.'); ?> VNĐ </td>
-                                            <td> <a href="<?php _WEB_ROOT ?>/ClientCarts/delateCartItem?index=<?= $index ?>">Xóa</a></td>
+                                            <td> <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCartItem?index=<?= $index ?>">Xóa</a></td>
                                         </tr>
-                                    <?php endforeach; ?>
-                                <?php else : ?>
-                                    <tr>
-                                        <!-- Nội dung bạn muốn hiển thị khi không có sản phẩm trong giỏ hàng -->
-                                    </tr>
-                                <?php endif; ?>
-                            </tbody>
+                                        <?php endforeach; ?>
+                                </tbody>
 
 
-                        </table>
+                            </table>
 
-                        <div class="total d-flex justify-content-end mb-3">
-                            <span>Tổng: <?= isset($totalAmount) ?  number_format($totalAmount, 0, ',', '.') . 'VNĐ'  : 0 ?></span>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <div class="btn-pay ms-auto">
-                                <a href="" class="btn btn-primary me-3">Thanh toán</a>
+                            <div class="total d-flex justify-content-end mb-3">
+                                <span>Tổng: <?= isset($totalAmount) ?  number_format($totalAmount, 0, ',', '.') . 'VNĐ'  : 0 ?></span>
                             </div>
-                            <div>
-                                <a href="<?php _WEB_ROOT ?>/ClientCarts/delateCart" class="btn btn-primary">Xóa tất cả</a>
+                            <div class="d-flex justify-content-end">
+                                <div class="btn-pay ms-auto">
+                                    <a href="<?=_WEB_ROOT?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
+                                </div>
+                                <div>
+                                    <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-3 ps-3">
+                            <div class="" style="border: 1px dashed #d4a762">
+                                <div class="d-flex justify-content-center">
+                                    <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li class="p-1 mb-3">
+                                            <div class="voucher-text mb-1">
+                                                <b>Còn 10.000đ</b>
+                                                để nhận mã freeship
+                                            </div>
+
+                                            <input type="text" class="copyText" value="HEllo" hidden>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" onclick="copyToClipboard()">Sao
+                                                    chép</button>
+                                            </div>
+
+                                        </li>
+                                        <li class="p-1 mb-3">
+                                            <div class="voucher-text mb-1">
+                                                <b>Còn 10.000đ</b>
+                                                để nhận mã freeship
+                                            </div>
+
+                                            <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" onclick="copyToClipboard()">Sao
+                                                    chép</button>
+                                            </div>
+
+                                        </li>
+                                        <li class="p-1">
+                                            <div class="voucher-text mb-1">
+                                                <b>Còn 10.000đ</b>
+                                                để nhận mã freeship
+                                            </div>
+
+                                            <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" onclick="copyToClipboard()">Sao
+                                                    chép</button>
+                                            </div>
+
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-
-
+                    
+                <?php else : ?>
+                    <div class="text-center"> <i style="font-size: 5rem;" class="bi bi-cart4"></i>
+                    <h5>Không có sản phẩm nào trong giỏ hàng của bạn</h5>
                     </div>
-                    <div class="col-lg-3 ps-3">
-                        <div class="" style="border: 1px dashed #d4a762">
-                            <div class="d-flex justify-content-center">
-                                <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
-                            </div>
-                            <div>
-                                <ul>
-                                    <li class="p-1 mb-3">
-                                        <div class="voucher-text mb-1">
-                                            <b>Còn 10.000đ</b>
-                                            để nhận mã freeship
-                                        </div>
-
-                                        <input type="text" class="copyText" value="HEllo" hidden>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                                chép</button>
-                                        </div>
-
-                                    </li>
-                                    <li class="p-1 mb-3">
-                                        <div class="voucher-text mb-1">
-                                            <b>Còn 10.000đ</b>
-                                            để nhận mã freeship
-                                        </div>
-
-                                        <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                                chép</button>
-                                        </div>
-
-                                    </li>
-                                    <li class="p-1">
-                                        <div class="voucher-text mb-1">
-                                            <b>Còn 10.000đ</b>
-                                            để nhận mã freeship
-                                        </div>
-
-                                        <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                                chép</button>
-                                        </div>
-
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
+                <?php endif; ?>
                 </div>
             </div>
         </div>

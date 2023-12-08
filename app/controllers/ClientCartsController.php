@@ -50,13 +50,13 @@ class ClientCartsController extends Controller
             }
 
             // Hiển thị giỏ hàng sau khi thêm sản phẩm
-            $this->data['sub_content']['prodcutCart'] = $_SESSION['cart'];
+            $this->data['sub_content']['productCart'] = $_SESSION['cart']; 
             $response = new Response;
             $response->redirect(_WEB_ROOT . 'Thuc-Don');
             exit();
         }
     }
-    public function delateCart()
+    public function deleteCart()
     {
         unset($_SESSION['cart']);
         $response = new Response;
