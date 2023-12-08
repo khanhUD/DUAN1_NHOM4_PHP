@@ -85,47 +85,19 @@
                                     <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
                                 </div>
                                 <div>
-                                    <ul>
+                                <ul>
+                                    <?php foreach ($vouchers as $items) : ?>
                                         <li class="p-1 mb-3">
                                             <div class="voucher-text mb-1">
-                                                <b>Còn 10.000đ</b>
-                                                để nhận mã freeship
-                                            </div>
-
-                                            <input type="text" class="copyText" value="HEllo" hidden>
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                                    chép</button>
+                                                Còn <?= $items['number_limit'] - $items['used_count'] ?> mã <strong><?= $items['code'] ?></strong> nhập ngay để được giảm ngay
+                                                <b><?= $items['discount_percentage'] ?>%</b> trên tổng hóa đơn
                                             </div>
 
                                         </li>
-                                        <li class="p-1 mb-3">
-                                            <div class="voucher-text mb-1">
-                                                <b>Còn 10.000đ</b>
-                                                để nhận mã freeship
-                                            </div>
+                                    <?php endforeach ?>
 
-                                            <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                                    chép</button>
-                                            </div>
 
-                                        </li>
-                                        <li class="p-1">
-                                            <div class="voucher-text mb-1">
-                                                <b>Còn 10.000đ</b>
-                                                để nhận mã freeship
-                                            </div>
-
-                                            <input type="text" class="copyText" value="Dữ liệu cần sao chép" hidden>
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" onclick="copyToClipboard()">Sao
-                                                    chép</button>
-                                            </div>
-
-                                        </li>
-                                    </ul>
+                                </ul>
                                 </div>
                             </div>
                         </div>

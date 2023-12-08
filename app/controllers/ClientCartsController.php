@@ -3,11 +3,12 @@
 class ClientCartsController extends Controller
 {
 
-    public $carts, $products, $data = [];
+    public $carts, $products,$vouchers , $data = [];
 
     public function __construct()
     {
         $this->products = $this->model('ProductsModel');
+        $this->vouchers = $this->model('VouchersModel');
     }
 
     public function index()
@@ -15,7 +16,7 @@ class ClientCartsController extends Controller
 
         $this->data['sub_content']['title'] = '';
         $this->data['content'] = 'clients/carts';
-        $this->data['sub_content']['action'] = '';
+        $this->data['sub_content']['vouchers'] = $this->vouchers->getListClient ();    
         $this->render('layouts/client_layout', $this->data);
     }
     public function addCart()

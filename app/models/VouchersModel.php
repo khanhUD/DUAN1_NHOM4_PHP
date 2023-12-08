@@ -52,4 +52,10 @@ class VouchersModel extends Model
             ->get();
         return $data;
     }
+    public function getListClient()
+    {
+        
+        $data = $this->db->select($this->_field)->table($this->_table)->where('vouchers.status', '=', 'on')->orderBy('vouchers.id', 'Desc')->get();
+        return $data;
+    }
 }
