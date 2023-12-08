@@ -3,7 +3,7 @@ $routes['default_controller'] = 'ClientHome';
 // Admin
 $routes['Admin'] = 'home/index';
 $routes['Dang-Nhap'] = 'admin/login';
-$routes['chekLogin'] = 'admin/checkLogin';
+$routes['check'] = 'users/checkLogin';
 $routes['Dang-Ky'] = 'admin/register';
 $routes['Quen-Mat-Khau'] = 'admin/forgot_password';
 $routes['Doi-Mat-Khau'] = 'admin/change_password';

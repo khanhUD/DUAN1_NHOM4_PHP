@@ -63,10 +63,16 @@
                                     <li>
                                         <a class="dropdown-item" href="<?= _WEB_ROOT ?>Admin">
                                             <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Trang quảng trị</span>
+                                            <span class="align-middle">Trang quản trị</span>
                                         </a>
                                     </li>
                                 <?php endif; ?>
+                                <li>
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Admin">
+                                        <i class="bx bx-cog me-2"></i>
+                                        <span class="align-middle">Quản lý đơn hàng</span>
+                                    </a>
+                                </li>
                                 <li>
                                     <div class="dropdown-divider"></div>
                                 </li>
@@ -121,7 +127,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body d-flex align-items-center">
-                    <form action="<?=_WEB_ROOT?>/ClientProducts/search" class="w-75 mx-auto" method="get">
+                    <form action="<?= _WEB_ROOT ?>/ClientProducts/search" class="w-75 mx-auto" method="get">
                         <div class="input-group w-75 mx-auto d-flex">
                             <input name="keyword" type="search" class="form-control bg-transparent p-3" placeholder="Nhập tìm kiếm..." aria-describedby="search-icon-1">
                             <button type="submit" id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></button>

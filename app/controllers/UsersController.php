@@ -32,7 +32,7 @@ class UsersController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect(_WEB_ROOT .'users');
+                $response->redirect(_WEB_ROOT . 'users');
             }
 
             $postValues = $request->getFields();
@@ -60,7 +60,7 @@ class UsersController extends Controller
             if ($result) {
                 Session::flash('msg', 'Thêm thành công !');
                 $response = new Response();
-                $response->redirect(_WEB_ROOT .'users');
+                $response->redirect(_WEB_ROOT . 'users');
             }
         }
     }
@@ -107,7 +107,7 @@ class UsersController extends Controller
             if ($result) {
                 Session::flash('msg', 'Sửa thành công !');
                 $response = new Response();
-                $response->redirect(_WEB_ROOT .'users');
+                $response->redirect(_WEB_ROOT . 'users');
             }
         }
     }
@@ -118,7 +118,7 @@ class UsersController extends Controller
             $id = $request->getFields()['id'];
             $this->users->deleteUsers($id);
             $response = new Response;
-            $response->redirect(_WEB_ROOT .'users');
+            $response->redirect(_WEB_ROOT . 'users');
         }
     }
 
@@ -144,7 +144,7 @@ class UsersController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response = new Response();
-                $response->redirect(_WEB_ROOT .'users'); // hoặc chuyển hướng đến trang khác tùy ý
+                $response->redirect(_WEB_ROOT . 'users'); // hoặc chuyển hướng đến trang khác tùy ý
                 return; // dừng thực thi
             }
 
@@ -173,12 +173,12 @@ class UsersController extends Controller
         $postValues = $request->getFields();
         $id = $postValues['id'];
         $check = $this->users->checkPassword($id);
-    
+
         if ($check['password'] === $postValues['password_old']) {
             $data = [
                 'password' => $postValues['password'],
             ];
-   
+
             $result = $this->users->updateUsers($data, $id);
 
             if ($result) {
@@ -192,8 +192,29 @@ class UsersController extends Controller
         Session::flash('msg', 'Sai thông tin !');
         $response->redirect('Doi-Mat-Khau');
     }
-    public function changePass(){
+    public function changePass()
+    {
         echo ' xin chào';
     }
- 
+    public function checkLogin()
+    {
+        // Kiểm tra xem form đăng nhập đã được gửi hay chưa
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Lấy thông tin đăng nhập từ form
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $result = $this->users->checkUsers($email, $password);
+            // Nếu đăng nhập thành công
+            if ($result) {
+                $_SESSION["users"] = $result;
+                $response = new Response;
+                $response->redirect(_WEB_ROOT . 'Trang-Chu');
+                exit();
+            } else {
+                $response = new Response;
+                Session::flash('msg', 'Đăng nhập không thành công. Vui lòng kiểm tra lại Email và Password !');
+                $response->redirect(_WEB_ROOT . 'Dang-Nhap');
+            }
+        }
+    }
 }

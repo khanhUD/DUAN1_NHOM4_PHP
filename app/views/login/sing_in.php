@@ -65,7 +65,7 @@
           </a>
           <p class="mb-4 text-center">Đăng nhập ngay để trải nghiệm cùng chúng tôi</p>
 
-          <form id="formLogin" class="mb-3" action="<?_WEB_ROOT?>/chekLogin" method="POST">
+          <form id="formLogin" class="mb-3" action="<?php _WEB_ROOT ?>/check" method="POST">
             <div class="mb-3 form-group">
               <label for="email" class="form-label">Email </label>
               <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email..." autofocus />
