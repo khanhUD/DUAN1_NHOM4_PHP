@@ -55,9 +55,10 @@ class PostsController extends Controller
                 'title' => $postValues['title'],
                 'image' => $postValues['image']['name'],
                 'content' => $postValues['content'],
+                'short_description' => $postValues['short_description'],
             ];
 
-            $result = $this->posts->add($data);
+            $result = $this->posts->addPost($data);
 
             if ($result) {
                 Session::flash('msg', 'Thêm sản phẩm thành công !');
@@ -102,7 +103,8 @@ class PostsController extends Controller
             'image' => $postValues['imageOld'],
             'post_category_id' => $postValues['post_category_id'], // Sửa đổi tên trường này
             'title' => $postValues['title'],
-            'content' =>$postValues['content']
+            'content' =>$postValues['content'],
+            'short_description' => $postValues['short_description']
         ];
         $image = $postValues['image'];
         $targetDir = "public/uploads/";

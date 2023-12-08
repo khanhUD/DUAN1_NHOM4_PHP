@@ -31,7 +31,7 @@ class PostsModel extends Model
         $data = $this->db->select('*')->table($this->_table)->where('id', '=', $id)->first();
         return $data;
     }
-    public function add($data)
+    public function addPost($data)
     {
         $data = $this->db->table($this->_table)->insert($data);
         return $data;

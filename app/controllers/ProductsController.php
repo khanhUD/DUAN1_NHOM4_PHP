@@ -60,8 +60,11 @@ class ProductsController extends Controller
                 'short_description' => $postValues['short_description'],
                 'description' => $postValues['description'],
             ];
+
+            // var_dump($data);
             $result = $this->products->addProducts($data);
 
+            
             if ($result) {
                 Session::flash('msg', 'Thêm sản phẩm thành công !');
                 $response = new Response();
