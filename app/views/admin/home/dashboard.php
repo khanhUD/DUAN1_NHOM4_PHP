@@ -1,4 +1,4 @@
-<h2 class="mb-4">Dashboard</h2>
+<h2 class="mb-4">Thống Kê</h2>
 
 <div class="row col-md-12">
     <div class="mb-3 col-md-4">

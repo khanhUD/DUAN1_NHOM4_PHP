@@ -52,7 +52,7 @@ class ProductsController extends Controller
             }
 
             $data = [
-                'product_category_id' => $postValues['product_categories_id'], // Sửa đổi tên trường này
+                'product_categories_id' => $postValues['product_categories_id'], // Sửa đổi tên trường này
                 'title' => $postValues['title'],
                 'image' => $postValues['image']['name'],
                 'name' => $postValues['name'],

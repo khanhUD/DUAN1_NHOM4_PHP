@@ -52,7 +52,7 @@ class ProductCategoriesModel extends Model
     {
         $data = $this->db->select('COUNT(*) as count')
             ->table('products')
-            ->where('product_category_id', '=', $categoryId)
+            ->where('product_categories_id', '=', $categoryId)
             ->first();
 
         return $data['count'] ;

@@ -2,7 +2,7 @@
     <div class="container text-center animated bounceInDown">
         <h1 class="display-1">Thực đơn</h1>
         <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-            <li class="breadcrumb-item"><a href="<?_WEB_ROOT?>/ClientHome">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="<? _WEB_ROOT ?>/ClientHome">Trang chủ</a></li>
             <!-- <li class="breadcrumb-item"><a href="#">Thực đơn</a></li> -->
             <li class="breadcrumb-item text-dark" aria-current="page">Thực đơn</li>
         </ol>
@@ -17,10 +17,11 @@
                     <h6 class="card-title bg-primary p-3 rounded-top m-0">DANH MỤC MÓN ĂN</h6>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <!-- <li class="list-group-item"><a href="<?= _WEB_ROOT ?>/ClientProducts" class="category-link">Tất cả</a></li> -->
+                            <li class=" ps-0 list-group-item"><a href="<?= _WEB_ROOT ?>/ClientProducts" class="category-link">Tất cả</a></li>
                             <?php foreach ($productCategories as $productCategoriesItems) : ?>
                                 <li class="ps-0 list-group-item"><a href="<?= _WEB_ROOT ?>/ClientProducts/products?id=<?= $productCategoriesItems['id'] ?>" class="category-link"><?= $productCategoriesItems['name'] ?></a></li>
-                            <? endforeach; ?>
+                            <?php endforeach; ?>
+
 
                         </ul>
                     </div>
@@ -41,26 +42,26 @@
                                 <?php
                                 if ($items['image'] === '') :
                                 ?>
-                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>">
+                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>">
                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/no-img.png" class="card-img rounded img-fluid" alt="">
                                     </a>
 
                                 <?php else :
 
                                 ?>
-                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>">
+                                    <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>">
                                         <img src="<?= _WEB_ROOT; ?>/public/uploads/<?= $items['image'] ?>" class="card-img rounded img-fluid" alt="">
                                     </a>
                                 <?php endif; ?>
                                 <div class="card-img-overlay rounded product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>"><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="card-body text-center">
-                                <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id']?>" class="h5 text-decoration-none product-name"><?= $items['name'] ?></a>
+                                <a href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>" class="h5 text-decoration-none product-name"><?= $items['name'] ?></a>
                                 <p class="text-center mb-0"><?= number_format($items['price']) ?>đ</p>
                             </div>
                         </div>

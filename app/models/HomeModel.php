@@ -148,7 +148,7 @@ FROM
     order_details od
 JOIN orders o ON od.order_id = o.id
 JOIN products p ON od.product_id = p.id
-JOIN product_categories pc ON p.product_category_id = pc.id
+JOIN product_categories pc ON p.product_categories_id = pc.id
 JOIN (
     SELECT
         SUM(od.quantity * od.price) AS total_monthly_revenue

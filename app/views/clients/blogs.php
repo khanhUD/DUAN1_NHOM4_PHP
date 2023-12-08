@@ -12,7 +12,7 @@
      <!-- Hero End -->
 
      <!-- blogs star -->
-     <div class="container-fluid blog py-6">
+     <div class="container-fluid  py-6">
          <div class="container">
              <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
                  <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Bài viết</small>
@@ -78,7 +78,7 @@
                                  <li class="ps-0 list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts" class="category-link">Tất cả</a></li>
                                  <?php foreach ($postCategories as $postCategoryItems) : ?>
                                      <li class="ps-0 list-group-item"><a href="<?= _WEB_ROOT ?>/ClientPosts/posts?id=<?= $postCategoryItems['id'] ?>" class="category-link"><?= $postCategoryItems['name'] ?></a></li>
-                                 <? endforeach; ?>
+                                 <?php endforeach; ?>
 
                              </ul>
                          </div>

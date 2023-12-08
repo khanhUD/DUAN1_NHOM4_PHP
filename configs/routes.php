@@ -35,7 +35,7 @@ $routes['Trang-Chu'] = 'ClientHome';
 
 $routes['Gioi-Thieu'] = 'ClientAboutUs';
 
-$routes['Thuc-Don'] = 'ClientProducts';
+$routes['Thuc-Don'] = 'ClientProducts/index';
 
 $routes['Bai-Viet'] = 'ClientPosts';
 // $routes['Bai-Viet/'] = 'ClientPosts';
