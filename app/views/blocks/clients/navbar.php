@@ -68,7 +68,7 @@
                                     </li>
                                 <?php endif; ?>
                                 <li>
-                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>Admin">
+                                    <a class="dropdown-item" href="<?= _WEB_ROOT ?>quan-ly-hoa-don?id=<?= $_SESSION['users']['id'] ?>">
                                         <i class="bx bx-cog me-2"></i>
                                         <span class="align-middle">Quản lý đơn hàng</span>
                                     </a>

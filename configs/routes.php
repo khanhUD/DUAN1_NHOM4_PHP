@@ -50,6 +50,8 @@ $routes['Thanh-Toan'] = 'ClientPays';
 
 $routes['Tai-Khoan'] = 'ClientProfile';
 $routes['dat-ban'] = 'ClientBooking';
+$routes['quan-ly-hoa-don'] = 'ClientOrders/orderManagement';
+
 
 
 
