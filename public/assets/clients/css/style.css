@@ -639,3 +639,7 @@ h6,
     text-overflow: ellipsis;
     max-width: 100%; /* Tùy chọn: Đảm bảo không vượt quá chiều rộng của phần tử chứa */
 }
+
+.img-order{
+    width: 50px !important;
+}

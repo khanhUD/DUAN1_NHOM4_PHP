@@ -90,4 +90,14 @@ class OrdersModel extends Model
         $data = $this->db->table($this->_table)->lastId();
         return $data;
     }
+
+    public function getInfoUsers($id, $user_id)
+    {
+        $data = $this->db->select("orders.id AS id, orders.full_name AS full_name, users.email AS email,
+         orders.address AS address, orders.note AS note, orders.phone AS phone, orders.total_money AS total_money")
+            ->table('orders')
+            ->join('users', 'orders.user_id = users.id')->where('orders.id', '=', $id)->where('orders.user_id', '=', $user_id)
+            ->first();
+        return $data;
+    }
 }

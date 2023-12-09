@@ -8,6 +8,7 @@ class ClientPaysController extends Controller
     public function __construct()
     {
         $this->orders = $this->model('OrdersModel');
+        $this->orderDetails = $this->model('OrderDetailsModel');
     }
 
     public function index()
@@ -35,7 +36,7 @@ class ClientPaysController extends Controller
 
                 $dataOrders = [
                     'user_id' => $postValues['user_id'],
-                    'total' => $postValues['total'],
+                    'total_money' => $postValues['total_money'],
                     'full_name' => $postValues['full_name'],
                     'address' => $postValues['address'],
                     'phone' => $postValues['phone'],
@@ -46,25 +47,32 @@ class ClientPaysController extends Controller
                 $resultOrders = $this->orders->insertOrders($dataOrders);
 
                 // Lấy order_id vừa được thêm vào bảng orders
-                $orderID = $this->orders->getLastInsertID(); 
+                $orderID = $this->orders->getLastInsertID();
 
                 // Thêm dữ liệu vào bảng orderdetails
                 foreach ($_SESSION['cart'] as $product) {
                     $dataOrderDetails = [
                         'order_id' => $orderID,
-                        'product_id' => $product['product_id'], 
-                        'quantity' => $product['quantity'], 
-                        'price' => $product['price'], 
+                        'product_id' => $product[5],
+                        'quantity' => $product[3],
+                        'price' => $product[2],
+                        'total_money' => $product[4],
                     ];
 
                     // Thêm dữ liệu vào bảng orderdetails
-                    $this->orderDetails->insertOrderDetails($dataOrderDetails);
+                    $resultOrderDetails = $this->orderDetails->insertOrderDetails($dataOrderDetails);
                 }
 
                 // Hiển thị hóa đơn
-                if ($resultOrders) {
-                    $response = new Response();
-                    $response->redirect(_WEB_ROOT . 'hoa-don');
+                if ($resultOrders && $resultOrderDetails) {
+                    $user_id = $postValues['user_id'];
+                    $this->data['sub_content']['title'] = '';
+                    $this->data['sub_content']['inforUser'] = $this->orders->getInfoUsers($orderID ,$user_id);
+                    $this->data['sub_content']['orders'] = $this->orderDetails->getOrderClient($orderID);
+                    $this->data['content'] = 'clients/orders';
+                    $this->render('layouts/client_layout', $this->data);
+
+                    unset($_SESSION['cart']);
                 }
             }
         } else {
