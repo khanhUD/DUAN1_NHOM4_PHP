@@ -5,7 +5,7 @@
 
                 <div class="d-flex d-lg-grid ">
                     <h4>ĐƠN HÀNG CỦA BẠN</h4>
-                    <div class="card">
+                    <div class="card bg-light">
                         <div class="table-responsive text-nowrap">
                             <table class="table table-hover">
                                 <thead>
@@ -60,16 +60,16 @@
                                                 }
                                                 ?>
 
-                                                <span class="badge <?= $badgeClass ?> me-1">
+                                                <bu class="badge  <?= $badgeClass ?> me-1">
                                                     <?= $statusText ?>
-                                                </span>
+                                                </bu>
                                             </td>
                                             <td>
                                                 <form action="<?= _WEB_ROOT ?>/clientOrders/updateStatuOrderClient" method="post" onsubmit="return confirm('Bạn chắc chắn muốn cập nhật trạng thái?')">
                                                     <input type="hidden" name="id" value="<?= $items['id'] ?>">
                                                     <input type="hidden" name="status" value="cancel">
                                                     <button type="submit" class="btn btn-danger">
-                                                        Hủy
+                                                        Hủy đơn hàng
                                                     </button>
                                                 </form>
                                             </td>
