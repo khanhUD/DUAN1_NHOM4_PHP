@@ -25,17 +25,16 @@
 
                         <h6>Mô tả:</h6>
                         <p><?= $productDetails['description'] ?></p>
-                        <form action="" method="GET">
+                        <form action="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $productDetails['id'] ?>" method="GET">
+                            <input type="hidden" value="<?= $productDetails['id'] ?>" name="id">
                             <div class="row mb-3">
                                 <div class="col-auto">
-                                    <!-- <form action=""> -->
                                     <div class="mb-1">Số lượng:</div>
                                     <div class="d-flex align-items-center quantity-product">
                                         <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
                                         <input type="text" name="quantity" class="btn-quantity quantity" value="1">
                                         <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
                                     </div>
-                                    <!-- </form> -->
                                 </div>
                             </div>
                             <div class="row pb-3">
@@ -43,7 +42,7 @@
                                     <button type="submit" class="btn btn-primary btn-lg" name="submit" value="buy">Thêm vào giỏ hàng</button>
                                 </div>
                                 <div class="col d-grid">
-                                    <a href="" class="btn btn-success btn-lg" name="submit" value="addtocard">Đặt bàn tại đây</a>
+                                    <a href="<?= _WEB_ROOT ?>/dat-ban" class="btn btn-success btn-lg" name="" value="addtocard">Đặt bàn tại đây</a>
                                 </div>
                             </div>
                         </form>

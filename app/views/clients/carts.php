@@ -59,7 +59,7 @@
                                             <td><?= number_format($product[4], 0, ',', '.'); ?> VNĐ </td>
                                             <td> <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCartItem?index=<?= $index ?>">Xóa</a></td>
                                         </tr>
-                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
                                 </tbody>
 
 
@@ -70,7 +70,7 @@
                             </div>
                             <div class="d-flex justify-content-end">
                                 <div class="btn-pay ms-auto">
-                                    <a href="<?=_WEB_ROOT?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
+                                    <a href="<?= _WEB_ROOT ?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
                                 </div>
                                 <div>
                                     <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
@@ -85,29 +85,29 @@
                                     <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
                                 </div>
                                 <div>
-                                <ul>
-                                    <?php foreach ($vouchers as $items) : ?>
-                                        <li class="p-1 mb-3">
-                                            <div class="voucher-text mb-1">
-                                                Còn <?= $items['number_limit'] - $items['used_count'] ?> mã <strong><?= $items['code'] ?></strong> nhập ngay để được giảm ngay
-                                                <b><?= $items['discount_percentage'] ?>%</b> trên tổng hóa đơn
-                                            </div>
+                                    <ul>
+                                        <?php foreach ($vouchers as $items) : ?>
+                                            <li class="p-1 mb-3">
+                                                <div class="voucher-text mb-1">
+                                                    Còn <?= $items['number_limit'] - $items['used_count'] ?> mã <strong><?= $items['code'] ?></strong> nhập ngay để được giảm ngay
+                                                    <b><?= $items['discount_percentage'] ?>%</b> trên tổng hóa đơn
+                                                </div>
 
-                                        </li>
-                                    <?php endforeach ?>
+                                            </li>
+                                        <?php endforeach ?>
 
 
-                                </ul>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    
-                <?php else : ?>
-                    <div class="text-center"> <i style="font-size: 5rem;" class="bi bi-cart4"></i>
-                    <h5>Không có sản phẩm nào trong giỏ hàng của bạn</h5>
-                    </div>
-                    
-                <?php endif; ?>
+
+                    <?php else : ?>
+                        <div class="text-center"> <i style="font-size: 5rem;" class="bi bi-cart4"></i>
+                            <h5>Không có sản phẩm nào trong giỏ hàng của bạn</h5>
+                        </div>
+
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

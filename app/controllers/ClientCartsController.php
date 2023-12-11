@@ -3,7 +3,7 @@
 class ClientCartsController extends Controller
 {
 
-    public $carts, $products,$vouchers , $data = [];
+    public $carts, $products, $vouchers, $data = [];
 
     public function __construct()
     {
@@ -16,7 +16,7 @@ class ClientCartsController extends Controller
 
         $this->data['sub_content']['title'] = '';
         $this->data['content'] = 'clients/carts';
-        $this->data['sub_content']['vouchers'] = $this->vouchers->getListClient ();    
+        $this->data['sub_content']['vouchers'] = $this->vouchers->getListClient();
         $this->render('layouts/client_layout', $this->data);
     }
     public function addCart()
@@ -29,29 +29,30 @@ class ClientCartsController extends Controller
         // Lấy thông tin sản phẩm từ request
         $request = new Request;
         if ($request->isGet()) {
-            $postValues = $request->getFields();
-            $id = $postValues['id'];
+            $getValues = $request->getFields();
+            $id = $getValues['id'];
+            $quantity = $getValues['quantity'];
             $result = $this->products->getDetail($id);
 
             // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
             $found = false;
             foreach ($_SESSION['cart'] as &$item) {
                 if ($item[5] == $result['id']) {
-                    $item[3] += 1; // Cộng thêm vào số lượng
+                    $item[3] += $quantity; // Cộng thêm vào số lượng
                     $item[4] = $item[2] * $item[3]; // Cập nhật thành tiền
                     $found = true;
                     break;
                 }
             }
-
+         
             // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
             if (!$found) {
-                $result = [$result['name'], $result['image'], $result['price'], 1, $result['price'], $result['id']];
+                $result = [$result['name'], $result['image'], $result['price'],$quantity, $result['price'], $result['id']];
                 $_SESSION["cart"][] = $result;
             }
 
             // Hiển thị giỏ hàng sau khi thêm sản phẩm
-            $this->data['sub_content']['productCart'] = $_SESSION['cart']; 
+            $this->data['sub_content']['productCart'] = $_SESSION['cart'];
             $response = new Response;
             $response->redirect(_WEB_ROOT . 'Thuc-Don');
             exit();
@@ -68,8 +69,8 @@ class ClientCartsController extends Controller
     {
 
         $request = new Request;
-            $postValues = $request->getFields();
-            $index = $postValues['index'];
+        $getValues = $request->getFields();
+        $index = $getValues['index'];
         // Nếu tìm thấy vị trí, xóa sản phẩm
         if ($index !== false) {
             unset($_SESSION['cart'][$index]);
