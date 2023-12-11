@@ -23,7 +23,7 @@ class ClientOrdersController extends Controller
         $request = new Request;
         $postValues = $request->getFields();
         $id = $postValues['id'];
-        $this->data['sub_content']['orders'] = $this->ordersClient->getOrderById($id);
+        $this->data['sub_content']['orders'] = $this->ordersClient->getOrderManagerById($id);
         $this->data['content'] = 'clients/orderManagement';
         $this->render('layouts/client_layout', $this->data);
     }

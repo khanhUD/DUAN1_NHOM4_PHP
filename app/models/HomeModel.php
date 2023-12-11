@@ -66,7 +66,6 @@ class HomeModel extends Model
         return $data;
     }
 
-
     public function totalRevenueByMonth($get_month)
     {
         // Tạo bảng tạm thời chứa tất cả các tháng từ 1 đến $get_month

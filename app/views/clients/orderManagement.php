@@ -25,7 +25,7 @@
                                             <td><?= $items['id'] ?></td>
                                             <td>
                                                 <div class="mb-1" style="border-left: 2px solid #72757e;  max-width: 400px; overflow: hidden; white-space: normal; ">
-                                                    <p class="m-0 p-1 ms-1 pe-3">địa chỉ: <?= $items['address'] ?> adfsdfsdfzsdfsddddddddddddddddddddddddddddddddddđ</p>
+                                                    <p class="m-0 p-1 ms-1 pe-3">Địa chỉ: <?= $items['address'] ?></p>
 
                                                 </div>
 
