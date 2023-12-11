@@ -20,7 +20,7 @@ class PostCategoriesController extends Controller
     }
     public function add()
     {
-        $this->data['sub_content']['postCategories'] = $this->postCategories->getList(); 
+        $this->data['sub_content']['postCategories'] = $this->postCategories->getList();
         $request = new Request;
         $request->rules([
             'name' => 'unique:post_categories:name'
@@ -38,7 +38,7 @@ class PostCategoriesController extends Controller
             Session::flash('old', $request->getFields());
 
             $response  = new Response();
-            $response->redirect(_WEB_ROOT .'postCategories');
+            $response->redirect(_WEB_ROOT . 'postCategories');
         }
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
@@ -48,9 +48,8 @@ class PostCategoriesController extends Controller
         $result = $this->postCategories->addPostCategories($data, $id);
 
         if ($result) {
-            Session::flash('msg', 'Thêm thành công !');
             $response = new Response();
-            $response->redirect(_WEB_ROOT .'postCategories');
+            $response->redirect(_WEB_ROOT . 'postCategories');
         }
     }
     public function edit()
@@ -68,23 +67,6 @@ class PostCategoriesController extends Controller
 
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
-        $request->rules([
-            'name' => 'unique:post_categories:name'
-        ]);
-
-        $request->messages([
-            'name.unique' => 'đã ton taio'
-        ]);
-
-        $validate = $request->validate();
-
-        if (!$validate) {
-            Session::flash('msg', 'Tên loại đã tồn tại, vui lòng nhập tên loại mới');
-            Session::flash('errors', $request->errors());
-            Session::flash('old', $request->getFields());
-            $response  = new Response();
-            $response->redirect(_WEB_ROOT .'postCategories/edit?id=' . $id);
-        }
         $data = [
             'name' => $postValues['name'],
             'status' => $postValues['status'],
@@ -92,25 +74,28 @@ class PostCategoriesController extends Controller
         $result = $this->postCategories->updatePostCategories($data, $id);
 
         if ($result) {
-            Session::flash('msg', 'Sửa thành công !');
+
             $response = new Response();
-            $response->redirect(_WEB_ROOT .'postCategories');
+            $response->redirect(_WEB_ROOT . 'postCategories');
         }
     }
     public function delete()
     {
+
         $request = new Request;
         $id = $request->getFields()['id'];
         $productCount = $this->postCategories->getPostCountByCategoryId($id);
         if ($productCount > 0) {
             Session::flash('msg', 'Loại bài viết có chứa bài viết, không thể xóa !');
             $response = new Response();
-            $response->redirect(_WEB_ROOT .'postCategories');
+            $response->redirect(_WEB_ROOT . 'postCategories');
         } else {
-            $result = $this->postCategories->deletePostCategories($id);
-            if ($result) {
-                $response = new Response();
-                $response->redirect(_WEB_ROOT .'postCategories/add');
+            $request = new Request;
+            if ($request->isPost()) {
+                $id = $request->getFields()['id'];
+                $this->postCategories->deletePostCategories($id);
+                $response = new Response;
+                $response->redirect('postCategories');
             }
         }
     }

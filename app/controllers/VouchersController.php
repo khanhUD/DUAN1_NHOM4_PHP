@@ -50,7 +50,7 @@ class VouchersController extends Controller
             $result = $this->vouchers->addVouchers($data);
             if ($result) {
                 $response = new Response();
-                Session::flash('msg', 'Thêm thành công !');
+
                 $response->redirect(_WEB_ROOT .'vouchers');
             }
         }
@@ -68,24 +68,6 @@ class VouchersController extends Controller
         $request = new Request;
         $postValues = $request->getFields();
         $id = $postValues['id'];
-        $request->rules([
-            'code' => 'unique:vouchers:code'
-        ]);
-
-        $request->messages([
-            'code.unique' => 'Mã giảm giá đã tồn tại, vui lòng nhập Mã giảm giá mới'
-        ]);
-
-        $validate = $request->validate();
-
-        if (!$validate) {
-            Session::flash('msg', 'Mã giảm giá đã tồn tại, vui lòng nhập Mã giảm giá mới');
-            Session::flash('errors', $request->errors());
-            Session::flash('old', $request->getFields());
-
-            $response  = new Response();
-            $response->redirect(_WEB_ROOT .'vouchers/edit?id=' . $id);
-        }
         $data = [
             'code' => $postValues['code'],
             'discount_percentage' => $postValues['discount_percentage'],
@@ -96,7 +78,6 @@ class VouchersController extends Controller
         $result = $this->vouchers->updateVouchers($data, $id);
         if ($result) {
             $response = new Response();
-            Session::flash('msg', 'Sửa thành công !');
             $response->redirect(_WEB_ROOT .'vouchers');
         }
     }

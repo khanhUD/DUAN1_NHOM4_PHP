@@ -40,7 +40,7 @@
           <span class="form-message" id="price-error"></span>
         </div>
         <div class="mb-3 col-md-6 form-group">
-          <label for="title" class="form-label">Tiêu đề</label>
+          <label for="title" class="form-label">Tiêu đề phụ</label>
           <input class="form-control" type="text" id="title" name="title" value="" placeholder="Nhập tiêu đề bài viết" />
           <span class="form-message" id="title-error"></span>
         </div>
@@ -88,7 +88,6 @@
                 <th>Tên </th>
                 <th>giá </th>
                 <th>Hình</th>
-                <th>TIÊU ĐỀ</th>
                 <th>Trạng thái</th>
                 <th>Sửa Trạng thái</th>
                 <th>Chức năng</th>
@@ -111,12 +110,6 @@
                       <img style="height: 100px; width: 100px;" src="<?= _WEB_ROOT . '/public/uploads/no-image-news.png' ?>" alt="">
                     <?php endif; ?>
                   </td>
-
-
-
-                  <td><?= $items['title'] ?></td>
-
-
                   <td>
                     <span class="badge <?= $items['status'] === 'on' ? 'bg-label-primary' : 'bg-label-danger' ?> me-1">
                       <?= $items['status'] === 'on' ? 'Đang hiển thị' : 'Đang ẩn' ?>

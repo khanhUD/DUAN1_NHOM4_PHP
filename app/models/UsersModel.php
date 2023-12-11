@@ -22,7 +22,10 @@ class UsersModel extends Model
 
     public function getList()
     {
-        $data = $this->db->query("SELECT $this->_field FROM $this->_table")->fetchAll(PDO::FETCH_ASSOC);
+        $data = $this->db->select($this->_field)
+            ->table($this->_table)
+            ->orderBy('users.id', 'Desc')
+            ->get();
         return $data;
     }
 
@@ -57,7 +60,8 @@ class UsersModel extends Model
         $data = $this->db->query("SELECT COUNT(id) as total_customers FROM users;")->fetch(PDO::FETCH_ASSOC);
         return $data;
     }
-    public function register($data) {
+    public function register($data)
+    {
         $result = $this->db->table($this->tableName)->insert($data);
         return $result;
     }
@@ -72,12 +76,14 @@ class UsersModel extends Model
         return $data;
     }
 
-    public function mailExisted($email) : bool{
+    public function mailExisted($email): bool
+    {
         $result = $this->db->select('email')->table('users')->where('email', '=', $email)->first();
         return ($result > 1) ? true : false;
     }
 
-    public function updatePassword($email, $password) {
+    public function updatePassword($email, $password)
+    {
         $result = $this->db->query("update users set password = '$password' where email='$email'");
         return $result;
     }

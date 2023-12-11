@@ -62,16 +62,4 @@ class PostCategoriesModel extends Model
         $this->db->table($this->_table)->where('id', '=', $id)->delete();
     }
 
-    // public function getPostByCategories(){
-
-    //     $data = $this->db->select($this->_field)
-    //         ->table('posts')
-    //         ->join('post_categories', 'posts.id = post_categories.post_category_id')
-    //         ->groupBy('posts.id, posts.title, posts.image, posts.status')
-    //         ->where('post_categories.post_category_id', '=', 'delete')
-    //         ->orderBy('post_category_id', 'DESC')
-    //         ->get();
-
-    // }
-
 }

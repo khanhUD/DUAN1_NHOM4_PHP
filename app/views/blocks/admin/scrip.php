@@ -73,13 +73,13 @@
       form: '#form-add-posts',
       formGroupSelector: '.form-group',
       errorSelector: '.form-message',
-
       rules: [
         Validator.isRequired('input[name="title"]', '* Vui lòng nhập tiêu đề bài viết'),
         Validator.isRequired('textarea[name="content"]', '* Vui lòng nhập nội dung bài viết'),
       ]
     });
   }
+
   if (document.querySelector('#form-edit-posts')) {
     Validator({
       form: '#form-edit-posts',

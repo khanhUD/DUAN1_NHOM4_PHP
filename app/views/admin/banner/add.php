@@ -25,8 +25,8 @@
                                 <div class='form-message'></div>
                             </div>
                             <div class="mb-3 col-md-6 form-group">
-                                <label for="name" class="form-label">Link</label>
-                                <input type="text" class="form-control" id="name" name="link">
+                                <label for="link" class="form-label">Link</label>
+                                <input type="text" class="form-control" id="link" name="link">
                                 <div class='form-message'></div>
                             </div>
 

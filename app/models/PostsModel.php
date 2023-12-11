@@ -41,15 +41,12 @@ class PostsModel extends Model
         $data = $this->db->table($this->_table)->where('posts.id', '=', $id)->update($data);
         return $data;
     }
-    public function getListHidden()
+    public function deletePost($id)
     {
-        $data = $this->db->select($this->_field)
-            ->table($this->_table)
-            ->where('posts.status', '=', 'delete')
-            ->orderBy('posts.create_at', 'Desc')
-            ->get();
-            return $data;
-    } // hiện tất cả bài viết client có trạng thái on 
+        $this->db->table($this->_table)->where('id', '=', $id)->delete();
+    }
+
+
 
     public function getListClient()
     {

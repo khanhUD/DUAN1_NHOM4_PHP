@@ -30,11 +30,9 @@ class UsersController extends Controller
                 Session::flash('msg', 'Email đã tồn tại, vui lòng nhập email mới');
                 Session::flash('errors', $request->errors());
                 Session::flash('old', $request->getFields());
-
                 $response  = new Response();
                 $response->redirect(_WEB_ROOT . 'users');
             }
-
             $postValues = $request->getFields();
             $image = $postValues['image'];
             $targetDir = "public/uploads/";
@@ -42,7 +40,6 @@ class UsersController extends Controller
             if (move_uploaded_file($image["tmp_name"], $targetFile)) {
                 echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
             } else {
-                // echo "Có lỗi xảy ra khi tải lên tệp.";
             }
 
             $data = [
@@ -58,7 +55,6 @@ class UsersController extends Controller
             $result = $this->users->addUsers($data);
 
             if ($result) {
-                Session::flash('msg', 'Thêm thành công !');
                 $response = new Response();
                 $response->redirect(_WEB_ROOT . 'users');
             }
@@ -96,16 +92,13 @@ class UsersController extends Controller
                 echo "Tệp " . basename($image["name"]) . " đã được tải lên thành công.";
                 $data['image'] = $postValues['image']['name'];
             } else {
-                // Ảnh cũ đã tồn tại, sử dụng ảnh cũ
                 $data['image'] = $postValues['imageOld'];
-                echo "Có lỗi xảy ra khi tải lên tệp.";
             }
 
 
             $result = $this->users->updateUsers($data, $id);
 
             if ($result) {
-                Session::flash('msg', 'Sửa thành công !');
                 $response = new Response();
                 $response->redirect(_WEB_ROOT . 'users');
             }
@@ -159,7 +152,6 @@ class UsersController extends Controller
             $result = $this->users->addUsers($data);
 
             if ($result) {
-                Session::flash('msg', 'Đăng ký thành công !');
                 $response = new Response();
                 $response->redirect(_WEB_ROOT . 'Dang-Nhap');
                 return; // dừng thực thi
@@ -183,7 +175,6 @@ class UsersController extends Controller
 
             if ($result) {
                 $response = new Response();
-                Session::flash('msg', 'Sửa thành công !');
                 $response->redirect('Dang-Nhap');
             }
         }

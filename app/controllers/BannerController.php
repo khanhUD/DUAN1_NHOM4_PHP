@@ -58,7 +58,6 @@ class BannerController extends Controller
                 $result = $this->banners->addBanner($data);
 
                 if ($result) {
-                    Session::flash('msg', 'Thêm thành công !');
                     $response = new Response();
                     $response->redirect(_WEB_ROOT .'banner');
                 }
@@ -80,24 +79,6 @@ class BannerController extends Controller
         $request = new Request;
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
-        $request->rules([
-            'title' => 'unique:banner:title'
-        ]);
-
-        $request->messages([
-            'title.unique' => 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới'
-        ]);
-
-        $validate = $request->validate();
-
-        if (!$validate) {
-            Session::flash('msg', 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới');
-            Session::flash('errors', $request->errors());
-            Session::flash('old', $request->getFields());
-
-            $response  = new Response();
-            $response->redirect(_WEB_ROOT .'banner/edit?id='.$id);
-        }
         $data = [
             'image' => $postValues['imageOld'],
             'title' => $postValues['title'],
@@ -120,7 +101,6 @@ class BannerController extends Controller
         $result = $this->banners->updateBanner($data, $id);
 
         if ($result) {
-            Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
             $response->redirect(_WEB_ROOT .'banner/add');
         }

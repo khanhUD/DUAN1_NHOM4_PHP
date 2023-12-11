@@ -44,7 +44,7 @@ class ProductCategoriesController extends Controller
             ];
             $result = $this->productCategories->addProductCategories($data);
             if ($result) {
-                Session::flash('msg', 'Thêm thành công !');
+        
                 $response = new Response();
                 $response->redirect(_WEB_ROOT .'productCategories');
             }
@@ -68,24 +68,6 @@ class ProductCategoriesController extends Controller
         
         $postValues = $request->getFields();
         $id = $postValues['id'];
-        $request->rules([
-            'name' => 'unique:product_categories:name'
-        ]);
-
-        $request->messages([
-            'name.unique' => 'đã ton taio'
-        ]);
-
-        $validate = $request->validate();
-
-        if (!$validate) {
-            Session::flash('msg', 'Tên loại đã tồn tại, vui lòng nhập tên loại mới');
-            Session::flash('errors', $request->errors());
-            Session::flash('old', $request->getFields());
-
-            $response  = new Response();
-            $response->redirect(_WEB_ROOT .'productCategories/edit?id='.$id);
-        }
         $data = [
             'name' => $postValues['name'],
             'status' => $postValues['status'],
@@ -94,7 +76,6 @@ class ProductCategoriesController extends Controller
         $result = $this->productCategories->updateProductCategories($data, $id);
 
         if ($result) {
-            Session::flash('msg', 'Sửa thành công !');
             $response = new Response();
             $response->redirect(_WEB_ROOT .'ProductCategories/add');
         }

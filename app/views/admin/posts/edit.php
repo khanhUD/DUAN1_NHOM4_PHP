@@ -16,7 +16,12 @@
         <div class="row">
           <input type="hidden" name="id" value="<?= $posts['id'] ?>">
           <div class="mb-3 col-md-6 form-group">
-            <label for="post_category_id" class="form-label">Loại Món ăn</label>
+            <label for="title" class="form-label">Tiêu đề bài viết</label>
+            <input class="form-control" type="text" id="title" name="title" value="<?= $posts['title'] ?>" placeholder="Nhập tiêu đề bài viết" />
+            <span class="form-message" id="title-error"></span>
+          </div>
+          <div class="mb-3 col-md-6 form-group">
+            <label for="post_category_id" class="form-label">Loại bài viết</label>
             <select class="form-control" name="post_category_id" id="post_category_id">
               <?php foreach ($postCategories as $category) : ?>
                 <?php
@@ -27,17 +32,16 @@
             </select>
             <span class="form-message" id="post_category_id-error"></span>
           </div>
-          <div class="mb-3 col-md-6 form-group">
-            <label for="title" class="form-label">Tiêu đề bài viết</label>
-            <input class="form-control" type="text" id="title" name="title" value="<?= $posts['title'] ?>" placeholder="Nhập tiêu đề bài viết" />
-            <span class="form-message" id="title-error"></span>
-          </div>
+
 
           <div class="mb-3 col-md-6 form-group ">
             <label for="image" class="form-label">Hình ảnh</label>
             <input type="file" class="form-control" id="image" name="image">
             <input type="hidden" value="<?= $posts['image'] ?>" name="imageOld">
             <div class='form-message'></div>
+            <div class="row">
+              <img src="<?= _WEB_ROOT ?>/public/uploads/<?= ($posts['image']) != '' ? $posts['image'] : 'no-image-news.png' ?>" alt="" class="img-fluid rounded">
+            </div>
           </div>
           <div class="mb-3 col-md-6 form-group">
             <label class="form-label" for="status">Trạng thái</label>

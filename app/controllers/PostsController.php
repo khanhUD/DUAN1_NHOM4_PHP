@@ -37,7 +37,7 @@ class PostsController extends Controller
                 Session::flash('old', $request->getFields());
 
                 $response  = new Response();
-                $response->redirect(_WEB_ROOT .'posts');
+                $response->redirect(_WEB_ROOT . 'posts');
             }
             $postValues = $request->getFields();
 
@@ -57,13 +57,14 @@ class PostsController extends Controller
                 'content' => $postValues['content'],
                 'short_description' => $postValues['short_description'],
             ];
+   
 
             $result = $this->posts->addPost($data);
 
             if ($result) {
-                Session::flash('msg', 'Thêm sản phẩm thành công !');
+   
                 $response = new Response();
-                $response->redirect(_WEB_ROOT .'posts');
+                $response->redirect(_WEB_ROOT . 'posts');
             }
         }
     }
@@ -81,29 +82,11 @@ class PostsController extends Controller
         $request = new Request;
         $postValues = $request->getFields(); //layid
         $id = $postValues['id'];
-        $request->rules([
-            'title' => 'unique:posts:title'
-        ]);
-
-        $request->messages([
-            'title.unique' => 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới'
-        ]);
-
-        $validate = $request->validate();
-
-        if (!$validate) {
-            Session::flash('msg', 'Tiêu đề đã tồn tại, vui lòng nhập tiêu đề mới');
-            Session::flash('errors', $request->errors());
-            Session::flash('old', $request->getFields());
-
-            $response  = new Response();
-            $response->redirect(_WEB_ROOT .'posts/edit?id=' . $id);
-        }
         $data = [
             'image' => $postValues['imageOld'],
             'post_category_id' => $postValues['post_category_id'], // Sửa đổi tên trường này
             'title' => $postValues['title'],
-            'content' =>$postValues['content'],
+            'content' => $postValues['content'],
             'short_description' => $postValues['short_description']
         ];
         $image = $postValues['image'];
@@ -122,9 +105,9 @@ class PostsController extends Controller
         $result = $this->posts->updatePosts($data, $id);
 
         if ($result) {
-            Session::flash('msg', 'Sửa thành công !');
+        
             $response = new Response();
-            $response->redirect(_WEB_ROOT .'posts');
+            $response->redirect(_WEB_ROOT . 'posts');
         }
     }
     public function updatePosts()
@@ -138,14 +121,18 @@ class PostsController extends Controller
         $result = $this->posts->updatePosts($data, $id);
         if ($result) {
             $response = new Response();
-            $response->redirect(_WEB_ROOT .'posts');
+            $response->redirect(_WEB_ROOT . 'posts');
         }
     }
-    public function list_hidden()
+    public function deletePost()
     {
-        $this->data['sub_content']['list_hidden'] = $this->posts->getListHidden();
-        $this->data['sub_content']['title'] = '';
-        $this->data['content'] = 'admin/posts/list_hidden';
-        $this->render('layouts/admin_layout', $this->data);
+        $request = new Request;
+        if ($request->isPost()) {
+            $id = $request->getFields()['id'];
+            $this->posts->deletePost($id);
+            $response = new Response;
+            $response->redirect('posts');
+        }
+      
     }
 }

@@ -1,10 +1,5 @@
 <div class="mt-3">
-    <div class="d-flex justify-content-between">
-        <h4 class="card-title"> </h4>
-        <a href="<?= _WEB_ROOT . 'posts/list_hidden'; ?>">
-            <h5><i class="bi bi-eye-slash-fill me-1"></i> Danh xách xóa tạm</h5>
-        </a>
-    </div>
+  
     <!-- Message -->
     <?= show_message('<div id="alert" class="alert alert-custom bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
@@ -111,16 +106,28 @@
                                                 <select class="form-select" name="status">
                                                     <option value="on" <?= ($items['status'] == 'on') ? 'selected' : '' ?>>Hiển thị</option>
                                                     <option value="off" <?= ($items['status'] == 'off') ? 'selected' : '' ?>>Ẩn</option>
-                                                    <option value="delete" <?= ($items['status'] == 'delete') ? 'selected' : '' ?>>Xóa tạm</option>
+                              
                                                 </select>
                                             </div>
                                             <button type="submit" class="btn btn-primary">
                                                 Chọn
                                             </button>
                                         </form>
+                                  
                                     <td>
                                         <div class="dropdown">
-                                            <a class="dropdown-item" href="<?php _WEB_ROOT ?>/posts/edit?id=<?= $items['id'] ?>"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="<?php _WEB_ROOT ?>/posts/edit?id=<?= $items['id'] ?>"><i class="bi bi-pencil-square me-1"></i></i>Sửa</a>
+                                                <form method="post" action="<?= _WEB_ROOT ?>/posts/deletePost">
+                                                    <input type="hidden" name="id" value="<?= $items['id'] ?>">
+                                                    <button class="dropdown-item" type="submit">
+                                                        <i class="bx bx-trash me-1"></i>Xoa</button>
+                                                </form>
+
+                                            </div>
                                         </div>
                                     </td>
 
