@@ -28,9 +28,19 @@ class AdminController extends Controller
 
         $this->render('login/forgot_password');
     }
+    public function forgot_pass_otp()
+    {
+
+        $this->render('login/forgot_pass_otp');
+    }
     public function change_password()
     {
         $this->render('login/change_password');
+     
+    }
+    public function change_pass_otp()
+    {
+        $this->render('login/change_pass_otp');
      
     }
     public function logOut()

@@ -4,17 +4,17 @@ namespace Helpers;
 
 class Helpers
 {
-    static function generatePassword(): String
+    static function generateOTP(): String
     {
-        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $characters = '0123456789';
 
-        // Tạo một mật khẩu ngẫu nhiên có 8 ký tự
-        $password = '';
-        for ($i = 0; $i < 10; $i++) {
-            $password .= $characters[rand(0, strlen($characters) - 1)];
+        // Tạo otp
+        $otp = '';
+        for ($i = 0; $i < 6; $i++) {
+            $otp .= $characters[rand(0, strlen($characters) - 1)];
         }
 
-        return $password;
+        return $otp;
     }
 }
 spl_autoload_register(function ($class) {

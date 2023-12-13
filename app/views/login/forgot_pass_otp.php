@@ -68,6 +68,12 @@
     <!-- Content -->
 
     <div class="container-xxl">
+    <script>
+    function showErrorPopup(message) {
+        // Hiển thị popup
+        alert(message);
+    }
+</script>
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
           <!-- Forgot Password -->
@@ -76,21 +82,21 @@
           
               <a href="<?php _WEB_ROOT ?>/clientHome"><h4 class="mb-2 text-center">Ninh Kiều Restaurant</h4></a>
               <h4 class="mb-2">Quên mật khẩu? 🔒</h4>
-              <p class="mb-4">Nhập email của bạn và chúng tôi sẽ gửi cho bạn hướng dẫn để đặt lại mật khẩu của bạn</p>
-              <form id="forgot_password" class="mb-3" action="<?php _WEB_ROOT ?>/email/send_Mail" method="POST">
+              <p class="mb-0">Nhập mã OTP đã gửi qua email của bạn</p>
+              <form id="forgot_password" class="mb-3" action="<?php _WEB_ROOT ?>/email/otp" method="POST">
                 <div class="mb-3 form-group">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="otp" class="form-label"></label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Nhập email của bạn"
+                    id="otp"
+                    name="otp"
+                    placeholder="Nhập OTP"
                     autofocus
-                  >
-                  <div class='form-message'></div>
+                  />
+                  <div class='form-message text-danger'></div>
                 </div>
-                <button name="send" class="btn btn-primary d-grid w-100">Gửi liên kết đặt lại</button>
+                <button name="send" class="btn btn-primary d-grid w-100">Gửi</button>
               </form>
               <div class="text-center">
                 <a href="<?php _WEB_ROOT ?>Dang-Nhap" class="d-flex align-items-center justify-content-center">
@@ -134,7 +140,7 @@
         formGroupSelector: '.form-group',
         errorSelector: '.form-message',
         rules: [
-          Validator.isEmail('input[name="email"]', '* Vui lòng nhập đúng định dạng email '),
+          Validator.isRequired('input[name="otp"]', '* Vui lòng nhập đúng OTP đã gửi'),
         ]
       });
     }
