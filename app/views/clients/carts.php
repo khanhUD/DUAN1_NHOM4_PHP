@@ -10,119 +10,121 @@
             </ol>
         </div>
     </div>
-    <form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" id="form-quantity" method="post">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <?php if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
-                        <h4 class="mb-3">Giỏ hàng của bạn</h4>
-                        <div class="col-lg-9">
-                            <table class="table text-dark" style="border: 1px solid #d4a762;">
-                                <thead>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Hình</th>
-                                        <th>Đơn giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Thành tiền</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
 
-                                <tbody>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <?php if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
+                    <h4 class="mb-3">Giỏ hàng của bạn</h4>
+                    <div class="col-lg-9">
+                        <table class="table text-dark" style="border: 1px solid #d4a762;">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Hình</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
 
-                                    <?php
-                                    // Tính tổng tiền
-                                    $totalAmount = 0;
-                                    foreach ($_SESSION['cart'] as $product) {
-                                        $totalAmount += $product[4]; // $product[4] chứa thành tiền của mỗi sản phẩm
-                                    }
-                                    ?>
-                                    <?php foreach ($_SESSION['cart'] as $index => $product) : ?>
-                                        <tr class="align-middle" data-index="<?= $index ?>">
-                                            <td><?= $index + 1 ?></td>
-                                            <td>
-                                                <a href=""><?= $product[0] ?></a>
-                                            </td>
-                                            <td>
-                                                <img style="width: 100px; height: 100px; object-fit: cover;" class="rounded-circle" src="<?= _WEB_ROOT ?>/public/uploads/<?= $product[1] ?>" alt="">
-                                            </td>
-                                            <td><?= number_format($product[2], 0, ',', '.'); ?> VNĐ </td>
-                                            <td>
+                            <tbody>
+
+                                <?php
+                                // Tính tổng tiền
+                                $totalAmount = 0;
+                                foreach ($_SESSION['cart'] as $product) {
+                                    $totalAmount += $product[4]; // $product[4] chứa thành tiền của mỗi sản phẩm
+                                }
+                                ?>
+                                <?php foreach ($_SESSION['cart'] as $index => $product) : ?>
+                                    <tr class="align-middle" data-index="<?= $index ?>">
+                                        <td><?= $index + 1 ?></td>
+                                        <td>
+                                            <a href=""><?= $product[0] ?></a>
+                                        </td>
+                                        <td>
+                                            <img style="width: 100px; height: 100px; object-fit: cover;" class="rounded-circle" src="<?= _WEB_ROOT ?>/public/uploads/<?= $product[1] ?>" alt="">
+                                        </td>
+                                        <td><?= number_format($product[2], 0, ',', '.'); ?> VNĐ </td>
+                                        <td>
+                                            <form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" id="form-quantity" method="post">
                                                 <div class="form-group">
                                                     <div class="d-flex align-items-center quantity-product">
                                                         <!-- <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button> -->
                                                         <!-- <input type="text" class="btn-quantity quantity" value="">
                                                     <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button> -->
-                                                        <button type="button" class="btn bg-primary mr-2 btn-minus" data-index="<?= $index ?>"><b class="text-dark">-</b></button>
-                                                        <input type="number" name="quantity" class="btn-quantity quantity" value="<?= $product[3] ?>" data-index="<?= $index ?>">
+                                                        <button type="button" class="btn bg-primary mr-2 btn-minus" data-index="<?= $index ?>" onclick="this.form.submit()"><b class="text-dark">-</b></button>
+                                                        <input type="number" name="quantity" class="btn-quantity quantity" value="<?= $product[3] ?>" data-index="<?= $index ?>" onchange="this.form.submit()">
                                                         <input type="text" name="id" value="<?= $product[5] ?>" hidden>
                                                         <button type="button" class="btn bg-primary btn-plus" data-index="<?= $index ?>"><b class="text-dark">+</b></button>
 
                                                     </div>
                                                     <div class="text-danger form-message"></div>
                                                 </div>
-                                            </td>
-                                            <td><?= number_format($product[4], 0, ',', '.'); ?> VNĐ </td>
-                                            <td> <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCartItem?index=<?= $index ?>">Xóa</a></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
+                                            </form>
+                                        </td>
+                                        <td><?= number_format($product[4], 0, ',', '.'); ?> VNĐ </td>
+                                        <td> <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCartItem?index=<?= $index ?>">Xóa</a></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
 
 
-                            </table>
+                        </table>
 
-                            <div class="total d-flex justify-content-end mb-3">
-                                <span>Tổng: <?= isset($totalAmount) ?  number_format($totalAmount, 0, ',', '.') . 'VNĐ'  : 0 ?></span>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <div class="btn-pay">
-                                    <input type="submit" class="btn btn-primary me-3" value="Cập nhật">
-                                </div>
-                                <div class="btn-pay ms-auto">
-                                    <a href="<?= _WEB_ROOT ?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
-                                </div>
-                                <div>
-                                    <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
-                                </div>
-                            </div>
-
-
+                        <div class="total d-flex justify-content-end mb-3">
+                            <span>Tổng: <?= isset($totalAmount) ?  number_format($totalAmount, 0, ',', '.') . 'VNĐ'  : 0 ?></span>
                         </div>
-                        <div class="col-lg-3 ps-3">
-                            <div class="" style="border: 1px dashed #d4a762">
-                                <div class="d-flex justify-content-center">
-                                    <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
-                                </div>
-                                <div>
-                                    <ul>
-                                        <?php foreach ($vouchers as $items) : ?>
-                                            <li class="p-1 mb-3">
-                                                <div class="voucher-text mb-1">
-                                                    Còn <?= $items['number_limit'] - $items['used_count'] ?> mã <strong><?= $items['code'] ?></strong> nhập ngay để được giảm ngay
-                                                    <b><?= $items['discount_percentage'] ?>%</b> trên tổng hóa đơn
-                                                </div>
-
-                                            </li>
-                                        <?php endforeach ?>
-
-
-                                    </ul>
-                                </div>
+                        <div class="d-flex justify-content-end">
+                            <!-- <div class="btn-pay">
+                                <input type="submit" class="btn btn-primary me-3" value="Cập nhật">
+                            </div> -->
+                            <div class="btn-pay ms-auto">
+                                <a href="<?= _WEB_ROOT ?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
+                            </div>
+                            <div>
+                                <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
                             </div>
                         </div>
 
-                    <?php else : ?>
-                        <div class="text-center"> <i style="font-size: 5rem;" class="bi bi-cart4"></i>
-                            <h5>Không có sản phẩm nào trong giỏ hàng của bạn</h5>
-                        </div>
 
-                    <?php endif; ?>
-                </div>
+                    </div>
+                    <div class="col-lg-3 ps-3">
+                        <div class="" style="border: 1px dashed #d4a762">
+                            <div class="d-flex justify-content-center">
+                                <div class="m-3 ps-5 pe-5 pt-1 pb-1 bg-primary text-dark rounded">Vouchers</div>
+                            </div>
+                            <div>
+                                <ul>
+                                    <?php foreach ($vouchers as $items) : ?>
+                                        <li class="p-1 mb-3">
+                                            <div class="voucher-text mb-1">
+                                                Còn <?= $items['number_limit'] - $items['used_count'] ?> mã <strong><?= $items['code'] ?></strong> nhập ngay để được giảm ngay
+                                                <b><?= $items['discount_percentage'] ?>%</b> trên tổng hóa đơn
+                                            </div>
+
+                                        </li>
+                                    <?php endforeach ?>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php else : ?>
+                    <div class="text-center"> <i style="font-size: 5rem;" class="bi bi-cart4"></i>
+                        <h5>Không có sản phẩm nào trong giỏ hàng của bạn</h5>
+                    </div>
+
+                <?php endif; ?>
             </div>
         </div>
-    </form>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -136,6 +138,9 @@
                 increaseBtn.addEventListener('click', function() {
                     var currentQuantity = parseInt(quantityInput.value);
                     quantityInput.value = currentQuantity + 1;
+                    document.addEventListener('click', event => {
+                        this.form.submit();
+                    });
                     // Nếu muốn lưu trạng thái này, có thể gửi dữ liệu về máy chủ tại đây.
                 });
 
@@ -143,7 +148,10 @@
                     var currentQuantity = parseInt(quantityInput.value);
                     if (currentQuantity > 1) {
                         quantityInput.value = currentQuantity - 1;
-                        // Nếu muốn lưu trạng thái này, có thể gửi dữ liệu về máy chủ tại đây.
+                        document.addEventListener('click', event => {
+                            this.form.submit();
+                        });
+
                     }
                 });
             });

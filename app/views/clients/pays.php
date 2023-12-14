@@ -120,7 +120,7 @@
                                         <td class="text-end"><?= number_format($total, 0, ',', '.'); ?> VNĐ</td>
                                     </tr>
                                     <tr>
-                                        <td>Quay về giỏ hàng</td>
+                                        <td><a href="<?_WEB_ROOT?>/gio-hang">Quay về giỏ hàng</a></td>
                                         <td class="text-end"><input type="submit" class="btn btn-primary btn-order" value="Đặt hàng"></td>
                                     </tr>
                                 </table>
