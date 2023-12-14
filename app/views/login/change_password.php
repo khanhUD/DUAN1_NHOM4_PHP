@@ -69,7 +69,7 @@
                         <p class="mb-4 text-center">Thay đổi mật khẩu</p>
 
                         <form id="formAuthentication" class="mb-3" action="<?php _WEB_ROOT ?>/users/change_password" method="POST">
-                            <input type="hidden" value="<?= $_SESSION['users']['id'] ?>" name="id">;
+                            <input type="hidden" value="<?= $_SESSION['users']['id'] ?>" name="id">
                             <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Mật khẩu cũ</label>

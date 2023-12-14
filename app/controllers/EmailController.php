@@ -25,7 +25,7 @@ class EmailController extends Controller
             if ($this->users->mailExisted($request->getFields()['email'])) {
 
                 $current_time = time();
-                $expire_time = $current_time + 180; 
+                $expire_time = $current_time + 180;
 
                 $otp = Helpers\Helpers::generateOTP();
                 $otp_md5 = md5($otp);
@@ -96,6 +96,7 @@ class EmailController extends Controller
                     $response = new Response;
                     $response->redirect(_WEB_ROOT . '/quen-mat-khau/doi-mat-khau');
                 } else {
+                    Session::flash('msg', 'Mã xác thực OTP không đúng vui lòng nhập lại!');
                     $response = new Response;
                     $response->redirect(_WEB_ROOT . '/quen-mat-khau/xac-thuc');
                 }
@@ -116,19 +117,19 @@ class EmailController extends Controller
                 $email = $postValues['email'];
                 $newPass = $postValues['password'];
 
-                if($email == $_COOKIE['email']){
+                if ($email == $_COOKIE['email']) {
                     $result = $this->users->updatePassword($email, $newPass);
 
-                if ($result) {
-                    setcookie("email", "", time() - 3600, "/");
-                    $response = new Response;
-                    $response->redirect(_WEB_ROOT . '/dang-nhap');
-                }
-                }else{
+                    if ($result) {
+                        setcookie("email", "", time() - 3600, "/");
+                        $response = new Response;
+                        $response->redirect(_WEB_ROOT . '/dang-nhap');
+                    }
+                } else {
+                    Session::flash('msg','Email không đúng với email đã gửi');
                     $response = new Response;
                     $response->redirect(_WEB_ROOT . '/quen-mat-khau/doi-mat-khau');
                 }
-                
             }
         } else {
             $response = new Response;

@@ -41,9 +41,7 @@
 
 <body>
     <!-- Content -->
-
-    <div class="container-xxl">
-        <?= show_message('<div id="alert" class="alert bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
+    <?= show_message('<div id="alert" class="alert bg-gradient-primary alert-dismissible text-sm  text-white  fade show" role="alert">
     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-text"><strong>', '</strong></span>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
@@ -52,6 +50,8 @@
 </div>');
 
         ?>
+    <div class="container-xxl">
+        
 
 
         <div class="authentication-wrapper authentication-basic container-p-y">
@@ -72,7 +72,7 @@
                             <div class="mb-3 form-group">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email của bạn" autofocus />
-                                <div class='form-message'></div>
+                                <div class='form-message text-danger'></div>
                             </div>
                             <div class="mb-3 form-password-toggle form-group">
                                 <div class="d-flex justify-content-between">
@@ -83,7 +83,7 @@
                                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                                     <span class="form-group input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
-                                <div class='form-message'></div>
+                                <div class='form-message text-danger'></div>
                             </div>
 
                             <div class="mb-3">
@@ -121,22 +121,20 @@
     <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
 
     <script>
-        // if (document.querySelector('#formAuthentication')) {
-        //     Validator({
-        //         form: '#formAuthentication',
-        //         formGroupSelector: '.form-group',
-        //         errorSelector: '.form-message',
-        //         rules: [
-        //             Validator.isRequired('.input-group input[name="password"]','Vui lòng nhập mật khẩu mới'),
-        //             Validator.isRequired('.input-group input[name="password_old"]','Vui lòng nhập mật khẩu'),
-        //             Validator.isConfirmed('.input-group input[name="confirm_password"]', function() {
-        //                 return document.querySelector('.input-group input[name="password"]').value;
-        //             }, 'Mật khẩu xác nhận không chính xác'),
-        //             Validator.minLength('.input-group input[name="password"]', '8', ''),
-        //         ]
-        //     });
+        if (document.querySelector('#formAuthentication')) {
+            Validator({
+                form: '#formAuthentication',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    // Validator.isRequired('.input-group input[name="email"]','Vui lòng nhập'),
+                    Validator.isEmail('input[name="email"]','Vui lòng nhập đúng định dạng email!'),
+                    
+                    Validator.minLength('input[name="password"]', '8', 'Vui lòng nhập tối thiểu 8 kí tự!'),
+                ]
+            });
 
-        // }
+        }
     </script>
 
     <!-- Page JS -->

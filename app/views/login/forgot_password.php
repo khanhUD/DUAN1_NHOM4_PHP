@@ -88,7 +88,7 @@
                     placeholder="Nhập email của bạn"
                     autofocus
                   >
-                  <div class='form-message'></div>
+                  <div class='form-message text-danger'></div>
                 </div>
                 <button name="send" class="btn btn-primary d-grid w-100">Gửi liên kết đặt lại</button>
               </form>

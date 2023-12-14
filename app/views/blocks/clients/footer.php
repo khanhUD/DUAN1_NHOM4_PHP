@@ -29,7 +29,7 @@
                     <div class="d-flex flex-column align-items-start">
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i> 02 Đường Hai Bà Trưng, Tân An, Ninh Kiều, Cần Thơ</p>
                         <p><i class="fa fa-phone-alt text-primary me-2"></i> 0909 1509 09</p>
-                        <p><i class="fas fa-envelope text-primary me-2"></i> ninhkieurestaurant@gmail.com</p>
+                        <p><i class="fas fa-envelope text-primary me-2"></i> ninhkieures@gmail.com</p>
                     </div>
                 </div>
             </div>
