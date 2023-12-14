@@ -10,7 +10,7 @@
             </ol>
         </div>
     </div>
-    <form action="">
+    <form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" id="form-quantity" method="post">
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -50,10 +50,18 @@
                                             </td>
                                             <td><?= number_format($product[2], 0, ',', '.'); ?> VNĐ </td>
                                             <td>
-                                                <div class="d-flex align-items-center quantity-product">
-                                                    <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
-                                                    <input type="text" class="btn-quantity quantity" value="<?= $product[3] ?>">
-                                                    <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
+                                                <div class="form-group">
+                                                    <div class="d-flex align-items-center quantity-product">
+                                                        <!-- <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button> -->
+                                                        <!-- <input type="text" class="btn-quantity quantity" value="">
+                                                    <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button> -->
+                                                        <button type="button" class="btn bg-primary mr-2 btn-minus" data-index="<?= $index ?>"><b class="text-dark">-</b></button>
+                                                        <input type="number" name="quantity" class="btn-quantity quantity" value="<?= $product[3] ?>" data-index="<?= $index ?>">
+                                                        <input type="text" name="id" value="<?= $product[5] ?>" hidden>
+                                                        <button type="button" class="btn bg-primary btn-plus" data-index="<?= $index ?>"><b class="text-dark">+</b></button>
+
+                                                    </div>
+                                                    <div class="text-danger form-message"></div>
                                                 </div>
                                             </td>
                                             <td><?= number_format($product[4], 0, ',', '.'); ?> VNĐ </td>
@@ -69,6 +77,9 @@
                                 <span>Tổng: <?= isset($totalAmount) ?  number_format($totalAmount, 0, ',', '.') . 'VNĐ'  : 0 ?></span>
                             </div>
                             <div class="d-flex justify-content-end">
+                                <div class="btn-pay">
+                                    <input type="submit" class="btn btn-primary me-3" value="Cập nhật">
+                                </div>
                                 <div class="btn-pay ms-auto">
                                     <a href="<?= _WEB_ROOT ?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
                                 </div>
@@ -152,5 +163,26 @@
 
             // Hiển thị thông báo hoặc thực hiện các hành động khác nếu cần
             alert("Đã sao chép thành công: " + copyText.value);
+        }
+    </script>
+
+    <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
+    <script>
+        if (document.querySelector('#form-quantity')) {
+            Validator({
+                form: '#form-quantity',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+
+                rules: [
+                    Validator.isNumber('input[name="quantity"]', 'Kiểm tra lại số lượng!'),
+                ],
+
+                onSubmit: function(data) {
+                    // call API
+                    setTimeout((document.querySelector(this.form).submit()), 3000);
+
+                }
+            })
         }
     </script>

@@ -97,7 +97,6 @@ class EmailController extends Controller
                     $response->redirect(_WEB_ROOT . '/quen-mat-khau/doi-mat-khau');
                 } else {
                     $response = new Response;
-                    echo '<script>showErrorPopup("Xác thực thất bại. Vui lòng kiểm tra lại OTP!");</script>';
                     $response->redirect(_WEB_ROOT . '/quen-mat-khau/xac-thuc');
                 }
             }

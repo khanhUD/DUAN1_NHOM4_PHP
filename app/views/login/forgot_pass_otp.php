@@ -68,12 +68,6 @@
     <!-- Content -->
 
     <div class="container-xxl">
-    <script>
-    function showErrorPopup(message) {
-        // Hiển thị popup
-        alert(message);
-    }
-</script>
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
           <!-- Forgot Password -->

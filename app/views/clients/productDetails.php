@@ -25,21 +25,27 @@
 
                         <h6>Mô tả:</h6>
                         <p><?= $productDetails['description'] ?></p>
-                        <form action="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $productDetails['id'] ?>" method="GET">
-                            <input type="hidden" value="<?= $productDetails['id'] ?>" name="id">
-                            <div class="row mb-3">
+                        <form action="<?= _WEB_ROOT ?>/clientCarts/addCart" method="GET" id="form-quantity">
+                            <div class="row">
                                 <div class="col-auto">
                                     <div class="mb-1">Số lượng:</div>
                                     <div class="d-flex align-items-center quantity-product">
-                                        <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
-                                        <input type="text" name="quantity" class="btn-quantity quantity" value="1">
-                                        <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
+
+                                        <div class="form-group">
+                                            <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button>
+                                            <input type="number" name="quantity" class="btn-quantity quantity" value="1">
+                                            <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button>
+                                            <div class="mb-4 text-danger form-message"></div>
+                                        </div>
+                                        <input type="text" name="id" hidden value="<?= $productDetails['id'] ?>">
+                                        <input type="text" name="product_categories_id" hidden value="<?= $productDetails['product_categories_id'] ?>">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="row pb-3">
                                 <div class="col d-grid">
-                                    <button type="submit" class="btn btn-primary btn-lg" name="submit" value="buy">Thêm vào giỏ hàng</button>
+                                    <button type="submit" class="btn btn-primary btn-lg" value="buy">Thêm vào giỏ hàng</button>
                                 </div>
                                 <div class="col d-grid">
                                     <a href="<?= _WEB_ROOT ?>/dat-ban" class="btn btn-success btn-lg" name="" value="addtocard">Đặt bàn tại đây</a>
@@ -239,4 +245,24 @@
             });
         });
     });
+</script>
+<script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
+<script>
+    if (document.querySelector('#form-quantity')) {
+        Validator({
+            form: '#form-quantity',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+
+            rules: [
+                Validator.isNumber('input[name="quantity"]', 'Kiểm tra lại số lượng!'),
+            ],
+
+            onSubmit: function(data) {
+                // call API
+                setTimeout((document.querySelector(this.form).submit()), 3000);
+
+            }
+        })
+    }
 </script>

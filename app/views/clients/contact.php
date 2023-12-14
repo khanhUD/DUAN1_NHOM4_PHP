@@ -1,16 +1,15 @@
     <!-- Hero Start -->
-    <div class="container-fluid bg-light py-6 my-6 mt-0">
+    <div class="container-fluid bg-light py-6 mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1 mb-4">Liên hệ</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="<?=_WEB_ROOT?>/trang-chu">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>/trang-chu">Trang chủ</a></li>
                 <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
                 <li class="breadcrumb-item text-dark" aria-current="page">Liên hệ</li>
             </ol>
         </div>
     </div>
     <!-- Hero End -->
-
 
     <!-- Contact Start -->
     <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
@@ -22,16 +21,6 @@
                         <h1 class="display-5 mb-0">Liên Hệ Với Chúng Tôi</h1>
                     </div>
                     <div class="col-md-6 col-lg-7">
-                        <div id="success-popup" class="modal fade" role="dialog">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-body text-center">
-                                        <p>Lời nhắn của bạn đã được gửi đi</p>
-                                        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <p class="mb-4">Nhà hàng chúng tôi luôn luôn đặt khách hàng lên hàng đầu, tận tâm phục vụ, mang lại cho khách hàng những trãi nghiệm tuyệt với nhất. Các món ăn với công thức độc quyền sẽ mang lại hương vị mới mẻ cho thực khách. Nhà hàng Ninh Kiều xin chân thành cảm ơn.</p>
 
                         <form id="form-contacts" action="<?= _WEB_ROOT ?>/ClientContacts/postForm" method="post">
@@ -111,7 +100,7 @@
                     //Submit =====>
                     alert("Lời nhắn của bạn đã được gửi đi. ");
 
-                    setTimeout((document.querySelector(this.form).submit()),3000);
+                    setTimeout((document.querySelector(this.form).submit()), 3000);
 
                 }
             })

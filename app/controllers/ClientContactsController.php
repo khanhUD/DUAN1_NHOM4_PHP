@@ -13,7 +13,7 @@ class ClientContactsController extends Controller
     public function index()
     {
 
-        $this->data['sub_content']['title'] = '';
+        $this->data['sub_content']['title'] = 'Hello';
         $this->data['content'] = 'clients/contact';
         $this->data['sub_content']['action'] = '';
         $this->render('layouts/client_layout', $this->data);
@@ -40,6 +40,7 @@ class ClientContactsController extends Controller
             if($result){
                 $response = new Response();
                 $response->redirect(_WEB_ROOT .'ClientContacts');
+                
             }
         }
     }
