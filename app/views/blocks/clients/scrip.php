@@ -20,6 +20,9 @@
    <script src="<?= _WEB_ROOT; ?>/public/assets/clients/js/bootstrap.bundle.min.js"></script>
    <script src="<?= _WEB_ROOT; ?>/public/assets/clients/js/templatemo.js"></script>
    <script src="<?= _WEB_ROOT; ?>/public/assets/clients/js/custom.js"></script>
+   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+   <df-messenger intent="WELCOME" chat-title="Hỗ_Trợ_Khách_Hàng" agent-id="e4712a6e-d36f-49fa-8a94-0224307d9a07" language-code="vi"></df-messenger>
    </body>
 
    </html>
