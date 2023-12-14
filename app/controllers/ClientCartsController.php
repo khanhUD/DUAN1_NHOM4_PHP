@@ -60,7 +60,7 @@ class ClientCartsController extends Controller
          
             // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
             if (!$found) {
-                $result = [$result['name'], $result['image'], $result['price'],$quantity, $result['price'], $result['id']];
+                $result = [$result['name'], $result['image'], $result['price'],1, $result['price'], $result['id']];
                 $_SESSION["cart"][] = $result;
             }
 
