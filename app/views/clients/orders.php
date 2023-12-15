@@ -80,10 +80,6 @@
                         <div class="div">
                             <table class="table table-borderless">
                                 <tr>
-                                    <td>Tạm tính</td>
-                                    <td class="text-end"></td>
-                                </tr>
-                                <tr>
                                     <td>Phí Vận chuyển</td>
                                     <td class="text-end">30.000 VNĐ</td>
                                 </tr>
