@@ -73,23 +73,6 @@
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
-                                    <!-- <tr>
-                                            <td class="product-img">
-                                                <div class="position-relative">
-                                                    <img class="" src="./img/menu-06.jpg" width="100%"
-                                                        alt="ảnh product">
-                                                    <span style="font-size: 0.7rem;"
-                                                        class=" position-absolute top-0 left-100 translate-middle badge rounded-pill bg-primary text-dark">7</span>
-                                                </div>
-
-                                            </td>
-                                            <td class="product-name ps-3">
-                                                pizza
-                                            </td>
-                                            <td class="product-price text-end pe-1">
-                                                60.000đ
-                                            </td>
-                                        </tr> -->
                                 </tbody>
                             </table>
                         </div>

@@ -58,4 +58,9 @@ class VouchersModel extends Model
         $data = $this->db->select($this->_field)->table($this->_table)->where('vouchers.status', '=', 'on')->orderBy('vouchers.id', 'Desc')->get();
         return $data;
     }
+    public function checkVoucherByCode($code)
+    {
+        $data = $this->db->select('*')->table($this->_table)->where('code', '=', $code)->first();
+        return $data;
+    }
 }

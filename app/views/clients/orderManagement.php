@@ -65,15 +65,16 @@
                                                 </bu>
                                             </td>
                                             <td>
-                                                <form action="<?= _WEB_ROOT ?>/clientOrders/updateStatuOrderClient" method="post" onsubmit="return confirm('Bạn chắc chắn muốn cập nhật trạng thái?')">
-                                                    <input type="hidden" name="id" value="<?= $items['id'] ?>">
-                                                    <input type="hidden" name="status" value="cancel">
-                                                    <button type="submit" class="btn btn-danger">
-                                                        Hủy đơn hàng
-                                                    </button>
-                                                </form>
+                                                <?php if ($items['status'] === 'pending') : ?>
+                                                    <form action="<?= _WEB_ROOT ?>/clientOrders/updateStatuOrderClient" method="post" onsubmit="return confirm('Bạn chắc chắn muốn cập nhật trạng thái?')">
+                                                        <input type="hidden" name="id" value="<?= $items['id'] ?>">
+                                                        <input type="hidden" name="status" value="cancel">
+                                                        <button type="submit" class="btn btn-danger">
+                                                            Hủy đơn hàng
+                                                        </button>
+                                                    </form>
+                                                <?php endif; ?>
                                             </td>
-
                                         </tr>
                                     <?php endforeach ?>
 

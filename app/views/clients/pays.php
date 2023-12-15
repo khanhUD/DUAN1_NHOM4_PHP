@@ -2,8 +2,8 @@
     <div class="container text-center animated bounceInDown">
         <h1 class="display-1">Thanh toán</h1>
         <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="#">Giỏ hàng</a></li>
+            <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>trang-chu">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>gio-hang">Giỏ hàng</a></li>
             <li class="breadcrumb-item text-dark" aria-current="page">Thanh toán</li>
         </ol>
     </div>
@@ -84,16 +84,15 @@
                                                 </td>
                                             </tr>
                                         <?php
-                                            
+
                                         endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- ... -->
                             <div class="voucher pt-3 pb-3">
                                 <div class="d-flex justify-content-between">
                                     <input type="text" id="voucher-code" class="form-control input-voucher" name="voucher" placeholder="Nhập mã giảm giá">
-                                    <!-- <button class="btn btn-primary btn-voucher" onclick="loadData()">Áp dụng</button> -->
+                                    <button class="btn btn-primary btn-voucher" >Áp dụng</button>
                                 </div>
                             </div>
                             <div class="div">
@@ -120,7 +119,7 @@
                                         <td class="text-end"><?= number_format($total, 0, ',', '.'); ?> VNĐ</td>
                                     </tr>
                                     <tr>
-                                        <td><a href="<?_WEB_ROOT?>/gio-hang">Quay về giỏ hàng</a></td>
+                                        <td><a href="<?= _WEB_ROOT ?>/gio-hang">Quay về giỏ hàng</a></td>
                                         <td class="text-end"><input type="submit" class="btn btn-primary btn-order" value="Đặt hàng"></td>
                                     </tr>
                                 </table>
@@ -140,30 +139,31 @@
 </div>
 
 <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
-    <script>
-        if (document.querySelector('#form-pay')) {
-            Validator({
-                form: '#form-pay',
-                formGroupSelector: '.form-group',
-                errorSelector: '.form-message',
+<script>
+    if (document.querySelector('#form-pay')) {
+        Validator({
+            form: '#form-pay',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
 
-                rules: [
-                    Validator.isRequired('input[name="full_name"]', '* Vui lòng nhập họ tên!'),
-                    Validator.isRequired('input[name="phone"]', '* Vui lòng nhập số điện thoại!'),
-                    Validator.isPhone('input[name="phone"]', '* Số điện thoại không hợp lệ!'),
-                    Validator.isRequired('input[name="address"]', '* Vui lòng nhập địa chỉ!'),
-                    // Validator.isEmail('input[name="email"]', '* Email không hợp lệ!'),
-                    // Validator.isRequired('textarea[name="note"]', '* Hãy để lại lời nhắn!'),
-                ],
+            rules: [
+                Validator.isRequired('input[name="full_name"]', '* Vui lòng nhập họ tên!'),
+                Validator.isRequired('input[name="phone"]', '* Vui lòng nhập số điện thoại!'),
+                Validator.isPhone('input[name="phone"]', '* Số điện thoại không hợp lệ!'),
+                Validator.isRequired('input[name="address"]', '* Vui lòng nhập địa chỉ!'),
+                // Validator.isEmail('input[name="email"]', '* Email không hợp lệ!'),
+                // Validator.isRequired('textarea[name="note"]', '* Hãy để lại lời nhắn!'),
+            ],
 
-                onSubmit: function(data) {
-                    // call API
-                    //Submit =====>
-                    alert("Đơn hàng của bạn đã được nhận. ");
+            onSubmit: function(data) {
+                // call API
+                //Submit =====>
+                alert("Đơn hàng của bạn đã được nhận. ");
 
-                    setTimeout((document.querySelector(this.form).submit()),3000);
+                setTimeout((document.querySelector(this.form).submit()), 3000);
 
-                }
-            })
-        }
-    </script>
+            }
+        })
+    }
+
+</script>

@@ -4,7 +4,7 @@
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1">Giỏ hàng</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="<?= _WEB_ROOT ?>trang-chu">Trang chủ</a></li>
                 <!-- <li class="breadcrumb-item"><a href="#"></a></li> -->
                 <li class="breadcrumb-item text-dark" aria-current="page">Giỏ hàng</li>
             </ol>
@@ -164,7 +164,6 @@
             });
         });
     </script>
-
     <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
     <script>
         if (document.querySelector('#form-quantity')) {

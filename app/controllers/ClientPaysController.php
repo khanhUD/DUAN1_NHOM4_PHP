@@ -3,7 +3,7 @@
 class ClientPaysController extends Controller
 {
 
-    public $pays, $data = [], $orders, $orderDetails;
+    public $pays, $data = [], $orders, $orderDetails, $totalAmount;
 
     public function __construct()
     {
@@ -31,9 +31,7 @@ class ClientPaysController extends Controller
             $request = new Request;
 
             if ($request->isPost()) {
-
                 $postValues = $request->getFields();
-
                 $dataOrders = [
                     'user_id' => $postValues['user_id'],
                     'total_money' => $postValues['total_money'],
@@ -42,13 +40,10 @@ class ClientPaysController extends Controller
                     'phone' => $postValues['phone'],
                     'note' => $postValues['note'],
                 ];
-
                 // Thêm dữ liệu vào bảng orders
                 $resultOrders = $this->orders->insertOrders($dataOrders);
-
                 // Lấy order_id vừa được thêm vào bảng orders
                 $orderID = $this->orders->getLastInsertID();
-
                 // Thêm dữ liệu vào bảng orderdetails
                 foreach ($_SESSION['cart'] as $product) {
                     $dataOrderDetails = [
@@ -58,20 +53,17 @@ class ClientPaysController extends Controller
                         'price' => $product[2],
                         'total_money' => $product[4],
                     ];
-
                     // Thêm dữ liệu vào bảng orderdetails
                     $resultOrderDetails = $this->orderDetails->insertOrderDetails($dataOrderDetails);
                 }
-
                 // Hiển thị hóa đơn
                 if ($resultOrders && $resultOrderDetails) {
                     $user_id = $postValues['user_id'];
                     $this->data['sub_content']['title'] = '';
-                    $this->data['sub_content']['inforUser'] = $this->orders->getInfoUsers($orderID ,$user_id);
+                    $this->data['sub_content']['inforUser'] = $this->orders->getInfoUsers($orderID, $user_id);
                     $this->data['sub_content']['orders'] = $this->orderDetails->getOrderClient($orderID);
                     $this->data['content'] = 'clients/orders';
                     $this->render('layouts/client_layout', $this->data);
-
                     unset($_SESSION['cart']);
                 }
             }
