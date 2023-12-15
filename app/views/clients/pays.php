@@ -92,7 +92,7 @@
                             <div class="voucher pt-3 pb-3">
                                 <div class="d-flex justify-content-between">
                                     <input type="text" id="voucher-code" class="form-control input-voucher" name="voucher" placeholder="Nhập mã giảm giá">
-                                    <button class="btn btn-primary btn-voucher" >Áp dụng</button>
+                                    <button class="btn btn-primary btn-voucher">Áp dụng</button>
                                 </div>
                             </div>
                             <div class="div">
@@ -120,9 +120,13 @@
                                     </tr>
                                     <tr>
                                         <td><a href="<?= _WEB_ROOT ?>/gio-hang">Quay về giỏ hàng</a></td>
-                                        <td class="text-end"><input type="submit" class="btn btn-primary btn-order" value="Đặt hàng"></td>
+                                        <td class="text-end">
+                                            <input type="submit" class="btn btn-primary btn-order" value="Thanh toán COD">
+                                        </td>
                                     </tr>
+
                                 </table>
+
                             </div>
                         </div>
                     </div>
@@ -134,6 +138,9 @@
                 </div>
 
             </div>
+        </form>
+        <form class="text-end" class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="<?php _WEB_ROOT ?>/ClientPayMomo/payMomo.php">
+            <input type="submit" name="momo" class="btn btn-primary " value="Thanh toán ATM MOMO">
         </form>
     </div>
 </div>
@@ -165,5 +172,4 @@
             }
         })
     }
-
 </script>
