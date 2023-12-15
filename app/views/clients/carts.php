@@ -38,14 +38,15 @@
                                 // Tính tổng tiền
                                 $totalAmount = 0;
                                 foreach ($_SESSION['cart'] as $product) {
-                                    $totalAmount += $product[4]; // $product[4] chứa thành tiền của mỗi sản phẩm
+                                    $totalAmount += $product[4];
                                 }
                                 ?>
                                 <?php foreach ($_SESSION['cart'] as $index => $product) : ?>
                                     <tr class="align-middle" data-index="<?= $index ?>">
+
                                         <td><?= $index + 1 ?></td>
                                         <td>
-                                            <a href="<?=_WEB_ROOT?>/clientProducts/productDetails?id=<?=$product[5]?>&categories_id=<?= $product[6] ?>"><?= $product[0] ?></a>
+                                            <a href="<?= _WEB_ROOT ?>/clientProducts/productDetails?id=<?= $product[5] ?>&categories_id=<?= $product[6] ?>"><?= $product[0] ?></a>
                                         </td>
                                         <td>
                                             <img style="width: 100px; height: 100px; object-fit: cover;" class="rounded-circle" src="<?= _WEB_ROOT ?>/public/uploads/<?= $product[1] ?>" alt="">

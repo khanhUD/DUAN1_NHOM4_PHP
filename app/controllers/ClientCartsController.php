@@ -67,7 +67,7 @@ class ClientCartsController extends Controller
             // Hiển thị giỏ hàng sau khi thêm sản phẩm
             $this->data['sub_content']['productCart'] = $_SESSION['cart'];
             $response = new Response;
-            if (isset($quantity)) {
+            if (isset($product_categogy_id)) {
                 $response->redirect(_WEB_ROOT . 'ClientProducts/productDetails?id=' . $id . '&categories_id=' . $product_categogy_id);
             } else {
                 $response->redirect(_WEB_ROOT . 'Thuc-Don');

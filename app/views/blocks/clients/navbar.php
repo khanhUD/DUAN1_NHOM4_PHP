@@ -105,9 +105,23 @@
                             <?php endif; ?>
                         </ul>
                     </li>
+                    <?php
+                    if (isset($_SESSION['cart'])) {
+                        $totolQuantity = 0;
+                        foreach ($_SESSION['cart'] as $item) {
+                            $totolQuantity += $item[3];
+                        }
+                    ?>
+                        <a class="position-relative" href="<?= _WEB_ROOT ?>Gio-Hang"><button class=" btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i> <span style="font-size: 0.7rem;" class=" position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary text-dark"><?= (isset($totolQuantity)) ? "$totolQuantity" : '' ?></span> </button></a>
 
+                    <?php
+                    } else {
+                    ?>
+                        <a class="position-relative" href="<?= _WEB_ROOT ?>Gio-Hang"><button class=" btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button></a>
 
-                    <a href="<?= _WEB_ROOT ?>Gio-Hang"><button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal"><i class="bi bi-bag-fill"></i></button></a>
+                    <?php
+                    }
+                    ?>
 
 
 
