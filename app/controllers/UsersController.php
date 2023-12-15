@@ -46,7 +46,7 @@ class UsersController extends Controller
                 'image' => $postValues['image']['name'],
                 'full_name' => $postValues['full_name'],
                 'email' => $postValues['email'],
-                'password' => $postValues['password'],
+                'password' => md5($postValues['password']),
                 'role' => $postValues['role'],
                 'phone' =>  $postValues['phone'],
 
@@ -79,7 +79,7 @@ class UsersController extends Controller
             $data = [
                 'full_name' => $postValues['full_name'],
                 'email' => $postValues['email'],
-                'password' => $postValues['password'],
+                'password' => md5($postValues['password']),
                 'role' => $postValues['role'],
                 'status' => $postValues['status'],
                 'phone' => $postValues['phone'],
@@ -145,7 +145,7 @@ class UsersController extends Controller
             $data = [
                 'full_name' => $postValues['full_name'],
                 'email' => $postValues['email'],
-                'password' => $postValues['password'],
+                'password' => md5($postValues['password']),
                 'phone' =>  $postValues['phone'],
             ];
 
@@ -166,9 +166,9 @@ class UsersController extends Controller
         $id = $postValues['id'];
         $check = $this->users->checkPassword($id);
 
-        if ($check['password'] === $postValues['password_old']) {
+        if ($check['password'] === md5($postValues['password_old'])) {
             $data = [
-                'password' => $postValues['password'],
+                'password' => md5($postValues['password']),
             ];
 
             $result = $this->users->updateUsers($data, $id);
@@ -193,7 +193,7 @@ class UsersController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Lấy thông tin đăng nhập từ form
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $result = $this->users->checkUsers($email, $password);
             // Nếu đăng nhập thành công
             if ($result) {

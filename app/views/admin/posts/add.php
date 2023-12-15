@@ -123,8 +123,8 @@
                                                 <a class="dropdown-item" href="<?php _WEB_ROOT ?>/posts/edit?id=<?= $items['id'] ?>"><i class="bi bi-pencil-square me-1"></i></i>Sửa</a>
                                                 <form method="post" action="<?= _WEB_ROOT ?>/posts/deletePost">
                                                     <input type="hidden" name="id" value="<?= $items['id'] ?>">
-                                                    <button class="dropdown-item" type="submit">
-                                                        <i class="bx bx-trash me-1"></i>Xoa</button>
+                                                    <button onclick="deleteClick()" class="dropdown-item" type="submit">
+                                                        <i class="bx bx-trash me-1"></i>Xóa</button>
                                                 </form>
 
                                             </div>
@@ -143,3 +143,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    function deleteClick(){
+        var deletePost = confirm("Bạn có chắc muốn xóa!");
+
+        if(deletePost){
+            deletePost == true;
+            return true;
+        }else{
+            deletePost == false;
+            return false;
+        }
+    }
+</script>

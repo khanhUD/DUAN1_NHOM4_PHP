@@ -115,7 +115,7 @@ class EmailController extends Controller
             if ($request->isPost()) {
                 $postValues = $request->getFields();
                 $email = $postValues['email'];
-                $newPass = $postValues['password'];
+                $newPass = md5($postValues['password']);
 
                 if ($email == $_COOKIE['email']) {
                     $result = $this->users->updatePassword($email, $newPass);
