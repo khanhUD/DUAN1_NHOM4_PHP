@@ -18,7 +18,7 @@ class ClientProductsController extends Controller
         $this->data['sub_content']['productCategories'] = $this->productCategories->getListCategoriesClient();
         // load món ăn 
         $this->data['sub_content']['products'] = $this->products->getListProductClient();
-
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->data['sub_content']['title'] = 'Danh Sách Danh Mục';
         $this->data['content'] = 'clients/products';
         $this->render('layouts/client_layout', $this->data);

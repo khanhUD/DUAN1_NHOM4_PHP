@@ -8,6 +8,8 @@
         <meta content="" name="keywords">
         <meta content="" name="description">
 
+        <link rel="shortcut icon" type="image/x-icon" href="<?= _WEB_ROOT ?>/public/uploads/short_icon.png">
+
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
