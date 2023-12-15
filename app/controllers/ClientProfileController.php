@@ -3,11 +3,12 @@
 class ClientProfileController extends Controller
 {
 
-    public $profile, $data = [];
+    public $profile, $products, $data = [];
 
     public function __construct()
     {
         $this->profile = $this->model('UsersModel');
+        $this->products = $this->model('ProductsModel');
     }
 
     public function index()
@@ -15,6 +16,7 @@ class ClientProfileController extends Controller
         $request = new Request;
         $id = $_SESSION['users']['id'];
         $this->data['sub_content']['profile'] = $this->profile->getDetail($id);
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->data['content'] = 'clients/profile';
         $this->render('layouts/client_layout', $this->data);
     }

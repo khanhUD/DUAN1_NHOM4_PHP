@@ -6,13 +6,14 @@ use PHPMailer\PHPMailer\Exception;
 class ClientPaysController extends Controller
 {
 
-    public $mail, $pays, $data = [], $orders, $orderDetails;
+    public $mail, $pays, $data = [], $orders, $products, $orderDetails;
 
     public function __construct()
     {
         $this->mail = new PHPMailer(true);
         $this->orders = $this->model('OrdersModel');
         $this->orderDetails = $this->model('OrderDetailsModel');
+        $this->products = $this->model('ProductsModel');
     }
 
     public function index()
@@ -21,6 +22,7 @@ class ClientPaysController extends Controller
             $this->data['sub_content']['title'] = '';
             $this->data['content'] = 'clients/pays';
             $this->data['sub_content']['productCart'] = $_SESSION['cart'];
+            $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
             $this->render('layouts/client_layout', $this->data);
         } else {
             $response = new Response;
@@ -69,6 +71,7 @@ class ClientPaysController extends Controller
                     $this->data['sub_content']['title'] = '';
                     $this->data['sub_content']['inforUser'] = $this->orders->getInfoUsers($orderID, $user_id);
                     $this->data['sub_content']['orders'] = $this->orderDetails->getOrderClient($orderID);
+                    $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
                     $this->data['content'] = 'clients/orders';
 
 

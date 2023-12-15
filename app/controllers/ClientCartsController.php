@@ -17,6 +17,7 @@ class ClientCartsController extends Controller
         $this->data['sub_content']['title'] = '';
         $this->data['content'] = 'clients/carts';
         $this->data['sub_content']['vouchers'] = $this->vouchers->getListClient();
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->render('layouts/client_layout', $this->data);
     }
     public function addCart()

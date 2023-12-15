@@ -37,6 +37,8 @@ class ClientProductsController extends Controller
 
             // Show phần nav phải 
             $this->data['sub_content']['productCategories'] = $this->productCategories->getListCategoriesClient();
+
+            $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
             $this->data['content'] = 'clients/products';
             $this->render('layouts/client_layout', $this->data);
         }
@@ -54,9 +56,7 @@ class ClientProductsController extends Controller
             // Bài viết theo loại 
             $this->data['sub_content']['products'] = $this->products->getListClientByKey($keyword);
 
-            // Show phần nav phải 
-            // $this->data['sub_content']['productCategories'] = $this->productCategories->getListCategoriesClient();
-            // Session::data('key', "Kết quả tìm kiếm cho $keyword");
+            $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
             $this->data['content'] = 'clients/search';
             $this->render('layouts/client_layout', $this->data);
         }
@@ -80,6 +80,10 @@ class ClientProductsController extends Controller
                 $this->data['sub_content']['productDetails'] = $this->products->getProductClientById($id);
 
                 $this->data['sub_content']['productComments'] = $this->productComments->getProductComment($id);
+
+                $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
+
+                $this->products->addCountView($id);
 
                 $this->data['content'] = 'clients/productDetails';
                 $this->render('layouts/client_layout', $this->data);

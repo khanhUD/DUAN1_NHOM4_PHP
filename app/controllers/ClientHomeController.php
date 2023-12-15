@@ -24,9 +24,12 @@ class ClientHomeController extends Controller
         // load món ăn 
         $this->data['sub_content']['products'] = $this->products->getListProductHomeClient();
 
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
+
         $this->data['sub_content']['posts'] = $this->posts->getListHomeClient();
 
         $this->data['sub_content']['banner'] = $this->banner->getListClient();
+        
         $this->data['sub_content']['users'] = $this->users->CountUsers();
         $this->data['sub_content']['title'] = 'Trang chủ';
         $this->data['content'] = 'clients/home';

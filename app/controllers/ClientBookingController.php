@@ -3,18 +3,19 @@
 class ClientBookingController extends Controller
 {
 
-    public $booking, $data = [];
+    public $booking, $products, $data = [];
 
     public function __construct()
     {
         $this->booking = $this->model('BookingModel');
+        $this->products = $this->model('ProductsModel');
     }
 
     public function index()
     {
         $this->data['sub_content']['title'] = '';
         $this->data['content'] = 'clients/booking';
-        $this->data['sub_content']['action'] = '';
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->render('layouts/client_layout', $this->data);
     }
     public function add()

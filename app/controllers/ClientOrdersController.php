@@ -3,11 +3,12 @@
 class ClientOrdersController extends Controller
 {
 
-    public $ordersClient, $data = [];
+    public $ordersClient, $products, $data = [];
 
     public function __construct()
     {
         $this->ordersClient = $this->model('OrdersModel');
+        $this->products = $this->model('ProductsModel');
     }
 
     public function orderManagement()
@@ -16,6 +17,7 @@ class ClientOrdersController extends Controller
         $postValues = $request->getFields();
         $id = $postValues['id'];
         $this->data['sub_content']['orders'] = $this->ordersClient->getOrderManagerById($id);
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->data['content'] = 'clients/orderManagement';
         $this->render('layouts/client_layout', $this->data);
     }

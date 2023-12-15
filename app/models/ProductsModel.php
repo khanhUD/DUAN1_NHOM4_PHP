@@ -132,4 +132,15 @@ class ProductsModel extends Model
         return $data;
     }
 
+    public function getProductCountView(){
+        $data = $this->db->query("SELECT * FROM products WHERE count_view > 0 ORDER BY count_view DESC LIMIT 0, 6")->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function addCountView($id){
+        $data = $this->db->query("UPDATE products SET count_view = count_view + 1 WHERE id=$id");
+        return $data;
+    }
+
 }
+

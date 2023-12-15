@@ -14,7 +14,7 @@ $this->render($content, $sub_content);
 
 
 <?php
-$this->render('blocks/clients/footer')
+$this->render('blocks/clients/footer', $sub_content);
 ?>
 
 

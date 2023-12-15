@@ -14,12 +14,21 @@
 
                         </h1>
                         <p class="h4 py-2"><b>Giá: </b><?= number_format($productDetails['price'], 0, ',', '.'); ?> VNĐ</p>
-                        <ul class="list-inline">
+                        <ul class="list-inline m-0">
                             <li class="list-inline-item">
                                 <h6>Danh mục:</h6>
                             </li>
                             <li class="list-inline-item">
                                 <p class="text-muted"><strong><?= $productDetails['product_categories_name'] ?></strong></p>
+                            </li>
+                            
+                        </ul>
+                        <ul class="list-inline m-0">
+                        <li class="list-inline-item">
+                                <h6>Số lượt xem:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong><?= $productDetails['count_view'] ?></strong></p>
                             </li>
                         </ul>
 

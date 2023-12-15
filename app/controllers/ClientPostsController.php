@@ -3,13 +3,14 @@
 class ClientPostsController extends Controller
 {
 
-    public $posts, $postCategories, $postComments, $data = [];
+    public $posts, $postCategories, $postComments, $products, $data = [];
 
     public function __construct()
     {
         $this->posts = $this->model('PostsModel');
         $this->postCategories = $this->model('PostCategoriesModel');
         $this->postComments = $this->model('PostCommentsModel');
+        $this->products = $this->model('ProductsModel');
     }
 
     public function index()
@@ -18,7 +19,7 @@ class ClientPostsController extends Controller
         $this->data['sub_content']['posts'] = $this->posts->getListClient();
         $this->data['sub_content']['postCategories'] = $this->postCategories->getListPostCategoriesClient();
         $this->data['content'] = 'clients/blogs';
-        $this->data['sub_content']['action'] = '';
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->render('layouts/client_layout', $this->data);
     }
 
@@ -36,7 +37,7 @@ class ClientPostsController extends Controller
             // Show phần nav phải 
             $this->data['sub_content']['postCategories'] = $this->postCategories->getListPostCategoriesClient();
             $this->data['content'] = 'clients/blogs';
-            $this->data['sub_content']['action'] = '';
+            $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
             $this->render('layouts/client_layout', $this->data);
         }
     }
@@ -64,7 +65,7 @@ class ClientPostsController extends Controller
                 // hiển thị bình luận 
                 $this->data['sub_content']['postComments'] = $this->postComments->getPostComment($id);
                 $this->data['content'] = 'clients/blogsDetail';
-                $this->data['sub_content']['action'] = '';
+                $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
                 $this->render('layouts/client_layout', $this->data);
             }
         }

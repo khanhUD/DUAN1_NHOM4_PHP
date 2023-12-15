@@ -3,11 +3,12 @@
 class ClientContactsController extends Controller
 {
 
-    public $contacts, $data = [];
+    public $contacts, $products, $data = [];
 
     public function __construct()
     {
         $this->contacts = $this->model('ContactsModel');
+        $this->products = $this->model('ProductsModel');
     }
 
     public function index()
@@ -15,7 +16,7 @@ class ClientContactsController extends Controller
 
         $this->data['sub_content']['title'] = 'Hello';
         $this->data['content'] = 'clients/contact';
-        $this->data['sub_content']['action'] = '';
+        $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
         $this->render('layouts/client_layout', $this->data);
     }
 
