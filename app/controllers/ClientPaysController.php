@@ -17,7 +17,7 @@ class ClientPaysController extends Controller
 
     public function index()
     {
-        if (isset($_SESSION['cart'])) {
+        if (isset($_SESSION['cart']) && isset($_SESSION['users'])) {
             $this->data['sub_content']['title'] = '';
             $this->data['content'] = 'clients/pays';
             $this->data['sub_content']['productCart'] = $_SESSION['cart'];
@@ -31,7 +31,7 @@ class ClientPaysController extends Controller
 
     public function pays()
     {
-        if (isset($_SESSION['cart'])) {
+        if (isset($_SESSION['cart']) && isset($_SESSION['users'])) {
             $request = new Request;
 
             if ($request->isPost()) {

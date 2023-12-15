@@ -1,5 +1,5 @@
 <!-- Hero Start -->
-<div class="container-fluid bg-light py-6 my-6 mt-0">
+<div class="container-fluid bg-light py-6  mt-0">
     <div class="container text-center animated bounceInDown">
         <h1 class="display-1 mb-4">Giới Thiệu</h1>
         <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
@@ -55,21 +55,21 @@
                         <div class="faqt-item bg-primary rounded p-4 text-center">
                             <i class="fas fa-users fa-4x mb-4 text-white"></i>
                             <h1 class="display-4 fw-bold" data-toggle="counter-up">689</h1>
-                            <p class="text-dark text-uppercase fw-bold mb-0">Happy Customers</p>
+                            <p class="text-dark text-uppercase fw-bold mb-0">Khách hàng</p>
                         </div>
                     </div>
                     <div class="col-sm-4 wow bounceInUp" data-wow-delay="0.5s">
                         <div class="faqt-item bg-primary rounded p-4 text-center">
                             <i class="fas fa-users-cog fa-4x mb-4 text-white"></i>
                             <h1 class="display-4 fw-bold" data-toggle="counter-up">107</h1>
-                            <p class="text-dark text-uppercase fw-bold mb-0">Expert Chefs</p>
+                            <p class="text-dark text-uppercase fw-bold mb-0">Đầu bếp</p>
                         </div>
                     </div>
                     <div class="col-sm-4 wow bounceInUp" data-wow-delay="0.7s">
                         <div class="faqt-item bg-primary rounded p-4 text-center">
                             <i class="fas fa-check fa-4x mb-4 text-white"></i>
                             <h1 class="display-4 fw-bold" data-toggle="counter-up">253</h1>
-                            <p class="text-dark text-uppercase fw-bold mb-0">Events Complete</p>
+                            <p class="text-dark text-uppercase fw-bold mb-0">Sự kiện</p>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tnLgP6GzEhg?si=1Fm-pZa2reTCl1j-" title="YouTube video player" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>

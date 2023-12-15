@@ -45,7 +45,22 @@
                             </div>
                             <div class="row pb-3">
                                 <div class="col d-grid">
-                                    <button onclick="addToCart()" type="submit" class="btn btn-primary btn-lg" value="buy">Thêm vào giỏ hàng</button>
+
+                                    <?php
+                                    if (isset($_SESSION['users'])) {
+                                    ?>
+                                        <button onclick="addToCart()" type="submit" class="btn btn-primary btn-lg" value="buy">Thêm vào giỏ hàng</button>
+
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <button onclick="noneClick()" type="button" class="btn btn-primary btn-lg" value="buy">Thêm vào giỏ hàng</button>
+
+                                    <?php
+                                    }
+
+                                    ?>
+
                                 </div>
                                 <div class="col d-grid">
                                     <a href="<?= _WEB_ROOT ?>/dat-ban" class="btn btn-success btn-lg" name="" value="addtocard">Đặt bàn tại đây</a>
@@ -175,7 +190,20 @@
                             <div class="card-img-overlay rounded product-overlay d-flex align-items-center justify-content-center">
                                 <ul class="list-unstyled">
                                     <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>"><i class="far fa-eye"></i></a></li>
-                                    <li><a onclick="addToCart()" class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>&quantity=1&product_categories_id=<?= $items['product_categories_id'] ?>"><i class="fas fa-cart-plus"></i></a></li>
+                                    <?php
+                                    if (isset($_SESSION['users'])) {
+                                    ?>
+                                        <li><a onclick="addToCart()" class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>&quantity=1&product_categories_id=<?= $items['product_categories_id'] ?>"><i class="fas fa-cart-plus"></i></a></li>
+
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <li><a onclick="noneClick()" class="btn btn-primary text-white mt-2" href="#"><i class="fas fa-cart-plus"></i></a></li>
+
+                                    <?php
+                                    }
+
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -267,7 +295,11 @@
     }
 </script>
 <script>
-    function addToCart(){
+    function addToCart() {
         alert("Thêm giỏ hàng thành công!");
+    }
+
+    function noneClick() {
+        alert("Bạn phải đăng nhập mới có thể mua hàng!");
     }
 </script>

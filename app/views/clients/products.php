@@ -56,7 +56,20 @@
                                 <div class="card-img-overlay rounded product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>"><i class="far fa-eye"></i></a></li>
-                                        <li><a onclick="addToCart()" class="btn btn-primary text-white mt-2 addToCart" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>&quantity=1"><i class="fas fa-cart-plus"></i></a></li>
+                                        <?php
+                                        if (isset($_SESSION['users'])) {
+                                        ?>
+                                            <li><a onclick="addToCart()" class="btn btn-primary text-white mt-2 addToCart" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>&quantity=1"><i class="fas fa-cart-plus"></i></a></li>
+
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <li><a onclick="noneClick()" class="btn btn-primary text-white mt-2 addToCart" href=""><i class="fas fa-cart-plus"></i></a></li>
+
+                                        <?php
+                                        }
+
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -76,7 +89,10 @@
 </div>
 
 <script>
-    function addToCart(){
+    function addToCart() {
         alert("Thêm giỏ hàng thành công!");
+    }
+    function noneClick() {
+        alert("Bạn phải đăng nhập mới có thể mua hàng!");
     }
 </script>
