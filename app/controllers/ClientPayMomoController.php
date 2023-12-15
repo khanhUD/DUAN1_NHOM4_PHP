@@ -82,12 +82,12 @@ class ClientPayMomoController extends Controller
             'signature' => $signature
         );
 
-        $users_id = $_POST['users_id'];
-        $total_money = $_POST['total_money'];
-        $full_name = $_POST['full_name'];
-        $address = $_POST['address'];
-        $phone = $_POST['phone'];
-        $note = $_POST['note'];
+        // $users_id = $_POST['users_id'];
+        // $total_money = $_POST['total_money'];
+        // $full_name = $_POST['full_name'];
+        // $address = $_POST['address'];
+        // $phone = $_POST['phone'];
+        // $note = $_POST['note'];
       
         $result = execPostRequest($endpoint, json_encode($data));
         $jsonResult = json_decode($result, true);  // decode json

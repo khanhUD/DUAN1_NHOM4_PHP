@@ -139,9 +139,9 @@
 
             </div>
         </form>
-        <form class="text-end" class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="<?php _WEB_ROOT ?>/ClientPayMomo/payMomo.php">
+        <!-- <form class="text-end" class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="/ClientPayMomo/payMomo">
             <input type="submit" name="momo" class="btn btn-primary " value="Thanh toán ATM MOMO">
-        </form>
+        </form> -->
     </div>
 </div>
 
