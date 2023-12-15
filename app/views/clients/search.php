@@ -23,7 +23,7 @@
                 // print_r($products);
                 foreach ($products as $items) :
                 ?>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card mb-4 rounded product-wap rounded shadow">
                             <div class="card rounded p-1">
 

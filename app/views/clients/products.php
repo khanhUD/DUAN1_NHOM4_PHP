@@ -11,7 +11,7 @@
 <div class="container py-5">
     <div class="row">
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 mb-3">
             <aside class="wow bounceInRight" data-wow-delay="0.7s">
                 <div class="card">
                     <h6 class="card-title bg-primary p-3 rounded-top m-0">DANH MỤC MÓN ĂN</h6>
@@ -35,7 +35,7 @@
                 // print_r($products)
                 foreach ($products as $items) :
                 ?>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card mb-4 rounded product-wap rounded shadow">
                             <div class="card rounded p-1">
 
@@ -56,7 +56,7 @@
                                 <div class="card-img-overlay rounded product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientProducts/productDetails?id=<?= $items['id'] ?>&categories_id=<?= $items['product_categories_id'] ?>"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-primary text-white mt-2" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a onclick="addToCart()" class="btn btn-primary text-white mt-2 addToCart" href="<?= _WEB_ROOT ?>/ClientCarts/addCart?id=<?= $items['id'] ?>&quantity=1"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -74,3 +74,9 @@
 
     </div>
 </div>
+
+<script>
+    function addToCart(){
+        alert("Thêm giỏ hàng thành công!");
+    }
+</script>

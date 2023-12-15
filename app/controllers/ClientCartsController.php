@@ -32,7 +32,7 @@ class ClientCartsController extends Controller
             $postValues = $request->getFields();
             $id = $postValues['id'];
             $product_categogy_id = $postValues['product_categories_id'];
-            $quantity = 0;
+            $quantity = 1;
             $quantity = $postValues['quantity'];
             $result = $this->products->getDetail($id);
 
@@ -60,7 +60,7 @@ class ClientCartsController extends Controller
          
             // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
             if (!$found) {
-                $result = [$result['name'], $result['image'], $result['price'],1, $result['price'], $result['id']];
+                $result = [$result['name'], $result['image'], $result['price'],$quantity, $result['price'], $result['id'], $result['product_categories_id']];
                 $_SESSION["cart"][] = $result;
             }
 

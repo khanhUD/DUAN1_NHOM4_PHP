@@ -16,7 +16,9 @@
             <div class="row">
                 <?php if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
                     <h4 class="mb-3">Giỏ hàng của bạn</h4>
+
                     <div class="col-lg-9">
+
                         <table class="table text-dark" style="border: 1px solid #d4a762;">
                             <thead>
                                 <tr>
@@ -43,21 +45,21 @@
                                     <tr class="align-middle" data-index="<?= $index ?>">
                                         <td><?= $index + 1 ?></td>
                                         <td>
-                                            <a href=""><?= $product[0] ?></a>
+                                            <a href="<?=_WEB_ROOT?>/clientProducts/productDetails?id=<?=$product[5]?>&categories_id=<?= $product[6] ?>"><?= $product[0] ?></a>
                                         </td>
                                         <td>
                                             <img style="width: 100px; height: 100px; object-fit: cover;" class="rounded-circle" src="<?= _WEB_ROOT ?>/public/uploads/<?= $product[1] ?>" alt="">
                                         </td>
                                         <td><?= number_format($product[2], 0, ',', '.'); ?> VNĐ </td>
                                         <td>
-                                            <form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" id="form-quantity" method="post">
+                                            <form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" method="post" id="form-quantity">
                                                 <div class="form-group">
                                                     <div class="d-flex align-items-center quantity-product">
                                                         <!-- <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button> -->
                                                         <!-- <input type="text" class="btn-quantity quantity" value="">
                                                     <button type="button" class="btn bg-primary btn-plus"><b class="text-dark">+</b></button> -->
-                                                        <button type="button" class="btn bg-primary mr-2 btn-minus" data-index="<?= $index ?>" onclick="this.form.submit()"><b class="text-dark">-</b></button>
-                                                        <input type="number" name="quantity" class="btn-quantity quantity" value="<?= $product[3] ?>" data-index="<?= $index ?>" onchange="this.form.submit()">
+                                                        <button type="button" class="btn bg-primary mr-2 btn-minus" data-index="<?= $index ?>"><b class="text-dark">-</b></button>
+                                                        <input type="text" name="quantity" class="btn-quantity quantity" value="<?= $product[3] ?>" data-index="<?= $index ?>">
                                                         <input type="text" name="id" value="<?= $product[5] ?>" hidden>
                                                         <button type="button" class="btn bg-primary btn-plus" data-index="<?= $index ?>"><b class="text-dark">+</b></button>
 
@@ -82,9 +84,11 @@
                             <!-- <div class="btn-pay">
                                 <input type="submit" class="btn btn-primary me-3" value="Cập nhật">
                             </div> -->
-                            <div class="btn-pay ms-auto">
-                                <a href="<?= _WEB_ROOT ?>/ClientPays" class="btn btn-primary me-3">Thanh toán</a>
-                            </div>
+                            <form action="<?= _WEB_ROOT ?>/clientPays" id="form-pay" method="post">
+                                <div class="btn-pay ms-auto">
+                                    <input type="submit" class="btn btn-primary me-3" value="Thanh toán">
+                                </div>
+                            </form>
                             <div>
                                 <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
                             </div>
@@ -92,6 +96,7 @@
 
 
                     </div>
+
                     <div class="col-lg-3 ps-3">
                         <div class="" style="border: 1px dashed #d4a762">
                             <div class="d-flex justify-content-center">
@@ -139,9 +144,9 @@
                     var currentQuantity = parseInt(quantityInput.value);
                     quantityInput.value = currentQuantity + 1;
                     document.addEventListener('click', event => {
-                        this.form.submit();
+                        const formPay = document.querySelector('#form-quantity');
+                        formPay.submit();
                     });
-                    // Nếu muốn lưu trạng thái này, có thể gửi dữ liệu về máy chủ tại đây.
                 });
 
                 decreaseBtn.addEventListener('click', function() {
@@ -149,29 +154,14 @@
                     if (currentQuantity > 1) {
                         quantityInput.value = currentQuantity - 1;
                         document.addEventListener('click', event => {
-                            this.form.submit();
+                            const formPay = document.querySelector('#form-quantity');
+                            formPay.submit();
                         });
 
                     }
                 });
             });
         });
-    </script>
-    <script>
-        function copyToClipboard() {
-            // Chọn phần tử input chứa dữ liệu cần sao chép
-            var copyText = document.querySelector(".copyText");
-
-            // Chọn vùng chọn trong input
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // Hỗ trợ cho một số trình duyệt
-
-            // Sao chép văn bản vào clipboard
-            document.execCommand("copy");
-
-            // Hiển thị thông báo hoặc thực hiện các hành động khác nếu cần
-            alert("Đã sao chép thành công: " + copyText.value);
-        }
     </script>
 
     <script src="<?= _WEB_ROOT; ?>/public/assets/admin/js/Validation.js"></script>
@@ -188,7 +178,7 @@
 
                 onSubmit: function(data) {
                     // call API
-                    setTimeout((document.querySelector(this.form).submit()), 3000);
+                    this.form.submit();
 
                 }
             })
