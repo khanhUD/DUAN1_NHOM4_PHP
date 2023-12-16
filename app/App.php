@@ -142,7 +142,10 @@ class App{
 
     public function handleRouteMiddleware($routeKey, $db){
         global $config;
-        $routeKey = trim($routeKey);
+        if($routeKey != null){
+            $routeKey = trim($routeKey);
+        }
+        
 
         if (!empty($config['app']['routeMiddleware'])){
             $routeMiddleWareArr = $config['app']['routeMiddleware'];

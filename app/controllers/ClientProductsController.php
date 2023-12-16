@@ -55,9 +55,8 @@ class ClientProductsController extends Controller
 
             // Bài viết theo loại 
             $this->data['sub_content']['products'] = $this->products->getListClientByKey($keyword);
-
-            $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
             $this->data['content'] = 'clients/search';
+            $this->data['sub_content']['count_view'] = $this->products->getProductCountView();
             $this->render('layouts/client_layout', $this->data);
         }
     }

@@ -1,5 +1,7 @@
 RewriteEngine On
 
+RewriteBase /
+
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Khi minh co file that thi duoc phep truy cap

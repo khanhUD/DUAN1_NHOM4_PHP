@@ -2,7 +2,7 @@
     <div class="container text-center animated bounceInDown">
         <h1 class="display-1">Tìm kiếm</h1>
         <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
-            <li class="breadcrumb-item"><a href="<? _WEB_ROOT ?>/ClientHome">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="<?=_WEB_ROOT?>/ClientHome">Trang chủ</a></li>
             <!-- <li class="breadcrumb-item"><a href="#">Thực đơn</a></li> -->
             <li class="breadcrumb-item text-dark" aria-current="page">Tìm Kiếm</li>
         </ol>
@@ -16,7 +16,7 @@
             <h4 class="mb-5">Không có kết quả tìm kiếm phù hợp</h4>
         <?php else : ?>
             <h4 class="mb-5">kết quả tìm kiếm phù hợp:</h4>
-        <? endif; ?>
+        
         <div class="col-lg-12">
             <div class="row">
                 <?php
@@ -59,6 +59,6 @@
                 ?>
             </div>
         </div>
-
+        <? endif; ?>
     </div>
 </div>
