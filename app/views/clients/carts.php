@@ -1,6 +1,6 @@
-    <!-- Modal Search End -->
+<!-- Modal Search End -->
 
-    <div class="container-fluid bg-light py-6 mt-0">
+<div class="container-fluid bg-light py-6 mt-0">
         <div class="container text-center animated bounceInDown">
             <h1 class="display-1">Giỏ hàng</h1>
             <ol class="breadcrumb justify-content-center mb-0 animated bounceInDown">
@@ -53,7 +53,7 @@
                                         </td>
                                         <td><?= number_format($product[2], 0, ',', '.'); ?> VNĐ </td>
                                         <td>
-                                            <form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" method="post" id="form-quantity">
+<form action="<?= _WEB_ROOT ?>/clientCarts/updateCart" method="post" id="form-quantity">
                                                 <div class="form-group">
                                                     <div class="d-flex align-items-center quantity-product">
                                                         <!-- <button type="button" class="btn bg-primary mr-2 btn-minus"><b class="text-dark">-</b></button> -->
@@ -91,7 +91,7 @@
                                 </div>
                             </form>
                             <div>
-                                <a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
+<a href="<?php _WEB_ROOT ?>/ClientCarts/deleteCart" class="btn btn-primary">Xóa tất cả</a>
                             </div>
                         </div>
 
@@ -154,7 +154,7 @@
                     var currentQuantity = parseInt(quantityInput.value);
                     if (currentQuantity > 1) {
                         quantityInput.value = currentQuantity - 1;
-                        document.addEventListener('click', event => {
+document.addEventListener('click', event => {
                             const formPay = document.querySelector('#form-quantity');
                             formPay.submit();
                         });
